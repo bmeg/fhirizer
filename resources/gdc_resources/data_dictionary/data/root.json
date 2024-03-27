@@ -1,0 +1,42 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "additionalProperties": false,
+    "category": "data",
+    "description": "This is the GDC root node.",
+    "downloadable": false,
+    "id": "root",
+    "links": [],
+    "namespace": "https://gdc.cancer.gov",
+    "previous_version_downloadable": false,
+    "program": "*",
+    "project": "*",
+    "properties": {
+        "id": {
+            "enum": [
+                "root"
+            ]
+        },
+        "schema_version": {
+            "type": "string"
+        },
+        "type": {
+            "type": "string"
+        }
+    },
+    "required": [
+        "type"
+    ],
+    "root": "*",
+    "submittable": false,
+    "systemProperties": [
+        "id"
+    ],
+    "title": "Root",
+    "type": "object",
+    "uniqueKeys": [
+        [
+            "id"
+        ]
+    ],
+    "validators": null
+}

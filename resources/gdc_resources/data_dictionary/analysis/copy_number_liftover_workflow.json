@@ -1,0 +1,298 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "additionalProperties": false,
+    "category": "analysis",
+    "description": "Metadata for the copy number liftover workflow used to harmonize TCGA copy number data.",
+    "downloadable": false,
+    "id": "copy_number_liftover_workflow",
+    "links": [
+        {
+            "backref": "copy_number_liftover_workflows",
+            "label": "performed_on",
+            "multiplicity": "one_to_one",
+            "name": "submitted_tangent_copy_numbers",
+            "required": true,
+            "target_type": "submitted_tangent_copy_number"
+        }
+    ],
+    "namespace": "https://gdc.cancer.gov",
+    "previous_version_downloadable": false,
+    "program": "*",
+    "project": "*",
+    "properties": {
+        "batch_id": {
+            "description": "GDC submission batch indicator. It is unique within the context of a project.",
+            "type": "integer"
+        },
+        "created_datetime": {
+            "common": {
+                "description": "A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]",
+                "termDef": {
+                    "cde_id": null,
+                    "cde_version": null,
+                    "source": null,
+                    "term": null,
+                    "term_url": null
+                }
+            },
+            "oneOf": [
+                {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        },
+        "id": {
+            "common": {
+                "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                "termDef": {
+                    "cde_id": "C54100",
+                    "cde_version": null,
+                    "source": "NCIt",
+                    "term": "Universally Unique Identifier",
+                    "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100"
+                }
+            },
+            "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+            "systemAlias": "node_id",
+            "type": "string"
+        },
+        "project_id": {
+            "common": {
+                "description": "Unique ID for any specific defined piece of work that is undertaken or attempted to meet a single requirement.",
+                "termDef": {
+                    "cde_id": null,
+                    "cde_version": null,
+                    "source": null,
+                    "term": null,
+                    "term_url": null
+                }
+            },
+            "type": "string"
+        },
+        "state": {
+            "common": {
+                "description": "The current state of the object.",
+                "termDef": {
+                    "cde_id": null,
+                    "cde_version": null,
+                    "source": null,
+                    "term": null,
+                    "term_url": null
+                }
+            },
+            "default": "validated",
+            "downloadable": [
+                "uploaded",
+                "md5summed",
+                "validating",
+                "validated",
+                "error",
+                "invalid",
+                "released"
+            ],
+            "oneOf": [
+                {
+                    "enum": [
+                        "uploading",
+                        "uploaded",
+                        "md5summing",
+                        "md5summed",
+                        "validating",
+                        "error",
+                        "invalid",
+                        "suppressed",
+                        "redacted",
+                        "live"
+                    ]
+                },
+                {
+                    "enum": [
+                        "validated",
+                        "submitted",
+                        "released"
+                    ]
+                }
+            ],
+            "public": [
+                "live"
+            ]
+        },
+        "submitted_tangent_copy_numbers": {
+            "anyOf": [
+                {
+                    "items": {
+                        "additionalProperties": true,
+                        "maxItems": 1,
+                        "minItems": 1,
+                        "properties": {
+                            "id": {
+                                "common": {
+                                    "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                                    "termDef": {
+                                        "cde_id": "C54100",
+                                        "cde_version": null,
+                                        "source": "NCIt",
+                                        "term": "Universally Unique Identifier",
+                                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100"
+                                    }
+                                },
+                                "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                                "systemAlias": "node_id",
+                                "type": "string"
+                            },
+                            "submitter_id": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                {
+                    "additionalProperties": true,
+                    "properties": {
+                        "id": {
+                            "common": {
+                                "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                                "termDef": {
+                                    "cde_id": "C54100",
+                                    "cde_version": null,
+                                    "source": "NCIt",
+                                    "term": "Universally Unique Identifier",
+                                    "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100"
+                                }
+                            },
+                            "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                            "systemAlias": "node_id",
+                            "type": "string"
+                        },
+                        "submitter_id": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                }
+            ]
+        },
+        "submitter_id": {
+            "description": "A project-specific identifier for a node. This property is the calling card/nickname/alias for a unit of submission. It can be used in place of the uuid for identifying or recalling a node.",
+            "type": "string"
+        },
+        "type": {
+            "type": "string"
+        },
+        "updated_datetime": {
+            "common": {
+                "description": "A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]",
+                "termDef": {
+                    "cde_id": null,
+                    "cde_version": null,
+                    "source": null,
+                    "term": null,
+                    "term_url": null
+                }
+            },
+            "oneOf": [
+                {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        },
+        "workflow_end_datetime": {
+            "common": {
+                "description": "A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]",
+                "termDef": {
+                    "cde_id": null,
+                    "cde_version": null,
+                    "source": null,
+                    "term": null,
+                    "term_url": null
+                }
+            },
+            "oneOf": [
+                {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        },
+        "workflow_link": {
+            "description": "Link to Github hash for the CWL workflow used.",
+            "type": "string"
+        },
+        "workflow_start_datetime": {
+            "common": {
+                "description": "A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]",
+                "termDef": {
+                    "cde_id": null,
+                    "cde_version": null,
+                    "source": null,
+                    "term": null,
+                    "term_url": null
+                }
+            },
+            "oneOf": [
+                {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        },
+        "workflow_type": {
+            "description": "Generic name for the workflow used to analyze a data set.",
+            "enum": [
+                "DNAcopy"
+            ],
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            }
+        },
+        "workflow_version": {
+            "description": "Major version for a GDC workflow.",
+            "type": "string"
+        }
+    },
+    "required": [
+        "submitter_id",
+        "workflow_link",
+        "workflow_type"
+    ],
+    "submittable": false,
+    "systemProperties": [
+        "id",
+        "project_id",
+        "created_datetime",
+        "updated_datetime",
+        "state"
+    ],
+    "title": "Copy Number Liftover Workflow",
+    "type": "object",
+    "uniqueKeys": [
+        [
+            "id"
+        ],
+        [
+            "project_id",
+            "submitter_id"
+        ]
+    ],
+    "validators": null
+}

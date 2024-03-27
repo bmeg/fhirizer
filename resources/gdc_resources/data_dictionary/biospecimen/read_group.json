@@ -1,0 +1,1091 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "additionalProperties": false,
+    "category": "biospecimen",
+    "deprecated": [
+        "RIN",
+        "target_capture_kit_catalog_number",
+        "target_capture_kit_name",
+        "target_capture_kit_target_region",
+        "target_capture_kit_vendor",
+        "target_capture_kit_version"
+    ],
+    "description": "Sequencing reads from one lane of an NGS experiment.",
+    "downloadable": false,
+    "id": "read_group",
+    "links": [
+        {
+            "backref": "read_groups",
+            "label": "derived_from",
+            "multiplicity": "many_to_one",
+            "name": "aliquots",
+            "required": true,
+            "target_type": "aliquot"
+        }
+    ],
+    "namespace": "https://gdc.cancer.gov",
+    "previous_version_downloadable": false,
+    "program": "*",
+    "project": "*",
+    "properties": {
+        "adapter_name": {
+            "description": "Name of the sequencing adapter.",
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            },
+            "type": "string"
+        },
+        "adapter_sequence": {
+            "description": "Base sequence of the sequencing adapter.",
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            },
+            "type": "string"
+        },
+        "aliquots": {
+            "anyOf": [
+                {
+                    "items": {
+                        "additionalProperties": true,
+                        "maxItems": 1,
+                        "minItems": 1,
+                        "properties": {
+                            "id": {
+                                "common": {
+                                    "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                                    "termDef": {
+                                        "cde_id": "C54100",
+                                        "cde_version": null,
+                                        "source": "NCIt",
+                                        "term": "Universally Unique Identifier",
+                                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100"
+                                    }
+                                },
+                                "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                                "systemAlias": "node_id",
+                                "type": "string"
+                            },
+                            "submitter_id": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                {
+                    "additionalProperties": true,
+                    "properties": {
+                        "id": {
+                            "common": {
+                                "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                                "termDef": {
+                                    "cde_id": "C54100",
+                                    "cde_version": null,
+                                    "source": "NCIt",
+                                    "term": "Universally Unique Identifier",
+                                    "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100"
+                                }
+                            },
+                            "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                            "systemAlias": "node_id",
+                            "type": "string"
+                        },
+                        "submitter_id": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                }
+            ]
+        },
+        "base_caller_name": {
+            "description": "Name of the base caller.",
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            },
+            "type": "string"
+        },
+        "base_caller_version": {
+            "description": "Version of the base caller.",
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            },
+            "type": "string"
+        },
+        "batch_id": {
+            "description": "GDC submission batch indicator. It is unique within the context of a project.",
+            "type": "integer"
+        },
+        "chipseq_antibody": {
+            "description": "The antibody used in the ChIP-Seq assay.",
+            "enum": [
+                "abcam ab4729 anti-H3K27ac",
+                "Unknown",
+                "Not Applicable"
+            ],
+            "enumDef": {
+                "Not Applicable": {
+                    "description": "Determination of a value is not relevant in the current context.",
+                    "termDef": {
+                        "cde_id": "C48660",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "Not Applicable",
+                        "term_id": "C48660",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C48660",
+                        "term_version": "20.10d"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            }
+        },
+        "chipseq_target": {
+            "description": "Antibody target of the ChIP-Seq assay",
+            "enum": [
+                "H3K4me1",
+                "H3K4me3",
+                "H3K9me3",
+                "H3K27me3",
+                "H3K36me3",
+                "H3K27ac",
+                "Input Control",
+                "Unknown"
+            ],
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            }
+        },
+        "created_datetime": {
+            "common": {
+                "description": "A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]",
+                "termDef": {
+                    "cde_id": null,
+                    "cde_version": null,
+                    "source": null,
+                    "term": null,
+                    "term_url": null
+                }
+            },
+            "oneOf": [
+                {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        },
+        "days_to_sequencing": {
+            "description": "Number of days between the date used for index and the date the read group was sequenced.",
+            "minimum": -32872,
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": "Days to Sequencing",
+                "term_url": null
+            },
+            "type": "integer"
+        },
+        "experiment_name": {
+            "description": "Submitter-defined name for the experiment.",
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            },
+            "type": "string"
+        },
+        "flow_cell_barcode": {
+            "description": "Flow cell barcode. Wrong or missing information may affect analysis results.",
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            },
+            "type": "string"
+        },
+        "fragment_maximum_length": {
+            "description": "Maximum length of the sequenced fragments (e.g., as predicted by Agilent Bioanalyzer).",
+            "minimum": 0,
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            },
+            "type": "integer"
+        },
+        "fragment_mean_length": {
+            "description": "Mean length of the sequenced fragments (e.g., as predicted by Agilent Bioanalyzer).",
+            "minimum": 0,
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            },
+            "type": "number"
+        },
+        "fragment_minimum_length": {
+            "description": "Minimum length of the sequenced fragments (e.g., as predicted by Agilent Bioanalyzer).",
+            "minimum": 0,
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            },
+            "type": "integer"
+        },
+        "fragment_standard_deviation_length": {
+            "description": "Standard deviation of the sequenced fragments length (e.g., as predicted by Agilent Bioanalyzer).",
+            "minimum": 0,
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            },
+            "type": "number"
+        },
+        "fragmentation_enzyme": {
+            "description": "The restriction enzyme used for nucleotide fragmentation.",
+            "enum": [
+                "MboI",
+                "Unknown",
+                "Not Applicable"
+            ],
+            "enumDef": {
+                "Not Applicable": {
+                    "description": "Determination of a value is not relevant in the current context.",
+                    "termDef": {
+                        "cde_id": "C48660",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "Not Applicable",
+                        "term_id": "C48660",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C48660",
+                        "term_version": "20.10d"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            }
+        },
+        "id": {
+            "common": {
+                "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                "termDef": {
+                    "cde_id": "C54100",
+                    "cde_version": null,
+                    "source": "NCIt",
+                    "term": "Universally Unique Identifier",
+                    "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100"
+                }
+            },
+            "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+            "systemAlias": "node_id",
+            "type": "string"
+        },
+        "includes_spike_ins": {
+            "description": "Spike-in included?",
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            },
+            "type": "boolean"
+        },
+        "instrument_model": {
+            "description": "Specific model of sequencing instrument used.",
+            "enum": [
+                "454 GS FLX Titanium",
+                "AB SOLiD 2",
+                "AB SOLiD 3",
+                "AB SOLiD 4",
+                "Complete Genomics",
+                "Illumina Genome Analyzer II",
+                "Illumina Genome Analyzer IIx",
+                "Illumina HiSeq 2000",
+                "Illumina HiSeq 2500",
+                "Illumina HiSeq 4000",
+                "Illumina HiSeq X Five",
+                "Illumina HiSeq X Ten",
+                "Illumina MiSeq",
+                "Illumina NextSeq",
+                "Illumina NovaSeq 6000",
+                "Illumina NovaSeq X",
+                "Ion Torrent PGM",
+                "Ion Torrent Proton",
+                "Ion Torrent S5",
+                "Other",
+                "PacBio RS",
+                "Unknown",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Other": {
+                    "description": "Different than the one(s) previously specified or mentioned.",
+                    "termDef": {
+                        "cde_id": "C17649",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Other",
+                        "term_id": "C17649",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17649",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": 5432604,
+                "cde_version": 1.0,
+                "source": "caDSR",
+                "term": "Tissue Sample Intermediate Dimension Millimeter Measurement",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=5432604%20and%20ver_nr=1.0"
+            }
+        },
+        "is_paired_end": {
+            "description": "Are the reads paired end?",
+            "oneOf": [
+                {
+                    "type": "boolean"
+                },
+                {
+                    "type": "null"
+                }
+            ],
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            }
+        },
+        "lane_number": {
+            "description": "The basic machine unit for sequencing. For Illumina machines, this reflects the physical lane number. Wrong or missing information may affect analysis results.",
+            "minimum": 1,
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            },
+            "type": "integer"
+        },
+        "library_name": {
+            "description": "Name of the library.",
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            },
+            "type": "string"
+        },
+        "library_preparation_kit_catalog_number": {
+            "description": "Catalog of Library Preparation Kit",
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            },
+            "type": "string"
+        },
+        "library_preparation_kit_name": {
+            "description": "Name of Library Preparation Kit",
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            },
+            "type": "string"
+        },
+        "library_preparation_kit_vendor": {
+            "description": "Vendor of Library Preparation Kit",
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            },
+            "type": "string"
+        },
+        "library_preparation_kit_version": {
+            "description": "Version of Library Preparation Kit",
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            },
+            "type": "string"
+        },
+        "library_selection": {
+            "description": "Library Selection Method",
+            "enum": [
+                "Affinity Enrichment",
+                "Hybrid Selection",
+                "miRNA Size Fractionation",
+                "Other",
+                "PCR",
+                "Poly-T Enrichment",
+                "Random",
+                "rRNA Depletion"
+            ],
+            "enumDef": {
+                "Other": {
+                    "description": "Different than the one(s) previously specified or mentioned.",
+                    "termDef": {
+                        "cde_id": "C17649",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Other",
+                        "term_id": "C17649",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17649",
+                        "term_version": "19.12e"
+                    }
+                },
+                "PCR": {
+                    "description": "A method for amplifying a DNA base sequence using multiple rounds of heat denaturation of the DNA and annealing of oligonucleotide primers complementary to flanking regions in the presence of a heat-stable polymerase. This results in duplication of the targeted DNA region. Newly synthesized DNA strands can subsequently serve as additional templates for the same primer sequences, so that successive rounds of primer annealing, strand elongation, and dissociation produce rapid and highly specific amplification of the desired sequence. PCR also can be used to detect the existence of the defined sequence in a DNA sample.",
+                    "termDef": {
+                        "cde_id": "C17003",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "Polymerase Chain Reaction",
+                        "term_id": "C17003",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17003",
+                        "term_version": "20.10d"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            }
+        },
+        "library_strand": {
+            "description": "Library stranded-ness.",
+            "enum": [
+                "Unstranded",
+                "First_Stranded",
+                "Second_Stranded",
+                "Not Applicable"
+            ],
+            "enumDef": {
+                "Not Applicable": {
+                    "description": "Determination of a value is not relevant in the current context.",
+                    "termDef": {
+                        "cde_id": "C48660",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "Not Applicable",
+                        "term_id": "C48660",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C48660",
+                        "term_version": "20.10d"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            }
+        },
+        "library_strategy": {
+            "description": "Library strategy.",
+            "enum": [
+                "ATAC-Seq",
+                "Bisulfite-Seq",
+                "ChIP-Seq",
+                "HiChIP",
+                "m6A MeRIP-Seq",
+                "miRNA-Seq",
+                "RNA-Seq",
+                "scATAC-Seq",
+                "scRNA-Seq",
+                "Targeted Sequencing",
+                "WGS",
+                "WXS"
+            ],
+            "enumDef": {
+                "Targeted Sequencing": {
+                    "description": "A technique that determines the nucleotide sequence of a pre-specified region of DNA or RNA by using primers that are specific for that region.",
+                    "termDef": {
+                        "cde_id": "C130177",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "Next Generation Targeted Sequencing",
+                        "term_id": "C130177",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C130177",
+                        "term_version": "20.10d"
+                    }
+                },
+                "WGS": {
+                    "description": "A procedure that can determine the DNA sequence for nearly the entire genome of an individual.",
+                    "termDef": {
+                        "cde_id": "C101294",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "Whole Genome Sequencing",
+                        "term_id": "C101294",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C101294",
+                        "term_version": "20.10d"
+                    }
+                },
+                "WXS": {
+                    "description": "A procedure that can determine the DNA sequence for all of the exons in an individual.",
+                    "termDef": {
+                        "cde_id": "C101295",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "Whole Exome Sequencing",
+                        "term_id": "C101295",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C101295",
+                        "term_version": "20.10d"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            }
+        },
+        "multiplex_barcode": {
+            "description": "The barcode/index sequence used. Wrong or missing information may affect analysis results.",
+            "pattern": "^[0-9ACGTURYSWKMBDHVN]+([\\+\\-][0-9ACGTURYSWKMBDHVN]+){,2}$",
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            },
+            "type": "string"
+        },
+        "number_expect_cells": {
+            "description": "Expected number of recovered cells in droplet-based single-cell libraries.",
+            "minimum": 0,
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": "Expected Cells Count",
+                "term_url": null
+            },
+            "type": "integer"
+        },
+        "platform": {
+            "description": "Name of the platform used to obtain data.",
+            "enum": [
+                "Complete Genomics",
+                "Illumina",
+                "Ion Torrent",
+                "LS454",
+                "Other",
+                "PacBio",
+                "SOLiD"
+            ],
+            "enumDef": {
+                "Other": {
+                    "description": "Different than the one(s) previously specified or mentioned.",
+                    "termDef": {
+                        "cde_id": "C17649",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Other",
+                        "term_id": "C17649",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17649",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            }
+        },
+        "project_id": {
+            "common": {
+                "description": "Unique ID for any specific defined piece of work that is undertaken or attempted to meet a single requirement.",
+                "termDef": {
+                    "cde_id": null,
+                    "cde_version": null,
+                    "source": null,
+                    "term": null,
+                    "term_url": null
+                }
+            },
+            "type": "string"
+        },
+        "read_group_name": {
+            "description": "Read Group Name",
+            "type": "string"
+        },
+        "read_length": {
+            "description": "The length of the reads.",
+            "oneOf": [
+                {
+                    "minimum": 0,
+                    "type": "integer"
+                },
+                {
+                    "type": "null"
+                }
+            ],
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            }
+        },
+        "rin": {
+            "description": "A numerical assessment of the integrity of RNA based on the entire electrophoretic trace of the RNA sample including the presence or absence of degradation products.",
+            "maximum": 10,
+            "minimum": 1,
+            "termDef": {
+                "cde_id": 5278775,
+                "cde_version": 1.0,
+                "source": "caDSR",
+                "term": "Biospecimen RNA Integrity Number Value",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=5278775%20and%20ver_nr=1.0"
+            },
+            "type": "number"
+        },
+        "sequencing_center": {
+            "description": "Name of the center that provided the sequence files.",
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            },
+            "type": "string"
+        },
+        "sequencing_date": {
+            "common": {
+                "description": "A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]",
+                "termDef": {
+                    "cde_id": null,
+                    "cde_version": null,
+                    "source": null,
+                    "term": null,
+                    "term_url": null
+                }
+            },
+            "oneOf": [
+                {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        },
+        "single_cell_library": {
+            "description": "Library preparation strategy that distinguishes different single-cell assays.",
+            "enum": [
+                "Chromium 3' Gene Expression v2 Library",
+                "Chromium 3' Gene Expression v3 Library",
+                "Chromium scATAC v1 Library",
+                "Smart-Seq2"
+            ],
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            }
+        },
+        "size_selection_range": {
+            "description": "Range of size selection.",
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            },
+            "type": "string"
+        },
+        "spike_ins_concentration": {
+            "description": "Spike in concentration.",
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            },
+            "type": "string"
+        },
+        "spike_ins_fasta": {
+            "description": "Name of the FASTA file that contains the spike-in sequences.",
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            },
+            "type": "string"
+        },
+        "state": {
+            "common": {
+                "description": "The current state of the object.",
+                "termDef": {
+                    "cde_id": null,
+                    "cde_version": null,
+                    "source": null,
+                    "term": null,
+                    "term_url": null
+                }
+            },
+            "default": "validated",
+            "downloadable": [
+                "uploaded",
+                "md5summed",
+                "validating",
+                "validated",
+                "error",
+                "invalid",
+                "released"
+            ],
+            "oneOf": [
+                {
+                    "enum": [
+                        "uploading",
+                        "uploaded",
+                        "md5summing",
+                        "md5summed",
+                        "validating",
+                        "error",
+                        "invalid",
+                        "suppressed",
+                        "redacted",
+                        "live"
+                    ]
+                },
+                {
+                    "enum": [
+                        "validated",
+                        "submitted",
+                        "released"
+                    ]
+                }
+            ],
+            "public": [
+                "live"
+            ]
+        },
+        "submitter_id": {
+            "description": "A project-specific identifier for a node. This property is the calling card/nickname/alias for a unit of submission. It can be used in place of the uuid for identifying or recalling a node.",
+            "type": "string"
+        },
+        "target_capture_kit": {
+            "description": "Description that can uniquely identify a target capture kit. Suggested value is a combination of vendor, kit name, and kit version.",
+            "enum": [
+                "Custom AmpliSeq Cancer Hotspot GENIE-MDA Augmented Panel v1 - 46 Genes",
+                "Custom GENIE-DFCI OncoPanel - 275 Genes",
+                "Custom GENIE-DFCI Oncopanel - 300 Genes",
+                "Custom GENIE-DFCI Oncopanel - 447 Genes",
+                "Custom HaloPlex DLBCL Panel - 370 Genes",
+                "Custom Ion AmpliSeq Hotspot GENIE-MOSC3 Augmented Panel - 74 Genes",
+                "Custom Large Construct Capture TARGET-OS Panel - 8 Genes",
+                "Custom MSK IMPACT Panel - 341 Genes",
+                "Custom MSK IMPACT Panel - 410 Genes",
+                "Custom MSK IMPACT Panel - 468 Genes",
+                "Custom Myeloid GENIE-VICC Panel - 37 Genes",
+                "Custom Personalis ACEcp VAREPOP-APOLLO Panel v2",
+                "Custom PGDX SureSelect CancerSelect VAREPOP-APOLLO Panel - 203 Genes",
+                "Custom PGDX SureSelect CancerSelect VAREPOP-APOLLO Panel - 88 Genes",
+                "Custom SeqCap EZ BeatAML Panel - 12.5 Mb",
+                "Custom SeqCap EZ HGSC VCRome v2.1 ER Augmented v1",
+                "Custom SeqCap EZ HGSC VCRome v2.1 ER Augmented v2",
+                "Custom SeqCap EZ TARGET-OS Panel - 7.0 Mb",
+                "Custom Solid Tumor GENIE-VICC Panel - 34 Genes",
+                "Custom SureSelect CGCI-BLGSP Panel - 4.6 Mb",
+                "Custom SureSelect CGCI-BLGSP Panel - 7.8 Mb",
+                "Custom SureSelect CGCI-HTMCP-CC KMT2D And Hotspot Panel - 37.0 Kb",
+                "Custom SureSelect CGCI-HTMCP-CC Panel - 19.7 Mb",
+                "Custom SureSelect GENIE-UHN Panel - 555 Genes",
+                "Custom SureSelect Human All Exon v1.1 Plus 3 Boosters",
+                "Custom SureSelect TARGET-AML_NBL_WT Panel - 2.8 Mb",
+                "Custom Twist Broad Exome v1.0 - 35.0 Mb",
+                "Custom Twist Broad PanCancer Panel - 396 Genes",
+                "Custom Twist MP2PRT-WT Panel - 52 Kb",
+                "Foundation Medicine T5a Panel - 322 Genes",
+                "Foundation Medicine T7 Panel - 429 Genes",
+                "Ion AmpliSeq Cancer Hotspot Panel v2",
+                "Ion AmpliSeq Comprehensive Cancer Panel",
+                "Nextera DNA Exome",
+                "Nextera Rapid Capture Exome v1.2",
+                "Not Applicable",
+                "SeqCap EZ HGSC VCRome v2.1",
+                "SeqCap EZ Human Exome v2.0",
+                "SeqCap EZ Human Exome v3.0",
+                "SureSelect Human All Exon v3",
+                "SureSelect Human All Exon v4",
+                "SureSelect Human All Exon v5",
+                "SureSelect Human All Exon v5 + UTR",
+                "TruSeq Amplicon Cancer Panel",
+                "TruSeq Exome Enrichment - 62 Mb",
+                "TruSeq RNA Exome",
+                "TruSight Myeloid Sequencing Panel",
+                "Twist Human Comprehensive Exome",
+                "xGen Exome Research Panel v1.0",
+                "Unknown"
+            ],
+            "enumDef": {
+                "Not Applicable": {
+                    "description": "Determination of a value is not relevant in the current context.",
+                    "termDef": {
+                        "cde_id": "C48660",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "Not Applicable",
+                        "term_id": "C48660",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C48660",
+                        "term_version": "20.10d"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            }
+        },
+        "target_capture_kit_catalog_number": {
+            "description": "Catalog of Target Capture Kit.",
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            },
+            "type": "string"
+        },
+        "target_capture_kit_name": {
+            "description": "Name of Target Capture Kit.",
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            },
+            "type": "string"
+        },
+        "target_capture_kit_target_region": {
+            "description": "Target Capture Kit BED file.",
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            },
+            "type": "string"
+        },
+        "target_capture_kit_vendor": {
+            "description": "Vendor of Target Capture Kit.",
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            },
+            "type": "string"
+        },
+        "target_capture_kit_version": {
+            "description": "Version of Target Capture Kit.",
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            },
+            "type": "string"
+        },
+        "to_trim_adapter_sequence": {
+            "description": "Does the user suggest adapter trimming?",
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            },
+            "type": "boolean"
+        },
+        "type": {
+            "type": "string"
+        },
+        "updated_datetime": {
+            "common": {
+                "description": "A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]",
+                "termDef": {
+                    "cde_id": null,
+                    "cde_version": null,
+                    "source": null,
+                    "term": null,
+                    "term_url": null
+                }
+            },
+            "oneOf": [
+                {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        }
+    },
+    "required": [
+        "submitter_id",
+        "aliquots",
+        "experiment_name",
+        "sequencing_center",
+        "platform",
+        "library_selection",
+        "library_strategy",
+        "library_name",
+        "is_paired_end",
+        "read_length",
+        "read_group_name",
+        "target_capture_kit"
+    ],
+    "submittable": true,
+    "systemProperties": [
+        "id",
+        "project_id",
+        "created_datetime",
+        "updated_datetime",
+        "state"
+    ],
+    "title": "Read Group",
+    "type": "object",
+    "uniqueKeys": [
+        [
+            "id"
+        ],
+        [
+            "project_id",
+            "submitter_id"
+        ]
+    ],
+    "validators": null
+}

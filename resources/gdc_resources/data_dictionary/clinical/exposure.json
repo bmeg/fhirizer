@@ -1,0 +1,2493 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "additionalProperties": false,
+    "category": "clinical",
+    "deprecated": [
+        "smokeless_tobacco_quit_age",
+        "asbestos_exposure",
+        "radon_exposure",
+        "respirable_crystalline_silica_exposure",
+        "years_smoked",
+        "coal_dust_exposure"
+    ],
+    "description": "Clinically relevant patient information not immediately resulting from genetic predispositions.",
+    "downloadable": false,
+    "id": "exposure",
+    "links": [
+        {
+            "backref": "exposures",
+            "label": "describes",
+            "multiplicity": "many_to_one",
+            "name": "cases",
+            "required": true,
+            "target_type": "case"
+        }
+    ],
+    "namespace": "https://gdc.cancer.gov",
+    "previous_version_downloadable": false,
+    "program": "*",
+    "project": "*",
+    "properties": {
+        "age_at_last_exposure": {
+            "description": "The study participant's age at the time they were last exposed.",
+            "maximum": 89,
+            "minimum": 0,
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            },
+            "type": "integer"
+        },
+        "age_at_onset": {
+            "description": "Numeric value used to represent the age of the patient when exposure to a specific environmental factor began.",
+            "maximum": 89,
+            "minimum": 0,
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": "Patient Environmental Exposure Onset Age Day Value",
+                "term_url": null
+            },
+            "type": "integer"
+        },
+        "alcohol_days_per_week": {
+            "description": "Numeric value used to describe the average number of days each week that a person consumes an alcoholic beverage.",
+            "maximum": 7,
+            "minimum": 0,
+            "termDef": {
+                "cde_id": 3114013,
+                "cde_version": 1.0,
+                "source": "caDSR",
+                "term": "Alcohol Consumption Weekly Days Usage Number",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=3114013%20and%20ver_nr=1.0"
+            },
+            "type": "number"
+        },
+        "alcohol_drinks_per_day": {
+            "description": "Numeric value used to describe the average number of alcoholic beverages a person consumes per day.",
+            "minimum": 0,
+            "termDef": {
+                "cde_id": 3124961,
+                "cde_version": 1.0,
+                "source": "caDSR",
+                "term": "Person Daily Alcohol Consumption Count",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=3124961%20and%20ver_nr=1.0"
+            },
+            "type": "number"
+        },
+        "alcohol_frequency": {
+            "description": "Describes how often the subject drinks alcohol.",
+            "enum": [
+                "Daily Drinker",
+                "Weekly Drinker"
+            ],
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": "Alcohol Frequency",
+                "term_url": null
+            }
+        },
+        "alcohol_history": {
+            "deprecated_enum": [
+                "no",
+                "yes"
+            ],
+            "description": "A response to a question that asks whether the participant has consumed at least 12 drinks of any kind of alcoholic beverage in their lifetime.",
+            "enum": [
+                "Yes",
+                "No",
+                "yes",
+                "no",
+                "Unknown",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "No": {
+                    "description": "The non-affirmative response to a question.",
+                    "termDef": {
+                        "cde_id": "C49487",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "No",
+                        "term_id": "C49487",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Yes": {
+                    "description": "The affirmative response to a question.",
+                    "termDef": {
+                        "cde_id": "C49488",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Yes",
+                        "term_id": "C49488",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488",
+                        "term_version": "19.12e"
+                    }
+                },
+                "no": {
+                    "description": "The non-affirmative response to a question.",
+                    "termDef": {
+                        "cde_id": "C49487",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "No",
+                        "term_id": "C49487",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487",
+                        "term_version": "19.12e"
+                    }
+                },
+                "yes": {
+                    "description": "The affirmative response to a question.",
+                    "termDef": {
+                        "cde_id": "C49488",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Yes",
+                        "term_id": "C49488",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": 2201918,
+                "cde_version": 1.0,
+                "source": "caDSR",
+                "term": "Alcohol Lifetime History Indicator",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2201918%20and%20ver_nr=1.0"
+            }
+        },
+        "alcohol_intensity": {
+            "description": "Category to describe the patient's current level of alcohol use as self-reported by the patient.",
+            "enum": [
+                "Drinker",
+                "Heavy Drinker",
+                "Lifelong Non-Drinker",
+                "Non-Drinker",
+                "Occasional Drinker",
+                "Social Drinker",
+                "Unknown",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "Drinker": {
+                    "description": "An individual who drinks at least once per week with regularity.",
+                    "termDef": {
+                        "cde_id": "C126383",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Drinker",
+                        "term_id": "C126383",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C126383",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Heavy Drinker": {
+                    "description": "A man who drinks more than 14 standard drinks per week or a woman who drinks more than 7 standard drinks per week.",
+                    "termDef": {
+                        "cde_id": "C126384",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Heavy Drinker",
+                        "term_id": "C126384",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C126384",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Lifelong Non-Drinker": {
+                    "description": "An individual who does not drink at the present time and who claims that they have never been a drinker.",
+                    "termDef": {
+                        "cde_id": "C126380",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Lifelong Non-Drinker",
+                        "term_id": "C126380",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C126380",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Non-Drinker": {
+                    "description": "An individual who does not drink at the present time. This is a heterogeneous group comprising both lifelong teetotallers and ex-drinkers.",
+                    "termDef": {
+                        "cde_id": "C126379",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Non-Drinker",
+                        "term_id": "C126379",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C126379",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Occasional Drinker": {
+                    "description": "An individual who drinks from time to time, but generally less than once per week.",
+                    "termDef": {
+                        "cde_id": "C126382",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Occasional Drinker",
+                        "term_id": "C126382",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C126382",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": 3457767,
+                "cde_version": 1.0,
+                "source": "caDSR",
+                "term": "Person Self-Report Alcoholic Beverage Exposure Category",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=3457767%20and%20ver_nr=1.0"
+            }
+        },
+        "alcohol_type": {
+            "description": "A specific type of alcohol.",
+            "enum": [
+                "Beer",
+                "Liquor",
+                "Wine",
+                "Other",
+                "Unknown",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Other": {
+                    "description": "Different than the one(s) previously specified or mentioned.",
+                    "termDef": {
+                        "cde_id": "C17649",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Other",
+                        "term_id": "C17649",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17649",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            }
+        },
+        "asbestos_exposure": {
+            "description": "The yes/no/unknown indicator used to describe whether the patient was exposed to asbestos.",
+            "enum": [
+                "Yes",
+                "No",
+                "Unknown",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "No": {
+                    "description": "The non-affirmative response to a question.",
+                    "termDef": {
+                        "cde_id": "C49487",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "No",
+                        "term_id": "C49487",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Yes": {
+                    "description": "The affirmative response to a question.",
+                    "termDef": {
+                        "cde_id": "C49488",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Yes",
+                        "term_id": "C49488",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": 1253,
+                "cde_version": 3.0,
+                "source": "caDSR",
+                "term": "Asbestos Exposure Ind-3",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=1253%20and%20ver_nr=3.0"
+            }
+        },
+        "asbestos_exposure_type": {
+            "description": "The type of asbestos exposure the study participant experienced.",
+            "enum": [
+                "Amosite",
+                "Crocidolite"
+            ],
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            }
+        },
+        "batch_id": {
+            "description": "GDC submission batch indicator. It is unique within the context of a project.",
+            "type": "integer"
+        },
+        "cases": {
+            "anyOf": [
+                {
+                    "items": {
+                        "additionalProperties": true,
+                        "maxItems": 1,
+                        "minItems": 1,
+                        "properties": {
+                            "id": {
+                                "common": {
+                                    "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                                    "termDef": {
+                                        "cde_id": "C54100",
+                                        "cde_version": null,
+                                        "source": "NCIt",
+                                        "term": "Universally Unique Identifier",
+                                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100"
+                                    }
+                                },
+                                "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                                "systemAlias": "node_id",
+                                "type": "string"
+                            },
+                            "submitter_id": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                {
+                    "additionalProperties": true,
+                    "properties": {
+                        "id": {
+                            "common": {
+                                "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                                "termDef": {
+                                    "cde_id": "C54100",
+                                    "cde_version": null,
+                                    "source": "NCIt",
+                                    "term": "Universally Unique Identifier",
+                                    "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100"
+                                }
+                            },
+                            "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                            "systemAlias": "node_id",
+                            "type": "string"
+                        },
+                        "submitter_id": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                }
+            ]
+        },
+        "chemical_exposure_type": {
+            "description": "The specific type of contact with a chemical substance through touch, inhalation, or ingestion.",
+            "items": {
+                "enum": [
+                    "Agent Orange",
+                    "Aluminum",
+                    "Arsenic",
+                    "Asbestos",
+                    "Benzene",
+                    "Cadmium",
+                    "Chemical Exposure, NOS",
+                    "Chromium",
+                    "Coal Gas, Coal Tar, Coal Tar Pitch, and Derivatives",
+                    "Coke Oven Emission",
+                    "Copper",
+                    "Diesel Exhaust",
+                    "Disinfectant",
+                    "Formaldehyde",
+                    "Methylene Chloride",
+                    "Occupational Soldering/Welding Smoke Exposure",
+                    "Oil",
+                    "Pesticide",
+                    "Petroleum Hydrocarbon Compound",
+                    "Resin Fumes",
+                    "Sodium Borate",
+                    "Solvent",
+                    "Tetrachloroethylene",
+                    "Toluene",
+                    "Not Reported"
+                ]
+            },
+            "termDef": {
+                "cde_id": "C36290",
+                "cde_version": "22.11d",
+                "source": "NCIt",
+                "term": "Chemical Exposure",
+                "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C36290"
+            },
+            "type": "array"
+        },
+        "cigarettes_per_day": {
+            "description": "The average number of cigarettes smoked per day.",
+            "minimum": 0,
+            "termDef": {
+                "cde_id": 2001716,
+                "cde_version": 4.0,
+                "source": "caDSR",
+                "term": "Smoking Use Average Number",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2001716%20and%20ver_nr=4.0"
+            },
+            "type": "number"
+        },
+        "coal_dust_exposure": {
+            "description": "The yes/no/unknown indicator used to describe whether a patient was exposed to fine powder derived by the crushing of coal.",
+            "enum": [
+                "Yes",
+                "No",
+                "Unknown"
+            ],
+            "enumDef": {
+                "No": {
+                    "description": "The non-affirmative response to a question.",
+                    "termDef": {
+                        "cde_id": "C49487",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "No",
+                        "term_id": "C49487",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Yes": {
+                    "description": "The affirmative response to a question.",
+                    "termDef": {
+                        "cde_id": "C49488",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Yes",
+                        "term_id": "C49488",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": "caDSR",
+                "term": "Person Coal Dust Exposure Indicator",
+                "term_url": null
+            }
+        },
+        "created_datetime": {
+            "common": {
+                "description": "A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]",
+                "termDef": {
+                    "cde_id": null,
+                    "cde_version": null,
+                    "source": null,
+                    "term": null,
+                    "term_url": null
+                }
+            },
+            "oneOf": [
+                {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        },
+        "environmental_tobacco_smoke_exposure": {
+            "description": "The yes/no/unknown indicator used to describe whether a patient was exposed to smoke that is emitted from burning tobacco, including cigarettes, pipes, and cigars. This includes tobacco smoke exhaled by smokers.",
+            "enum": [
+                "Yes",
+                "No",
+                "Unknown"
+            ],
+            "enumDef": {
+                "No": {
+                    "description": "The non-affirmative response to a question.",
+                    "termDef": {
+                        "cde_id": "C49487",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "No",
+                        "term_id": "C49487",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Yes": {
+                    "description": "The affirmative response to a question.",
+                    "termDef": {
+                        "cde_id": "C49488",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Yes",
+                        "term_id": "C49488",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": "caDSR",
+                "term": "Person Environmental Tobacco Smoke Exposure Indicator",
+                "term_url": null
+            }
+        },
+        "exposure_duration": {
+            "description": "Text term used to describe the length of time the patient was exposed to an environmental factor.",
+            "enum": [
+                "Six Weeks or More",
+                "Unknown",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Six Weeks or More": {
+                    "description": "The text term used to describe a time period of six calendar weeks or longer.",
+                    "termDef": {
+                        "cde_id": null,
+                        "cde_version": null,
+                        "source": "NCIt",
+                        "term": "Six Weeks or More",
+                        "term_url": null
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": "Patient Exposure Duration",
+                "term_url": null
+            }
+        },
+        "exposure_duration_hrs_per_day": {
+            "description": "The duration (in hours per day) that a person was exposed.",
+            "maximum": 24,
+            "minimum": 0,
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            },
+            "type": "number"
+        },
+        "exposure_duration_years": {
+            "description": "The period of time from start to finish of exposure, in years.",
+            "maximum": 89,
+            "minimum": 0,
+            "termDef": {
+                "cde_id": "C83280",
+                "cde_version": "21.04d",
+                "source": "NCIt",
+                "term": "Exposure Duration",
+                "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C83280"
+            },
+            "type": "integer"
+        },
+        "exposure_source": {
+            "description": "The source or location where the patient was exposed.",
+            "enum": [
+                "Home",
+                "Occupational",
+                "Secondary",
+                "Social",
+                "Work",
+                "Unknown"
+            ],
+            "enumDef": {
+                "Home": {
+                    "description": "A person's place of residence.",
+                    "termDef": {
+                        "cde_id": "C18002",
+                        "cde_version": "23.08d",
+                        "source": "NCIt",
+                        "term": "Home",
+                        "term_id": "C18002",
+                        "term_url": "https://thesaurus.cancer.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C18002",
+                        "term_version": "23.08d"
+                    }
+                },
+                "Social": {
+                    "description": "The surroundings or environment in which social activities occur.",
+                    "termDef": {
+                        "cde_id": "C102712",
+                        "cde_version": "23.08d",
+                        "source": "NCIt",
+                        "term": "Social Setting",
+                        "term_id": "C102712",
+                        "term_url": "https://thesaurus.cancer.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C102712",
+                        "term_version": "23.08d"
+                    }
+                },
+                "Work": {
+                    "description": "The physical location where work or employment takes place.",
+                    "termDef": {
+                        "cde_id": "C17556",
+                        "cde_version": "23.08d",
+                        "source": "NCIt",
+                        "term": "Worksite",
+                        "term_id": "C17556",
+                        "term_url": "https://thesaurus.cancer.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17556",
+                        "term_version": "23.08d"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            }
+        },
+        "exposure_type": {
+            "description": "The text term used to describe the type of environmental exposure.",
+            "enum": [
+                "Asbestos",
+                "Chemical",
+                "Coal Dust",
+                "Dust, NOS",
+                "Marijuana",
+                "Radiation",
+                "Radon",
+                "Respirable Crystalline Silica",
+                "Smoke",
+                "Smokeless Tobacco",
+                "Tobacco",
+                "Wood Dust"
+            ],
+            "enumDef": {
+                "Dust, NOS": {
+                    "description": "A fine powdery material such as dry earth or pollen that can be blown about in the air.",
+                    "termDef": {
+                        "cde_id": "C84281",
+                        "cde_version": "23.03d",
+                        "source": "NCIt",
+                        "term": "Dust",
+                        "term_id": "C84281",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C84281",
+                        "term_version": "23.03d"
+                    }
+                },
+                "Marijuana": {
+                    "description": "Any part of, or extract from, the female hemp plant Cannabis sativa. Marijuana contains cannabinoids, substances with hallucinogenic, psychoactive, and addictive properties. This agent has potential use for treating cancer pain and cachexia.",
+                    "termDef": {
+                        "cde_id": "C26659",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Marijuana",
+                        "term_id": "C26659",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C26659",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Tobacco": {
+                    "description": "The dried cured leaves of the tobacco plant, Nicotiana tabacum, used for smoking, chewing, or snuff. Tobacco contains nicotine, a stimulant, and other biologically active ingredients having carcinogenic properties.",
+                    "termDef": {
+                        "cde_id": "C891",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Tobacco",
+                        "term_id": "C891",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C891",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": "Patient Exposure Type",
+                "term_url": null
+            }
+        },
+        "id": {
+            "common": {
+                "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                "termDef": {
+                    "cde_id": "C54100",
+                    "cde_version": null,
+                    "source": "NCIt",
+                    "term": "Universally Unique Identifier",
+                    "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100"
+                }
+            },
+            "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+            "systemAlias": "node_id",
+            "type": "string"
+        },
+        "occupation_duration_years": {
+            "description": "The number of years a patient worked in a specific occupation.",
+            "maximum": 89,
+            "minimum": 0,
+            "termDef": {
+                "cde_id": 2435424,
+                "cde_version": 1.0,
+                "source": "caDSR",
+                "term": "Person Occupation Years Number",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2435424%20and%20ver_nr=1.0"
+            },
+            "type": "integer"
+        },
+        "occupation_type": {
+            "description": "A categorization of the principal activity that a person does to earn money, as defined by the International Classification of Occupation (ISCO).",
+            "items": {
+                "enum": [
+                    "Administration Professionals",
+                    "Administrative and Specialized Secretaries",
+                    "Agricultural, Forestry and Fishery Labourers",
+                    "Animal Producers",
+                    "Architects, Planners, Surveyors and Designers",
+                    "Armed Forces Occupations, Other Ranks",
+                    "Artistic, Cultural and Culinary Associate Professionals",
+                    "Assemblers",
+                    "Authors, Journalists and Linguists",
+                    "Blacksmiths, Toolmakers and Related Trades Workers",
+                    "Building and Housekeeping Supervisors",
+                    "Building Finishers and Related Trades Workers",
+                    "Building Frame and Related Trades Workers",
+                    "Business Services Agents",
+                    "Business Services and Administration Managers",
+                    "Car, Van and Motorcycle Drivers",
+                    "Cashiers and Ticket Clerks",
+                    "Chemical and Photographic Products Plant and Machine Operators",
+                    "Child Care Workers and Teachers' Aides",
+                    "Client Information Workers",
+                    "Commissioned Armed Forces Officers",
+                    "Cooks",
+                    "Creative and Performing Artists",
+                    "Database and Network Professionals",
+                    "Domestic, Hotel and Office Cleaners and Helpers",
+                    "Electrical Equipment Installers and Repairers",
+                    "Electronics and Telecommunications Installers and Repairers",
+                    "Electrotechnology Engineers",
+                    "Engineering Professionals (excluding Electrotechnology)",
+                    "Finance Professionals",
+                    "Financial and Mathematical Associate Professionals",
+                    "Fishery Workers, Hunters and Trappers",
+                    "Food and Related Products Machine Operators",
+                    "Food Preparation Assistants",
+                    "Food Processing and Related Trades Workers",
+                    "Forestry and Related Workers",
+                    "Garment and Related Trades Workers",
+                    "General Office Clerks",
+                    "Government Regulatory Associate Professionals",
+                    "Hairdressers, Beauticians and Related Workers",
+                    "Handicraft Workers",
+                    "Heavy Truck and Bus Drivers",
+                    "Hotel and Restaurant Managers",
+                    "Information and Communications Technology Operations and User Support Technicians",
+                    "Information and Communications Technology Service managers",
+                    "Keyboard Operators",
+                    "Legal Professionals",
+                    "Legal, Social and Religious Associate Professionals",
+                    "Legislators and Senior Officials",
+                    "Librarians, Archivists and Curators",
+                    "Life Science Professionals",
+                    "Life Science Technicians and Related Associate Professionals",
+                    "Locomotive Engine Drivers and Related Workers",
+                    "Machinery Mechanics and Repairers",
+                    "Managing Directors and Chief Executives",
+                    "Manufacturing Labourers",
+                    "Manufacturing, Mining, Construction and Distribution Managers",
+                    "Market Gardeners and Crop Growers",
+                    "Material Recording and Transport Clerks",
+                    "Mathematicians, Actuaries and Statisticians",
+                    "Medical and Pharmaceutical Technicians",
+                    "Medical Doctors",
+                    "Metal Processing and Finishing Plant Operators",
+                    "Mining and Construction Labourers",
+                    "Mining and Mineral Processing Plant Operators",
+                    "Mining, Manufacturing and Construction Supervisors",
+                    "Mixed Crop and Animal Producers",
+                    "Mobile Plant Operators",
+                    "Non-commissioned Armed Forces Officers",
+                    "Numerical Clerks",
+                    "Nursing and Midwifery Associate Professionals",
+                    "Nursing and Midwifery Professionals",
+                    "Other Clerical Support Workers",
+                    "Other Craft and Related Workers",
+                    "Other Elementary Workers",
+                    "Other Health Associate Professionals",
+                    "Other Health Professionals",
+                    "Other Personal Services Workers",
+                    "Other Sales Workers",
+                    "Other Services Managers",
+                    "Other Stationary Plant and Machine Operators",
+                    "Other Teaching Professionals",
+                    "Painters, Building Structure Cleaners and Related Trades Workers",
+                    "Paramedical Practitioners",
+                    "Personal Care Workers in Health Services",
+                    "Physical and Earth Science Professionals",
+                    "Physical and Engineering Science Technicians",
+                    "Primary School and Early Childhood Teachers",
+                    "Printing Trades Workers",
+                    "Process Control Technicians",
+                    "Production Managers in Agriculture, Forestry and Fisheries",
+                    "Professional Services Managers",
+                    "Protective Services Workers",
+                    "Refuse Workers",
+                    "Retail and Wholesale Trade Managers",
+                    "Rubber, Plastic and Paper Products Machine Operators",
+                    "Sales and Purchasing Agents and Brokers",
+                    "Sales, Marketing and Development Managers",
+                    "Sales, Marketing and Public Relations Professionals",
+                    "Secondary Education Teachers",
+                    "Secretaries (general)",
+                    "Sheet and Structural Metal Workers, Moulders and Welders, and Related Workers",
+                    "Ship and Aircraft Controllers and Technicians",
+                    "Ships' Deck Crews and Related Workers",
+                    "Shop Salespersons",
+                    "Social and Religious Professionals",
+                    "Software and Applications Developers and Analysts",
+                    "Sports and Fitness Workers",
+                    "Street and Market Salespersons",
+                    "Street and Related Service Workers",
+                    "Street Vendors (excluding Food)",
+                    "Subsistence Crop Farmers",
+                    "Subsistence Fishers, Hunters, Trappers and Gatherers",
+                    "Subsistence Livestock Farmers",
+                    "Subsistence Mixed Crop and Livestock Farmers",
+                    "Telecommunications and Broadcasting Technicians",
+                    "Tellers, Money Collectors and Related Clerks",
+                    "Textile, Fur and Leather Products Machine Operators",
+                    "Traditional and Complementary Medicine Associate Professionals",
+                    "Traditional and Complementary Medicine Professionals",
+                    "Transport and Storage Labourers",
+                    "Travel Attendants, Conductors and Guides",
+                    "University and Higher Education Teachers",
+                    "Vehicle, Window, Laundry and Other Hand Cleaning Workers",
+                    "Veterinarians",
+                    "Veterinary Technicians and Assistants",
+                    "Vocational education teachers",
+                    "Waiters and Bartenders",
+                    "Wood Processing and Papermaking Plant Operators",
+                    "Wood Treaters, Cabinet-makers and Related Trades Workers"
+                ]
+            },
+            "termDef": {
+                "cde_id": "C25193",
+                "cde_version": "22.11d",
+                "source": "NCIt",
+                "term": "Occupation",
+                "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C25193"
+            },
+            "type": "array"
+        },
+        "pack_years_smoked": {
+            "description": "Numeric computed value to represent lifetime tobacco exposure defined as number of cigarettes smoked per day x number of years smoked divided by 20.",
+            "minimum": 0,
+            "termDef": {
+                "cde_id": 2955385,
+                "cde_version": 1.0,
+                "source": "caDSR",
+                "term": "Person Cigarette Smoking History Pack Year Value",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2955385%20and%20ver_nr=1.0"
+            },
+            "type": "number"
+        },
+        "parent_with_radiation_exposure": {
+            "description": "Indicates whether the patient's parent(s) were exposed to radiation",
+            "enum": [
+                "Yes",
+                "No",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "No": {
+                    "description": "The non-affirmative response to a question.",
+                    "termDef": {
+                        "cde_id": "C49487",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "No",
+                        "term_id": "C49487",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Yes": {
+                    "description": "The affirmative response to a question.",
+                    "termDef": {
+                        "cde_id": "C49488",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Yes",
+                        "term_id": "C49488",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            }
+        },
+        "project_id": {
+            "common": {
+                "description": "Unique ID for any specific defined piece of work that is undertaken or attempted to meet a single requirement.",
+                "termDef": {
+                    "cde_id": null,
+                    "cde_version": null,
+                    "source": null,
+                    "term": null,
+                    "term_url": null
+                }
+            },
+            "type": "string"
+        },
+        "radon_exposure": {
+            "description": "The yes/no/unknown indicator used to describe whether the patient was exposed to radon.",
+            "enum": [
+                "Yes",
+                "No",
+                "Unknown",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "No": {
+                    "description": "The non-affirmative response to a question.",
+                    "termDef": {
+                        "cde_id": "C49487",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "No",
+                        "term_id": "C49487",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Yes": {
+                    "description": "The affirmative response to a question.",
+                    "termDef": {
+                        "cde_id": "C49488",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Yes",
+                        "term_id": "C49488",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": 2816352,
+                "cde_version": 1.0,
+                "source": "caDSR",
+                "term": "Person Lifetime Risk Radon Exposure Indicator",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2816352%20and%20ver_nr=1.0"
+            }
+        },
+        "respirable_crystalline_silica_exposure": {
+            "description": "The yes/no/unknown indicator used to describe whether a patient was exposed to respirable crystalline silica, a widespread, naturally occurring, crystalline metal oxide that consists of different forms including quartz, cristobalite, tridymite, tripoli, ganister, chert, and novaculite.",
+            "enum": [
+                "Yes",
+                "No",
+                "Unknown"
+            ],
+            "enumDef": {
+                "No": {
+                    "description": "The non-affirmative response to a question.",
+                    "termDef": {
+                        "cde_id": "C49487",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "No",
+                        "term_id": "C49487",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Yes": {
+                    "description": "The affirmative response to a question.",
+                    "termDef": {
+                        "cde_id": "C49488",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Yes",
+                        "term_id": "C49488",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": "caDSR",
+                "term": "Person Respirable Cystalline Silica Exposure Indicator",
+                "term_url": null
+            }
+        },
+        "secondhand_smoke_as_child": {
+            "description": "The text term used to indicate whether the patient was exposed to secondhand smoke as a child.",
+            "enum": [
+                "Yes",
+                "No",
+                "Unknown",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "No": {
+                    "description": "The non-affirmative response to a question.",
+                    "termDef": {
+                        "cde_id": "C49487",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "No",
+                        "term_id": "C49487",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Yes": {
+                    "description": "The affirmative response to a question.",
+                    "termDef": {
+                        "cde_id": "C49488",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Yes",
+                        "term_id": "C49488",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": 6841888,
+                "cde_version": 1.0,
+                "source": "caDSR",
+                "term": "Smoking History Secondhand Smoke Exposure Indicator",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6841888%20and%20ver_nr=1.0"
+            }
+        },
+        "smoking_frequency": {
+            "description": "The text term used to generally describe how often the patient smokes.",
+            "enum": [
+                "Every day",
+                "Some days",
+                "Unknown"
+            ],
+            "enumDef": {
+                "Every day": {
+                    "description": "Occurring or done each day.",
+                    "termDef": {
+                        "cde_id": "C25473",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Daily",
+                        "term_id": "C25473",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C25473",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Some days": {
+                    "description": "A response indicating that an individual experiences or experienced something on some days.",
+                    "termDef": {
+                        "cde_id": "C131735",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Some Days",
+                        "term_id": "C131735",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C131735",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": "caDSR",
+                "term": "Person Smoking Frequency",
+                "term_url": null
+            }
+        },
+        "state": {
+            "common": {
+                "description": "The current state of the object.",
+                "termDef": {
+                    "cde_id": null,
+                    "cde_version": null,
+                    "source": null,
+                    "term": null,
+                    "term_url": null
+                }
+            },
+            "default": "validated",
+            "downloadable": [
+                "uploaded",
+                "md5summed",
+                "validating",
+                "validated",
+                "error",
+                "invalid",
+                "released"
+            ],
+            "oneOf": [
+                {
+                    "enum": [
+                        "uploading",
+                        "uploaded",
+                        "md5summing",
+                        "md5summed",
+                        "validating",
+                        "error",
+                        "invalid",
+                        "suppressed",
+                        "redacted",
+                        "live"
+                    ]
+                },
+                {
+                    "enum": [
+                        "validated",
+                        "submitted",
+                        "released"
+                    ]
+                }
+            ],
+            "public": [
+                "live"
+            ]
+        },
+        "submitter_id": {
+            "description": "A project-specific identifier for a node. This property is the calling card/nickname/alias for a unit of submission. It can be used in place of the uuid for identifying or recalling a node.",
+            "type": "string"
+        },
+        "time_between_waking_and_first_smoke": {
+            "description": "The text term used to describe the approximate amount of time elapsed between the time the patient wakes up in the morning to the time they smoke their first cigarette.",
+            "enum": [
+                "Within 5 Minutes",
+                "6-30 Minutes",
+                "31-60 Minutes",
+                "After 60 Minutes",
+                "Unknown"
+            ],
+            "enumDef": {
+                "31-60 Minutes": {
+                    "description": "An indication that between 31 and 60 minutes passes between waking and smoking the first cigarette of the day.",
+                    "termDef": {
+                        "cde_id": "C164126",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Time Between Waking and First Smoke - Between 31 and 60 Minutes",
+                        "term_id": "C164126",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C164126",
+                        "term_version": "19.12e"
+                    }
+                },
+                "6-30 Minutes": {
+                    "description": "An indication that between 6 and 30 minutes passes between waking and smoking the first cigarette of the day.",
+                    "termDef": {
+                        "cde_id": "C164124",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Time Between Waking and First Smoke - Between 6 and 30 Minutes",
+                        "term_id": "C164124",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C164124",
+                        "term_version": "19.12e"
+                    }
+                },
+                "After 60 Minutes": {
+                    "description": "An indication that more than 60 minutes passes between waking and smoking the first cigarette of the day.",
+                    "termDef": {
+                        "cde_id": "C164127",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Time Between Waking and First Smoke - After 60 Minutes",
+                        "term_id": "C164127",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C164127",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Within 5 Minutes": {
+                    "description": "An indication that less than 5 minutes passes between waking and smoking the first cigarette of the day.",
+                    "termDef": {
+                        "cde_id": "C164121",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Time Between Waking and First Smoke - Within 5 Minutes",
+                        "term_id": "C164121",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C164121",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": 3279220,
+                "cde_version": 1.0,
+                "source": "caDSR",
+                "term": "Person Smoking Frequency",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=3279220%20and%20ver_nr=1.0"
+            }
+        },
+        "tobacco_smoking_onset_year": {
+            "description": "The year in which the participant began smoking.",
+            "maximum": 2050,
+            "minimum": 1900,
+            "termDef": {
+                "cde_id": 2228604,
+                "cde_version": 1.0,
+                "source": "caDSR",
+                "term": "Started Smoking Year",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2228604%20and%20ver_nr=1.0"
+            },
+            "type": "integer"
+        },
+        "tobacco_smoking_quit_year": {
+            "description": "The year in which the participant quit smoking.",
+            "maximum": 2050,
+            "minimum": 1900,
+            "termDef": {
+                "cde_id": 2228610,
+                "cde_version": 1.0,
+                "source": "caDSR",
+                "term": "Stopped Smoking Year",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2228610%20and%20ver_nr=1.0"
+            },
+            "type": "integer"
+        },
+        "tobacco_smoking_status": {
+            "deprecated_enum": [
+                "Not Allowed To Collect",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7"
+            ],
+            "description": "Category describing current smoking status and smoking history as self-reported by a patient.",
+            "enum": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "Current Reformed Smoker, Duration Not Specified",
+                "Current Reformed Smoker for < or = 15 yrs",
+                "Current Reformed Smoker for > 15 yrs",
+                "Current Smoker",
+                "Lifelong Non-Smoker",
+                "Smoker at Diagnosis",
+                "Smoking history not documented",
+                "Unknown",
+                "Not Reported",
+                "Not Allowed To Collect"
+            ],
+            "enumDef": {
+                "1": {
+                    "description": "A person who has never smoked at the time of the interview or has smoked less than 100 cigarettes in their life.",
+                    "termDef": {
+                        "cde_id": "C65108",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Never Smoker",
+                        "term_id": "C65108",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C65108",
+                        "term_version": "19.12e"
+                    }
+                },
+                "2": {
+                    "description": "An adult who has smoked 100 cigarettes in his or her lifetime and who currently smokes cigarettes. Includes daily smokers and non-daily smokers (also known as occasional smokers).",
+                    "termDef": {
+                        "cde_id": "C67147",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Current Smoker",
+                        "term_id": "C67147",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C67147",
+                        "term_version": "19.12e"
+                    }
+                },
+                "3": {
+                    "description": "An individual who stopped smoking more than 15 years prior.",
+                    "termDef": {
+                        "cde_id": "C156828",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Current Reformed Smoker, More than 15 Years",
+                        "term_id": "C156828",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C156828",
+                        "term_version": "19.12e"
+                    }
+                },
+                "4": {
+                    "description": "An individual who stopped smoking within the past 15 years.",
+                    "termDef": {
+                        "cde_id": "C156829",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Current Reformed Smoker Within Past 15 Years",
+                        "term_id": "C156829",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C156829",
+                        "term_version": "19.12e"
+                    }
+                },
+                "5": {
+                    "description": "An individual who stopped smoking an unknown number of years prior.",
+                    "termDef": {
+                        "cde_id": "C156830",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Current Reformed Smoker, Years Unknown",
+                        "term_id": "C156830",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C156830",
+                        "term_version": "19.12e"
+                    }
+                },
+                "6": {
+                    "description": "An indication that a person was a smoker at the time they received a pathologic diagnosis.",
+                    "termDef": {
+                        "cde_id": "C164079",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Smoking at Diagnosis",
+                        "term_id": "C164079",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C164079",
+                        "term_version": "19.12e"
+                    }
+                },
+                "7": {
+                    "description": "An indication that the smoking history of an individual is unavailable.",
+                    "termDef": {
+                        "cde_id": "C156831",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Smoking History Not Available",
+                        "term_id": "C156831",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C156831",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Not Allowed To Collect": {
+                    "description": "An indicator that specifies that a collection event was not permitted.",
+                    "termDef": {
+                        "cde_id": "C141478",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Not Allowed To Collect",
+                        "term_id": "C141478",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C141478",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": 2181650,
+                "cde_version": 1.0,
+                "source": "caDSR",
+                "term": "Patient Smoking History Category",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2181650%20and%20ver_nr=1.0"
+            }
+        },
+        "type": {
+            "type": "string"
+        },
+        "type_of_smoke_exposure": {
+            "description": "The text term used to describe the patient's specific type of smoke exposure.",
+            "enum": [
+                "Accidental building fire smoke",
+                "Accidental fire smoke, grass",
+                "Accidental fire smoke, NOS",
+                "Accidental forest fire smoke",
+                "Accidental vehicle fire smoke",
+                "Aircraft smoke",
+                "Burning tree smoke",
+                "Coal smoke, NOS",
+                "Cooking-related smoke, NOS",
+                "Electrical fire smoke",
+                "Electronic cigarette smoke, NOS",
+                "Environmental tobacco smoke",
+                "Factory smokestack smoke",
+                "Field burning smoke",
+                "Fire smoke, NOS",
+                "Furnace or boiler smoke",
+                "Gas burning smoke, propane",
+                "Grease fire smoke",
+                "Grilling smoke",
+                "Hashish smoke",
+                "Indoor stove or fireplace smoke, coal burning",
+                "Indoor stove or fireplace smoke, NOS",
+                "Indoor stove or fireplace smoke, wood burning",
+                "Machine smoke",
+                "Marijuana smoke",
+                "No Smoke Exposure",
+                "Oil burning smoke, Kerosene",
+                "Oil burning smoke, NOS",
+                "Recreational fire smoke",
+                "Smoke exposure, NOS",
+                "Smokehouse smoke",
+                "Tobacco smoke, cigar",
+                "Tobacco smoke, cigarettes",
+                "Tobacco smoke, NOS",
+                "Tobacco smoke, pipe",
+                "Volcanic smoke",
+                "Waste burning smoke",
+                "Wood burning smoke, factory",
+                "Wood burning smoke, NOS",
+                "Work-related smoke, artificial smoke machines",
+                "Work-related smoke, fire fighting",
+                "Work-related smoke, foundry",
+                "Work-related smoke, generators",
+                "Work-related smoke, military",
+                "Work-related smoke, NOS",
+                "Work-related smoke, paint baking",
+                "Work-related smoke, plastics factory",
+                "Work-related smoke, plumbing",
+                "Work-related smoke, soldering/welding",
+                "Unknown"
+            ],
+            "enumDef": {
+                "Accidental building fire smoke": {
+                    "description": "Environmental or occupational exposure to airborne gases and particulates produced during a building fire that was not caused by deliberate human actions.",
+                    "termDef": {
+                        "cde_id": "C164066",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Accidental Building Fire Smoke Exposure",
+                        "term_id": "C164066",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C164066",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Accidental fire smoke, NOS": {
+                    "description": "Environmental exposure to airborne gases and particulates produced during a fire that was not caused by deliberate human actions.",
+                    "termDef": {
+                        "cde_id": "C164059",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Accidental Fire Smoke Exposure",
+                        "term_id": "C164059",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C164059",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Accidental fire smoke, grass": {
+                    "description": "Environmental or occupational exposure to airborne gases and particulates produced during a grass fire that was not caused by deliberate human actions.",
+                    "termDef": {
+                        "cde_id": "C164067",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Accidental Grass Fire Smoke Exposure",
+                        "term_id": "C164067",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C164067",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Accidental forest fire smoke": {
+                    "description": "Environmental or occupational exposure to airborne gases and particulates produced during a forest fire that was not caused by deliberate human actions.",
+                    "termDef": {
+                        "cde_id": "C164068",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Accidental Forest Fire Smoke Exposure",
+                        "term_id": "C164068",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C164068",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Accidental vehicle fire smoke": {
+                    "description": "Environmental or occupational exposure to airborne gases and particulates produced during a vehicle fire that was not caused by deliberate human actions.",
+                    "termDef": {
+                        "cde_id": "C164069",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Accidental Vehicle Fire Smoke Exposure",
+                        "term_id": "C164069",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C164069",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Aircraft smoke": {
+                    "description": "Environmental, occupational or consumer-based exposure to airborne gases and particulates produced when an aircraft is in operation.",
+                    "termDef": {
+                        "cde_id": "C164072",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Aircraft Smoke Exposure",
+                        "term_id": "C164072",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C164072",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Burning tree smoke": {
+                    "description": "Environmental or occupational exposure to airborne gases and particulates produced when trees are undergoing combustion.",
+                    "termDef": {
+                        "cde_id": "C164075",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Burning Tree Smoke",
+                        "term_id": "C164075",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C164075",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Coal smoke, NOS": {
+                    "description": "Environmental or occupational exposure to airborne gases and particulates produced when coal is rapidly oxidized via combustion.",
+                    "termDef": {
+                        "cde_id": "C164060",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Coal Smoke Exposure",
+                        "term_id": "C164060",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C164060",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Cooking-related smoke, NOS": {
+                    "description": "Environmental, occupational or consumer-based exposure to vaporized materials produced when food products are being cooked.",
+                    "termDef": {
+                        "cde_id": "C164061",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Cooking-Related Smoke Exposure",
+                        "term_id": "C164061",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C164061",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Electrical fire smoke": {
+                    "description": "Environmental or occupational exposure to airborne gases and particulates produced during an electrical fire.",
+                    "termDef": {
+                        "cde_id": "C164077",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Electrical Fire Smoke Exposure",
+                        "term_id": "C164077",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C164077",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Electronic cigarette smoke, NOS": {
+                    "description": "Environmental, occupational or consumer-based exposure to airborne gases and particulates produced by direct or nearby use of an electronic cigarette.",
+                    "termDef": {
+                        "cde_id": "C164062",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Electronic Cigarette Smoke Exposure",
+                        "term_id": "C164062",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C164062",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Environmental tobacco smoke": {
+                    "description": "Exposure to tobacco smoke products among individuals who do not smoke. This can result from sharing space with a smoker or from placental transfer from mother to fetus.",
+                    "termDef": {
+                        "cde_id": "C17140",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Passive Smoke Exposure",
+                        "term_id": "C17140",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17140",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Factory smokestack smoke": {
+                    "description": "Environmental or occupational exposure to airborne gases and particulates emitted by a factory smokestack.",
+                    "termDef": {
+                        "cde_id": "C164081",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Factory Smokestack Smoke Exposure",
+                        "term_id": "C164081",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C164081",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Field burning smoke": {
+                    "description": "Environmental or occupational exposure to airborne gases and particulates produced when trees, brush and grass in a field are burning.",
+                    "termDef": {
+                        "cde_id": "C164082",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Field Burning Smoke Exposure",
+                        "term_id": "C164082",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C164082",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Fire smoke, NOS": {
+                    "description": "Environmental or occupational exposure to airborne gases and particulates produced when materials are rapidly oxidized via combustion.",
+                    "termDef": {
+                        "cde_id": "C164058",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Fire Smoke Exposure",
+                        "term_id": "C164058",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C164058",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Furnace or boiler smoke": {
+                    "description": "Environmental, occupational or consumer-based exposure to airborne gases and particulates emitted by a boiler or furnace.",
+                    "termDef": {
+                        "cde_id": "C164083",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Furnace or Boiler Smoke Exposure",
+                        "term_id": "C164083",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C164083",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Gas burning smoke, propane": {
+                    "description": "Environmental, occupational or consumer-based exposure to airborne gases and particulates produced when propane is rapidly oxidized via combustion.",
+                    "termDef": {
+                        "cde_id": "C164084",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Propane Smoke Exposue",
+                        "term_id": "C164084",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C164084",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Grease fire smoke": {
+                    "description": "Environmental, occupational or consumer-based exposure to airborne gases and particulates produced during a grease fire.",
+                    "termDef": {
+                        "cde_id": "C164085",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Grease Fire Smoke Exposure",
+                        "term_id": "C164085",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C164085",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Grilling smoke": {
+                    "description": "Environmental, occupational or consumer-based exposure to airborne gases and particulates emitted by an indoor or outdoor grill used for cooking.",
+                    "termDef": {
+                        "cde_id": "C164086",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Grilling Smoke Exposure",
+                        "term_id": "C164086",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C164086",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Hashish smoke": {
+                    "description": "Environmental, occupational or consumer-based exposure to airborne gases and particulates produced by direct or nearby use of a vaporized or combusted product made from cannabis plant resin.",
+                    "termDef": {
+                        "cde_id": "C164087",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Hashish Smoke Exposure",
+                        "term_id": "C164087",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C164087",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Indoor stove or fireplace smoke, NOS": {
+                    "description": "Environmental or occupational exposure to airborne gases and particulates produced when materials are subjected to combustion in an indoor stove or fireplace.",
+                    "termDef": {
+                        "cde_id": "C164064",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Indoor Stove or Fireplace Smoke Exposure",
+                        "term_id": "C164064",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C164064",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Indoor stove or fireplace smoke, coal burning": {
+                    "description": "Environmental or occupational exposure to airborne gases and particulates produced when coal is subjected to combustion in an indoor stove or fireplace.",
+                    "termDef": {
+                        "cde_id": "C164088",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Coal-Burining Indoor Stove or Fireplace Smoke Exposure",
+                        "term_id": "C164088",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C164088",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Indoor stove or fireplace smoke, wood burning": {
+                    "description": "Environmental or occupational exposure to airborne gases and particulates produced when wood is subjected to combustion in an indoor stove or fireplace.",
+                    "termDef": {
+                        "cde_id": "C164089",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Wood-Burning Indoor Stove or Fireplace Smoke Exposure",
+                        "term_id": "C164089",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C164089",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Machine smoke": {
+                    "description": "Environmental or occupational exposure to airborne gases and particulates through the direct or nearby use of a machine.",
+                    "termDef": {
+                        "cde_id": "C164090",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Machine Smoke Exposure",
+                        "term_id": "C164090",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C164090",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Marijuana smoke": {
+                    "description": "Environmental, occupational or consumer-based exposure to airborne gases and particulates produced by direct or nearby use of a vaporized or combusted product made from the leaves and flowers of the cannabis plant.",
+                    "termDef": {
+                        "cde_id": "C164091",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Marijuana Smoke Exposure",
+                        "term_id": "C164091",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C164091",
+                        "term_version": "19.12e"
+                    }
+                },
+                "No Smoke Exposure": {
+                    "description": "An indication that a subject has no history of smoke exposure from any source.",
+                    "termDef": {
+                        "cde_id": "C164092",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "No Smoke Exposure",
+                        "term_id": "C164092",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C164092",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Oil burning smoke, Kerosene": {
+                    "description": "Environmental, occupational or consumer-based exposure to airborne gases and particulates produced when kerosene is rapidly oxidized via combustion.",
+                    "termDef": {
+                        "cde_id": "C164093",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Kerosene Smoke Exposure",
+                        "term_id": "C164093",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C164093",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Oil burning smoke, NOS": {
+                    "description": "Environmental or occupational exposure to airborne gases and particulates produced when oils are rapidly oxidized via combustion.",
+                    "termDef": {
+                        "cde_id": "C164063",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Burning Oil Smoke Exposure",
+                        "term_id": "C164063",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C164063",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Recreational fire smoke": {
+                    "description": "Environmental, occupational or consumer-based exposure to airborne gases and particulates produced when materials (usually wood) are burned for recreational purposes.",
+                    "termDef": {
+                        "cde_id": "C164094",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Recreational Fire Smoke Exposure",
+                        "term_id": "C164094",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C164094",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Smoke exposure, NOS": {
+                    "description": "Environmental, occupational or consumer-based exposure to airborne gases and particulates produced when materials undergo combustion or thermal decomposition.",
+                    "termDef": {
+                        "cde_id": "C164057",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Smoke Exposure",
+                        "term_id": "C164057",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C164057",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Smokehouse smoke": {
+                    "description": "Environmental, occupational or consumer-based exposure to airborne gases and particulates produced during indoor smoke curing of food products.",
+                    "termDef": {
+                        "cde_id": "C164095",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Smokehouse Smoke Exposure",
+                        "term_id": "C164095",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C164095",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Tobacco smoke, cigar": {
+                    "description": "Environmental, occupational or consumer-based exposure to airborne gases and particulates produced by direct or nearby use of a cigar.",
+                    "termDef": {
+                        "cde_id": "C164097",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Cigar Smoke Exposure",
+                        "term_id": "C164097",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C164097",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Tobacco smoke, cigarettes": {
+                    "description": "Environmental, occupational or consumer-based exposure to airborne gases and particulates produced by direct or nearby use of a cigarette.",
+                    "termDef": {
+                        "cde_id": "C164098",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Cigarette Smoke Exposure",
+                        "term_id": "C164098",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C164098",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Tobacco smoke, pipe": {
+                    "description": "Environmental, occupational or consumer-based exposure to airborne gases and particulates produced by direct or nearby use of a tobacco pipe.",
+                    "termDef": {
+                        "cde_id": "C164099",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Tobacco Pipe Smoke Exposure",
+                        "term_id": "C164099",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C164099",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Volcanic smoke": {
+                    "description": "Environmental exposure to airborne gases and particulates produced by a volcanic event.",
+                    "termDef": {
+                        "cde_id": "C164100",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Volcanic Smoke Exposure",
+                        "term_id": "C164100",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C164100",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Waste burning smoke": {
+                    "description": "Environmental or occupational exposure to airborne gases and particulates produced when trash or waste is burned.",
+                    "termDef": {
+                        "cde_id": "C164101",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Burning Waste Smoke Exposure",
+                        "term_id": "C164101",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C164101",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Wood burning smoke, NOS": {
+                    "description": "Environmental or occupational exposure to airborne gases and particulates produced when wood is subjected to combustion.",
+                    "termDef": {
+                        "cde_id": "C164065",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Burning Wood Smoke Exposure",
+                        "term_id": "C164065",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C164065",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Wood burning smoke, factory": {
+                    "description": "Environmental or occupational exposure to airborne gases and particulates produced when wood is burned in a factory setting.",
+                    "termDef": {
+                        "cde_id": "C164102",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Wood-Burning Factory Smoke Exposure",
+                        "term_id": "C164102",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C164102",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Work-related smoke, NOS": {
+                    "description": "Occupational exposure to airborne gases and particulates produced when materials undergo combustion or thermal decomposition.",
+                    "termDef": {
+                        "cde_id": "C164103",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Work-Related Smoke Exposure",
+                        "term_id": "C164103",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C164103",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Work-related smoke, artificial smoke machines": {
+                    "description": "Occupational exposure to airborne gases and particulates during the operation of a machine that produces artificial smoke.",
+                    "termDef": {
+                        "cde_id": "C164104",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Occupational Artificial Smoke Machine Smoke Exposure",
+                        "term_id": "C164104",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C164104",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Work-related smoke, fire fighting": {
+                    "description": "Occupational exposure to airborne gases and particulates while preventing, controlling or extinguishing fires.",
+                    "termDef": {
+                        "cde_id": "C164105",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Occupational Fire Fighting Smoke Exposure",
+                        "term_id": "C164105",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C164105",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Work-related smoke, foundry": {
+                    "description": "Occupational exposure to airborne gases and particulates during the operation of a foundry.",
+                    "termDef": {
+                        "cde_id": "C164106",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Occupational Foundry Smoke Exposure",
+                        "term_id": "C164106",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C164106",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Work-related smoke, generators": {
+                    "description": "Occupational exposure to airborne gases and particulates during the operation of a power generator.",
+                    "termDef": {
+                        "cde_id": "C164107",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Occupational Generator Smoke Exposure",
+                        "term_id": "C164107",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C164107",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Work-related smoke, military": {
+                    "description": "Occupational exposure to airborne gases and particulates during a military posting or deployment.",
+                    "termDef": {
+                        "cde_id": "C164115",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Occupational Military Smoke Exposure",
+                        "term_id": "C164115",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C164115",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Work-related smoke, paint baking": {
+                    "description": "Occupational exposure to airborne gases and particulates during the operation of a paint oven.",
+                    "termDef": {
+                        "cde_id": "C164116",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Occupational Paint Baking Smoke Exposure",
+                        "term_id": "C164116",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C164116",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Work-related smoke, plastics factory": {
+                    "description": "Occupational exposure to airborne gases and particulates during the manufacturing of plastics.",
+                    "termDef": {
+                        "cde_id": "C164118",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Occupational Plastics Factory Smoke Exposure",
+                        "term_id": "C164118",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C164118",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Work-related smoke, plumbing": {
+                    "description": "Occupational exposure to airborne gases and particulates during the installation of plumbing pipes and fixtures.",
+                    "termDef": {
+                        "cde_id": "C164119",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Occupational Plumbing Smoke Exposure",
+                        "term_id": "C164119",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C164119",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Work-related smoke, soldering/welding": {
+                    "description": "Occupational exposure to airborne gases and particulates during the operation of a soldering iron or welding machine.",
+                    "termDef": {
+                        "cde_id": "C164120",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Occupational Soldering/Welding Smoke Exposure",
+                        "term_id": "C164120",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C164120",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": "caDSR",
+                "term": "Person Smoke Exposure Type",
+                "term_url": null
+            }
+        },
+        "type_of_tobacco_used": {
+            "description": "The text term used to describe the specific type of tobacco used by the patient.",
+            "enum": [
+                "Cigar",
+                "Cigarette",
+                "Electronic Cigarette",
+                "Other",
+                "Pipe",
+                "Smokeless Tobacco"
+            ],
+            "enumDef": {
+                "Cigar": {
+                    "description": "A compact roll of tobacco leaves prepared for smoking.",
+                    "termDef": {
+                        "cde_id": "C1813",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Cigar",
+                        "term_id": "C1813",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C1813",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Cigarette": {
+                    "description": "Finely cut tobacco encased in a wrapper of thin paper and rolled for smoking.",
+                    "termDef": {
+                        "cde_id": "C1802",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Cigarette",
+                        "term_id": "C1802",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C1802",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Electronic Cigarette": {
+                    "description": "A battery-powered electronic device designed to atomize a nicotine-containing liquid solution for inhalation in a manner that simulates smoking a tobacco cigarette.",
+                    "termDef": {
+                        "cde_id": "C120482",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Electronic Cigarette",
+                        "term_id": "C120482",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C120482",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Other": {
+                    "description": "Different than the one(s) previously specified or mentioned.",
+                    "termDef": {
+                        "cde_id": "C17649",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Other",
+                        "term_id": "C17649",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17649",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Pipe": {
+                    "description": "A tube with a small bowl at one end, especially one used for smoking tobacco.",
+                    "termDef": {
+                        "cde_id": "C86044",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Pipe",
+                        "term_id": "C86044",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C86044",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Smokeless Tobacco": {
+                    "description": "Tobacco that is not smoked but used in another form such as chewing tobacco or snuff.",
+                    "termDef": {
+                        "cde_id": "C892",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Smokeless Tobacco",
+                        "term_id": "C892",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C892",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": "caDSR",
+                "term": "Person Tobacco Use Type",
+                "term_url": null
+            }
+        },
+        "updated_datetime": {
+            "common": {
+                "description": "A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]",
+                "termDef": {
+                    "cde_id": null,
+                    "cde_version": null,
+                    "source": null,
+                    "term": null,
+                    "term_url": null
+                }
+            },
+            "oneOf": [
+                {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        },
+        "use_per_day": {
+            "description": "The average number of times the patient used per day.",
+            "minimum": 0,
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            },
+            "type": "number"
+        },
+        "years_smoked": {
+            "description": "Numeric value (or unknown) to represent the number of years a person has been smoking.",
+            "maximum": 89,
+            "minimum": 0,
+            "termDef": {
+                "cde_id": 3137957,
+                "cde_version": 1.0,
+                "source": "caDSR",
+                "term": "Person Smoking Duration Year Count",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=3137957%20and%20ver_nr=1.0"
+            },
+            "type": "number"
+        }
+    },
+    "required": [
+        "submitter_id"
+    ],
+    "submittable": true,
+    "systemProperties": [
+        "id",
+        "project_id",
+        "created_datetime",
+        "updated_datetime",
+        "state"
+    ],
+    "title": "Exposure",
+    "type": "object",
+    "uniqueKeys": [
+        [
+            "id"
+        ],
+        [
+            "project_id",
+            "submitter_id"
+        ]
+    ],
+    "validators": null
+}

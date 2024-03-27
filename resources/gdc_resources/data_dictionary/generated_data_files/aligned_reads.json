@@ -1,0 +1,902 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "additionalProperties": false,
+    "category": "data_file",
+    "description": "Data file containing aligned reads that are generated internally by the GDC.",
+    "downloadable": true,
+    "id": "aligned_reads",
+    "links": [
+        {
+            "exclusive": true,
+            "required": true,
+            "subgroup": [
+                {
+                    "backref": "aligned_reads_files",
+                    "label": "data_from",
+                    "multiplicity": "many_to_one",
+                    "name": "alignment_cocleaning_workflows",
+                    "required": false,
+                    "target_type": "alignment_cocleaning_workflow"
+                },
+                {
+                    "backref": "aligned_reads_files",
+                    "label": "data_from",
+                    "multiplicity": "many_to_one",
+                    "name": "alignment_workflows",
+                    "required": false,
+                    "target_type": "alignment_workflow"
+                }
+            ]
+        },
+        {
+            "exclusive": true,
+            "required": false,
+            "subgroup": [
+                {
+                    "backref": "aligned_reads_files",
+                    "label": "matched_to",
+                    "multiplicity": "one_to_many",
+                    "name": "submitted_unaligned_reads_files",
+                    "required": false,
+                    "target_type": "submitted_unaligned_reads"
+                },
+                {
+                    "backref": "aligned_reads_files",
+                    "label": "matched_to",
+                    "multiplicity": "one_to_one",
+                    "name": "submitted_aligned_reads_files",
+                    "required": false,
+                    "target_type": "submitted_aligned_reads"
+                }
+            ]
+        }
+    ],
+    "namespace": "https://gdc.cancer.gov",
+    "previous_version_downloadable": false,
+    "program": "*",
+    "project": "*",
+    "properties": {
+        "alignment_cocleaning_workflows": {
+            "anyOf": [
+                {
+                    "items": {
+                        "additionalProperties": true,
+                        "maxItems": 1,
+                        "minItems": 1,
+                        "properties": {
+                            "id": {
+                                "common": {
+                                    "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                                    "termDef": {
+                                        "cde_id": "C54100",
+                                        "cde_version": null,
+                                        "source": "NCIt",
+                                        "term": "Universally Unique Identifier",
+                                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100"
+                                    }
+                                },
+                                "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                                "systemAlias": "node_id",
+                                "type": "string"
+                            },
+                            "submitter_id": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                {
+                    "additionalProperties": true,
+                    "properties": {
+                        "id": {
+                            "common": {
+                                "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                                "termDef": {
+                                    "cde_id": "C54100",
+                                    "cde_version": null,
+                                    "source": "NCIt",
+                                    "term": "Universally Unique Identifier",
+                                    "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100"
+                                }
+                            },
+                            "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                            "systemAlias": "node_id",
+                            "type": "string"
+                        },
+                        "submitter_id": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                }
+            ]
+        },
+        "alignment_workflows": {
+            "anyOf": [
+                {
+                    "items": {
+                        "additionalProperties": true,
+                        "maxItems": 1,
+                        "minItems": 1,
+                        "properties": {
+                            "id": {
+                                "common": {
+                                    "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                                    "termDef": {
+                                        "cde_id": "C54100",
+                                        "cde_version": null,
+                                        "source": "NCIt",
+                                        "term": "Universally Unique Identifier",
+                                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100"
+                                    }
+                                },
+                                "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                                "systemAlias": "node_id",
+                                "type": "string"
+                            },
+                            "submitter_id": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                {
+                    "additionalProperties": true,
+                    "properties": {
+                        "id": {
+                            "common": {
+                                "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                                "termDef": {
+                                    "cde_id": "C54100",
+                                    "cde_version": null,
+                                    "source": "NCIt",
+                                    "term": "Universally Unique Identifier",
+                                    "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100"
+                                }
+                            },
+                            "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                            "systemAlias": "node_id",
+                            "type": "string"
+                        },
+                        "submitter_id": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                }
+            ]
+        },
+        "average_base_quality": {
+            "description": "Average base quality collected from samtools.",
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            },
+            "type": "number"
+        },
+        "average_insert_size": {
+            "description": "Average insert size collected from samtools.",
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            },
+            "type": "integer"
+        },
+        "average_read_length": {
+            "description": "Average read length collected from samtools.",
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            },
+            "type": "integer"
+        },
+        "batch_id": {
+            "description": "GDC submission batch indicator. It is unique within the context of a project.",
+            "type": "integer"
+        },
+        "contamination": {
+            "description": "Fraction of reads coming from cross-sample contamination collected from GATK4.",
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            },
+            "type": "number"
+        },
+        "contamination_error": {
+            "description": "Estimation error of cross-sample contamination collected from GATK4.",
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            },
+            "type": "number"
+        },
+        "created_datetime": {
+            "common": {
+                "description": "A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]",
+                "termDef": {
+                    "cde_id": null,
+                    "cde_version": null,
+                    "source": null,
+                    "term": null,
+                    "term_url": null
+                }
+            },
+            "oneOf": [
+                {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        },
+        "data_category": {
+            "description": "Broad categorization of the contents of the data file.",
+            "enum": [
+                "Sequencing Reads"
+            ],
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            }
+        },
+        "data_format": {
+            "description": "Format of the data files.",
+            "enum": [
+                "BAM"
+            ],
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            }
+        },
+        "data_type": {
+            "description": "Specific content type of the data file.",
+            "enum": [
+                "Aligned Reads"
+            ],
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            }
+        },
+        "error_type": {
+            "common": {
+                "description": "Type of error for the data file object.",
+                "termDef": {
+                    "cde_id": null,
+                    "cde_version": null,
+                    "source": null,
+                    "term": null,
+                    "term_url": null
+                }
+            },
+            "enum": [
+                "file_size",
+                "file_format",
+                "md5sum"
+            ]
+        },
+        "experimental_strategy": {
+            "description": "The sequencing strategy used to generate the data file.",
+            "enum": [
+                "ATAC-Seq",
+                "Bisulfite-Seq",
+                "ChIP-Seq",
+                "HiChIP",
+                "m6A MeRIP-Seq",
+                "miRNA-Seq",
+                "RNA-Seq",
+                "scATAC-Seq",
+                "scRNA-Seq",
+                "Targeted Sequencing",
+                "Validation",
+                "WGS",
+                "WXS"
+            ],
+            "enumDef": {
+                "Targeted Sequencing": {
+                    "description": "A technique that determines the nucleotide sequence of a pre-specified region of DNA or RNA by using primers that are specific for that region.",
+                    "termDef": {
+                        "cde_id": "C130177",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "Next Generation Targeted Sequencing",
+                        "term_id": "C130177",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C130177",
+                        "term_version": "20.10d"
+                    }
+                },
+                "WGS": {
+                    "description": "A procedure that can determine the DNA sequence for nearly the entire genome of an individual.",
+                    "termDef": {
+                        "cde_id": "C101294",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "Whole Genome Sequencing",
+                        "term_id": "C101294",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C101294",
+                        "term_version": "20.10d"
+                    }
+                },
+                "WXS": {
+                    "description": "A procedure that can determine the DNA sequence for all of the exons in an individual.",
+                    "termDef": {
+                        "cde_id": "C101295",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "Whole Exome Sequencing",
+                        "term_id": "C101295",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C101295",
+                        "term_version": "20.10d"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            }
+        },
+        "file_name": {
+            "common": {
+                "description": "The name (or part of a name) of a file (of any type).",
+                "termDef": {
+                    "cde_id": null,
+                    "cde_version": null,
+                    "source": null,
+                    "term": null,
+                    "term_url": null
+                }
+            },
+            "type": "string"
+        },
+        "file_size": {
+            "common": {
+                "description": "The size of the data file (object) in bytes.",
+                "termDef": {
+                    "cde_id": null,
+                    "cde_version": null,
+                    "source": null,
+                    "term": null,
+                    "term_url": null
+                }
+            },
+            "type": "integer"
+        },
+        "file_state": {
+            "common": {
+                "description": "The current state of the data file object.",
+                "termDef": {
+                    "cde_id": null,
+                    "cde_version": null,
+                    "source": null,
+                    "term": null,
+                    "term_url": null
+                }
+            },
+            "default": "registered",
+            "enum": [
+                "registered",
+                "uploading",
+                "uploaded",
+                "validating",
+                "validated",
+                "submitted",
+                "processing",
+                "processed",
+                "released",
+                "error",
+                "deleted"
+            ]
+        },
+        "id": {
+            "common": {
+                "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                "termDef": {
+                    "cde_id": "C54100",
+                    "cde_version": null,
+                    "source": "NCIt",
+                    "term": "Universally Unique Identifier",
+                    "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100"
+                }
+            },
+            "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+            "systemAlias": "node_id",
+            "type": "string"
+        },
+        "md5sum": {
+            "common": {
+                "description": "The 128-bit hash value expressed as a 32 digit hexadecimal number (in lower case) used as a file's digital fingerprint.",
+                "termDef": {
+                    "cde_id": null,
+                    "cde_version": null,
+                    "source": null,
+                    "term": null,
+                    "term_url": null
+                }
+            },
+            "pattern": "^[a-f0-9]{32}$",
+            "type": "string"
+        },
+        "mean_coverage": {
+            "description": "Mean coverage for whole genome sequencing, or mean target coverage for whole exome and targeted sequencing, collected from Picard Tools.",
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            },
+            "type": "number"
+        },
+        "msi_score": {
+            "description": "Numeric score denoting the aligned reads file's MSI score from MSIsensor.",
+            "type": "number"
+        },
+        "msi_status": {
+            "description": "MSIsensor determination of either microsatellite stability or instability.",
+            "enum": [
+                "MSI",
+                "MSS"
+            ]
+        },
+        "pairs_on_diff_chr": {
+            "description": "Pairs on different chromosomes collected from samtools.",
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            },
+            "type": "integer"
+        },
+        "platform": {
+            "description": "Name of the platform used to obtain data.",
+            "enum": [
+                "Complete Genomics",
+                "Illumina",
+                "Ion Torrent",
+                "LS454",
+                "Other",
+                "PacBio",
+                "SOLiD"
+            ],
+            "enumDef": {
+                "Other": {
+                    "description": "Different than the one(s) previously specified or mentioned.",
+                    "termDef": {
+                        "cde_id": "C17649",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Other",
+                        "term_id": "C17649",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17649",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            }
+        },
+        "project_id": {
+            "common": {
+                "description": "Unique ID for any specific defined piece of work that is undertaken or attempted to meet a single requirement.",
+                "termDef": {
+                    "cde_id": null,
+                    "cde_version": null,
+                    "source": null,
+                    "term": null,
+                    "term_url": null
+                }
+            },
+            "type": "string"
+        },
+        "proportion_base_mismatch": {
+            "description": "Proportion of mismatched bases collected from samtools.",
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            },
+            "type": "number"
+        },
+        "proportion_coverage_10x": {
+            "description": "Proportion of all reference bases for whole genome sequencing, or targeted bases for whole exome and targeted sequencing, that achieves 10X or greater coverage from Picard Tools.",
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            },
+            "type": "number"
+        },
+        "proportion_coverage_30x": {
+            "description": "Proportion of all reference bases for whole genome sequencing, or targeted bases for whole exome and targeted sequencing, that achieves 30X or greater coverage from Picard Tools.",
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            },
+            "type": "number"
+        },
+        "proportion_reads_duplicated": {
+            "description": "Proportion of duplicated reads collected from samtools.",
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            },
+            "type": "number"
+        },
+        "proportion_reads_mapped": {
+            "description": "Proportion of mapped reads collected from samtools.",
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            },
+            "type": "number"
+        },
+        "proportion_targets_no_coverage": {
+            "description": "Proportion of targets that did not reach 1X coverage over any base from Picard Tools.",
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            },
+            "type": "number"
+        },
+        "state": {
+            "common": {
+                "description": "The current state of the object.",
+                "termDef": {
+                    "cde_id": null,
+                    "cde_version": null,
+                    "source": null,
+                    "term": null,
+                    "term_url": null
+                }
+            },
+            "default": "validated",
+            "downloadable": [
+                "uploaded",
+                "md5summed",
+                "validating",
+                "validated",
+                "error",
+                "invalid",
+                "released"
+            ],
+            "oneOf": [
+                {
+                    "enum": [
+                        "uploading",
+                        "uploaded",
+                        "md5summing",
+                        "md5summed",
+                        "validating",
+                        "error",
+                        "invalid",
+                        "suppressed",
+                        "redacted",
+                        "live"
+                    ]
+                },
+                {
+                    "enum": [
+                        "validated",
+                        "submitted",
+                        "released"
+                    ]
+                }
+            ],
+            "public": [
+                "live"
+            ]
+        },
+        "state_comment": {
+            "description": "Optional comment about why the file is in the current state, mainly for invalid state.",
+            "type": "string"
+        },
+        "submitted_aligned_reads_files": {
+            "anyOf": [
+                {
+                    "items": {
+                        "additionalProperties": true,
+                        "maxItems": 1,
+                        "minItems": 1,
+                        "properties": {
+                            "id": {
+                                "common": {
+                                    "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                                    "termDef": {
+                                        "cde_id": "C54100",
+                                        "cde_version": null,
+                                        "source": "NCIt",
+                                        "term": "Universally Unique Identifier",
+                                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100"
+                                    }
+                                },
+                                "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                                "systemAlias": "node_id",
+                                "type": "string"
+                            },
+                            "submitter_id": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                {
+                    "additionalProperties": true,
+                    "properties": {
+                        "id": {
+                            "common": {
+                                "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                                "termDef": {
+                                    "cde_id": "C54100",
+                                    "cde_version": null,
+                                    "source": "NCIt",
+                                    "term": "Universally Unique Identifier",
+                                    "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100"
+                                }
+                            },
+                            "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                            "systemAlias": "node_id",
+                            "type": "string"
+                        },
+                        "submitter_id": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                }
+            ]
+        },
+        "submitted_unaligned_reads_files": {
+            "anyOf": [
+                {
+                    "items": {
+                        "additionalProperties": true,
+                        "minItems": 1,
+                        "properties": {
+                            "id": {
+                                "common": {
+                                    "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                                    "termDef": {
+                                        "cde_id": "C54100",
+                                        "cde_version": null,
+                                        "source": "NCIt",
+                                        "term": "Universally Unique Identifier",
+                                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100"
+                                    }
+                                },
+                                "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                                "systemAlias": "node_id",
+                                "type": "string"
+                            },
+                            "submitter_id": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                {
+                    "additionalProperties": true,
+                    "properties": {
+                        "id": {
+                            "common": {
+                                "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                                "termDef": {
+                                    "cde_id": "C54100",
+                                    "cde_version": null,
+                                    "source": "NCIt",
+                                    "term": "Universally Unique Identifier",
+                                    "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100"
+                                }
+                            },
+                            "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                            "systemAlias": "node_id",
+                            "type": "string"
+                        },
+                        "submitter_id": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                }
+            ]
+        },
+        "submitter_id": {
+            "description": "A project-specific identifier for a node. This property is the calling card/nickname/alias for a unit of submission. It can be used in place of the uuid for identifying or recalling a node.",
+            "type": "string"
+        },
+        "total_reads": {
+            "description": "Total number of reads collected from samtools.",
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            },
+            "type": "integer"
+        },
+        "tumor_ploidy": {
+            "description": "Numeric value used to describe the number of sets of chromosomes in a cell or an organism. For example, haploid means one set and diploid means two sets.",
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": "Tumor Ploidy Value",
+                "term_url": null
+            },
+            "type": "number"
+        },
+        "tumor_purity": {
+            "description": "Numeric value used to describe the ratio of tumor cells compared to total cells present in a sample.",
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": "Tumor Purity Ratio",
+                "term_url": null
+            },
+            "type": "number"
+        },
+        "type": {
+            "type": "string"
+        },
+        "updated_datetime": {
+            "common": {
+                "description": "A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]",
+                "termDef": {
+                    "cde_id": null,
+                    "cde_version": null,
+                    "source": null,
+                    "term": null,
+                    "term_url": null
+                }
+            },
+            "oneOf": [
+                {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        },
+        "wgs_coverage": {
+            "description": "Range of coverage values for WGS aligned reads. Each range is non-inclusive to the lower bound.",
+            "enum": [
+                "0x-10x",
+                "10x-25x",
+                "25x-150x",
+                "150x+",
+                "Unknown",
+                "Not Applicable"
+            ],
+            "enumDef": {
+                "Not Applicable": {
+                    "description": "Determination of a value is not relevant in the current context.",
+                    "termDef": {
+                        "cde_id": "C48660",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "Not Applicable",
+                        "term_id": "C48660",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C48660",
+                        "term_version": "20.10d"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            }
+        }
+    },
+    "required": [
+        "submitter_id",
+        "file_name",
+        "file_size",
+        "md5sum",
+        "data_category",
+        "data_format",
+        "data_type",
+        "experimental_strategy",
+        "platform"
+    ],
+    "submittable": false,
+    "systemProperties": [
+        "id",
+        "project_id",
+        "created_datetime",
+        "updated_datetime",
+        "file_state",
+        "state",
+        "error_type"
+    ],
+    "title": "Aligned Reads",
+    "type": "object",
+    "uniqueKeys": [
+        [
+            "id"
+        ],
+        [
+            "project_id",
+            "submitter_id"
+        ]
+    ],
+    "validators": null
+}

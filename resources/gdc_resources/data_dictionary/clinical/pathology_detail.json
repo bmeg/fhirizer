@@ -1,0 +1,3176 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "additionalProperties": false,
+    "category": "clinical",
+    "description": "Information derived from a pathologic review of a specific sample or slide that was not known to be submitted to the GDC.",
+    "downloadable": false,
+    "id": "pathology_detail",
+    "links": [
+        {
+            "backref": "pathology_details",
+            "label": "describes",
+            "multiplicity": "many_to_one",
+            "name": "diagnoses",
+            "required": true,
+            "target_type": "diagnosis"
+        }
+    ],
+    "namespace": "https://gdc.cancer.gov",
+    "previous_version_downloadable": false,
+    "program": "*",
+    "project": "*",
+    "properties": {
+        "additional_pathology_findings": {
+            "description": "A section header that includes additional pathologic findings.",
+            "enum": [
+                "Adenomyosis",
+                "Asbestos bodies",
+                "Atrophic endometrium",
+                "Atypical hyperplasia/Endometrial intraepithelial neoplasia (EIN)",
+                "Autoimmune atrophic chronic gastritis",
+                "Benign endocervical polyp",
+                "Bilateral ovaries with endometriotic cyst and surface adhesions",
+                "Bone marrow concordant histology",
+                "Bone marrow discordant histology",
+                "Carcinoma in situ",
+                "Cirrhosis",
+                "Clostridioides difficile (c. diff)",
+                "Colonization; bacterial",
+                "Colonization; fungal",
+                "Cyst(s)",
+                "Diffuse and early nodular diabetic glomerulosclerosis",
+                "Dysplasia; high grade",
+                "Dysplasia; low grade",
+                "Endometrial polyp",
+                "Endometriosis",
+                "Endometroid carcinoma with local mucinous differentiation",
+                "Endosalpingiosis",
+                "Epithelial dysplasia",
+                "Epithelial hyperplasia",
+                "Extravascular Matrix Loops",
+                "Gallbladder adenomyomatosis",
+                "Glomerular disease",
+                "Hyperkeratosis",
+                "Inflammation",
+                "Intestinal metaplasia",
+                "Keratinizing dysplasia; mild",
+                "Keratinizing dysplasia; moderate",
+                "Keratinizing dysplasia; severe (carcinoma in situ)",
+                "Leiomyoma",
+                "Leiomyomata w/ degenerative changes",
+                "Nonkeratinizing dysplasia; mild",
+                "Nonkeratinizing dysplasia; moderate",
+                "Nonkeratinizing dysplasia; severe (carcinoma in situ)",
+                "Other Complex Extravascular Matrix Patterns",
+                "PD-L1 CPS (223C LDT) - 20%",
+                "Percent follicular component <= 10%",
+                "Percent follicular component > 10%",
+                "Platinum-resistant",
+                "Pleural plaque",
+                "Poorly Differentiated",
+                "Pulmonary interstitial fibrosis",
+                "Sialadenitis",
+                "Sinonasal papilloma",
+                "Squamous metaplasia",
+                "Squamous papilloma; solitary",
+                "Squamous papillomatosis",
+                "Tubular (papillary) adenoma(s)",
+                "Tumor has rough spikey edges",
+                "Tumor-associated lymphoid proliferation",
+                "Well Differentiated",
+                "Other"
+            ],
+            "enumDef": {
+                "Extravascular Matrix Loops": {
+                    "description": "A microscopic finding indicating the presence or absence of extravascular matrix loops in uveal melanoma.",
+                    "termDef": {
+                        "cde_id": "C111025",
+                        "cde_version": "23.03d",
+                        "source": "NCIt",
+                        "term": "Extravascular Matrix Loops",
+                        "term_id": "C111025",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C111025",
+                        "term_version": "23.03d"
+                    }
+                },
+                "Other Complex Extravascular Matrix Patterns": {
+                    "description": "A microscopic finding indicating the presence of patterns formed by malignant cells outside the blood vessel circulation in uveal melanoma. The patterns are detectable using PAS stain without counterstaining with hematoxylin.",
+                    "termDef": {
+                        "cde_id": "C111024",
+                        "cde_version": "23.03d",
+                        "source": "NCIt",
+                        "term": "Presence of Extravascular Matrix Patterns",
+                        "term_id": "C111024",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C111024",
+                        "term_version": "23.03d"
+                    }
+                },
+                "Poorly Differentiated": {
+                    "description": "Describes tumor cells that generally have lost most of the appearance of normal cells. They tend to grow and spread.",
+                    "termDef": {
+                        "cde_id": "C14167",
+                        "cde_version": "23.03d",
+                        "source": "NCIt",
+                        "term": "Poorly Differentiated",
+                        "term_id": "C14167",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C14167",
+                        "term_version": "23.03d"
+                    }
+                },
+                "Well Differentiated": {
+                    "description": "Describes tumor cells that generally retain the appearance of normal cells and tend to grow and spread at a slower rate than undifferentiated or poorly differentiated tumor cells.",
+                    "termDef": {
+                        "cde_id": "C14171",
+                        "cde_version": "23.03d",
+                        "source": "NCIt",
+                        "term": "Well Differentiated",
+                        "term_id": "C14171",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C14171",
+                        "term_version": "23.03d"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": "C158809",
+                "cde_version": "20.10d",
+                "source": "NCIt",
+                "term": "Additional Pathologic Findings",
+                "term_id": "C158809",
+                "term_url": null,
+                "term_version": "20.10d"
+            }
+        },
+        "anaplasia_present": {
+            "description": "Yes/no/unknown/not reported indicator used to describe whether anaplasia was present at the time of diagnosis.",
+            "enum": [
+                "Yes",
+                "No",
+                "Unknown",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "No": {
+                    "description": "The non-affirmative response to a question.",
+                    "termDef": {
+                        "cde_id": "C49487",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "No",
+                        "term_id": "C49487",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Yes": {
+                    "description": "The affirmative response to a question.",
+                    "termDef": {
+                        "cde_id": "C49488",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Yes",
+                        "term_id": "C49488",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": 6059599,
+                "cde_version": 1.0,
+                "source": "caDSR",
+                "term": "Anaplastic Lesion Present Indicator",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6059599%20and%20ver_nr=1.0"
+            }
+        },
+        "anaplasia_present_type": {
+            "description": "The text term used to describe the morphologic findings indicating the presence of a malignant cellular infiltrate characterized by the presence of large pleomorphic cells, necrosis, and high mitotic activity in a tissue sample.",
+            "enum": [
+                "Absent",
+                "Diffuse",
+                "Equivocal",
+                "Focal",
+                "Present",
+                "Sclerosis",
+                "Unknown",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Present": {
+                    "description": "A morphologic finding indicating the presence of a malignant cellular infiltrate characterized by the presence of large pleomorphic cells, necrosis, and high mitotic activity in a tissue sample.",
+                    "termDef": {
+                        "cde_id": "C36113",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Anaplastic Lesion",
+                        "term_id": "C36113",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C36113",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": 4925534,
+                "cde_version": 1.0,
+                "source": "caDSR",
+                "term": "Anaplastic Lesion Classification Category",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=4925534%20and%20ver_nr=1.0"
+            }
+        },
+        "batch_id": {
+            "description": "GDC submission batch indicator. It is unique within the context of a project.",
+            "type": "integer"
+        },
+        "bone_marrow_malignant_cells": {
+            "description": "The text term used to indicate whether there are malignant cells in the bone marrow.",
+            "enum": [
+                "Yes",
+                "No",
+                "Unknown",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "No": {
+                    "description": "The non-affirmative response to a question.",
+                    "termDef": {
+                        "cde_id": "C49487",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "No",
+                        "term_id": "C49487",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Yes": {
+                    "description": "The affirmative response to a question.",
+                    "termDef": {
+                        "cde_id": "C49488",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Yes",
+                        "term_id": "C49488",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": "Malignant Bone Marrow Indicator",
+                "term_url": null
+            }
+        },
+        "breslow_thickness": {
+            "description": "The number that describes the distance, in millimeters, between the upper layer of the epidermis and the deepest point of tumor penetration.",
+            "minimum": 0,
+            "termDef": {
+                "cde_id": 64809,
+                "cde_version": 3.0,
+                "source": "caDSR",
+                "term": "Breslow Depth Measurement",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=64809%20and%20ver_nr=3.0"
+            },
+            "type": "number"
+        },
+        "circumferential_resection_margin": {
+            "description": "Numeric value used to describe the non-peritonealised bare area of rectum, comprising anterior and posterior segments, when submitted as a surgical specimen resulting from excision of cancer of the rectum.",
+            "minimum": 0,
+            "termDef": {
+                "cde_id": 6161030,
+                "cde_version": 1.0,
+                "source": "caDSR",
+                "term": "Circumferential Resection Margin Measurement",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161030%20and%20ver_nr=1.0"
+            },
+            "type": "number"
+        },
+        "columnar_mucosa_present": {
+            "description": "Indicator noting whether columnar mucosa was present within the tissue.",
+            "enum": [
+                "Yes",
+                "No",
+                "Unknown",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "No": {
+                    "description": "The non-affirmative response to a question.",
+                    "termDef": {
+                        "cde_id": "C49487",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "No",
+                        "term_id": "C49487",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Yes": {
+                    "description": "The affirmative response to a question.",
+                    "termDef": {
+                        "cde_id": "C49488",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Yes",
+                        "term_id": "C49488",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            }
+        },
+        "consistent_pathology_review": {
+            "description": "Indicates whether a recent review of tissue is consistent with a prior pathology review.",
+            "enum": [
+                "Yes",
+                "No",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "No": {
+                    "description": "The non-affirmative response to a question.",
+                    "termDef": {
+                        "cde_id": "C49487",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "No",
+                        "term_id": "C49487",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Yes": {
+                    "description": "The affirmative response to a question.",
+                    "termDef": {
+                        "cde_id": "C49488",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Yes",
+                        "term_id": "C49488",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": "Consistent Pathology Review",
+                "term_url": null
+            }
+        },
+        "created_datetime": {
+            "common": {
+                "description": "A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]",
+                "termDef": {
+                    "cde_id": null,
+                    "cde_version": null,
+                    "source": null,
+                    "term": null,
+                    "term_url": null
+                }
+            },
+            "oneOf": [
+                {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        },
+        "days_to_pathology_detail": {
+            "description": "Number of days between the date used for index and the date a pathologic review of a specific sample or slide was performed.",
+            "maximum": 32872,
+            "minimum": -32872,
+            "type": "integer"
+        },
+        "diagnoses": {
+            "anyOf": [
+                {
+                    "items": {
+                        "additionalProperties": true,
+                        "maxItems": 1,
+                        "minItems": 1,
+                        "properties": {
+                            "id": {
+                                "common": {
+                                    "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                                    "termDef": {
+                                        "cde_id": "C54100",
+                                        "cde_version": null,
+                                        "source": "NCIt",
+                                        "term": "Universally Unique Identifier",
+                                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100"
+                                    }
+                                },
+                                "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                                "systemAlias": "node_id",
+                                "type": "string"
+                            },
+                            "submitter_id": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                {
+                    "additionalProperties": true,
+                    "properties": {
+                        "id": {
+                            "common": {
+                                "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                                "termDef": {
+                                    "cde_id": "C54100",
+                                    "cde_version": null,
+                                    "source": "NCIt",
+                                    "term": "Universally Unique Identifier",
+                                    "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100"
+                                }
+                            },
+                            "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                            "systemAlias": "node_id",
+                            "type": "string"
+                        },
+                        "submitter_id": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                }
+            ]
+        },
+        "dysplasia_degree": {
+            "description": "The degree to which dysplasia was involved.",
+            "enum": [
+                "High Grade",
+                "Indefinite",
+                "Low Grade",
+                "Mild",
+                "Moderate",
+                "No Dysplasia",
+                "Severe",
+                "Unknown",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "High Grade": {
+                    "description": "A subjective characterization of the phenomenon of dysplasia, based on microscopic examination of the architectural and/or cytological changes in a tissue sample, that is determined to be high.",
+                    "termDef": {
+                        "cde_id": "C156083",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "High Grade Dysplasia",
+                        "term_id": "C156083",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C156083",
+                        "term_version": "20.10d"
+                    }
+                },
+                "Indefinite": {
+                    "description": "An indication that there is an ambiguous morphological pattern in a tissue sample such that the presence or absence of dysplasia cannot be determined.",
+                    "termDef": {
+                        "cde_id": "C164039",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "Indefinite Dysplasia",
+                        "term_id": "C164039",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C164039",
+                        "term_version": "20.10d"
+                    }
+                },
+                "Low Grade": {
+                    "description": "A subjective characterization of the phenomenon of dysplasia, based on microscopic examination of the architectural and/or cytological changes in a tissue sample, that is determined to be low.",
+                    "termDef": {
+                        "cde_id": "C156084",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "Low Grade Dysplasia",
+                        "term_id": "C156084",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C156084",
+                        "term_version": "20.10d"
+                    }
+                },
+                "Mild": {
+                    "description": "Gentle or temperate in nature or degree.",
+                    "termDef": {
+                        "cde_id": "C70666",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "Mild",
+                        "term_id": "C70666",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C70666",
+                        "term_version": "20.10d"
+                    }
+                },
+                "Moderate": {
+                    "description": "The quality of being within reasonable or average limits; not excessive or extreme.",
+                    "termDef": {
+                        "cde_id": "C61376",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "Moderate",
+                        "term_id": "C61376",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C61376",
+                        "term_version": "20.10d"
+                    }
+                },
+                "No Dysplasia": {
+                    "description": "An indication that signs of dysplasia were not found in a sample.",
+                    "termDef": {
+                        "cde_id": "C164040",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "Dysplasia Negative",
+                        "term_id": "C164040",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C164040",
+                        "term_version": "20.10d"
+                    }
+                },
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Severe": {
+                    "description": "Intensely bad or unpleasant in degree, quality or extent.",
+                    "termDef": {
+                        "cde_id": "C70667",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "Severe",
+                        "term_id": "C70667",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C70667",
+                        "term_version": "20.10d"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            }
+        },
+        "dysplasia_type": {
+            "description": "The type of dysplasia involved.",
+            "enum": [
+                "Epithelial",
+                "Esophageal Columnar Dysplasia",
+                "Esophageal Mucosa Columnar Dysplasia",
+                "Keratinizing",
+                "Nonkeratinizing",
+                "Other",
+                "Unknown",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "Esophageal Columnar Dysplasia": {
+                    "description": "A morphologic finding the replacement of the normal lower esophagus squamous epithelium with columnar epithelium.",
+                    "termDef": {
+                        "cde_id": "C174120",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "Esophageal Columnar Dysplasia",
+                        "term_id": "C174120",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C174120",
+                        "term_version": "20.10d"
+                    }
+                },
+                "Keratinizing": {
+                    "description": "Epithelial dysplasia in which the dysplastic changes, although limited to the lower basal zone, are so severe that there is a high probability of progression to invasive carcinoma.",
+                    "termDef": {
+                        "cde_id": "C161017",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "Keratinizing Dysplasia",
+                        "term_id": "C161017",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C161017",
+                        "term_version": "20.10d"
+                    }
+                },
+                "Nonkeratinizing": {
+                    "description": "Epithelial dysplasia in which there is continuum from mild dysplasia to moderate dysplasia to severe dysplasia before the development of invasive carcinoma.",
+                    "termDef": {
+                        "cde_id": "C161016",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "Non-Keratinizing Dysplasia",
+                        "term_id": "C161016",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C161016",
+                        "term_version": "20.10d"
+                    }
+                },
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Other": {
+                    "description": "Different than the one(s) previously specified or mentioned.",
+                    "termDef": {
+                        "cde_id": "C17649",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Other",
+                        "term_id": "C17649",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17649",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            }
+        },
+        "epithelioid_cell_percent": {
+            "description": "The percent of uveal melanoma characterized by the presence of malignant large epithelioid melanocytes.",
+            "maximum": 100,
+            "minimum": 0,
+            "termDef": {
+                "cde_id": 7292253,
+                "cde_version": 1.0,
+                "source": "caDSR",
+                "term": "Cell Morphology Percent Uveal Epithelioid Cell Melanoma Integer",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=7292253%20and%20ver_nr=1.0"
+            },
+            "type": "number"
+        },
+        "extracapsular_extension": {
+            "description": "The extension of malignant tissue situated outside of a specific capsule.",
+            "enum": [
+                "Extensive",
+                "Focal",
+                "Not Reported"
+            ],
+            "termDef": {
+                "cde_id": "C25502",
+                "cde_version": "22.11d",
+                "source": "NCIt",
+                "term": "Extracapsular",
+                "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C25502"
+            }
+        },
+        "extracapsular_extension_present": {
+            "enum": [
+                "Yes",
+                "No",
+                "Unknown"
+            ],
+            "enumDef": {
+                "No": {
+                    "description": "The non-affirmative response to a question.",
+                    "termDef": {
+                        "cde_id": "C49487",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "No",
+                        "term_id": "C49487",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Yes": {
+                    "description": "The affirmative response to a question.",
+                    "termDef": {
+                        "cde_id": "C49488",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Yes",
+                        "term_id": "C49488",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488",
+                        "term_version": "19.12e"
+                    }
+                }
+            }
+        },
+        "extranodal_extension": {
+            "description": "Extension of a malignant neoplasm beyond the lymph node capsule.",
+            "enum": [
+                "Gross Extension",
+                "Microscopic Extension",
+                "No Extranodal Extension"
+            ],
+            "termDef": {
+                "cde_id": "C117309",
+                "cde_version": "22.11d",
+                "source": "NCIt",
+                "term": "Extranodal Involvement",
+                "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C117309"
+            }
+        },
+        "extrascleral_extension": {
+            "description": "Spread of uveal melanoma beyond the sclera.",
+            "termDef": {
+                "cde_id": "C111028",
+                "cde_version": "22.11d",
+                "source": "NCIt",
+                "term": "Extrascleral Extension of Uveal Melanoma",
+                "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C111028"
+            },
+            "type": "boolean"
+        },
+        "extrathyroid_extension": {
+            "description": "Text term to describe the degree to which the primary tumor has extra thyroid extension.",
+            "enum": [
+                "None",
+                "Minimal (T3)",
+                "Moderate/Advanced (T4a)",
+                "Very Advanced (T4b)",
+                "Unknown"
+            ],
+            "enumDef": {
+                "Minimal (T3)": {
+                    "description": "Thyroid cancer with a tumor size greater than 4 cm in greatest dimension and limited to the thyroid gland, or a tumor of any size with minimal extrathyroid extension (e.g., extension to sternothyroid muscle or perithyroid soft tissues). (from AJCC 6th and 7th Eds.)",
+                    "termDef": {
+                        "cde_id": "C60864",
+                        "cde_version": "23.08d",
+                        "source": "NCIt",
+                        "term": "Thyroid Cancer pT3 TNM Finding v6 and v7",
+                        "term_id": "C60864",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C60864",
+                        "term_version": "23.08d"
+                    }
+                },
+                "Moderate/Advanced (T4a)": {
+                    "description": "Thyroid cancer with moderately advanced local disease. Tumor of any size extending beyond the thyroid gland capsule to invade subcutaneous soft tissues, larynx, trachea, esophagus, or recurrent laryngeal nerve. (from AJCC 7th Ed.)",
+                    "termDef": {
+                        "cde_id": "C89150",
+                        "cde_version": "23.08d",
+                        "source": "NCIt",
+                        "term": "Thyroid Cancer pT4a TNM Finding v7",
+                        "term_id": "C89150",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C89150",
+                        "term_version": "23.08d"
+                    }
+                },
+                "None": {
+                    "description": "No person or thing, nobody, not any.",
+                    "termDef": {
+                        "cde_id": "C41132",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "None",
+                        "term_id": "C41132",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C41132",
+                        "term_version": "20.10d"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Very Advanced (T4b)": {
+                    "description": "Thyroid cancer with very advanced disease. Tumor invades prevertebral fascia or encases carotid artery or mediastinal vessels. (from AJCC 7th Ed.)",
+                    "termDef": {
+                        "cde_id": "C89152",
+                        "cde_version": "23.08d",
+                        "source": "NCIt",
+                        "term": "Thyroid Cancer pT4b TNM Finding v7",
+                        "term_id": "C89152",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C89152",
+                        "term_version": "23.08d"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": 3179452,
+                "cde_version": 1.0,
+                "source": "caDSR",
+                "term": "Extrathyroid Carcinoma Present Extension Status",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=3179452%20and%20ver_nr=1"
+            }
+        },
+        "greatest_tumor_dimension": {
+            "description": "Numeric value that represents the measurement of the widest portion of the tumor in centimeters.",
+            "minimum": 0,
+            "termDef": {
+                "cde_id": "C157135",
+                "cde_version": "19.12e",
+                "source": "NCIt",
+                "term": "Tumor Longest Dimension Centimeters Measurement",
+                "term_id": "C157135",
+                "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C157135",
+                "term_version": "19.12e"
+            },
+            "type": "number"
+        },
+        "gross_tumor_weight": {
+            "description": "Numeric value used to describe the gross pathologic tumor weight, measured in grams.",
+            "minimum": 0,
+            "termDef": {
+                "cde_id": 6133606,
+                "cde_version": 1.0,
+                "source": "caDSR",
+                "term": "Tumor Tissue Weight Number",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6133606%20and%20ver_nr=1.0"
+            },
+            "type": "number"
+        },
+        "histologic_progression_type": {
+            "description": "Text term to describe the disease progression as determined by microscopic review of cells and their surrounding extracellular environment in tissues.",
+            "enum": [
+                "Anaplastic",
+                "Poorly differentiated",
+                "Unknown",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Poorly differentiated": {
+                    "description": "Describes tumor cells that generally have lost most of the appearance of normal cells. They tend to grow and spread.",
+                    "termDef": {
+                        "cde_id": "C14167",
+                        "cde_version": "23.03d",
+                        "source": "NCIt",
+                        "term": "Poorly Differentiated",
+                        "term_id": "C14167",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C14167",
+                        "term_version": "23.03d"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": 3181384,
+                "cde_version": 1.0,
+                "source": "caDSR",
+                "term": "Histologic Disease Progression Present Type",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=3181384%20and%20ver_nr=1"
+            }
+        },
+        "id": {
+            "common": {
+                "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                "termDef": {
+                    "cde_id": "C54100",
+                    "cde_version": null,
+                    "source": "NCIt",
+                    "term": "Universally Unique Identifier",
+                    "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100"
+                }
+            },
+            "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+            "systemAlias": "node_id",
+            "type": "string"
+        },
+        "largest_extrapelvic_peritoneal_focus": {
+            "description": "The text term used to describe the diameter of the largest focus originating outside of the pelvic peritoneal region.",
+            "enum": [
+                "Macroscopic (2cm or less)",
+                "Macroscopic (greater than 2cm)",
+                "Microscopic",
+                "Unknown",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "Macroscopic (2cm or less)": {
+                    "description": "Lesion with Diameter of 2 cm or Less",
+                    "termDef": {
+                        "cde_id": "C53696",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Lesion with Diameter of 2cm or Less",
+                        "term_id": "C53696",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C53696",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Macroscopic (greater than 2cm)": {
+                    "description": "Lesion with Diameter Greater than 2 cm",
+                    "termDef": {
+                        "cde_id": "C51138",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Lesion with Diameter Greater than 2cm",
+                        "term_id": "C51138",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C51138",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": 6690680,
+                "cde_version": 1.0,
+                "source": "caDSR",
+                "term": "Neoplasm Largest External Pelvic Peritoneal Focus Diameter Measurement",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6690680%20and%20ver_nr=1.0"
+            }
+        },
+        "lymph_node_dissection_method": {
+            "description": "The method employed to remove a lymph nodes(s)",
+            "enum": [
+                "Functional (Limited) Neck Dissection",
+                "Modified Radical Neck Dissection",
+                "Radical Neck Dissection"
+            ],
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            }
+        },
+        "lymph_node_dissection_site": {
+            "description": "The named location(s) within the body where a lymph node(s) were removed.",
+            "enum": [
+                "Neck, Left",
+                "Neck, NOS",
+                "Neck, Right"
+            ],
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            }
+        },
+        "lymph_node_involved_site": {
+            "deprecated_enum": [
+                "Cervical"
+            ],
+            "description": "The text term used to describe the anatomic site of lymph node involvement.",
+            "enum": [
+                "Aortic",
+                "Axillary",
+                "Cervical",
+                "Cervical, Central",
+                "Cervical, Lateral",
+                "Cervical, NOS",
+                "Epitrochlear",
+                "Femoral",
+                "Hilar",
+                "Iliac, NOS",
+                "Iliac-common",
+                "Iliac-external",
+                "Inguinal",
+                "Mediastinal",
+                "Mesenteric",
+                "None",
+                "Occipital",
+                "Paraaortic",
+                "Parotid",
+                "Pelvis, NOS",
+                "Popliteal",
+                "Retroperitoneal",
+                "Splenic",
+                "Submandibular",
+                "Supraclavicular",
+                "Unknown",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "Axillary": {
+                    "description": "One of approximately 20-30 lymph nodes in chain formation that traverse the concavity of the underarm to the clavicle.",
+                    "termDef": {
+                        "cde_id": "C12904",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "Axillary Lymph Node",
+                        "term_id": "C12904",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C12904",
+                        "term_version": "20.10d"
+                    }
+                },
+                "Cervical": {
+                    "description": "Any of the lymph nodes located in the neck.",
+                    "termDef": {
+                        "cde_id": "C32298",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "Cervical Lymph Node",
+                        "term_id": "C32298",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C32298",
+                        "term_version": "20.10d"
+                    }
+                },
+                "Epitrochlear": {
+                    "description": "A lymph node located above and adjacent to the elbow.",
+                    "termDef": {
+                        "cde_id": "C98182",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "Epitrochlear Lymph Node",
+                        "term_id": "C98182",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C98182",
+                        "term_version": "20.10d"
+                    }
+                },
+                "Femoral": {
+                    "description": "A lymph node located in the upper inner portion of the thigh.",
+                    "termDef": {
+                        "cde_id": "C98183",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "Femoral Lymph Node",
+                        "term_id": "C98183",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C98183",
+                        "term_version": "20.10d"
+                    }
+                },
+                "Hilar": {
+                    "description": "A lymph node located in the area around the hilum.",
+                    "termDef": {
+                        "cde_id": "C102330",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "Perihilar Lymph Node",
+                        "term_id": "C102330",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C102330",
+                        "term_version": "20.10d"
+                    }
+                },
+                "Iliac, NOS": {
+                    "description": "One of the three lymph nodes of the pelvis: the superior gluteal, interior gluteal or sacral.",
+                    "termDef": {
+                        "cde_id": "C32761",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "Iliac Lymph Node",
+                        "term_id": "C32761",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C32761",
+                        "term_version": "20.10d"
+                    }
+                },
+                "Iliac-common": {
+                    "description": "A lymph node located adjacent to the common iliac artery. (NCI)",
+                    "termDef": {
+                        "cde_id": "C103384",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "Common Iliac Lymph Node",
+                        "term_id": "C103384",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C103384",
+                        "term_version": "20.10d"
+                    }
+                },
+                "Iliac-external": {
+                    "description": "A lymph node located along the external iliac artery.",
+                    "termDef": {
+                        "cde_id": "C88143",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "External Iliac Lymph Node",
+                        "term_id": "C88143",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C88143",
+                        "term_version": "20.10d"
+                    }
+                },
+                "Inguinal": {
+                    "description": "A superficial or deep lymph node located in the inguinal area.",
+                    "termDef": {
+                        "cde_id": "C32801",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "Inguinal Lymph Node",
+                        "term_id": "C32801",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C32801",
+                        "term_version": "20.10d"
+                    }
+                },
+                "Mediastinal": {
+                    "description": "A lymph node located in the mediastinum. Mediastinal lymph nodes are arranged in three groups, one on the lateral, another on the medial, and a third on the anterior aspect of the vessels; the third group is, however, sometimes absent.",
+                    "termDef": {
+                        "cde_id": "C33073",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "Mediastinal Lymph Node",
+                        "term_id": "C33073",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C33073",
+                        "term_version": "20.10d"
+                    }
+                },
+                "Mesenteric": {
+                    "description": "A lymph node located in the mesentery.",
+                    "termDef": {
+                        "cde_id": "C77641",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "Mesenteric Lymph Node",
+                        "term_id": "C77641",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C77641",
+                        "term_version": "20.10d"
+                    }
+                },
+                "None": {
+                    "description": "No person or thing, nobody, not any.",
+                    "termDef": {
+                        "cde_id": "C41132",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "None",
+                        "term_id": "C41132",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C41132",
+                        "term_version": "20.10d"
+                    }
+                },
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Occipital": {
+                    "description": "A lymph node located in the back of the head adjacent to the trapezius muscle.",
+                    "termDef": {
+                        "cde_id": "C98188",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "Occipital Lymph Node",
+                        "term_id": "C98188",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C98188",
+                        "term_version": "20.10d"
+                    }
+                },
+                "Paraaortic": {
+                    "description": "A lymph node located adjacent to the lumbar region of the spine.",
+                    "termDef": {
+                        "cde_id": "C77643",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "Paraaortic Lymph Node",
+                        "term_id": "C77643",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C77643",
+                        "term_version": "20.10d"
+                    }
+                },
+                "Parotid": {
+                    "description": "A lymph node located close to, on, or within the parotid gland.",
+                    "termDef": {
+                        "cde_id": "C33278",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "Parotid Gland Lymph Node",
+                        "term_id": "C33278",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C33278",
+                        "term_version": "20.10d"
+                    }
+                },
+                "Popliteal": {
+                    "description": "Lymph node located within the fat layer of the knee joint.",
+                    "termDef": {
+                        "cde_id": "C53146",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "Popliteal Lymph Node",
+                        "term_id": "C53146",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C53146",
+                        "term_version": "20.10d"
+                    }
+                },
+                "Retroperitoneal": {
+                    "description": "A lymph node located in the retroperitoneal space.",
+                    "termDef": {
+                        "cde_id": "C98189",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "Retroperitoneal Lymph Node",
+                        "term_id": "C98189",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C98189",
+                        "term_version": "20.10d"
+                    }
+                },
+                "Splenic": {
+                    "description": "Any lymph node located along the splenic artery that receives afferent drainage from the pancreas, spleen, and stomach, and which generally has their efferents join the celiac group of preaortic lymph nodes.",
+                    "termDef": {
+                        "cde_id": "C142320",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "Splenic Lymph Node",
+                        "term_id": "C142320",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C142320",
+                        "term_version": "20.10d"
+                    }
+                },
+                "Submandibular": {
+                    "description": "A lymph node located beneath the floor of the oral cavity.",
+                    "termDef": {
+                        "cde_id": "C77650",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "Submandibular Lymph Node",
+                        "term_id": "C77650",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C77650",
+                        "term_version": "20.10d"
+                    }
+                },
+                "Supraclavicular": {
+                    "description": "A lymph node which is located above the clavicle.",
+                    "termDef": {
+                        "cde_id": "C12903",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "Supraclavicular Lymph Node",
+                        "term_id": "C12903",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C12903",
+                        "term_version": "20.10d"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": "C33027",
+                "cde_version": "19.12e",
+                "source": "NCIt",
+                "term": "Lymph Node Involved Site",
+                "term_id": "C33027",
+                "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C33027",
+                "term_version": "19.12e"
+            }
+        },
+        "lymph_node_involvement": {
+            "description": "Indicator noting whether lymph nodes were involved.",
+            "enum": [
+                "Indeterminant",
+                "Negative",
+                "Positive",
+                "Unknown",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "Indeterminant": {
+                    "description": "Cannot distinguish between two or more possible values in the current context.",
+                    "termDef": {
+                        "cde_id": "C48658",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "Indeterminate",
+                        "term_id": "C48658",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C48658",
+                        "term_version": "20.10d"
+                    }
+                },
+                "Negative": {
+                    "description": "A finding of normality following an examination or investigation looking for the presence of a microorganism, disease, or condition.",
+                    "termDef": {
+                        "cde_id": "C38757",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "Negative Finding",
+                        "term_id": "C38757",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C38757",
+                        "term_version": "20.10d"
+                    }
+                },
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Positive": {
+                    "description": "A finding of abnormality following an examination or observation confirming something, such as the presence of a disease, condition, or microorganism.",
+                    "termDef": {
+                        "cde_id": "C38758",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "Positive Finding",
+                        "term_id": "C38758",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C38758",
+                        "term_version": "20.10d"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            }
+        },
+        "lymph_nodes_positive": {
+            "description": "The number of lymph nodes involved with disease as determined by pathologic examination.",
+            "minimum": 0,
+            "termDef": {
+                "cde_id": 89,
+                "cde_version": 3.0,
+                "source": "caDSR",
+                "term": "Lymph Node(s) Positive Number",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=89%20and%20ver_nr=3.0"
+            },
+            "type": "integer"
+        },
+        "lymph_nodes_removed": {
+            "description": "The number of lymph nodes removed during a biopsy or surgical procedure.",
+            "enum": [
+                "Yes",
+                "No",
+                "Not Reported"
+            ],
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            }
+        },
+        "lymph_nodes_tested": {
+            "description": "The number of lymph nodes tested to determine whether lymph nodes were involved with disease as determined by a pathologic examination.",
+            "minimum": 0,
+            "termDef": {
+                "cde_id": 3,
+                "cde_version": 3.0,
+                "source": "caDSR",
+                "term": "Lymph Node Examined Count",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=3%20and%20ver_nr=3.0"
+            },
+            "type": "integer"
+        },
+        "lymphatic_invasion_present": {
+            "description": "A yes/no indicator to ask if small or thin-walled vessel invasion is present, indicating lymphatic involvement",
+            "enum": [
+                "Yes",
+                "No",
+                "Unknown",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "No": {
+                    "description": "The non-affirmative response to a question.",
+                    "termDef": {
+                        "cde_id": "C49487",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "No",
+                        "term_id": "C49487",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Yes": {
+                    "description": "The affirmative response to a question.",
+                    "termDef": {
+                        "cde_id": "C49488",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Yes",
+                        "term_id": "C49488",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": 64171,
+                "cde_version": 3.0,
+                "source": "caDSR",
+                "term": "Lymphatic/Small vessel Invasion Ind",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=64171%20and%20ver_nr=3.0"
+            }
+        },
+        "margin_status": {
+            "description": "The determination of the presence of actual or potential neoplastic tissue which has been left outside the boundary of a resected specimen within the patient.",
+            "enum": [
+                "Indeterminant",
+                "Involved",
+                "Uninvolved",
+                "Unknown",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "Indeterminant": {
+                    "description": "Cannot distinguish between two or more possible values in the current context.",
+                    "termDef": {
+                        "cde_id": "C48658",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "Indeterminate",
+                        "term_id": "C48658",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C48658",
+                        "term_version": "20.10d"
+                    }
+                },
+                "Involved": {
+                    "description": "Specifies whether the margins of surgical resection are infiltrated by disease.",
+                    "termDef": {
+                        "cde_id": "C93581",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "Involved Surgical Margin Indicator",
+                        "term_id": "C93581",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C93581",
+                        "term_version": "20.10d"
+                    }
+                },
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Uninvolved": {
+                    "description": "Indicates the absence of tumor cells at the edge of a surgically excised specimen.",
+                    "termDef": {
+                        "cde_id": "C48621",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "Negative Surgical Margin",
+                        "term_id": "C48621",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C48621",
+                        "term_version": "20.10d"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            }
+        },
+        "measurement_type": {
+            "description": "The method used to measure tumor size.",
+            "enum": [
+                "Echographic",
+                "Pathologic",
+                "Radiologic"
+            ],
+            "enumDef": {
+                "Radiologic": {
+                    "description": "Imaging results obtained through a radiology procedure.",
+                    "termDef": {
+                        "cde_id": "C35869",
+                        "cde_version": "23.03d",
+                        "source": "NCIt",
+                        "term": "Radiologic Finding",
+                        "term_id": "C35869",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C35869",
+                        "term_version": "23.03d"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            }
+        },
+        "measurement_unit": {
+            "description": "The type of unit of measure being used to express a length or distance.",
+            "enum": [
+                "Centimeters",
+                "Millimeters"
+            ],
+            "enumDef": {
+                "Centimeters": {
+                    "description": "A basic unit of length in the former CGS version of metric system, equal to one hundredth of a meter or approximately 0.393 700 787 inch.",
+                    "termDef": {
+                        "cde_id": "C49668",
+                        "cde_version": "23.03d",
+                        "source": "NCIt",
+                        "term": "Centimeter",
+                        "term_id": "C49668",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49668",
+                        "term_version": "23.03d"
+                    }
+                },
+                "Millimeters": {
+                    "description": "A metric unit of length equal to one thousandth of a meter (10E-3 meter) or approximately 0.03937 inch.",
+                    "termDef": {
+                        "cde_id": "C28251",
+                        "cde_version": "23.03d",
+                        "source": "NCIt",
+                        "term": "Millimeter",
+                        "term_id": "C28251",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C28251",
+                        "term_version": "23.03d"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": "C42578",
+                "cde_version": "23.03d",
+                "source": "NCIt",
+                "term": "Unit of Length",
+                "term_id": "C42578",
+                "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C42578",
+                "term_version": "23.03d"
+            }
+        },
+        "metaplasia_present": {
+            "description": "Indicator noting whether metaplasia was present.",
+            "enum": [
+                "Yes",
+                "No",
+                "Unknown",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "No": {
+                    "description": "The non-affirmative response to a question.",
+                    "termDef": {
+                        "cde_id": "C49487",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "No",
+                        "term_id": "C49487",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Yes": {
+                    "description": "The affirmative response to a question.",
+                    "termDef": {
+                        "cde_id": "C49488",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Yes",
+                        "term_id": "C49488",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            }
+        },
+        "micrometastasis_present": {
+            "description": "Indication of metastasis in the form of small clusters of malignant cells identifiable only under the microscope.",
+            "enum": [
+                "Yes",
+                "No",
+                "Unknown",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "No": {
+                    "description": "The non-affirmative response to a question.",
+                    "termDef": {
+                        "cde_id": "C49487",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "No",
+                        "term_id": "C49487",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Yes": {
+                    "description": "The affirmative response to a question.",
+                    "termDef": {
+                        "cde_id": "C49488",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Yes",
+                        "term_id": "C49488",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488",
+                        "term_version": "19.12e"
+                    }
+                }
+            }
+        },
+        "morphologic_architectural_pattern": {
+            "description": "A specific morphologic or pathologic architectural pattern was discovered within the sample studied.",
+            "enum": [
+                "Cohesive",
+                "Cribiform",
+                "Micropapillary",
+                "Non-cohesive",
+                "Papillary Renal Cell",
+                "Papillary, NOS",
+                "Solid",
+                "Tubular"
+            ],
+            "enumDef": {
+                "Cribiform": {
+                    "description": "A morphologic finding indicating the presence of sheets of malignant epithelial cells punctuated by gland-like spaces in a tissue sample.",
+                    "termDef": {
+                        "cde_id": "C35920",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "Cribriform Pattern",
+                        "term_id": "C35920",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C35920",
+                        "term_version": "20.10d"
+                    }
+                },
+                "Micropapillary": {
+                    "description": "A morphologic finding indicating the presence of an architectural pattern dominated by the presence of small papillary structures.",
+                    "termDef": {
+                        "cde_id": "C36181",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "Micropapillary Pattern",
+                        "term_id": "C36181",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C36181",
+                        "term_version": "20.10d"
+                    }
+                },
+                "Papillary Renal Cell": {
+                    "description": "Also known as chromophil carcinoma, it represents a minority of renal cell carcinomas. It can be hereditary or sporadic. The sporadic papillary renal cell carcinoma is characterized by trisomy of chromosomes 7, 16, and 17, and loss of chromosome Y. The peak incidence is in the sixth and seven decades. It is classified as type 1 or 2, based on the cytoplasmic volume and the thickness of the lining neoplastic cells. The prognosis is more favorable than for conventional (clear cell) renal cell carcinoma.",
+                    "termDef": {
+                        "cde_id": "C6975",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "Papillary Renal Cell Carcinoma",
+                        "term_id": "C6975",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C6975",
+                        "term_version": "20.10d"
+                    }
+                },
+                "Papillary, NOS": {
+                    "description": "A morphologic finding indicating the presence of a cellular infiltrate with papillary growth in a tissue sample.",
+                    "termDef": {
+                        "cde_id": "C35911",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "Papillary Pattern",
+                        "term_id": "C35911",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C35911",
+                        "term_version": "20.10d"
+                    }
+                },
+                "Solid": {
+                    "description": "A microscopic finding indicating that the neoplastic cells are arranged in solid sheets in a tumor sample.",
+                    "termDef": {
+                        "cde_id": "C36182",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "Solid Growth Pattern",
+                        "term_id": "C36182",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C36182",
+                        "term_version": "20.10d"
+                    }
+                },
+                "Tubular": {
+                    "description": "A morphological appearance characteristic of neoplasms which arise from the glandular or ductal (or both) epithelium, consisting of glandular or ductal neoplastic proliferations forming small tubules with a lumen lined by neoplastic cells.",
+                    "termDef": {
+                        "cde_id": "C35925",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "Tubular Pattern",
+                        "term_id": "C35925",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C35925",
+                        "term_version": "20.10d"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            }
+        },
+        "necrosis_percent": {
+            "description": "A quantitative measurement of the percent of cells undergoing necrosis compared to the number of total cells present in a sample.",
+            "maximum": 100,
+            "minimum": 0,
+            "termDef": {
+                "cde_id": "C159481",
+                "cde_version": "20.10d",
+                "source": "NCIt",
+                "term": "Percent of Necrosis",
+                "term_id": "C159481",
+                "term_url": null,
+                "term_version": "20.10d"
+            },
+            "type": "number"
+        },
+        "necrosis_present": {
+            "description": "Indicator describing whether the presence of necrosis was confirmed.",
+            "enum": [
+                "Yes",
+                "No",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            }
+        },
+        "non_nodal_regional_disease": {
+            "description": "The text term used to describe whether the patient had non-nodal regional disease.",
+            "enum": [
+                "Absent",
+                "Indeterminate",
+                "Present",
+                "Unknown",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Present": {
+                    "description": "A finding of abnormality following an examination or observation confirming something, such as the presence of a disease, condition, or microorganism.",
+                    "termDef": {
+                        "cde_id": "C38758",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "Positive Finding",
+                        "term_id": "C38758",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C38758",
+                        "term_version": "20.10d"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": "caDSR",
+                "term": null,
+                "term_url": null
+            }
+        },
+        "non_nodal_tumor_deposits": {
+            "description": "The yes/no/unknown indicator used to describe the presence of tumor deposits in the pericolic or perirectal fat or in adjacent mesentery away from the leading edge of the tumor.",
+            "enum": [
+                "Yes",
+                "No",
+                "Unknown",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "No": {
+                    "description": "The non-affirmative response to a question.",
+                    "termDef": {
+                        "cde_id": "C49487",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "No",
+                        "term_id": "C49487",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Yes": {
+                    "description": "The affirmative response to a question.",
+                    "termDef": {
+                        "cde_id": "C49488",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Yes",
+                        "term_id": "C49488",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": 3107051,
+                "cde_version": 1.0,
+                "source": "caDSR",
+                "term": "Resected Biospecimen NonNodal Tumor Deposits Indicator",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=3107051%20and%20ver_nr=1.0"
+            }
+        },
+        "number_proliferating_cells": {
+            "description": "Numeric value that represents the count of proliferating cells determined during pathologic review of the sample slide(s).",
+            "minimum": 0,
+            "termDef": {
+                "cde_id": 5432636,
+                "cde_version": 1.0,
+                "source": "caDSR",
+                "term": "Pathology Review Slide Proliferating Cell Count",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=5432636%20and%20ver_nr=1.0"
+            },
+            "type": "integer"
+        },
+        "percent_tumor_invasion": {
+            "description": "The percentage of tumor cells spread locally in a malignant neoplasm through infiltration or destruction of adjacent tissue.",
+            "maximum": 100,
+            "minimum": 0,
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": "caDSR",
+                "term": null,
+                "term_url": null
+            },
+            "type": "number"
+        },
+        "percent_tumor_nuclei": {
+            "description": "Numeric value to represent the percentage of tumor nuclei in a malignant neoplasm sample or specimen.",
+            "maximum": 100,
+            "minimum": 0,
+            "termDef": {
+                "cde_id": 2841225,
+                "cde_version": 1.0,
+                "source": "caDSR",
+                "term": "Malignant Neoplasm Neoplasm Nucleus Percentage Cell Value",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2841225%20and%20ver_nr=1.0"
+            },
+            "type": "number"
+        },
+        "perineural_invasion_present": {
+            "description": "a yes/no indicator to ask if perineural invasion or infiltration of tumor or cancer is present.",
+            "enum": [
+                "Yes",
+                "No",
+                "Unknown",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "No": {
+                    "description": "The non-affirmative response to a question.",
+                    "termDef": {
+                        "cde_id": "C49487",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "No",
+                        "term_id": "C49487",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Yes": {
+                    "description": "The affirmative response to a question.",
+                    "termDef": {
+                        "cde_id": "C49488",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Yes",
+                        "term_id": "C49488",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": 64181,
+                "cde_version": 3.0,
+                "source": "caDSR",
+                "term": "Tumor Perineural Invasion Ind",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=64181%20and%20ver_nr=3.0"
+            }
+        },
+        "peripancreatic_lymph_nodes_positive": {
+            "description": "Enumerated numeric value or range of values used to describe the number of peripancreatic lymph nodes determined to be positive.",
+            "enum": [
+                "0",
+                "1-3",
+                "4 or More",
+                "Unknown",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "0": {
+                    "description": "A mathematical element that when added to another number yields the same number; the cardinal number meaning one less than one.",
+                    "termDef": {
+                        "cde_id": "C70430",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Zero",
+                        "term_id": "C70430",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C70430",
+                        "term_version": "20.05a"
+                    }
+                },
+                "1-3": {
+                    "description": "An indication that cancer cells have been detected in one, two or three lymph nodes.",
+                    "termDef": {
+                        "cde_id": "C172224",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "One to Three Positive Lymph Nodes",
+                        "term_id": "C172224",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C172224",
+                        "term_version": "20.10d"
+                    }
+                },
+                "4 or More": {
+                    "description": "An indication that cancer cells have been detected in four or more lymph nodes.",
+                    "termDef": {
+                        "cde_id": "C172226",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "Four or More Positive Lymph Nodes",
+                        "term_id": "C172226",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C172226",
+                        "term_version": "20.10d"
+                    }
+                },
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": 5983082,
+                "cde_version": 2.0,
+                "source": "caDSR",
+                "term": "Peripancreatic Lymph Node Positive Finding Range",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=5983082%20and%20ver_nr=2.0"
+            }
+        },
+        "peripancreatic_lymph_nodes_tested": {
+            "description": "The total number of peripancreatic lymph nodes tested for the presence of pancreatic cancer cells.",
+            "minimum": 0,
+            "termDef": {
+                "cde_id": 6050944,
+                "cde_version": 1.0,
+                "source": "caDSR",
+                "term": "Peripancreatic Lymph Node Examined Count",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6050944%20and%20ver_nr=1.0"
+            },
+            "type": "integer"
+        },
+        "project_id": {
+            "common": {
+                "description": "Unique ID for any specific defined piece of work that is undertaken or attempted to meet a single requirement.",
+                "termDef": {
+                    "cde_id": null,
+                    "cde_version": null,
+                    "source": null,
+                    "term": null,
+                    "term_url": null
+                }
+            },
+            "type": "string"
+        },
+        "prostatic_chips_positive_count": {
+            "description": "The text term used to describe the number of positive prostatic chips, which are generated from transurethral resection of the prostate (TURP) procedures and are generally used for relieving urinary obstruction due to nodular hyperplasia of the prostate (benign prostatic hyperplasia).",
+            "minimum": 0,
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": "Prostate Chips Positive Count",
+                "term_url": null
+            },
+            "type": "number"
+        },
+        "prostatic_chips_total_count": {
+            "description": "The text term used to describe the total number of prostatic chips, which are generated from transurethral resection of the prostate (TURP) procedures and are generally used for relieving urinary obstruction due to nodular hyperplasia of the prostate (benign prostatic hyperplasia).",
+            "minimum": 0,
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": "Prostate Chips Total Count",
+                "term_url": null
+            },
+            "type": "number"
+        },
+        "prostatic_involvement_percent": {
+            "description": "Numeric value that represents the percentage of prostatic involvement found in a specific tissue sample.",
+            "maximum": 100,
+            "minimum": 0,
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": "Specimen Prostatic Involvement Percentage Value",
+                "term_url": null
+            },
+            "type": "number"
+        },
+        "residual_tumor": {
+            "description": "Tumor cells that remain in the body following cancer treatment.",
+            "enum": [
+                "R0",
+                "R1",
+                "R2",
+                "RX"
+            ],
+            "termDef": {
+                "cde_id": "C4809",
+                "cde_version": "21.04d",
+                "source": "NCIt",
+                "term": "Residual Disease",
+                "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C4809"
+            }
+        },
+        "residual_tumor_measurement": {
+            "description": "A measurement of the tumor cells that remain in the body following cancer treatment.",
+            "enum": [
+                "1-10 mm",
+                "11-20 mm",
+                ">20 mm",
+                "No macroscopic disease"
+            ],
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            }
+        },
+        "rhabdoid_percent": {
+            "description": "Numeric value that represents the percentage of rhabdoid features found in a specific tissue sample.",
+            "maximum": 100,
+            "minimum": 0,
+            "termDef": {
+                "cde_id": 6790120,
+                "cde_version": 1.0,
+                "source": "caDSR",
+                "term": "Specimen Rhabdoid Features Percentage Value",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6790120%20and%20ver_nr=1.0"
+            },
+            "type": "number"
+        },
+        "rhabdoid_present": {
+            "description": "Indicator describing whether rhabdoid features were present.",
+            "enum": [
+                "Yes",
+                "No",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            }
+        },
+        "sarcomatoid_percent": {
+            "description": "Numeric value that represents the percentage of sarcomatoid features found in a specific tissue sample.",
+            "maximum": 100,
+            "minimum": 0,
+            "termDef": {
+                "cde_id": 2429786,
+                "cde_version": 1.0,
+                "source": "caDSR",
+                "term": "Specimen Sarcomatoid Features Percentage Value",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2429786%20and%20ver_nr=1.0"
+            },
+            "type": "number"
+        },
+        "sarcomatoid_present": {
+            "description": "Indicator describing whether sarcomatoid features were present.",
+            "enum": [
+                "Yes",
+                "No",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            }
+        },
+        "size_extraocular_nodule": {
+            "description": "The size of the nodule that is outside the eye.",
+            "minimum": 0,
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": "Extraocular Nodule Size",
+                "term_url": null
+            },
+            "type": "number"
+        },
+        "spindle_cell_percent": {
+            "description": "The percent of uveal melanoma arising from the choroid, ciliary body, or the iris and characterized by the presence of spindle-shaped melanocytes.",
+            "maximum": 100,
+            "minimum": 0,
+            "termDef": {
+                "cde_id": 7292254,
+                "cde_version": 1.0,
+                "source": "caDSR",
+                "term": "Cell Morphology Percent Uveal Spindle Cell Melanoma Integer",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=7292254%20and%20ver_nr=1.0"
+            },
+            "type": "number"
+        },
+        "state": {
+            "common": {
+                "description": "The current state of the object.",
+                "termDef": {
+                    "cde_id": null,
+                    "cde_version": null,
+                    "source": null,
+                    "term": null,
+                    "term_url": null
+                }
+            },
+            "default": "validated",
+            "downloadable": [
+                "uploaded",
+                "md5summed",
+                "validating",
+                "validated",
+                "error",
+                "invalid",
+                "released"
+            ],
+            "oneOf": [
+                {
+                    "enum": [
+                        "uploading",
+                        "uploaded",
+                        "md5summing",
+                        "md5summed",
+                        "validating",
+                        "error",
+                        "invalid",
+                        "suppressed",
+                        "redacted",
+                        "live"
+                    ]
+                },
+                {
+                    "enum": [
+                        "validated",
+                        "submitted",
+                        "released"
+                    ]
+                }
+            ],
+            "public": [
+                "live"
+            ]
+        },
+        "submitter_id": {
+            "description": "A project-specific identifier for a node. This property is the calling card/nickname/alias for a unit of submission. It can be used in place of the uuid for identifying or recalling a node.",
+            "type": "string"
+        },
+        "transglottic_extension": {
+            "description": "The text term used to describe an extension of the tumor beyond the opening into the ventricles and vocal cords.",
+            "enum": [
+                "Absent",
+                "Present",
+                "Unknown",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Present": {
+                    "description": "Extension of a laryngeal tumor beyond the glottic opening into the ventricles and vocal cords.",
+                    "termDef": {
+                        "cde_id": "C160996",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Transglottic Extension of Laryngeal Tumor",
+                        "term_id": "C160996",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C160996",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": "C160996",
+                "cde_version": "19.12e",
+                "source": "NCIt",
+                "term": "Transglottic Extension",
+                "term_id": "C160996",
+                "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C160996",
+                "term_version": "19.12e"
+            }
+        },
+        "tumor_depth_descriptor": {
+            "description": "Text term for the degree to which a tumor has penetrated into organ or tissue.",
+            "enum": [
+                "Deep",
+                "Superficial",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "Deep": {
+                    "description": "Extending relatively far inward.",
+                    "termDef": {
+                        "cde_id": "C25240",
+                        "cde_version": "23.03d",
+                        "source": "NCIt",
+                        "term": "Deep",
+                        "term_id": "C25240",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C25240",
+                        "term_version": "23.03d"
+                    }
+                },
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Superficial": {
+                    "description": "Of little substance or significance; involving only a surface.",
+                    "termDef": {
+                        "cde_id": "C25239",
+                        "cde_version": "23.03d",
+                        "source": "NCIt",
+                        "term": "Superficial",
+                        "term_id": "C25239",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C25239",
+                        "term_version": "23.03d"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": 3808610,
+                "cde_version": 2.0,
+                "source": "caDSR",
+                "term": "Tumor Depth Extent Name",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=3808610%20and%20ver_nr=2.0"
+            }
+        },
+        "tumor_depth_measurement": {
+            "description": "The numerical measurement of tumor depth.",
+            "minimum": 0,
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            },
+            "type": "number"
+        },
+        "tumor_infiltrating_lymphocytes": {
+            "description": "Lymphocytes that show specificity for autologous tumor cells and can infiltrate a tumor.",
+            "enum": [
+                "Few",
+                "Many",
+                "Moderate"
+            ],
+            "enumDef": {
+                "Few": {
+                    "description": "An indefinite but relatively small number.",
+                    "termDef": {
+                        "cde_id": "C64942",
+                        "cde_version": "23.03d",
+                        "source": "NCIt",
+                        "term": "Few",
+                        "term_id": "C64942",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C64942\n",
+                        "term_version": "23.03d"
+                    }
+                },
+                "Many": {
+                    "description": "An indefinite large quantity that is considered to be greater than several.",
+                    "termDef": {
+                        "cde_id": "C78728",
+                        "cde_version": "23.03d",
+                        "source": "NCIt",
+                        "term": "Many",
+                        "term_id": "C78728",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C78728",
+                        "term_version": "23.03d"
+                    }
+                },
+                "Moderate": {
+                    "description": "The quality of being within reasonable or average limits; not excessive or extreme.",
+                    "termDef": {
+                        "cde_id": "C61376",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "Moderate",
+                        "term_id": "C61376",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C61376",
+                        "term_version": "20.10d"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": "C12546",
+                "cde_version": "23.03d",
+                "source": "NCIt",
+                "term": "Tumor Infiltrating Lymphocyte",
+                "term_id": "C12546",
+                "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C12546",
+                "term_version": "23.03d"
+            }
+        },
+        "tumor_infiltrating_macrophages": {
+            "description": "Non-neoplastic macrophages that infiltrate a tumor.",
+            "enum": [
+                "Few",
+                "Many",
+                "Moderate"
+            ],
+            "enumDef": {
+                "Few": {
+                    "description": "An indefinite but relatively small number.",
+                    "termDef": {
+                        "cde_id": "C64942",
+                        "cde_version": "23.03d",
+                        "source": "NCIt",
+                        "term": "Few",
+                        "term_id": "C64942",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C64942\n",
+                        "term_version": "23.03d"
+                    }
+                },
+                "Many": {
+                    "description": "An indefinite large quantity that is considered to be greater than several.",
+                    "termDef": {
+                        "cde_id": "C78728",
+                        "cde_version": "23.03d",
+                        "source": "NCIt",
+                        "term": "Many",
+                        "term_id": "C78728",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C78728",
+                        "term_version": "23.03d"
+                    }
+                },
+                "Moderate": {
+                    "description": "The quality of being within reasonable or average limits; not excessive or extreme.",
+                    "termDef": {
+                        "cde_id": "C61376",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "Moderate",
+                        "term_id": "C61376",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C61376",
+                        "term_version": "20.10d"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": "C111027",
+                "cde_version": "23.03d",
+                "source": "NCIt",
+                "term": "Tumor Infiltrating Macrophages",
+                "term_id": "C111027",
+                "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C111027",
+                "term_version": "23.03d"
+            }
+        },
+        "tumor_largest_dimension_diameter": {
+            "description": "Numeric value used to describe the maximum diameter or dimension of the primary tumor, measured in centimeters.",
+            "minimum": 0,
+            "termDef": {
+                "cde_id": 64215,
+                "cde_version": 3.0,
+                "source": "caDSR",
+                "term": "Tumor Largest Dimension Measurement",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=64215%20and%20ver_nr=3.0"
+            },
+            "type": "number"
+        },
+        "tumor_length_measurement": {
+            "description": "The numerical measurement of tumor length.",
+            "minimum": 0,
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            },
+            "type": "number"
+        },
+        "tumor_level_prostate": {
+            "description": "The level(s) of the prostate from which the tumor originated.",
+            "items": {
+                "enum": [
+                    "Apex",
+                    "Base",
+                    "Middle"
+                ]
+            },
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            },
+            "type": "array"
+        },
+        "tumor_shape": {
+            "description": "Text term to represent the description of the shape of a tumor determined by clinical or pathological techniques.",
+            "enum": [
+                "Diffuse",
+                "Dome",
+                "Mushroom",
+                "Unknown"
+            ],
+            "enumDef": {
+                "Diffuse": {
+                    "description": "Widely spread; not localized or confined.",
+                    "termDef": {
+                        "cde_id": "C14175",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Diffuse",
+                        "term_id": "C14175",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C14175",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Dome": {
+                    "description": "A lesion having the shape of a dome.",
+                    "termDef": {
+                        "cde_id": "C54253",
+                        "cde_version": "23.03d",
+                        "source": "NCIt",
+                        "term": "Dome-Shaped Lesion",
+                        "term_id": "C54253",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C54253",
+                        "term_version": "23.03d"
+                    }
+                },
+                "Mushroom": {
+                    "description": "A lesion having the shape of a mushroom.",
+                    "termDef": {
+                        "cde_id": "C111029",
+                        "cde_version": "23.03d",
+                        "source": "NCIt",
+                        "term": "Mushroom-Shaped Lesion",
+                        "term_id": "C111029",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C111029",
+                        "term_version": "23.03d"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": 3870445,
+                "cde_version": 1.0,
+                "source": "caDSR",
+                "term": "Tumor Shape Type",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=3870445%20and%20ver_nr=1.0"
+            }
+        },
+        "tumor_thickness": {
+            "description": "A measurement of the thickness of a sectioned slice (of tissue or mineral or other substance) in millimeters (mm).",
+            "minimum": 0,
+            "termDef": {
+                "cde_id": "C176286",
+                "cde_version": "21.04d",
+                "source": "NCIt",
+                "term": "Section Thickness",
+                "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C176286"
+            },
+            "type": "number"
+        },
+        "tumor_width_measurement": {
+            "description": "The numerical measurement of tumor width.",
+            "minimum": 0,
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            },
+            "type": "number"
+        },
+        "type": {
+            "type": "string"
+        },
+        "updated_datetime": {
+            "common": {
+                "description": "A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]",
+                "termDef": {
+                    "cde_id": null,
+                    "cde_version": null,
+                    "source": null,
+                    "term": null,
+                    "term_url": null
+                }
+            },
+            "oneOf": [
+                {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        },
+        "vascular_invasion_present": {
+            "description": "The yes/no indicator to ask if large vessel or venous invasion was detected by surgery or presence in a tumor specimen.",
+            "enum": [
+                "Yes",
+                "No",
+                "Unknown",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "No": {
+                    "description": "The non-affirmative response to a question.",
+                    "termDef": {
+                        "cde_id": "C49487",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "No",
+                        "term_id": "C49487",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Yes": {
+                    "description": "The affirmative response to a question.",
+                    "termDef": {
+                        "cde_id": "C49488",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Yes",
+                        "term_id": "C49488",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": 64358,
+                "cde_version": 3.0,
+                "source": "caDSR",
+                "term": "Tumor Vascular Invasion Ind-3",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=64358%20and%20ver_nr=3.0"
+            }
+        },
+        "vascular_invasion_type": {
+            "description": "Text term that represents the type of vascular tumor invasion.",
+            "enum": [
+                "Extramural",
+                "Intramural",
+                "Macro",
+                "Micro",
+                "No Vascular Invasion",
+                "Unknown",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "No Vascular Invasion": {
+                    "description": "An indication that signs of vascular invasion have not been found in a sample.",
+                    "termDef": {
+                        "cde_id": "C164046",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Vascular Invasion Negative",
+                        "term_id": "C164046",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C164046",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": 3168001,
+                "cde_version": 1.0,
+                "source": "caDSR",
+                "term": "Vascular Tumor Cell Invasion Type",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=3168001%20and%20ver_nr=1.0"
+            }
+        },
+        "zone_of_origin_prostate": {
+            "description": "The location or position of the tumor by zone of the prostate.",
+            "enum": [
+                "Central zone",
+                "Overlapping/multiple zones",
+                "Peripheral zone",
+                "Transition zone",
+                "Unknown zone"
+            ],
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            }
+        }
+    },
+    "required": [
+        "submitter_id"
+    ],
+    "submittable": true,
+    "systemProperties": [
+        "id",
+        "project_id",
+        "created_datetime",
+        "updated_datetime",
+        "state"
+    ],
+    "title": "Pathology Detail",
+    "type": "object",
+    "uniqueKeys": [
+        [
+            "id"
+        ],
+        [
+            "project_id",
+            "submitter_id"
+        ]
+    ],
+    "validators": null
+}

@@ -1,0 +1,221 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "additionalProperties": false,
+    "category": "administrative",
+    "description": "Any specifically defined piece of work that is undertaken or attempted to meet a single requirement. (NCIt C47885)",
+    "downloadable": false,
+    "id": "project",
+    "links": [
+        {
+            "backref": "projects",
+            "label": "member_of",
+            "multiplicity": "many_to_one",
+            "name": "programs",
+            "required": true,
+            "target_type": "program"
+        }
+    ],
+    "namespace": "https://gdc.cancer.gov",
+    "previous_version_downloadable": false,
+    "program": "*",
+    "project": "*",
+    "properties": {
+        "awg_review": {
+            "default": false,
+            "description": "Indicates that the project is an AWG project.",
+            "type": "boolean"
+        },
+        "code": {
+            "description": "Project code",
+            "type": "string"
+        },
+        "dbgap_accession_number": {
+            "description": "The dbgap accession number for the project.",
+            "type": "string"
+        },
+        "disease_type": {
+            "description": "Full name for the project",
+            "type": "string"
+        },
+        "id": {
+            "common": {
+                "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                "termDef": {
+                    "cde_id": "C54100",
+                    "cde_version": null,
+                    "source": "NCIt",
+                    "term": "Universally Unique Identifier",
+                    "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100"
+                }
+            },
+            "description": "UUID for the project",
+            "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+            "systemAlias": "node_id",
+            "type": "string"
+        },
+        "in_review": {
+            "default": false,
+            "description": "Indicates that the project is under review by the submitter. Upload and data modification is disabled.",
+            "type": "boolean"
+        },
+        "intended_release_date": {
+            "common": {
+                "description": "A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]",
+                "termDef": {
+                    "cde_id": null,
+                    "cde_version": null,
+                    "source": null,
+                    "term": null,
+                    "term_url": null
+                }
+            },
+            "description": "Tracks a Project's intended release date.",
+            "oneOf": [
+                {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        },
+        "is_legacy": {
+            "default": false,
+            "description": "Indicates whether a project will appear in the Legacy Archive.",
+            "type": "boolean"
+        },
+        "name": {
+            "description": "Display name for the project",
+            "type": "string"
+        },
+        "primary_site": {
+            "description": "Primary site for the project",
+            "type": "string"
+        },
+        "programs": {
+            "anyOf": [
+                {
+                    "items": {
+                        "additionalProperties": true,
+                        "maxItems": 1,
+                        "minItems": 1,
+                        "properties": {
+                            "id": {
+                                "common": {
+                                    "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                                    "termDef": {
+                                        "cde_id": "C54100",
+                                        "cde_version": null,
+                                        "source": "NCIt",
+                                        "term": "Universally Unique Identifier",
+                                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100"
+                                    }
+                                },
+                                "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                                "systemAlias": "node_id",
+                                "type": "string"
+                            },
+                            "submitter_id": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                {
+                    "additionalProperties": true,
+                    "properties": {
+                        "id": {
+                            "common": {
+                                "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                                "termDef": {
+                                    "cde_id": "C54100",
+                                    "cde_version": null,
+                                    "source": "NCIt",
+                                    "term": "Universally Unique Identifier",
+                                    "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100"
+                                }
+                            },
+                            "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                            "systemAlias": "node_id",
+                            "type": "string"
+                        },
+                        "submitter_id": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                }
+            ]
+        },
+        "releasable": {
+            "default": false,
+            "description": "A project can only be released by the user when `releasable` is true.",
+            "type": "boolean"
+        },
+        "release_requested": {
+            "default": false,
+            "description": "User requests that the GDC release the project. Release can only be requested if the project is releasable.",
+            "type": "boolean"
+        },
+        "released": {
+            "default": false,
+            "description": "To release a project is to tell the GDC to include all submitted entities in the next GDC index.",
+            "type": "boolean"
+        },
+        "request_submission": {
+            "default": false,
+            "description": "Indicates that the user has requested submission to the GDC for harmonization.",
+            "type": "boolean"
+        },
+        "state": {
+            "default": "open",
+            "description": "The possible states a project can be in.  All but `open` are equivalent to some type of locked state.",
+            "enum": [
+                "open",
+                "review",
+                "submitted",
+                "processing",
+                "processed",
+                "closed",
+                "legacy"
+            ]
+        },
+        "submission_enabled": {
+            "default": true,
+            "description": "Indicates if submission to a project is allowed.",
+            "type": "boolean"
+        },
+        "type": {
+            "type": "string"
+        }
+    },
+    "required": [
+        "code",
+        "name",
+        "state",
+        "programs",
+        "dbgap_accession_number"
+    ],
+    "submittable": false,
+    "systemProperties": [
+        "id",
+        "state",
+        "released",
+        "releasable",
+        "intended_release_date"
+    ],
+    "title": "Project",
+    "type": "object",
+    "uniqueKeys": [
+        [
+            "id"
+        ],
+        [
+            "code"
+        ]
+    ],
+    "validators": null
+}

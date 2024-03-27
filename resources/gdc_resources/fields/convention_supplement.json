@@ -1,0 +1,5 @@
+{"File size": "Listed in bytes",
+ "Submitter id": "String supplied by submitter",
+ "Datetime": "Combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss",
+ "Id": "GDC supplied UUID ID"
+}

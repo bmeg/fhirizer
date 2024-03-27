@@ -1,0 +1,2737 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "additionalProperties": false,
+    "category": "clinical",
+    "description": "Record of a patient's background regarding cancer events of blood relatives.",
+    "downloadable": false,
+    "id": "family_history",
+    "links": [
+        {
+            "backref": "family_histories",
+            "label": "describes",
+            "multiplicity": "many_to_one",
+            "name": "cases",
+            "required": true,
+            "target_type": "case"
+        }
+    ],
+    "namespace": "https://gdc.cancer.gov",
+    "previous_version_downloadable": false,
+    "program": "*",
+    "project": "*",
+    "properties": {
+        "batch_id": {
+            "description": "GDC submission batch indicator. It is unique within the context of a project.",
+            "type": "integer"
+        },
+        "cases": {
+            "anyOf": [
+                {
+                    "items": {
+                        "additionalProperties": true,
+                        "maxItems": 1,
+                        "minItems": 1,
+                        "properties": {
+                            "id": {
+                                "common": {
+                                    "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                                    "termDef": {
+                                        "cde_id": "C54100",
+                                        "cde_version": null,
+                                        "source": "NCIt",
+                                        "term": "Universally Unique Identifier",
+                                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100"
+                                    }
+                                },
+                                "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                                "systemAlias": "node_id",
+                                "type": "string"
+                            },
+                            "submitter_id": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                {
+                    "additionalProperties": true,
+                    "properties": {
+                        "id": {
+                            "common": {
+                                "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                                "termDef": {
+                                    "cde_id": "C54100",
+                                    "cde_version": null,
+                                    "source": "NCIt",
+                                    "term": "Universally Unique Identifier",
+                                    "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100"
+                                }
+                            },
+                            "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                            "systemAlias": "node_id",
+                            "type": "string"
+                        },
+                        "submitter_id": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                }
+            ]
+        },
+        "created_datetime": {
+            "common": {
+                "description": "A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]",
+                "termDef": {
+                    "cde_id": null,
+                    "cde_version": null,
+                    "source": null,
+                    "term": null,
+                    "term_url": null
+                }
+            },
+            "oneOf": [
+                {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        },
+        "id": {
+            "common": {
+                "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                "termDef": {
+                    "cde_id": "C54100",
+                    "cde_version": null,
+                    "source": "NCIt",
+                    "term": "Universally Unique Identifier",
+                    "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100"
+                }
+            },
+            "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+            "systemAlias": "node_id",
+            "type": "string"
+        },
+        "project_id": {
+            "common": {
+                "description": "Unique ID for any specific defined piece of work that is undertaken or attempted to meet a single requirement.",
+                "termDef": {
+                    "cde_id": null,
+                    "cde_version": null,
+                    "source": null,
+                    "term": null,
+                    "term_url": null
+                }
+            },
+            "type": "string"
+        },
+        "relationship_age_at_diagnosis": {
+            "description": "The age (in years) when the patient's relative was first diagnosed.",
+            "maximum": 89,
+            "minimum": 0,
+            "termDef": {
+                "cde_id": 5300571,
+                "cde_version": 1.0,
+                "source": "caDSR",
+                "term": "Relative Diagnosis Age Value",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=5300571%20and%20ver_nr=1.0"
+            },
+            "type": "number"
+        },
+        "relationship_gender": {
+            "description": "The text term used to describe the gender of the patient's relative with a history of cancer.",
+            "enum": [
+                "female",
+                "male",
+                "unspecified",
+                "unknown",
+                "not reported"
+            ],
+            "enumDef": {
+                "female": {
+                    "description": "A person who belongs to the sex that normally produces ova. The term is used to indicate biological sex distinctions, or cultural gender role distinctions, or both.",
+                    "termDef": {
+                        "cde_id": "C16576",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Female",
+                        "term_id": "C16576",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C16576",
+                        "term_version": "19.12e"
+                    }
+                },
+                "male": {
+                    "description": "A person who belongs to the sex that normally produces sperm. The term is used to indicate biological sex distinctions, cultural gender role distinctions, or both.",
+                    "termDef": {
+                        "cde_id": "C20197",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Male",
+                        "term_id": "C20197",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C20197",
+                        "term_version": "19.12e"
+                    }
+                },
+                "not reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                },
+                "unspecified": {
+                    "description": "Not stated explicitly or in detail.",
+                    "termDef": {
+                        "cde_id": "C38046",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unspecified",
+                        "term_id": "C38046",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C38046",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": 6161021,
+                "cde_version": 1.0,
+                "source": "caDSR",
+                "term": "Relative Gender Type",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161021%20and%20ver_nr=1.0"
+            }
+        },
+        "relationship_primary_diagnosis": {
+            "description": "The text term used to describe the malignant diagnosis of the patient's relative with a history of cancer.",
+            "enum": [
+                "Adrenal Gland Cancer",
+                "Basal Cell Cancer",
+                "Bile Duct Cancer",
+                "Bladder Cancer",
+                "Blood Cancer",
+                "Bone Cancer",
+                "Brain Cancer",
+                "Breast Cancer",
+                "Cancer",
+                "Cervical Cancer",
+                "Chondrosarcoma",
+                "CNS Cancer",
+                "Colorectal Cancer",
+                "Esophageal Cancer",
+                "Ewing Sarcoma",
+                "Gallbladder Cancer",
+                "Gastric Cancer",
+                "Glioblastoma",
+                "Gynecologic Cancer",
+                "Head and Neck Cancer",
+                "Hematologic Cancer",
+                "Kaposi Sarcoma",
+                "Kidney Cancer",
+                "Laryngeal Cancer",
+                "Leukemia",
+                "Liver Cancer",
+                "Lung Cancer",
+                "Lymph Node Cancer",
+                "Lymphoma",
+                "Melanoma",
+                "Mesothelioma",
+                "Multiple Myeloma",
+                "Neuroblastoma",
+                "Osteosarcoma",
+                "Ovarian Cancer",
+                "Pancreas Cancer",
+                "Pediatric Liver Cancer",
+                "Prostate Cancer",
+                "Rectal Cancer",
+                "Rhabdomyosarcoma",
+                "Sarcoma",
+                "Skin Cancer",
+                "Spleen Cancer",
+                "Testicular Cancer",
+                "Throat Cancer",
+                "Thyroid Cancer",
+                "Tongue Cancer",
+                "Tonsillar Cancer",
+                "Uterine Cancer",
+                "Wilms Tumor",
+                "Unknown",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "Adrenal Gland Cancer": {
+                    "description": "A primary or metastatic malignant neoplasm affecting the adrenal gland.",
+                    "termDef": {
+                        "cde_id": "C9338",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Malignant Adrenal Gland Neoplasm",
+                        "term_id": "C9338",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C9338",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Basal Cell Cancer": {
+                    "description": "The most frequently seen skin cancer. It arises from basal cells of the epidermis and pilosebaceous units. Clinically it is divided into the following types: nodular, ulcerative, superficial, multicentric, erythematous, and sclerosing or morphea-like. More than 95% of these carcinomas occur in patients over 40. They develop on hair-bearing skin, most commonly on sun-exposed areas. Approximately 85% are found on the head and neck and the remaining 15% on the trunk and extremities. Basal cell carcinoma usually grows in a slow and indolent fashion. However, if untreated, the tumor may invade the subcutaneous fat, skeletal muscle and bone. Distant metastases are rare. Excision, curettage and irradiation cure most basal cell carcinomas.",
+                    "termDef": {
+                        "cde_id": "C2921",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Skin Basal Cell Carcinoma",
+                        "term_id": "C2921",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C2921",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Bile Duct Cancer": {
+                    "description": "A carcinoma arising from the intrahepatic or extrahepatic bile ducts.",
+                    "termDef": {
+                        "cde_id": "C27814",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Bile Duct Carcinoma",
+                        "term_id": "C27814",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C27814",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Bladder Cancer": {
+                    "description": "A carcinoma arising from the bladder epithelium. Approximately 90% of the bladder carcinomas are transitional cell carcinomas. The remainder are squamous cell carcinomas, adenocarcinomas and small cell neuroendocrine carcinomas.",
+                    "termDef": {
+                        "cde_id": "C4912",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Bladder Carcinoma",
+                        "term_id": "C4912",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C4912",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Blood Cancer": {
+                    "description": "A malignant tumor that originates from myeloid or lymphoid cells i.e., leukemias and lymphomas.",
+                    "termDef": {
+                        "cde_id": "C116915",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Liquid Tumor",
+                        "term_id": "C116915",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C116915",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Bone Cancer": {
+                    "description": "A primary or metastatic malignant neoplasm affecting the bone or articular cartilage.",
+                    "termDef": {
+                        "cde_id": "C4016",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Malignant Bone Neoplasm",
+                        "term_id": "C4016",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C4016",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Brain Cancer": {
+                    "description": "A primary or metastatic malignant neoplasm affecting the brain.",
+                    "termDef": {
+                        "cde_id": "C3568",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Malignant Brain Neoplasm",
+                        "term_id": "C3568",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C3568",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Breast Cancer": {
+                    "description": "A carcinoma arising from the breast, most commonly the terminal ductal-lobular unit. It is the most common malignant tumor in females. Risk factors include country of birth, family history, menstrual and reproductive history, fibrocystic disease and epithelial hyperplasia, exogenous estrogens, contraceptive agents, and ionizing radiation. The vast majority of breast carcinomas are adenocarcinomas (ductal or lobular). Breast carcinoma spreads by direct invasion, by the lymphatic route, and by the blood vessel route. The most common site of lymph node involvement is the axilla.",
+                    "termDef": {
+                        "cde_id": "C4872",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Breast Carcinoma",
+                        "term_id": "C4872",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C4872",
+                        "term_version": "19.12e"
+                    }
+                },
+                "CNS Cancer": {
+                    "description": "A primary or metastatic malignant neoplasm involving the brain or spinal cord. Representative examples include anaplastic astrocytoma, glioblastoma, anaplastic (malignant) meningioma, lymphoma, and metastatic carcinoma from another anatomic site.",
+                    "termDef": {
+                        "cde_id": "C4627",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Malignant Central Nervous System Neoplasm",
+                        "term_id": "C4627",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C4627",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Cancer": {
+                    "description": "A tumor composed of atypical neoplastic, often pleomorphic cells that invade other tissues. Malignant neoplasms often metastasize to distant anatomic sites and may recur after excision. The most common malignant neoplasms are carcinomas, Hodgkin and non-Hodgkin lymphomas, leukemias, melanomas, and sarcomas.",
+                    "termDef": {
+                        "cde_id": "C9305",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Malignant Neoplasm",
+                        "term_id": "C9305",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C9305",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Cervical Cancer": {
+                    "description": "A carcinoma arising from either the exocervical squamous epithelium or the endocervical glandular epithelium. The major histologic types of cervical carcinoma are: squamous carcinoma, adenocarcinoma, adenosquamous carcinoma, adenoid cystic carcinoma and undifferentiated carcinoma.",
+                    "termDef": {
+                        "cde_id": "C9039",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Cervical Carcinoma",
+                        "term_id": "C9039",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C9039",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Chondrosarcoma": {
+                    "description": "A malignant cartilaginous matrix-producing mesenchymal neoplasm arising from the bone and soft tissue. It usually affects middle-aged to elderly adults. The pelvic bones, ribs, shoulder girdle, and long bones are the most common sites of involvement. Most chondrosarcomas arise de novo, but some may develop in a preexisting benign cartilaginous lesion.",
+                    "termDef": {
+                        "cde_id": "C2946",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Chondrosarcoma",
+                        "term_id": "C2946",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C2946",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Colorectal Cancer": {
+                    "description": "A malignant epithelial neoplasm that arises from the colon or rectum and invades through the muscularis mucosa into the submucosa. The vast majority are adenocarcinomas.",
+                    "termDef": {
+                        "cde_id": "C2955",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Colorectal Carcinoma",
+                        "term_id": "C2955",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C2955",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Esophageal Cancer": {
+                    "description": "A malignant epithelial tumor arising from the esophageal mucosa. Two major histologic types of esophageal carcinoma have been described: squamous cell carcinoma and adenocarcinoma. This type of cancer is associated with excessive ethanol and cigarette usage.",
+                    "termDef": {
+                        "cde_id": "C3513",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Esophageal Carcinoma",
+                        "term_id": "C3513",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C3513",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Ewing Sarcoma": {
+                    "description": "A small round cell tumor that lacks morphologic, immunohistochemical, and electron microscopic evidence of neuroectodermal differentiation. It represents one of the two ends of the spectrum called Ewing sarcoma/peripheral neuroectodermal tumor. It affects mostly males under age 20, and it can occur in soft tissue or bone. Pain and the presence of a mass are the most common clinical symptoms.",
+                    "termDef": {
+                        "cde_id": "C4817",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Ewing Sarcoma",
+                        "term_id": "C4817",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C4817",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Gallbladder Cancer": {
+                    "description": "A malignant tumor arising from the epithelium of the gallbladder. It is usually associated with the presence of gallstones. Clinical symptoms are not specific and usually present late in the course. Morphologically, most gallbladder carcinomas are adenocarcinomas; squamous cell carcinomas, adenosquamous carcinomas, signet ring carcinomas, and undifferentiated carcinomas can also occur.",
+                    "termDef": {
+                        "cde_id": "C3844",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Gallbladder Carcinoma",
+                        "term_id": "C3844",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C3844",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Gastric Cancer": {
+                    "description": "A malignant epithelial tumor of the stomach mucosa. The vast majority of gastric carcinomas are adenocarcinomas, arising from the gastric glandular epithelium.",
+                    "termDef": {
+                        "cde_id": "C4911",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Gastric Carcinoma",
+                        "term_id": "C4911",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C4911",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Glioblastoma": {
+                    "description": "The most malignant astrocytic tumor (WHO grade IV). It is composed of poorly differentiated neoplastic astrocytes and it is characterized by the presence of cellular polymorphism, nuclear atypia, brisk mitotic activity, vascular thrombosis, microvascular proliferation and necrosis. It typically affects adults and is preferentially located in the cerebral hemispheres. It may develop from diffuse astrocytoma WHO grade II or anaplastic astrocytoma (secondary glioblastoma, IDH-mutant), but more frequently, it manifests after a short clinical history de novo, without evidence of a less malignant precursor lesion (primary glioblastoma, IDH- wildtype). (Adapted from WHO)",
+                    "termDef": {
+                        "cde_id": "C3058",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Glioblastoma",
+                        "term_id": "C3058",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C3058",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Gynecologic Cancer": {
+                    "description": "A primary or metastatic malignant neoplasm involving the female reproductive system. Representative examples include endometrial carcinoma, cervical carcinoma, ovarian carcinoma, uterine corpus leiomyosarcoma, adenosarcoma, malignant mixed mesodermal (mullerian) tumor, and gestational choriocarcinoma.",
+                    "termDef": {
+                        "cde_id": "C4913",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Malignant Female Reproductive System Neoplasm",
+                        "term_id": "C4913",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C4913",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Head and Neck Cancer": {
+                    "description": "A primary or metastatic malignant neoplasm affecting the head and neck. Representative examples include oral cavity squamous cell carcinoma, laryngeal squamous cell carcinoma, and salivary gland carcinoma.",
+                    "termDef": {
+                        "cde_id": "C4013",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Malignant Head and Neck Neoplasm",
+                        "term_id": "C4013",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C4013",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Hematologic Cancer": {
+                    "description": "A neoplasm arising from hematopoietic cells found in the bone marrow, peripheral blood, lymph nodes and spleen (organs of the hematopoietic system). Hematopoietic cell neoplasms can also involve other anatomic sites (e.g. central nervous system, gastrointestinal tract), either by metastasis, direct tumor infiltration, or neoplastic transformation of extranodal lymphoid tissues. The commonest forms are the various types of leukemia, Hodgkin and non-Hodgkin lymphomas, myeloproliferative neoplasms, and myelodysplastic syndromes.",
+                    "termDef": {
+                        "cde_id": "C27134",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Hematopoietic and Lymphoid Cell Neoplasm",
+                        "term_id": "C27134",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C27134",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Kaposi Sarcoma": {
+                    "description": "A malignant neoplasm characterized by a vascular proliferation which usually contains blunt endothelial cells. Erythrocyte extravasation and hemosiderin deposition are frequently present. The most frequent site of involvement is the skin; however it may also occur internally. It generally develops in people with compromised immune systems including those with acquired immune deficiency syndrome (AIDS).",
+                    "termDef": {
+                        "cde_id": "C9087",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Kaposi Sarcoma",
+                        "term_id": "C9087",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C9087",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Kidney Cancer": {
+                    "description": "A carcinoma arising from the epithelium of the renal parenchyma or the renal pelvis. The majority are renal cell carcinomas. Kidney carcinomas usually affect middle aged and elderly adults. Hematuria, abdominal pain, and a palpable mass are common symptoms.",
+                    "termDef": {
+                        "cde_id": "C9384",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Kidney Carcinoma",
+                        "term_id": "C9384",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C9384",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Laryngeal Cancer": {
+                    "description": "Carcinoma that arises from the laryngeal epithelium. More than 90% of laryngeal carcinomas are squamous cell carcinomas. The remainder are adenoid cystic carcinomas, mucoepidermoid carcinomas and carcinomas with neuroendocrine differentiation.",
+                    "termDef": {
+                        "cde_id": "C4855",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Laryngeal Carcinoma",
+                        "term_id": "C4855",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C4855",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Leukemia": {
+                    "description": "A malignant (clonal) hematologic disorder, involving hematopoietic stem cells and characterized by the presence of primitive or atypical myeloid or lymphoid cells in the bone marrow and the blood. Leukemias are classified as acute or chronic based on the degree of cellular differentiation and the predominant cell type present. Leukemia is usually associated with anemia, fever, hemorrhagic episodes, and splenomegaly. Common leukemias include acute myeloid leukemia, chronic myelogenous leukemia, acute lymphoblastic or precursor lymphoblastic leukemia, and chronic lymphocytic leukemia. Treatment is vital to patient survival; untreated, the natural course of acute leukemias is normally measured in weeks or months, while that of chronic leukemias is more often measured in months or years.",
+                    "termDef": {
+                        "cde_id": "C3161",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Leukemia",
+                        "term_id": "C3161",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C3161",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Liver Cancer": {
+                    "description": "A carcinoma that arises from the hepatocytes or intrahepatic bile ducts. The main subtypes are hepatocellular carcinoma (hepatoma) and cholangiocarcinoma.",
+                    "termDef": {
+                        "cde_id": "C7927",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Liver and Intrahepatic Bile Duct Carcinoma",
+                        "term_id": "C7927",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C7927",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Lung Cancer": {
+                    "description": "A carcinoma originating in the lung. Lung carcinomas usually arise from the epithelium that lines the bronchial tree (bronchogenic carcinomas), and are classified as small cell or non-small cell carcinomas. Non-small cell lung carcinomas are usually adenocarcinomas, squamous cell carcinomas, or large cell carcinomas. Metastatic carcinomas to the lung are also common, and can be difficult to distinguish from primary tumors.",
+                    "termDef": {
+                        "cde_id": "C4878",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Lung Carcinoma",
+                        "term_id": "C4878",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C4878",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Lymph Node Cancer": {
+                    "description": "A primary or metastatic malignant tumor involving the lymph node. Lymphomas and metastatic carcinomas are representative examples.",
+                    "termDef": {
+                        "cde_id": "C35812",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Malignant Lymph Node Neoplasm",
+                        "term_id": "C35812",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C35812",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Lymphoma": {
+                    "description": "A malignant (clonal) proliferation of B- lymphocytes or T- lymphocytes which involves the lymph nodes, bone marrow and/or extranodal sites. This category includes Non-Hodgkin lymphomas and Hodgkin lymphomas.",
+                    "termDef": {
+                        "cde_id": "C3208",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Lymphoma",
+                        "term_id": "C3208",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C3208",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Melanoma": {
+                    "description": "A malignant, usually aggressive tumor composed of atypical, neoplastic melanocytes. Most often, melanomas arise in the skin (cutaneous melanomas) and include the following histologic subtypes: superficial spreading melanoma, nodular melanoma, acral lentiginous melanoma, and lentigo maligna melanoma. Cutaneous melanomas may arise from acquired or congenital melanocytic or dysplastic nevi. Melanomas may also arise in other anatomic sites including the gastrointestinal system, eye, urinary tract, and reproductive system. Melanomas frequently metastasize to lymph nodes, liver, lungs, and brain.",
+                    "termDef": {
+                        "cde_id": "C3224",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Melanoma",
+                        "term_id": "C3224",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C3224",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Mesothelioma": {
+                    "description": "A usually malignant and aggressive neoplasm of the mesothelium which is often associated with exposure to asbestos.",
+                    "termDef": {
+                        "cde_id": "C3234",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Mesothelioma",
+                        "term_id": "C3234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C3234",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Multiple Myeloma": {
+                    "description": "A bone marrow-based plasma cell neoplasm characterized by a serum monoclonal protein and skeletal destruction with osteolytic lesions, pathological fractures, bone pain, hypercalcemia, and anemia. Clinical variants include non-secretory myeloma, smoldering myeloma, indolent myeloma, and plasma cell leukemia.",
+                    "termDef": {
+                        "cde_id": "C3242",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Plasma Cell Myeloma",
+                        "term_id": "C3242",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C3242",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Neuroblastoma": {
+                    "description": "A neuroblastic tumor characterized by the presence of neuroblastic cells, the absence of ganglion cells, and the absence of a prominent Schwannian stroma formation.",
+                    "termDef": {
+                        "cde_id": "C3270",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Neuroblastoma",
+                        "term_id": "C3270",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C3270",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Osteosarcoma": {
+                    "description": "A usually aggressive malignant bone-forming mesenchymal neoplasm, predominantly affecting adolescents and young adults. It usually involves bones and less frequently extraosseous sites. It often involves the long bones (particularly distal femur, proximal tibia, and proximal humerus). Pain with or without a palpable mass is the most frequent clinical symptom. It may spread to other anatomic sites, particularly the lungs.",
+                    "termDef": {
+                        "cde_id": "C9145",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Osteosarcoma",
+                        "term_id": "C9145",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C9145",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Ovarian Cancer": {
+                    "description": "A primary or metastatic malignant neoplasm involving the ovary. Most primary malignant ovarian neoplasms are either carcinomas (serous, mucinous, or endometrioid adenocarcinomas) or malignant germ cell tumors. Metastatic malignant neoplasms to the ovary include carcinomas, lymphomas, and melanomas.",
+                    "termDef": {
+                        "cde_id": "C7431",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Malignant Ovarian Neoplasm",
+                        "term_id": "C7431",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C7431",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Pancreas Cancer": {
+                    "description": "A carcinoma arising from the exocrine pancreas. The overwhelming majority of pancreatic carcinomas are adenocarcinomas.",
+                    "termDef": {
+                        "cde_id": "C3850",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Pancreatic Carcinoma",
+                        "term_id": "C3850",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C3850",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Pediatric Liver Cancer": {
+                    "description": "A malignant neoplasm of the liver developed in childhood. Representative examples include hepatoblastoma, undifferentiated (embryonal) sarcoma, and extrarenal rhabdoid tumor.",
+                    "termDef": {
+                        "cde_id": "C7708",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Childhood Malignant Liver Neoplasm",
+                        "term_id": "C7708",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C7708",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Prostate Cancer": {
+                    "description": "One of the most common malignant tumors afflicting men. The majority of carcinomas arise in the peripheral zone and a minority occur in the central or the transitional zone of the prostate gland. Grossly, prostatic carcinomas appear as ill-defined yellow areas of discoloration in the prostate gland lobes. Adenocarcinomas represent the overwhelming majority of prostatic carcinomas. Prostatic-specific antigen (PSA) serum test is widely used as a screening test for the early detection of prostatic carcinoma. Treatment options include radical prostatectomy, radiation therapy, androgen ablation and cryotherapy. Watchful waiting or surveillance alone is an option for older patients with low-grade or low-stage disease.",
+                    "termDef": {
+                        "cde_id": "C4863",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Prostate Carcinoma",
+                        "term_id": "C4863",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C4863",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Rectal Cancer": {
+                    "description": "A malignant epithelial neoplasm that arises from the rectum and invades through the muscularis mucosa into the submucosa. The vast majority are adenocarcinomas.",
+                    "termDef": {
+                        "cde_id": "C9382",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Rectal Carcinoma",
+                        "term_id": "C9382",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C9382",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Rhabdomyosarcoma": {
+                    "description": "A rare aggressive malignant mesenchymal neoplasm arising from skeletal muscle. It usually occurs in children and young adults. Only a small percentage of tumors arise in the skeletal muscle of the extremities. The majority arise in other anatomical sites.",
+                    "termDef": {
+                        "cde_id": "C3359",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Rhabdomyosarcoma",
+                        "term_id": "C3359",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C3359",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Sarcoma": {
+                    "description": "A usually aggressive malignant neoplasm of the soft tissue or bone. It arises from muscle, fat, fibrous tissue, bone, cartilage, and blood vessels. Sarcomas occur in both children and adults. The prognosis depends largely on the degree of differentiation (grade) of the neoplasm. Representative subtypes are liposarcoma, leiomyosarcoma, osteosarcoma, and chondrosarcoma.",
+                    "termDef": {
+                        "cde_id": "C9118",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Sarcoma",
+                        "term_id": "C9118",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C9118",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Skin Cancer": {
+                    "description": "A primary or metastatic malignant neoplasm involving the skin. Primary malignant skin neoplasms most often are carcinomas (either basal cell or squamous cell carcinomas) or melanomas. Metastatic malignant neoplasms to the skin include carcinomas and lymphomas.",
+                    "termDef": {
+                        "cde_id": "C2920",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Malignant Skin Neoplasm",
+                        "term_id": "C2920",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C2920",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Spleen Cancer": {
+                    "description": "A malignant neoplasm affecting the spleen. Representative examples include leukemias, lymphomas, and sarcomas.",
+                    "termDef": {
+                        "cde_id": "C3539",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Malignant Splenic Neoplasm",
+                        "term_id": "C3539",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C3539",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Testicular Cancer": {
+                    "description": "A malignant tumor predominantly affecting young men and often associated with cryptorchidism. Seminoma is the most frequently seen malignant testicular germ cell tumor, followed by embryonal carcinoma and yolk sac tumor.",
+                    "termDef": {
+                        "cde_id": "C9063",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Malignant Testicular Germ Cell Tumor",
+                        "term_id": "C9063",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C9063",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Throat Cancer": {
+                    "description": "Carcinoma, predominantly squamous cell, arising from epithelial cells of the larynx or pharynx.",
+                    "termDef": {
+                        "cde_id": "C35506",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Throat Carcinoma",
+                        "term_id": "C35506",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C35506",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Thyroid Cancer": {
+                    "description": "A carcinoma arising from the thyroid gland. It includes the following main subtypes: follicular, papillary, medullary, poorly differentiated, and undifferentiated (anaplastic) carcinoma.",
+                    "termDef": {
+                        "cde_id": "C4815",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Thyroid Gland Carcinoma",
+                        "term_id": "C4815",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C4815",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Tongue Cancer": {
+                    "description": "A malignant tumor arising from the epithelium that covers the tongue. The vast majority of tongue carcinomas are moderately or poorly differentiated squamous cell carcinomas.",
+                    "termDef": {
+                        "cde_id": "C4824",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Tongue Carcinoma",
+                        "term_id": "C4824",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C4824",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Tonsillar Cancer": {
+                    "description": "A carcinoma arising from the tonsilar epithelium.",
+                    "termDef": {
+                        "cde_id": "C4825",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Tonsillar Carcinoma",
+                        "term_id": "C4825",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C4825",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Uterine Cancer": {
+                    "description": "Primary or metastatic malignant neoplasm involving the uterine corpus and/or the cervix.",
+                    "termDef": {
+                        "cde_id": "C3552",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Malignant Uterine Neoplasm",
+                        "term_id": "C3552",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C3552",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Wilms Tumor": {
+                    "description": "An embryonal neoplasm characterized by the presence of epithelial, mesenchymal, and blastema components. The vast majority of cases arise from the kidney. A small number of cases with morphologic features resembling Wilms tumor of the kidney have been reported arising from the ovary and the cervix.",
+                    "termDef": {
+                        "cde_id": "C3267",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Wilms Tumor",
+                        "term_id": "C3267",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C3267",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": 6161022,
+                "cde_version": 1.0,
+                "source": "caDSR",
+                "term": "Relative Malignant Diagnosis Name",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161022%20and%20ver_nr=1.0"
+            }
+        },
+        "relationship_type": {
+            "description": "The subgroup that describes the state of connectedness between members of the unit of society organized around kinship ties.",
+            "enum": [
+                "Adopted Brother",
+                "Adopted Daughter",
+                "Adopted Sister",
+                "Adopted Son",
+                "Adoptive Father",
+                "Adoptive Mother",
+                "Aunt",
+                "Brother",
+                "Brother-in-law",
+                "Child",
+                "Cousin",
+                "Daughter",
+                "Daughter-in-law",
+                "Domestic Partner",
+                "Father",
+                "Father-in-law",
+                "Female Cousin",
+                "Female Sibling of Adopted Child",
+                "First Cousin",
+                "First Cousin Once Removed",
+                "First Degree Relative, NOS",
+                "Foster Brother",
+                "Foster Daughter",
+                "Foster Father",
+                "Foster Mother",
+                "Foster Sister",
+                "Foster Son",
+                "Fraternal Twin Brother",
+                "Fraternal Twin Sibling",
+                "Fraternal Twin Sister",
+                "Full Brother",
+                "Full Sister",
+                "Grand Nephew",
+                "Grand Niece",
+                "Grandchild",
+                "Granddaughter",
+                "Grandfather",
+                "Grandmother",
+                "Grandparent",
+                "Grandson",
+                "Great Grandchild",
+                "Half Brother",
+                "Half Sibling",
+                "Half Sister",
+                "Husband",
+                "Identical Twin Brother",
+                "Identical Twin Sibling",
+                "Identical Twin Sister",
+                "Legal Guardian",
+                "Male Cousin",
+                "Male Sibling of Adopted Child",
+                "Maternal Aunt",
+                "Maternal First Cousin",
+                "Maternal First Cousin Once Removed",
+                "Maternal Grandfather",
+                "Maternal Grandmother",
+                "Maternal Grandparent",
+                "Maternal Great Aunt",
+                "Maternal Great Grandparent",
+                "Maternal Great Uncle",
+                "Maternal Half Brother",
+                "Maternal Half Sibling",
+                "Maternal Half Sister",
+                "Maternal Uncle",
+                "Mother",
+                "Mother-in-law",
+                "Natural Brother",
+                "Natural Child",
+                "Natural Daughter",
+                "Natural Father",
+                "Natural Grandchild",
+                "Natural Grandfather",
+                "Natural Grandmother",
+                "Natural Grandparent",
+                "Natural Mother",
+                "Natural Parent",
+                "Natural Sibling",
+                "Natural Sister",
+                "Natural Son",
+                "Nephew",
+                "Niece",
+                "Niece Second Degree Relative",
+                "Parent",
+                "Paternal Aunt",
+                "Paternal First Cousin",
+                "Paternal First Cousin Once Removed",
+                "Paternal Grandfather",
+                "Paternal Grandmother",
+                "Paternal Grandparent",
+                "Paternal Great Aunt",
+                "Paternal Great Grandparent",
+                "Paternal Great Uncle",
+                "Paternal Half Brother",
+                "Paternal Half Sibling",
+                "Paternal Half Sister",
+                "Paternal Uncle",
+                "Sibling",
+                "Sister",
+                "Sister-in-law",
+                "Son",
+                "Son-in-law",
+                "Spouse",
+                "Step Child",
+                "Step Sibling",
+                "Stepbrother",
+                "Stepdaughter",
+                "Stepfather",
+                "Stepmother",
+                "Stepsister",
+                "Stepson",
+                "Twin Sibling",
+                "Uncle",
+                "Unrelated",
+                "Ward",
+                "Wife",
+                "Other",
+                "Unknown",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "Adopted Brother": {
+                    "description": "A male sibling who is legally adopted by one's biological parent or legal guardian.",
+                    "termDef": {
+                        "cde_id": "C166195",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Adopted Brother",
+                        "term_id": "C166195",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C166195",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Adopted Daughter": {
+                    "description": "A female child in the parent-child relationship established by a legal adoption proceeding.",
+                    "termDef": {
+                        "cde_id": "C166131",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Adopted Daughter",
+                        "term_id": "C166131",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C166131",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Adopted Sister": {
+                    "description": "A female sibling who is legally adopted by one's biological parent or legal guardian.",
+                    "termDef": {
+                        "cde_id": "C166196",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Adopted Sister",
+                        "term_id": "C166196",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C166196",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Adopted Son": {
+                    "description": "A male child in the parent-child relationship established by a legal adoption proceeding.",
+                    "termDef": {
+                        "cde_id": "C166132",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Adopted Son",
+                        "term_id": "C166132",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C166132",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Adoptive Father": {
+                    "description": "A male parent in the parent-child relationship established by a legal adoption proceeding.",
+                    "termDef": {
+                        "cde_id": "C166133",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Adoptive Father",
+                        "term_id": "C166133",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C166133",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Adoptive Mother": {
+                    "description": "A female parent in the parent-child relationship established by a legal adoption proceeding.",
+                    "termDef": {
+                        "cde_id": "C166134",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Adoptive Mother",
+                        "term_id": "C166134",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C166134",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Aunt": {
+                    "description": "The sister of your father or mother; the wife of your uncle.",
+                    "termDef": {
+                        "cde_id": "C71405",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Aunt",
+                        "term_id": "C71405",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C71405",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Brother": {
+                    "description": "A male sibling.",
+                    "termDef": {
+                        "cde_id": "C25289",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Brother",
+                        "term_id": "C25289",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C25289",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Brother-in-law": {
+                    "description": "A brother by marriage.",
+                    "termDef": {
+                        "cde_id": "C71406",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Brother-in-law",
+                        "term_id": "C71406",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C71406",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Child": {
+                    "description": "An age group comprised of individuals who are not yet an adult. The specific cut-off age will vary by purpose.",
+                    "termDef": {
+                        "cde_id": "C16423",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Child",
+                        "term_id": "C16423",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C16423",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Cousin": {
+                    "description": "A child of your aunt or uncle or their descendents.",
+                    "termDef": {
+                        "cde_id": "C71410",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Cousin",
+                        "term_id": "C71410",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C71410",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Daughter": {
+                    "description": "A female human offspring.",
+                    "termDef": {
+                        "cde_id": "C25165",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Daughter",
+                        "term_id": "C25165",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C25165",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Daughter-in-law": {
+                    "description": "The wife of your son.",
+                    "termDef": {
+                        "cde_id": "C71401",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Daughter-in-law",
+                        "term_id": "C71401",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C71401",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Domestic Partner": {
+                    "description": "Indicates a person who is a member of an unmarried couple, including same sex couples, living together in longstanding relationships, that are registered or unregistered.",
+                    "termDef": {
+                        "cde_id": "C53262",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Domestic Partnership",
+                        "term_id": "C53262",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C53262",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Father": {
+                    "description": "A male parent.",
+                    "termDef": {
+                        "cde_id": "C25174",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Father",
+                        "term_id": "C25174",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C25174",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Father-in-law": {
+                    "description": "The father of your spouse.",
+                    "termDef": {
+                        "cde_id": "C68640",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Father-in-law",
+                        "term_id": "C68640",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C68640",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Female Cousin": {
+                    "description": "A female child of one's aunt or uncle.",
+                    "termDef": {
+                        "cde_id": "C165786",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Female Cousin",
+                        "term_id": "C165786",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C165786",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Female Sibling of Adopted Child": {
+                    "description": "A female sibling of an adopted child. The said female is a biological or legal child of the parents who facilitated the adoption.",
+                    "termDef": {
+                        "cde_id": "C166198",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Female Sibling of Adopted Child",
+                        "term_id": "C166198",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C166198",
+                        "term_version": "19.12e"
+                    }
+                },
+                "First Cousin": {
+                    "description": "A child of your aunt or uncle.",
+                    "termDef": {
+                        "cde_id": "C71411",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "First Cousin",
+                        "term_id": "C71411",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C71411",
+                        "term_version": "19.12e"
+                    }
+                },
+                "First Cousin Once Removed": {
+                    "description": "A child of your first cousin.",
+                    "termDef": {
+                        "cde_id": "C71412",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "First Cousin Once Removed",
+                        "term_id": "C71412",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C71412",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Foster Brother": {
+                    "description": "A male child being fostered by your parents or legal guardians.",
+                    "termDef": {
+                        "cde_id": "C165788",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Foster Brother",
+                        "term_id": "C165788",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C165788",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Foster Daughter": {
+                    "description": "A female child you are fostering.",
+                    "termDef": {
+                        "cde_id": "C165790",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Foster Daughter",
+                        "term_id": "C165790",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C165790",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Foster Father": {
+                    "description": "A male foster parent.",
+                    "termDef": {
+                        "cde_id": "C165792",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Foster Father",
+                        "term_id": "C165792",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C165792",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Foster Mother": {
+                    "description": "A female foster parent.",
+                    "termDef": {
+                        "cde_id": "C165793",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Foster Mother",
+                        "term_id": "C165793",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C165793",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Foster Sister": {
+                    "description": "A female child being fostered by your parents or legal guardians.",
+                    "termDef": {
+                        "cde_id": "C165794",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Foster Sister",
+                        "term_id": "C165794",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C165794",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Foster Son": {
+                    "description": "A male child you are fostering.",
+                    "termDef": {
+                        "cde_id": "C165795",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Foster Son",
+                        "term_id": "C165795",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C165795",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Fraternal Twin Brother": {
+                    "description": "A male full sibling that developed from a separately fertilized ova during the same pregnancy.",
+                    "termDef": {
+                        "cde_id": "C165796",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Fraternal Twin Brother",
+                        "term_id": "C165796",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C165796",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Fraternal Twin Sibling": {
+                    "description": "Either of the two offspring from separately fertilized ova during the same pregnancy.",
+                    "termDef": {
+                        "cde_id": "C73428",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Fraternal Twin",
+                        "term_id": "C73428",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C73428",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Fraternal Twin Sister": {
+                    "description": "A female full sibling that developed from a separately fertilized ova during the same pregnancy.",
+                    "termDef": {
+                        "cde_id": "C165797",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Fraternal Twin Sister",
+                        "term_id": "C165797",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C165797",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Full Brother": {
+                    "description": "A male who shares with his sibling the genetic makeup inherited from both of the biological parents.",
+                    "termDef": {
+                        "cde_id": "C111201",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Full Brother",
+                        "term_id": "C111201",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C111201",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Full Sister": {
+                    "description": "A female who shares with her sibling the genetic makeup inherited from both of the biological parents.",
+                    "termDef": {
+                        "cde_id": "C111202",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Full Sister",
+                        "term_id": "C111202",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C111202",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Grand Nephew": {
+                    "description": "A male child of one's niece or nephew.",
+                    "termDef": {
+                        "cde_id": "C165798",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Great Nephew",
+                        "term_id": "C165798",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C165798",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Grand Niece": {
+                    "description": "A female child of one's niece or nephew.",
+                    "termDef": {
+                        "cde_id": "C165846",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Great Niece",
+                        "term_id": "C165846",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C165846",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Grandchild": {
+                    "description": "A child of your son or daughter.",
+                    "termDef": {
+                        "cde_id": "C71397",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Grandchild",
+                        "term_id": "C71397",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C71397",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Granddaughter": {
+                    "description": "A female grandchild.",
+                    "termDef": {
+                        "cde_id": "C71399",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Granddaughter",
+                        "term_id": "C71399",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C71399",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Grandfather": {
+                    "description": "The father of your father or mother.",
+                    "termDef": {
+                        "cde_id": "C71387",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Grandfather",
+                        "term_id": "C71387",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C71387",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Grandmother": {
+                    "description": "The mother of your father or mother.",
+                    "termDef": {
+                        "cde_id": "C71386",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Grandmother",
+                        "term_id": "C71386",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C71386",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Grandparent": {
+                    "description": "A parent of your father or mother.",
+                    "termDef": {
+                        "cde_id": "C71385",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Grandparent",
+                        "term_id": "C71385",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C71385",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Grandson": {
+                    "description": "A male grandchild.",
+                    "termDef": {
+                        "cde_id": "C71398",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Grandson",
+                        "term_id": "C71398",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C71398",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Great Grandchild": {
+                    "description": "A child of one's grandchild.",
+                    "termDef": {
+                        "cde_id": "C165847",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Great Grandchild",
+                        "term_id": "C165847",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C165847",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Half Brother": {
+                    "description": "A male sibling with whom you share a single parent.",
+                    "termDef": {
+                        "cde_id": "C71402",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Half Brother",
+                        "term_id": "C71402",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C71402",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Half Sibling": {
+                    "description": "A sibling with whom you share a single parent.",
+                    "termDef": {
+                        "cde_id": "C71391",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Half Sibling",
+                        "term_id": "C71391",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C71391",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Half Sister": {
+                    "description": "A female sibling with whom you share a single parent.",
+                    "termDef": {
+                        "cde_id": "C71403",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Half Sister",
+                        "term_id": "C71403",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C71403",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Husband": {
+                    "description": "A male partner in marriage.",
+                    "termDef": {
+                        "cde_id": "C71588",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Husband",
+                        "term_id": "C71588",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C71588",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Identical Twin Brother": {
+                    "description": "A male full sibling that developed from a shared ovum.",
+                    "termDef": {
+                        "cde_id": "C165848",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Identical Twin Brother",
+                        "term_id": "C165848",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C165848",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Identical Twin Sibling": {
+                    "description": "Either of the two offspring resulting from a shared ovum.",
+                    "termDef": {
+                        "cde_id": "C73429",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Identical Twin",
+                        "term_id": "C73429",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C73429",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Identical Twin Sister": {
+                    "description": "A female full sibling that developed from a shared ovum.",
+                    "termDef": {
+                        "cde_id": "C165849",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Identical Twin Sister",
+                        "term_id": "C165849",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C165849",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Legal Guardian": {
+                    "description": "An individual who is authorized under applicable State or local law to consent on behalf of a child or incapable person to general medical care including participation in clinical research.",
+                    "termDef": {
+                        "cde_id": "C51828",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Guardian",
+                        "term_id": "C51828",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C51828",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Male Cousin": {
+                    "description": "A male child of one's aunt or uncle.",
+                    "termDef": {
+                        "cde_id": "C165850",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Male Cousin",
+                        "term_id": "C165850",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C165850",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Male Sibling of Adopted Child": {
+                    "description": "A male sibling of an adopted child. The said male is a biological or legal child of the parents who facilitated the adoption.",
+                    "termDef": {
+                        "cde_id": "C166197",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Male Sibling of Adopted Child",
+                        "term_id": "C166197",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C166197",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Maternal Aunt": {
+                    "description": "A female relative who is a sibling of the biological mother, and who both share a common ancestor.",
+                    "termDef": {
+                        "cde_id": "C96575",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Biological Maternal Aunt",
+                        "term_id": "C96575",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C96575",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Maternal First Cousin": {
+                    "description": "A relative who is the offspring of a sibling of the biological mother and thus sharing a common ancestor.",
+                    "termDef": {
+                        "cde_id": "C96576",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Biological Maternal Cousin",
+                        "term_id": "C96576",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C96576",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Maternal First Cousin Once Removed": {
+                    "description": "A child of one's first cousin who is related by lineage through the mother's side of the family.",
+                    "termDef": {
+                        "cde_id": "C165851",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Maternal First Cousin Once Removed",
+                        "term_id": "C165851",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C165851",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Maternal Grandfather": {
+                    "description": "A male relative who is the biological father of the biological mother.",
+                    "termDef": {
+                        "cde_id": "C96577",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Biological Maternal Grandfather",
+                        "term_id": "C96577",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C96577",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Maternal Grandmother": {
+                    "description": "A female relative who is the biological mother of the biological mother.",
+                    "termDef": {
+                        "cde_id": "C96578",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Biological Maternal Grandmother",
+                        "term_id": "C96578",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C96578",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Maternal Grandparent": {
+                    "description": "A relative who is the biological parent of the biological mother.",
+                    "termDef": {
+                        "cde_id": "C111248",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Biological Maternal Grandparent",
+                        "term_id": "C111248",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C111248",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Maternal Great Aunt": {
+                    "description": "The aunt of one's mother.",
+                    "termDef": {
+                        "cde_id": "C165853",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Maternal Great Aunt",
+                        "term_id": "C165853",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C165853",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Maternal Great Grandparent": {
+                    "description": "A parent of one's maternal grandparent.",
+                    "termDef": {
+                        "cde_id": "C166127",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Maternal Great Grandparent",
+                        "term_id": "C166127",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C166127",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Maternal Great Uncle": {
+                    "description": "The uncle of one's mother.",
+                    "termDef": {
+                        "cde_id": "C165854",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Maternal Great Uncle",
+                        "term_id": "C165854",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C165854",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Maternal Half Brother": {
+                    "description": "A male sibling who shares the genetic makeup inherited from only the biological mother.",
+                    "termDef": {
+                        "cde_id": "C96656",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Half-brother with Mother as Common Parent",
+                        "term_id": "C96656",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C96656",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Maternal Half Sibling": {
+                    "description": "A relative with whom you share a biological mother but you have different fathers.",
+                    "termDef": {
+                        "cde_id": "C166112",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Maternal Half Sibling",
+                        "term_id": "C166112",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C166112",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Maternal Half Sister": {
+                    "description": "A female sibling who shares the genetic makeup inherited from only the biological mother.",
+                    "termDef": {
+                        "cde_id": "C96658",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Half-sister with Mother as Common Parent",
+                        "term_id": "C96658",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C96658",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Maternal Uncle": {
+                    "description": "A male relative who is a sibling of the biological mother, and who both share a common ancestor.",
+                    "termDef": {
+                        "cde_id": "C96579",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Biological Maternal Uncle",
+                        "term_id": "C96579",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C96579",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Mother": {
+                    "description": "A female parent.",
+                    "termDef": {
+                        "cde_id": "C25189",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Mother",
+                        "term_id": "C25189",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C25189",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Mother-in-law": {
+                    "description": "The mother of your spouse.",
+                    "termDef": {
+                        "cde_id": "C68639",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Mother-in-law",
+                        "term_id": "C68639",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C68639",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Natural Brother": {
+                    "description": "A male who shares with his sibling the genetic makeup inherited from one or both of their shared biological parents.",
+                    "termDef": {
+                        "cde_id": "C96570",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Biological Brother",
+                        "term_id": "C96570",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C96570",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Natural Child": {
+                    "description": "A son or daughter with genetic makeup inherited from the parent.",
+                    "termDef": {
+                        "cde_id": "C100807",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Biological Child",
+                        "term_id": "C100807",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C100807",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Natural Daughter": {
+                    "description": "A female human offspring.",
+                    "termDef": {
+                        "cde_id": "C25165",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Daughter",
+                        "term_id": "C25165",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C25165",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Natural Father": {
+                    "description": "A male who contributes to the genetic makeup of his offspring through the fertilization of an ovum by his sperm.",
+                    "termDef": {
+                        "cde_id": "C96572",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Biological Father",
+                        "term_id": "C96572",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C96572",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Natural Grandchild": {
+                    "description": "A biological child of an individual's biological child.",
+                    "termDef": {
+                        "cde_id": "C100805",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Biological Grandchild",
+                        "term_id": "C100805",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C100805",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Natural Grandfather": {
+                    "description": "A male relative who is the biological father of either the biological mother or the biological father.",
+                    "termDef": {
+                        "cde_id": "C96573",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Biological Grandfather",
+                        "term_id": "C96573",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C96573",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Natural Grandmother": {
+                    "description": "A female relative who is the biological mother of either the biological mother or the biological father.",
+                    "termDef": {
+                        "cde_id": "C96574",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Biological Grandmother",
+                        "term_id": "C96574",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C96574",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Natural Grandparent": {
+                    "description": "A biological parent of the biological father or biological mother.",
+                    "termDef": {
+                        "cde_id": "C100806",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Biological Grandparent",
+                        "term_id": "C100806",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C100806",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Natural Mother": {
+                    "description": "A female who contributes to the genetic makeup of her offspring from the fertilization of her ovum.",
+                    "termDef": {
+                        "cde_id": "C96580",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Biological Mother",
+                        "term_id": "C96580",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C96580",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Natural Parent": {
+                    "description": "The male who supplied the sperm or the female who supplied the egg which resulted in one's conception.",
+                    "termDef": {
+                        "cde_id": "C166114",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Biological Parent",
+                        "term_id": "C166114",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C166114",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Natural Sibling": {
+                    "description": "A person's brother or sister with whom they share a genetic makeup inherited from one or both of their shared biological parents.",
+                    "termDef": {
+                        "cde_id": "C100809",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Biological Sibling",
+                        "term_id": "C100809",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C100809",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Natural Sister": {
+                    "description": "A female who shares with her sibling the genetic makeup inherited from one or both of their shared biological parents.",
+                    "termDef": {
+                        "cde_id": "C96586",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Biological Sister",
+                        "term_id": "C96586",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C96586",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Natural Son": {
+                    "description": "A male progeny with genetic makeup inherited from the parent.",
+                    "termDef": {
+                        "cde_id": "C150888",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Biological Son",
+                        "term_id": "C150888",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C150888",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Nephew": {
+                    "description": "A son of your brother or sister.",
+                    "termDef": {
+                        "cde_id": "C71409",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Nephew",
+                        "term_id": "C71409",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C71409",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Niece": {
+                    "description": "A daughter of your brother or sister.",
+                    "termDef": {
+                        "cde_id": "C71408",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Niece",
+                        "term_id": "C71408",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C71408",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Niece Second Degree Relative": {
+                    "description": "A daughter of one's biological sibling.",
+                    "termDef": {
+                        "cde_id": "C166115",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Biological Niece",
+                        "term_id": "C166115",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C166115",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Other": {
+                    "description": "Different than the one(s) previously specified or mentioned.",
+                    "termDef": {
+                        "cde_id": "C17649",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Other",
+                        "term_id": "C17649",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17649",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Parent": {
+                    "description": "A mother or a father; an immediate progenitor.",
+                    "termDef": {
+                        "cde_id": "C42709",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Parent",
+                        "term_id": "C42709",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C42709",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Paternal Aunt": {
+                    "description": "A female relative who is a sibling of the biological father, and who both share a common ancestor.",
+                    "termDef": {
+                        "cde_id": "C96581",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Biological Paternal Aunt",
+                        "term_id": "C96581",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C96581",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Paternal First Cousin": {
+                    "description": "A relative who is the offspring of a sibling of the biological father and thus sharing a common ancestor.",
+                    "termDef": {
+                        "cde_id": "C96582",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Biological Paternal Cousin",
+                        "term_id": "C96582",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C96582",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Paternal First Cousin Once Removed": {
+                    "description": "A child of one's first cousin who is related by lineage through the father's side of the family.",
+                    "termDef": {
+                        "cde_id": "C165852",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Paternal First Cousin Once Removed",
+                        "term_id": "C165852",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C165852",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Paternal Grandfather": {
+                    "description": "A male relative who is the biological father of the biological father.",
+                    "termDef": {
+                        "cde_id": "C96583",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Biological Paternal Grandfather",
+                        "term_id": "C96583",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C96583",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Paternal Grandmother": {
+                    "description": "A female relative who is the biological mother of the biological father.",
+                    "termDef": {
+                        "cde_id": "C96584",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Biological Paternal Grandmother",
+                        "term_id": "C96584",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C96584",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Paternal Grandparent": {
+                    "description": "A relative who is the biological parent of the biological father.",
+                    "termDef": {
+                        "cde_id": "C111286",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Biological Paternal Grandparent",
+                        "term_id": "C111286",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C111286",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Paternal Great Aunt": {
+                    "description": "The aunt of one's father.",
+                    "termDef": {
+                        "cde_id": "C165856",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Paternal Great Aunt",
+                        "term_id": "C165856",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C165856",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Paternal Great Grandparent": {
+                    "description": "A parent of one's paternal grandparent.",
+                    "termDef": {
+                        "cde_id": "C166128",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Paternal Great Grandparent",
+                        "term_id": "C166128",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C166128",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Paternal Great Uncle": {
+                    "description": "The uncle of one's father.",
+                    "termDef": {
+                        "cde_id": "C165857",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Paternal Great Uncle",
+                        "term_id": "C165857",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C165857",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Paternal Half Brother": {
+                    "description": "A male sibling who shares the genetic makeup inherited from only the biological father.",
+                    "termDef": {
+                        "cde_id": "C96655",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Half-brother with Father as Common Parent",
+                        "term_id": "C96655",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C96655",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Paternal Half Sibling": {
+                    "description": "A relative with whom you share a biological father but you have different mothers.",
+                    "termDef": {
+                        "cde_id": "C166113",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Paternal Half Sibling",
+                        "term_id": "C166113",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C166113",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Paternal Half Sister": {
+                    "description": "A female sibling who shares the genetic makeup inherited from only the biological father.",
+                    "termDef": {
+                        "cde_id": "C96657",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Half-sister with Father as Common Parent",
+                        "term_id": "C96657",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C96657",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Paternal Uncle": {
+                    "description": "A male relative who is a sibling of the biological father, and who both share a common ancestor.",
+                    "termDef": {
+                        "cde_id": "C96585",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Biological Paternal Uncle",
+                        "term_id": "C96585",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C96585",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Sibling": {
+                    "description": "A person's brother or sister.",
+                    "termDef": {
+                        "cde_id": "C25204",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Sibling",
+                        "term_id": "C25204",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C25204",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Sister": {
+                    "description": "A female sibling.",
+                    "termDef": {
+                        "cde_id": "C25680",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Sister",
+                        "term_id": "C25680",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C25680",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Sister-in-law": {
+                    "description": "A sister by marriage.",
+                    "termDef": {
+                        "cde_id": "C71407",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Sister-in-law",
+                        "term_id": "C71407",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C71407",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Son": {
+                    "description": "A male human offspring.",
+                    "termDef": {
+                        "cde_id": "C25205",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Son",
+                        "term_id": "C25205",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C25205",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Son-in-law": {
+                    "description": "The husband of your daughter.",
+                    "termDef": {
+                        "cde_id": "C71400",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Son-in-law",
+                        "term_id": "C71400",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C71400",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Spouse": {
+                    "description": "A person's partner in marriage.",
+                    "termDef": {
+                        "cde_id": "C62649",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Spouse",
+                        "term_id": "C62649",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C62649",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Step Child": {
+                    "description": "A child of one's spouse, acquired through marriage.",
+                    "termDef": {
+                        "cde_id": "C166117",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Step Child",
+                        "term_id": "C166117",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C166117",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Step Sibling": {
+                    "description": "A child of one's step parent.",
+                    "termDef": {
+                        "cde_id": "C166118",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Step Sibling",
+                        "term_id": "C166118",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C166118",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Stepbrother": {
+                    "description": "A male child of one's step parent.",
+                    "termDef": {
+                        "cde_id": "C166119",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Stepbrother",
+                        "term_id": "C166119",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C166119",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Stepdaughter": {
+                    "description": "A female child of one's spouse, acquired through marriage.",
+                    "termDef": {
+                        "cde_id": "C166123",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Stepdaughter",
+                        "term_id": "C166123",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C166123",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Stepfather": {
+                    "description": "A male that is related to a child or children through marriage to their biological parent.",
+                    "termDef": {
+                        "cde_id": "C154851",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Step Father",
+                        "term_id": "C154851",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C154851",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Stepmother": {
+                    "description": "A female who is married to a spouse with children whom are not biologically related to her.",
+                    "termDef": {
+                        "cde_id": "C132450",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Stepmother",
+                        "term_id": "C132450",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C132450",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Stepsister": {
+                    "description": "A female child of one's step parent.",
+                    "termDef": {
+                        "cde_id": "C166124",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Stepsister",
+                        "term_id": "C166124",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C166124",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Stepson": {
+                    "description": "A male child of one's spouse, acquired through marriage.",
+                    "termDef": {
+                        "cde_id": "C166125",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Stepson",
+                        "term_id": "C166125",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C166125",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Twin Sibling": {
+                    "description": "Either of two offspring born from the same pregnancy.",
+                    "termDef": {
+                        "cde_id": "C73427",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Twin",
+                        "term_id": "C73427",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C73427",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Uncle": {
+                    "description": "The brother of your father or mother; the husband of your aunt.",
+                    "termDef": {
+                        "cde_id": "C71404",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Uncle",
+                        "term_id": "C71404",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C71404",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Unrelated": {
+                    "description": "Not connected or associated e.g. by kinship.",
+                    "termDef": {
+                        "cde_id": "C25328",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unrelated",
+                        "term_id": "C25328",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C25328",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Ward": {
+                    "description": "A person who is under the protection or in the custody of another.",
+                    "termDef": {
+                        "cde_id": "C71413",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Ward",
+                        "term_id": "C71413",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C71413",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Wife": {
+                    "description": "A female partner in marriage.",
+                    "termDef": {
+                        "cde_id": "C71587",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Wife",
+                        "term_id": "C71587",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C71587",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": 2690165,
+                "cde_version": 2.0,
+                "source": "caDSR",
+                "term": "Family Member Relationship Type",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2690165%20and%20ver_nr=2.0"
+            }
+        },
+        "relative_deceased": {
+            "description": "The historical fact that a legal or consanguineous family member has died.",
+            "enum": [
+                "Yes",
+                "No",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "No": {
+                    "description": "The non-affirmative response to a question.",
+                    "termDef": {
+                        "cde_id": "C49487",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "No",
+                        "term_id": "C49487",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Yes": {
+                    "description": "The affirmative response to a question.",
+                    "termDef": {
+                        "cde_id": "C49488",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Yes",
+                        "term_id": "C49488",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": "C81180",
+                "cde_version": "23.03d",
+                "source": "NCIt",
+                "term": "Deceased Family Member",
+                "term_id": "C81180",
+                "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C81180",
+                "term_version": "23.03d"
+            }
+        },
+        "relative_smoker": {
+            "description": "Indication that a legal or consanguineous family member was a smoker.",
+            "enum": [
+                "Yes",
+                "No",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "No": {
+                    "description": "The non-affirmative response to a question.",
+                    "termDef": {
+                        "cde_id": "C49487",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "No",
+                        "term_id": "C49487",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Yes": {
+                    "description": "The affirmative response to a question.",
+                    "termDef": {
+                        "cde_id": "C49488",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Yes",
+                        "term_id": "C49488",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            }
+        },
+        "relative_with_cancer_history": {
+            "description": "The yes/no/unknown indicator used to describe whether any of the patient's relatives have a history of cancer.",
+            "enum": [
+                "yes",
+                "no",
+                "unknown",
+                "not reported"
+            ],
+            "enumDef": {
+                "no": {
+                    "description": "The non-affirmative response to a question.",
+                    "termDef": {
+                        "cde_id": "C49487",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "No",
+                        "term_id": "C49487",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487",
+                        "term_version": "19.12e"
+                    }
+                },
+                "not reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                },
+                "yes": {
+                    "description": "The affirmative response to a question.",
+                    "termDef": {
+                        "cde_id": "C49488",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Yes",
+                        "term_id": "C49488",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": 6161023,
+                "cde_version": 1.0,
+                "source": "caDSR",
+                "term": "Relative Malignant Diagnosis Indicator",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161023%20and%20ver_nr=1.0"
+            }
+        },
+        "relatives_with_cancer_history_count": {
+            "description": "The number of relatives the patient has with a known history of cancer.",
+            "minimum": 0,
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            },
+            "type": "integer"
+        },
+        "state": {
+            "common": {
+                "description": "The current state of the object.",
+                "termDef": {
+                    "cde_id": null,
+                    "cde_version": null,
+                    "source": null,
+                    "term": null,
+                    "term_url": null
+                }
+            },
+            "default": "validated",
+            "downloadable": [
+                "uploaded",
+                "md5summed",
+                "validating",
+                "validated",
+                "error",
+                "invalid",
+                "released"
+            ],
+            "oneOf": [
+                {
+                    "enum": [
+                        "uploading",
+                        "uploaded",
+                        "md5summing",
+                        "md5summed",
+                        "validating",
+                        "error",
+                        "invalid",
+                        "suppressed",
+                        "redacted",
+                        "live"
+                    ]
+                },
+                {
+                    "enum": [
+                        "validated",
+                        "submitted",
+                        "released"
+                    ]
+                }
+            ],
+            "public": [
+                "live"
+            ]
+        },
+        "submitter_id": {
+            "description": "A project-specific identifier for a node. This property is the calling card/nickname/alias for a unit of submission. It can be used in place of the uuid for identifying or recalling a node.",
+            "type": "string"
+        },
+        "type": {
+            "type": "string"
+        },
+        "updated_datetime": {
+            "common": {
+                "description": "A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]",
+                "termDef": {
+                    "cde_id": null,
+                    "cde_version": null,
+                    "source": null,
+                    "term": null,
+                    "term_url": null
+                }
+            },
+            "oneOf": [
+                {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        }
+    },
+    "required": [
+        "submitter_id"
+    ],
+    "submittable": true,
+    "systemProperties": [
+        "id",
+        "project_id",
+        "created_datetime",
+        "updated_datetime",
+        "state"
+    ],
+    "title": "Family History",
+    "type": "object",
+    "uniqueKeys": [
+        [
+            "id"
+        ],
+        [
+            "project_id",
+            "submitter_id"
+        ]
+    ],
+    "validators": null
+}

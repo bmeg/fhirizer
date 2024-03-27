@@ -1,0 +1,47 @@
+[
+    {
+        "value": "female",
+        "description": "A person who belongs to the sex that normally produces ova. The term is used to indicate biological sex distinctions, or cultural gender role distinctions, or both.",
+        "description_url": "https://ncit.nci.nih.gov",
+        "annotation_type": "NCIt",
+        "term_id": "C16576",
+        "_comment_fhir_display_source": "https://build.fhir.org/valueset-administrative-gender.html",
+        "fhir_display": "female"
+    },
+    {
+        "value": "male",
+        "description": "A person who belongs to the sex that normally produces sperm. The term is used to indicate biological sex distinctions, cultural gender role distinctions, or both.",
+        "description_url": "https://ncit.nci.nih.gov",
+        "annotation_type": "NCIt",
+        "term_id": "C20197",
+        "_comment_fhir_display_source": "https://build.fhir.org/valueset-administrative-gender.html",
+        "fhir_display": "male"
+    },
+    {
+        "value": "not reported",
+        "description": "Not provided or available.",
+        "description_url": "https://ncit.nci.nih.gov",
+        "annotation_type": "NCIt",
+        "term_id": "C43234",
+        "_comment_fhir_display_source": "https://build.fhir.org/valueset-administrative-gender.html",
+        "fhir_display": "other"
+    },
+    {
+        "value": "unknown",
+        "description": "Not known, not observed, not recorded, or refused.",
+        "description_url": "https://ncit.nci.nih.gov",
+        "annotation_type": "NCIt",
+        "term_id": "C17998",
+        "_comment_fhir_display_source": "https://build.fhir.org/valueset-administrative-gender.html",
+        "fhir_display": "unknown"
+    },
+    {
+        "value": "unspecified",
+        "description": "Not stated explicitly or in detail.",
+        "description_url": "https://ncit.nci.nih.gov",
+        "annotation_type": "NCIt",
+        "term_id": "C38046",
+        "_comment_fhir_display_source": "https://build.fhir.org/valueset-administrative-gender.html",
+        "fhir_display": "other"
+    }
+]

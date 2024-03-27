@@ -1,0 +1,52 @@
+[
+    {
+        "value": "hispanic or latino",
+        "description": "A person of Cuban, Mexican, Puerto Rican, South or Central American, or other Spanish culture or origin, regardless of race. The term, \"Spanish origin,\" can be used in addition to \"Hispanic or Latino.\" (OMB)",
+        "description_url": "https://ncit.nci.nih.gov",
+        "annotation_type": "NCIt",
+        "term_id": "C17459",
+        "ombCategory-system": "urn:oid:2.16.840.1.113883.6.238",
+        "ombCategory-display": "Hispanic or Latino",
+        "ombCategory-code": "2135-2"
+    },
+    {
+        "value": "not hispanic or latino",
+        "description": "A person not of Cuban, Mexican, Puerto Rican, South or Central American, or other Spanish culture or origin, regardless of race.",
+        "description_url": "https://ncit.nci.nih.gov",
+        "annotation_type": "NCIt",
+        "term_id": "C41222",
+        "ombCategory-system": "urn:oid:2.16.840.1.113883.6.238",
+        "ombCategory-display": "Not Hispanic or Latino",
+        "ombCategory-code": "2186-5"
+    },
+    {
+        "value": "Unknown",
+        "description": "Not known, not observed, not recorded, or refused.",
+        "description_url": "https://ncit.nci.nih.gov",
+        "annotation_type": "NCIt",
+        "term_id": "C17998",
+        "ombCategory-system": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
+        "ombCategory-display": "unknown",
+        "ombCategory-code": "UNK"
+    },
+    {
+        "value": "not reported",
+        "description": "Not provided or available.",
+        "description_url": "https://ncit.nci.nih.gov",
+        "annotation_type": "NCIt",
+        "term_id": "C43234",
+        "ombCategory-system": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
+        "ombCategory-display": "asked but unknown",
+        "ombCategory-code": "ASKU"
+    },
+    {
+        "value": "not allowed to collect",
+        "description": "An indicator that specifies that a collection event was not permitted.",
+        "description_url": "https://ncit.nci.nih.gov",
+        "annotation_type": "NCIt",
+        "term_id": "C141478",
+        "ombCategory-system": "",
+        "ombCategory-display": "",
+        "ombCategory-code": ""
+    }
+]

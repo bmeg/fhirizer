@@ -1,0 +1,2720 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "additionalProperties": false,
+    "category": "clinical",
+    "description": "Additional clinical attributes that are extraneous to other specific clinical entity types within the GDC Data Dictionary.",
+    "downloadable": false,
+    "id": "other_clinical_attribute",
+    "links": [
+        {
+            "exclusive": false,
+            "required": true,
+            "subgroup": [
+                {
+                    "backref": "other_clinical_attributes",
+                    "label": "describes",
+                    "multiplicity": "many_to_one",
+                    "name": "cases",
+                    "required": false,
+                    "target_type": "case"
+                },
+                {
+                    "backref": "other_clinical_attributes",
+                    "label": "describes",
+                    "multiplicity": "many_to_one",
+                    "name": "follow_ups",
+                    "required": false,
+                    "target_type": "follow_up"
+                }
+            ]
+        }
+    ],
+    "namespace": "https://gdc.cancer.gov",
+    "previous_version_downloadable": false,
+    "program": "*",
+    "project": "*",
+    "properties": {
+        "aids_risk_factors": {
+            "description": "The text term used to describe a risk factor of the acquired immunodeficiency syndrome (AIDS) that the patient either had at time time of the study or experienced in the past.",
+            "enum": [
+                "Candidiasis",
+                "Coccidioidomycosis",
+                "Cryptococcosis",
+                "Cryptosporidiosis, Chronic Intestinal",
+                "Cytomegalovirus",
+                "Encephalopathy",
+                "Herpes Simplex Virus",
+                "Histoplasmosis",
+                "Isosporiasis",
+                "Mycobacterium avium Complex",
+                "Mycobacterium tuberculosis",
+                "Mycobacterium, NOS",
+                "Nocardiosis",
+                "Pneumocystis Pneumonia",
+                "Pneumonia, NOS",
+                "Progressive Multifocal Leukoencephalopathy",
+                "Salmonella Septicemia",
+                "Toxoplasmosis",
+                "Wasting Syndrome"
+            ],
+            "enumDef": {
+                "Pneumonia, NOS": {
+                    "description": "An acute, acute and chronic, or chronic inflammation focally or diffusely affecting the lung parenchyma, due to infections (viruses, fungi, mycoplasma, or bacteria), treatment (e.g. radiation), or exposure (inhalation) to chemicals. Symptoms include cough, shortness of breath, fevers, chills, chest pain, headache, sweating, and weakness.",
+                    "termDef": {
+                        "cde_id": "C3333",
+                        "cde_version": "23.03d",
+                        "source": "NCIt",
+                        "term": "Pneumonia",
+                        "term_id": "C3333",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C3333",
+                        "term_version": "23.03d"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": "AIDS Risk Factor Text Name",
+                "term_url": null
+            }
+        },
+        "batch_id": {
+            "description": "GDC submission batch indicator. It is unique within the context of a project.",
+            "type": "integer"
+        },
+        "bmi": {
+            "description": "A calculated numerical quantity that represents an individual's weight to height ratio.",
+            "minimum": 0,
+            "termDef": {
+                "cde_id": 2006410,
+                "cde_version": 3.0,
+                "source": "caDSR",
+                "term": "Body Mass Index Value",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2006410%20and%20ver_nr=3.0"
+            },
+            "type": "number"
+        },
+        "body_surface_area": {
+            "description": "Numeric value used to represent the 2-dimensional extent of the body surface relating height to weight.",
+            "minimum": 0,
+            "termDef": {
+                "cde_id": 653,
+                "cde_version": 6.0,
+                "source": "caDSR",
+                "term": "Person Body Surface Area Value",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=653%20and%20ver_nr=6.0"
+            },
+            "type": "number"
+        },
+        "cases": {
+            "anyOf": [
+                {
+                    "items": {
+                        "additionalProperties": true,
+                        "maxItems": 1,
+                        "minItems": 1,
+                        "properties": {
+                            "id": {
+                                "common": {
+                                    "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                                    "termDef": {
+                                        "cde_id": "C54100",
+                                        "cde_version": null,
+                                        "source": "NCIt",
+                                        "term": "Universally Unique Identifier",
+                                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100"
+                                    }
+                                },
+                                "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                                "systemAlias": "node_id",
+                                "type": "string"
+                            },
+                            "submitter_id": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                {
+                    "additionalProperties": true,
+                    "properties": {
+                        "id": {
+                            "common": {
+                                "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                                "termDef": {
+                                    "cde_id": "C54100",
+                                    "cde_version": null,
+                                    "source": "NCIt",
+                                    "term": "Universally Unique Identifier",
+                                    "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100"
+                                }
+                            },
+                            "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                            "systemAlias": "node_id",
+                            "type": "string"
+                        },
+                        "submitter_id": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                }
+            ]
+        },
+        "cd4_count": {
+            "description": "The text term used to describe the outcome of the procedure to determine the amount of the CD4 expressing cells in a sample.",
+            "minimum": 0,
+            "termDef": {
+                "cde_id": 4182751,
+                "cde_version": 1.0,
+                "source": "caDSR",
+                "term": "Laboratory Procedure CD4 Expressing Cell Count Outcome",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=4182751%20and%20ver_nr=1.0"
+            },
+            "type": "number"
+        },
+        "cdc_hiv_risk_factors": {
+            "description": "The text term used to describe a risk factor for human immunodeficiency virus, as described by the Center for Disease Control.",
+            "enum": [
+                "Hemophiliac",
+                "Heterosexual Contact",
+                "Homosexual Contact",
+                "Intravenous Drug User",
+                "None",
+                "Transfusion Recipient",
+                "Unknown",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "None": {
+                    "description": "No person or thing, nobody, not any.",
+                    "termDef": {
+                        "cde_id": "C41132",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "None",
+                        "term_id": "C41132",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C41132",
+                        "term_version": "20.10d"
+                    }
+                },
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": "CDC HIV Risk Factor Text Term",
+                "term_url": null
+            }
+        },
+        "comorbidities": {
+            "description": "The text term used to describe a comorbidity disease, which coexists with the patient's malignant disease.",
+            "enumDef": {
+                "Cancer": {
+                    "description": "A tumor composed of atypical neoplastic, often pleomorphic cells that invade other tissues. Malignant neoplasms often metastasize to distant anatomic sites and may recur after excision. The most common malignant neoplasms are carcinomas, Hodgkin and non-Hodgkin lymphomas, leukemias, melanomas, and sarcomas.",
+                    "termDef": {
+                        "cde_id": "C9305",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Malignant Neoplasm",
+                        "term_id": "C9305",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C9305",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Epstein-Barr Virus": {
+                    "description": "Any microbiologic test or molecular assay used to detect the presence of Epstein-Barr virus in a sample.",
+                    "termDef": {
+                        "cde_id": "C171143",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "Epstein-Barr Virus Test",
+                        "term_id": "C171143",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171143",
+                        "term_version": "20.10d"
+                    }
+                },
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Other": {
+                    "description": "Different than the one(s) previously specified or mentioned.",
+                    "termDef": {
+                        "cde_id": "C17649",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Other",
+                        "term_id": "C17649",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17649",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Pneumocystis Pneumonia": {
+                    "description": "An acute, acute and chronic, or chronic inflammation focally or diffusely affecting the lung parenchyma, due to infections (viruses, fungi, mycoplasma, or bacteria), treatment (e.g. radiation), or exposure (inhalation) to chemicals. Symptoms include cough, shortness of breath, fevers, chills, chest pain, headache, sweating, and weakness.",
+                    "termDef": {
+                        "cde_id": "C3333",
+                        "cde_version": "23.03d",
+                        "source": "NCIt",
+                        "term": "Pneumonia",
+                        "term_id": "C3333",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C3333",
+                        "term_version": "23.03d"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "items": {
+                "enum": [
+                    "Abnormal Glucose Level",
+                    "Acute Renal Failure",
+                    "Adenocarcinoma",
+                    "Adenomatous Polyposis Coli",
+                    "Adrenocortical Insufficiency",
+                    "Allergies",
+                    "Alpha-1 Antitrypsin",
+                    "Anemia",
+                    "Anxiety",
+                    "Arrhythmia",
+                    "Arthritis",
+                    "Asthma",
+                    "Ataxia-Telangiectasia",
+                    "Atrial Fibrillation",
+                    "Autoimmune Lymphoproliferative Syndrome (ALPS)",
+                    "Avascular Necrosis",
+                    "Bacteroides fragilis",
+                    "Barrett's Esophagus",
+                    "Basal Cell Carcinoma",
+                    "Beckwith-Wiedemann",
+                    "Behcet's Disease",
+                    "Benign Thyroid Nodule",
+                    "Biliary Disorder",
+                    "Blood Clots",
+                    "Bone Fracture(s)",
+                    "Bronchitis",
+                    "Calcium Channel Blockers",
+                    "Cancer",
+                    "Cataracts",
+                    "Celiac Disease",
+                    "Cerebrovascular Disease",
+                    "Chlamydia",
+                    "Chloroma",
+                    "Cholelithiasis",
+                    "Chronic Fatigue Syndrome",
+                    "Chronic Pancreatitis",
+                    "Chronic Renal Failure",
+                    "Chronic Systemic Steroid Use",
+                    "Chronic Thyroiditis",
+                    "Cirrhosis, Unknown Etiology",
+                    "Clonal Hematopoiesis",
+                    "CNS Infection",
+                    "Colon Polyps",
+                    "Common Variable Immunodeficiency",
+                    "Congestive Heart Failure (CHF)",
+                    "Connective Tissue Disorder",
+                    "COPD",
+                    "Coronary Artery Disease",
+                    "Crohn's Disease",
+                    "Cryptococcal Meningitis",
+                    "Cryptogenic Organizing Pneumonia",
+                    "Cytomegalovirus (CMV)",
+                    "Deep Vein Thrombosis / Thromboembolism",
+                    "Denys-Drash Syndrome",
+                    "Depression",
+                    "Dermatomyosis",
+                    "Diabetes",
+                    "Diabetes, Type II",
+                    "Diabetic Neuropathy",
+                    "Diet Controlled Diabetes",
+                    "Diverticulitis",
+                    "Down Syndrome",
+                    "DVT/PE",
+                    "Dyslipidemia",
+                    "EBV Lymphoproliferation",
+                    "Eczema",
+                    "Epilepsy",
+                    "Epstein-Barr Virus",
+                    "Escherichia coli",
+                    "Familial Adenomatous Polyposis",
+                    "Fanconi Anemia",
+                    "Fibromyalgia",
+                    "Fibrosis",
+                    "Follicular Adenoma",
+                    "Gastritis",
+                    "Gastroesophageal Reflux Disease",
+                    "GERD",
+                    "Glaucoma",
+                    "Glycogen Storage Disease",
+                    "Goiter",
+                    "Gonadal Dysfunction",
+                    "Gorlin Syndrome",
+                    "Gout",
+                    "Graves' Disease",
+                    "Hashimoto's Thyroiditis",
+                    "Headache",
+                    "Heart Disease",
+                    "Helicobacter pylori Infection",
+                    "Hemihypertrophy",
+                    "Hemorrhagic Cystitis",
+                    "Hepatitis",
+                    "Hepatitis A Infection",
+                    "Hepatitis B Infection",
+                    "Hepatitis C Infection",
+                    "Hepatitis, Chronic",
+                    "Hereditary Non-Polyposis Colon Cancer",
+                    "Herpes",
+                    "Herpes Zoster",
+                    "High Grade Liver Dysplastic Nodule",
+                    "HIV/AIDS",
+                    "Hodgkin Lymphoma",
+                    "Human Papillomavirus Infection",
+                    "HUS/TTP",
+                    "Hypercalcemia",
+                    "Hypercholesterolemia",
+                    "Hyperglycemia",
+                    "Hyperlipidemia",
+                    "Hyperparathyroidism",
+                    "Hypertension",
+                    "Hyperthyroidism",
+                    "Hypospadias",
+                    "Hypothyroidism",
+                    "Inflammatory Bowel Disease",
+                    "Insulin Controlled Diabetes",
+                    "Interstitial Pneumonitis or ARDS",
+                    "Intraductal Papillary Mucinous Neoplasm",
+                    "Iron Overload",
+                    "Ischemic Heart Disease",
+                    "ITP",
+                    "Joint Replacement",
+                    "Kidney Disease",
+                    "Li-Fraumeni Syndrome",
+                    "Liver Cirrhosis (Liver Disease)",
+                    "Liver Toxicity (Non-Infectious)",
+                    "Low Grade Liver Dysplastic Nodule",
+                    "Lupus",
+                    "Lymphamatoid Papulosis",
+                    "Lymphocytic Meningitis",
+                    "Lymphocytic Thyroiditis",
+                    "Lymphoid Hyperplasia",
+                    "Lynch Syndrome",
+                    "MAI",
+                    "Malaria",
+                    "Metabolic Syndrome",
+                    "Methicillin-Resistant Staphylococcus aureus (MRSA)",
+                    "Myasthenia Gravis",
+                    "Mycobacterium avium Complex",
+                    "Myocardial Infarction",
+                    "Neuroendocrine Tumor",
+                    "Nodular Hyperplasia",
+                    "Nonalcoholic Steatohepatitis",
+                    "Obesity",
+                    "Organ Transplant (Site)",
+                    "Osteoarthritis",
+                    "Osteoporosis or Osteopenia",
+                    "Other Cancer within 5 Years",
+                    "Other Nonmalignant Systemic Disease",
+                    "Other Pulmonary Complications",
+                    "Pain (Various)",
+                    "Pancreatitis",
+                    "Peptic Ulcer (Ulcer)",
+                    "Peripheral Neuropathy",
+                    "Peripheral Vascular Disease",
+                    "Peutz-Jeghers Disease",
+                    "Pneumocystis Pneumonia",
+                    "Pneumonia, NOS",
+                    "Polycystic Ovarian Syndrome (PCOS)",
+                    "Pregnancy in Patient or Partner",
+                    "Primary Sclerosing Cholangitis",
+                    "Psoriasis",
+                    "Pulmonary Fibrosis",
+                    "Pulmonary Hemorrhage",
+                    "Renal Dialysis",
+                    "Renal Failure (Requiring Dialysis)",
+                    "Renal Insufficiency",
+                    "Rheumatoid Arthritis",
+                    "Rheumatologic Disease",
+                    "Rubinstein-Taybi Syndrome",
+                    "Sarcoidosis",
+                    "Seizure",
+                    "Shingles",
+                    "Sjogren's Syndrome",
+                    "Sleep Apnea",
+                    "Smoking",
+                    "Staph Osteomyelitis",
+                    "Staphylococcus aureus",
+                    "Steatosis",
+                    "Stroke",
+                    "Syphilis",
+                    "Thyroid Disease, Non-Cancer",
+                    "Transient Ischemic Attack",
+                    "Treponema pallidum",
+                    "Tuberculosis",
+                    "Turcot Syndrome",
+                    "Tyrosinemia",
+                    "Ulcerative Colitis",
+                    "Urinary Tract Infection",
+                    "Varicella Zoster Virus",
+                    "Wagr Syndrome",
+                    "Other",
+                    "Unknown",
+                    "Not Reported"
+                ]
+            },
+            "termDef": {
+                "cde_id": 2970715,
+                "cde_version": 1.0,
+                "source": "caDSR",
+                "term": "Index Date To Comorbidity Day Count",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2970715%20and%20ver_nr=1.0"
+            },
+            "type": "array"
+        },
+        "comorbidity_method_of_diagnosis": {
+            "description": "The text term used to describe the method used to diagnose the patient's comorbidity disease.",
+            "enum": [
+                "Histology",
+                "Pathology",
+                "Radiology",
+                "Unknown",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": 6142386,
+                "cde_version": 1.0,
+                "source": "caDSR",
+                "term": "Comorbidity Disease Diagnosis Method Type",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6142386%20and%20ver_nr=1.0"
+            }
+        },
+        "created_datetime": {
+            "common": {
+                "description": "A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]",
+                "termDef": {
+                    "cde_id": null,
+                    "cde_version": null,
+                    "source": null,
+                    "term": null,
+                    "term_url": null
+                }
+            },
+            "oneOf": [
+                {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        },
+        "days_to_comorbidity": {
+            "description": "Number of days between the date used for index and the date the patient was diagnosed with a comorbidity.",
+            "maximum": 32872,
+            "minimum": -32872,
+            "termDef": {
+                "cde_id": 6154729,
+                "cde_version": 1.0,
+                "source": "caDSR",
+                "term": "Index Date To Comorbidity Day Count",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6154729%20and%20ver_nr=1.0"
+            },
+            "type": "integer"
+        },
+        "diabetes_treatment_type": {
+            "description": "Text term used to describe the types of treatment used to manage diabetes.",
+            "enum": [
+                "Alpha-Glucosidase Inhibitor",
+                "Biguanide",
+                "Diet",
+                "Injected Insulin",
+                "Insulin",
+                "Linagliptin",
+                "Oral Hypoglycemic",
+                "Sulfonylurea",
+                "Thiazolidinedione",
+                "Other",
+                "Unknown",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Other": {
+                    "description": "Different than the one(s) previously specified or mentioned.",
+                    "termDef": {
+                        "cde_id": "C17649",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Other",
+                        "term_id": "C17649",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17649",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": 3587247,
+                "cde_version": 1.0,
+                "source": "caDSR",
+                "term": "Diabetes Mellitus Treatment Type",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=3587247%20and%20ver_nr=1.0"
+            }
+        },
+        "dlco_ref_predictive_percent": {
+            "description": "The value, as a percentage of predicted lung volume, measuring the amount of carbon monoxide detected in a patient's lungs.",
+            "maximum": 100,
+            "minimum": 0,
+            "termDef": {
+                "cde_id": 2180255,
+                "cde_version": 1.0,
+                "source": "caDSR",
+                "term": "Lung Carbon Monoxide Diffusing Capability Test Assessment Predictive Value Percentage Value",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2180255%20and%20ver_nr=1.0"
+            },
+            "type": "number"
+        },
+        "exercise_frequency_weekly": {
+            "description": "Text term that indicates the number of days that exercise occurred in the past seven days.",
+            "enum": [
+                "5 or More Days",
+                "3 to 4 Days",
+                "1 to 2 Days",
+                "None"
+            ],
+            "enumDef": {
+                "None": {
+                    "description": "No person or thing, nobody, not any.",
+                    "termDef": {
+                        "cde_id": "C41132",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "None",
+                        "term_id": "C41132",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C41132",
+                        "term_version": "20.10d"
+                    }
+                }
+            }
+        },
+        "eye_color": {
+            "description": "The color of the iris of the eye",
+            "enum": [
+                "Amber",
+                "Blue",
+                "Brown",
+                "Gray",
+                "Green",
+                "Hazel",
+                "Red & Violet",
+                "Other",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Other": {
+                    "description": "Different than the one(s) previously specified or mentioned.",
+                    "termDef": {
+                        "cde_id": "C17649",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Other",
+                        "term_id": "C17649",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17649",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": "C157437",
+                "cde_version": "21.04d",
+                "source": "NCIt",
+                "term": "Eye Color",
+                "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C157437"
+            }
+        },
+        "fev1_fvc_post_bronch_percent": {
+            "description": "Percentage value to represent result of Forced Expiratory Volume in 1 second (FEV1) divided by the Forced Vital Capacity (FVC) post-bronchodilator.",
+            "maximum": 100,
+            "minimum": 0,
+            "termDef": {
+                "cde_id": 3302956,
+                "cde_version": 1.0,
+                "source": "caDSR",
+                "term": "Post Bronchodilator FEV1/FVC Percent Value",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=3302956%20and%20ver_nr=1.0"
+            },
+            "type": "number"
+        },
+        "fev1_fvc_pre_bronch_percent": {
+            "description": "Percentage value to represent result of Forced Expiratory Volume in 1 second (FEV1) divided by the Forced Vital Capacity (FVC) pre-bronchodilator.",
+            "maximum": 100,
+            "minimum": 0,
+            "termDef": {
+                "cde_id": 3302955,
+                "cde_version": 1.0,
+                "source": "caDSR",
+                "term": "Pre Bronchodilator FEV1/FVC Percent Value",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=3302955%20and%20ver_nr=1.0"
+            },
+            "type": "number"
+        },
+        "fev1_ref_post_bronch_percent": {
+            "description": "The percentage comparison to a normal value reference range of the volume of air that a patient can forcibly exhale from the lungs in one second post-bronchodilator.",
+            "maximum": 100,
+            "minimum": 0,
+            "termDef": {
+                "cde_id": 3302948,
+                "cde_version": 1.0,
+                "source": "caDSR",
+                "term": "Post Bronchodilator Lung Forced Expiratory Volume 1 Test Lab Percentage Value",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=3302948%20and%20ver_nr=1.0"
+            },
+            "type": "number"
+        },
+        "fev1_ref_pre_bronch_percent": {
+            "description": "The percentage comparison to a normal value reference range of the volume of air that a patient can forcibly exhale from the lungs in one second pre-bronchodilator.",
+            "maximum": 100,
+            "minimum": 0,
+            "termDef": {
+                "cde_id": 3302947,
+                "cde_version": 1.0,
+                "source": "caDSR",
+                "term": "Pre Bronchodilator Lung Forced Expiratory Volume 1 Test Lab Percentage Value",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=3302947%20and%20ver_nr=1.0"
+            },
+            "type": "number"
+        },
+        "follow_ups": {
+            "anyOf": [
+                {
+                    "items": {
+                        "additionalProperties": true,
+                        "maxItems": 1,
+                        "minItems": 1,
+                        "properties": {
+                            "id": {
+                                "common": {
+                                    "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                                    "termDef": {
+                                        "cde_id": "C54100",
+                                        "cde_version": null,
+                                        "source": "NCIt",
+                                        "term": "Universally Unique Identifier",
+                                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100"
+                                    }
+                                },
+                                "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                                "systemAlias": "node_id",
+                                "type": "string"
+                            },
+                            "submitter_id": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                {
+                    "additionalProperties": true,
+                    "properties": {
+                        "id": {
+                            "common": {
+                                "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                                "termDef": {
+                                    "cde_id": "C54100",
+                                    "cde_version": null,
+                                    "source": "NCIt",
+                                    "term": "Universally Unique Identifier",
+                                    "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100"
+                                }
+                            },
+                            "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                            "systemAlias": "node_id",
+                            "type": "string"
+                        },
+                        "submitter_id": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                }
+            ]
+        },
+        "haart_treatment_indicator": {
+            "description": "The text term used to indicate whether the patient received Highly Active Antiretroviral Therapy (HAART).",
+            "enum": [
+                "Yes",
+                "No",
+                "Unknown",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "No": {
+                    "description": "The non-affirmative response to a question.",
+                    "termDef": {
+                        "cde_id": "C49487",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "No",
+                        "term_id": "C49487",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Yes": {
+                    "description": "The affirmative response to a question.",
+                    "termDef": {
+                        "cde_id": "C49488",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Yes",
+                        "term_id": "C49488",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": "HAART Therapy Indicator",
+                "term_url": null
+            }
+        },
+        "height": {
+            "description": "The height of the patient in centimeters.",
+            "minimum": 0,
+            "termDef": {
+                "cde_id": 649,
+                "cde_version": 4.1,
+                "source": "caDSR",
+                "term": "Patient Height Measurement",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=649%20and%20ver_nr=4.1"
+            },
+            "type": "number"
+        },
+        "hepatitis_sustained_virological_response": {
+            "description": "An indication as to whether sustained virological response was obtained in responses to viral hepatitis treatment.",
+            "enum": [
+                "Yes",
+                "No",
+                "Unknown",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "No": {
+                    "description": "The non-affirmative response to a question.",
+                    "termDef": {
+                        "cde_id": "C49487",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "No",
+                        "term_id": "C49487",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Yes": {
+                    "description": "The affirmative response to a question.",
+                    "termDef": {
+                        "cde_id": "C49488",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Yes",
+                        "term_id": "C49488",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": 6423783,
+                "cde_version": 1.0,
+                "source": "caDSR",
+                "term": "Viral Hepatitis Sustained Virologic Response Post Treatment Indicator",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6423783%20and%20ver_nr=1.0"
+            }
+        },
+        "hiv_viral_load": {
+            "description": "Numeric value that represents the concentration of an analyte or aliquot extracted from the sample or sample portion, measured in milligrams per milliliter.",
+            "minimum": 0,
+            "termDef": {
+                "cde_id": 2649682,
+                "cde_version": 1.0,
+                "source": "caDSR",
+                "term": "Human Immunodeficiency Virus Viral Load Value",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2649682%20and%20ver_nr=1.0"
+            },
+            "type": "number"
+        },
+        "hormonal_contraceptive_type": {
+            "description": "The specific type of hormonal contraceptives used by the subject.",
+            "enum": [
+                "Progestin",
+                "Progestin and Estrogen",
+                "Unknown",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            }
+        },
+        "hormonal_contraceptive_use": {
+            "description": "The text term used to indicate whether the patient used hormonal contraceptives.",
+            "enum": [
+                "Current User",
+                "Former User",
+                "Never Used",
+                "Unknown",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": "Hormonal Contraceptive Use Text Term",
+                "term_url": null
+            }
+        },
+        "hormone_replacement_therapy_type": {
+            "description": "The specific type of hormone replacement therapy received by the patient.",
+            "enum": [
+                "Estrogen only",
+                "Progesterone and Estrogen",
+                "Progesterone only",
+                "Unknown",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            }
+        },
+        "hysterectomy_margins_involved": {
+            "description": "The text term used to indicate whether the patient's disease was determined to be involved based on the surgical margins of the hysterectomy.",
+            "enum": [
+                "Bladder",
+                "Macroscopic Parametrium",
+                "Microscopic Parametrium",
+                "None",
+                "Vagina",
+                "Unknown",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "None": {
+                    "description": "No person or thing, nobody, not any.",
+                    "termDef": {
+                        "cde_id": "C41132",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "None",
+                        "term_id": "C41132",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C41132",
+                        "term_version": "20.10d"
+                    }
+                },
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": "Hysterectomy Margins Involved",
+                "term_url": null
+            }
+        },
+        "hysterectomy_type": {
+            "description": "The text term used to describe the type of hysterectomy the patient had.",
+            "enum": [
+                "Hysterectomy, NOS",
+                "Not Performed",
+                "Radical Hysterectomy",
+                "Simple Hysterectomy",
+                "Unknown",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": "Patient Hysterectomy Type",
+                "term_url": null
+            }
+        },
+        "id": {
+            "common": {
+                "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                "termDef": {
+                    "cde_id": "C54100",
+                    "cde_version": null,
+                    "source": "NCIt",
+                    "term": "Universally Unique Identifier",
+                    "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100"
+                }
+            },
+            "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+            "systemAlias": "node_id",
+            "type": "string"
+        },
+        "immunosuppressive_treatment_type": {
+            "description": "The text term used to describe the type of immunosuppresive treatment the patient received.",
+            "enum": [
+                "Anti-TNF Therapy",
+                "Azathioprine",
+                "Cyclophosphamide",
+                "Methotrexate",
+                "None",
+                "Other",
+                "Unknown",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "None": {
+                    "description": "No person or thing, nobody, not any.",
+                    "termDef": {
+                        "cde_id": "C41132",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "None",
+                        "term_id": "C41132",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C41132",
+                        "term_version": "20.10d"
+                    }
+                },
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Other": {
+                    "description": "Different than the one(s) previously specified or mentioned.",
+                    "termDef": {
+                        "cde_id": "C17649",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Other",
+                        "term_id": "C17649",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17649",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": "Immunosuppresive Treatment Type",
+                "term_url": null
+            }
+        },
+        "menopause_status": {
+            "description": "Text term used to describe the patient's menopause status.",
+            "enum": [
+                "Perimenopausal",
+                "Postmenopausal",
+                "Premenopausal",
+                "Unknown",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": 2434914,
+                "cde_version": 1.1,
+                "source": "caDSR",
+                "term": "Patient Menopause Status",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2434914%20and%20ver_nr=1.1"
+            }
+        },
+        "myasthenia_gravis_classification": {
+            "description": "A finding associated with a patient with myasthenia gravis that is based on the classification system developed by the Myasthenia Gravis Foundation of America (MGFA) for grading myasthenia gravis that divides the disease into 5 main classes and several subclasses.",
+            "enum": [
+                "Class I",
+                "Class II",
+                "Class III",
+                "Class IV",
+                "Class V"
+            ],
+            "enumDef": {
+                "Class I": {
+                    "description": "Myasthenia gravis presenting with any ocular weakness; may have weakness of eye closure. All other muscles strength is normal.",
+                    "termDef": {
+                        "cde_id": "C112014",
+                        "cde_version": "23.08d",
+                        "source": "NCIt",
+                        "term": "Class I",
+                        "term_id": "C112014",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&code=C112014&ns=ncit",
+                        "term_version": "23.08d"
+                    }
+                },
+                "Class II": {
+                    "description": "Myasthenia gravis presenting with mild weakness affecting non-ocular muscles. May also have ocular muscle weakness of any severity.",
+                    "termDef": {
+                        "cde_id": "C112015",
+                        "cde_version": "23.08d",
+                        "source": "NCIt",
+                        "term": "Class II",
+                        "term_id": "C112015",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&code=C112015&ns=ncit",
+                        "term_version": "23.08d"
+                    }
+                },
+                "Class III": {
+                    "description": "Myasthenia gravis presenting with moderate weakness affecting non-ocular muscles. May also have ocular muscle weakness of any severity.",
+                    "termDef": {
+                        "cde_id": "C112016",
+                        "cde_version": "23.08d",
+                        "source": "NCIt",
+                        "term": "Class III",
+                        "term_id": "C112016",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&code=C112016&ns=ncit",
+                        "term_version": "23.08d"
+                    }
+                },
+                "Class IV": {
+                    "description": "Myasthenia gravis presenting with severe weakness affecting non-ocular muscles. May also have ocular muscle weakness of any severity.",
+                    "termDef": {
+                        "cde_id": "C112017",
+                        "cde_version": "23.08d",
+                        "source": "NCIt",
+                        "term": "Class IV",
+                        "term_id": "C112017",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&code=C112017&ns=ncit",
+                        "term_version": "23.08d"
+                    }
+                },
+                "Class V": {
+                    "description": "Myasthenia gravis presenting with severe muscle weakness that requires intubation, with or without mechanical ventilation, except when employed during routine postoperative management.",
+                    "termDef": {
+                        "cde_id": "C112018",
+                        "cde_version": "23.08d",
+                        "source": "NCIt",
+                        "term": "Class V",
+                        "term_id": "C112018",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&code=C112018&ns=ncit",
+                        "term_version": "23.08d"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": "C187352",
+                "cde_version": "23.08d",
+                "source": "NCIt",
+                "term": "Myasthenia Gravis Foundation of America Class",
+                "term_id": "C187352",
+                "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C187352",
+                "term_version": "23.08d"
+            }
+        },
+        "nadir_cd4_count": {
+            "description": "Numeric value that represents the lowest point to which the CD4 count has dropped (nadir).",
+            "minimum": 0,
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": "CD4 Nadir Count",
+                "term_url": null
+            },
+            "type": "number"
+        },
+        "nononcologic_therapeutic_agents": {
+            "description": "Text identification of the individual agent(s) used as part of a treatment regimen not related to an oncologic disease.",
+            "enum": [
+                "Acetaminophen",
+                "Aspirin",
+                "Metformin",
+                "Statin, NOS"
+            ],
+            "enumDef": {
+                "Acetaminophen": {
+                    "description": "A p-aminophenol derivative with analgesic and antipyretic activities. Although the exact mechanism through which acetaminophen exert its effects has yet to be fully determined, acetaminophen may inhibit the nitric oxide (NO) pathway mediated by a variety of neurotransmitter receptors including N-methyl-D-aspartate (NMDA) and substance P, resulting in elevation of the pain threshold. The antipyretic activity may result from inhibition of prostaglandin synthesis and release in the central nervous system (CNS) and prostaglandin-mediated effects on the heat-regulating center in the anterior hypothalamus.",
+                    "termDef": {
+                        "cde_id": "C198",
+                        "cde_version": "23.08d",
+                        "source": "NCIt",
+                        "term": "Acetaminophen",
+                        "term_id": "C198",
+                        "term_url": "https://thesaurus.cancer.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C198",
+                        "term_version": "23.08d"
+                    }
+                },
+                "Aspirin": {
+                    "description": "An orally administered non-steroidal antiinflammatory agent. Acetylsalicylic acid binds to and acetylates serine residues in cyclooxygenases, resulting in decreased synthesis of prostaglandin, platelet aggregation, and inflammation. This agent exhibits analgesic, antipyretic, and anticoagulant properties.",
+                    "termDef": {
+                        "cde_id": "C287",
+                        "cde_version": "23.08d",
+                        "source": "NCIt",
+                        "term": "Aspirin",
+                        "term_id": "C287",
+                        "term_url": "https://thesaurus.cancer.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C287",
+                        "term_version": "23.08d"
+                    }
+                },
+                "Metformin": {
+                    "description": "An agent belonging to the biguanide class of antidiabetics with antihyperglycemic activity. Metformin is associated with a very low incidence of lactic acidosis. This agent helps reduce LDL cholesterol and triglyceride levels, and is not associated with weight gain, and prevents the cardiovascular complications of diabetes. Metformin is not metabolized and is excreted unchanged by the kidneys.",
+                    "termDef": {
+                        "cde_id": "C61612",
+                        "cde_version": "23.08d",
+                        "source": "NCIt",
+                        "term": "Metformin",
+                        "term_id": "C61612",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C61612",
+                        "term_version": "23.08d"
+                    }
+                }
+            }
+        },
+        "oxygen_use_indicator": {
+            "description": "An indication whether administration of oxygen to an individual occurred.",
+            "enum": [
+                "Yes",
+                "No",
+                "Unknown",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "No": {
+                    "description": "The non-affirmative response to a question.",
+                    "termDef": {
+                        "cde_id": "C49487",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "No",
+                        "term_id": "C49487",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Yes": {
+                    "description": "The affirmative response to a question.",
+                    "termDef": {
+                        "cde_id": "C49488",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Yes",
+                        "term_id": "C49488",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": 7847908,
+                "cde_version": 1.0,
+                "source": "caDSR",
+                "term": "Oxygen Therapy Administered Indicator",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=7847908%20and%20ver_nr=1"
+            }
+        },
+        "oxygen_use_type": {
+            "description": "Text term to describe the type of oxygen the patient uses at home.",
+            "enum": [
+                "Continuous",
+                "Intermittent"
+            ],
+            "enumDef": {
+                "Continuous": {
+                    "description": "Remain in force or carry on without letup; keep or maintain in unaltered condition; exist in time or space without stop or interruption.",
+                    "termDef": {
+                        "cde_id": "C53279",
+                        "cde_version": "23.08d",
+                        "source": "NCIt",
+                        "term": "Continue",
+                        "term_id": "C53279",
+                        "term_url": "https://thesaurus.cancer.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C53279",
+                        "term_version": "23.08d"
+                    }
+                },
+                "Intermittent": {
+                    "description": "Periodically stopping and starting.",
+                    "termDef": {
+                        "cde_id": "C71325",
+                        "cde_version": "23.08d",
+                        "source": "NCIt",
+                        "term": "Intermittent",
+                        "term_id": "C71325",
+                        "term_url": "https://thesaurus.cancer.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C71325",
+                        "term_version": "23.08d"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": 3181408,
+                "cde_version": 1.0,
+                "source": "caDSR",
+                "term": "Patient Oxygen Use Type",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=3181408%20and%20ver_nr=1"
+            }
+        },
+        "pancreatitis_onset_year": {
+            "description": "Numeric value to represent the year that the patient was diagnosed with clinical chronic pancreatitis.",
+            "minimum": 1900,
+            "termDef": {
+                "cde_id": 3457763,
+                "cde_version": 1.0,
+                "source": "caDSR",
+                "term": "Chronic Pancreatitis Diagnosis Year Number",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=3457763%20and%20ver_nr=1.0"
+            },
+            "type": "integer"
+        },
+        "pregnancy_count": {
+            "description": "The number of times an individual has become pregnant.",
+            "minimum": 0,
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": null,
+                "term_url": null
+            },
+            "type": "integer"
+        },
+        "pregnancy_outcome": {
+            "description": "The text term used to describe the type of pregnancy the patient had.",
+            "enum": [
+                "Ectopic Pregnancy",
+                "Induced Abortion",
+                "Live Birth",
+                "Miscarriage",
+                "Spontaneous Abortion",
+                "Stillbirth",
+                "Unknown",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": "Patient Pregnancy Type",
+                "term_url": null
+            }
+        },
+        "pregnant_at_diagnosis": {
+            "description": "The text term used to indicate whether the patient was pregnant at the time they were diagnosed.",
+            "enum": [
+                "Yes",
+                "No",
+                "Unknown",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "No": {
+                    "description": "The non-affirmative response to a question.",
+                    "termDef": {
+                        "cde_id": "C49487",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "No",
+                        "term_id": "C49487",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Yes": {
+                    "description": "The affirmative response to a question.",
+                    "termDef": {
+                        "cde_id": "C49488",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Yes",
+                        "term_id": "C49488",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": "Pregnant at Diagnosis Indicator",
+                "term_url": null
+            }
+        },
+        "premature_at_birth": {
+            "description": "The yes/no/unknown indicator used to describe whether the patient was premature (less than 37 weeks gestation) at birth.",
+            "enum": [
+                "Yes",
+                "No",
+                "Unknown",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "No": {
+                    "description": "The non-affirmative response to a question.",
+                    "termDef": {
+                        "cde_id": "C49487",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "No",
+                        "term_id": "C49487",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Yes": {
+                    "description": "The affirmative response to a question.",
+                    "termDef": {
+                        "cde_id": "C49488",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Yes",
+                        "term_id": "C49488",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": 6010765,
+                "cde_version": 1.0,
+                "source": "caDSR",
+                "term": "Premature Infant Birth Status Indicator",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6010765%20and%20ver_nr=1.0"
+            }
+        },
+        "project_id": {
+            "common": {
+                "description": "Unique ID for any specific defined piece of work that is undertaken or attempted to meet a single requirement.",
+                "termDef": {
+                    "cde_id": null,
+                    "cde_version": null,
+                    "source": null,
+                    "term": null,
+                    "term_url": null
+                }
+            },
+            "type": "string"
+        },
+        "reflux_treatment_type": {
+            "description": "Text term used to describe the types of treatment used to manage gastroesophageal reflux disease (GERD).",
+            "enum": [
+                "Antacids",
+                "H2 Blockers",
+                "Medically Treated",
+                "No Treatment",
+                "Proton Pump Inhibitors",
+                "Surgically Treated",
+                "Unknown",
+                "Not Reported",
+                "Not Applicable"
+            ],
+            "enumDef": {
+                "Not Applicable": {
+                    "description": "Determination of a value is not relevant in the current context.",
+                    "termDef": {
+                        "cde_id": "C48660",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "Not Applicable",
+                        "term_id": "C48660",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C48660",
+                        "term_version": "20.10d"
+                    }
+                },
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": 3440206,
+                "cde_version": 1.0,
+                "source": "caDSR",
+                "term": "Gastroesophageal Reflux Disease Treatment Type",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=3440206%20and%20ver_nr=1.0"
+            }
+        },
+        "risk_factor_method_of_diagnosis": {
+            "description": "The clinical or laboratory procedure(s) used in the determination of a diagnosis described in this context as a risk factor.",
+            "enum": [
+                "Biochemical Assessment",
+                "Both Clinical and Biochemical Assessments",
+                "Clinical Assessment",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": "C177576",
+                "cde_version": "22.11d",
+                "source": "NCIt",
+                "term": "Diagnostic Method",
+                "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C177576"
+            }
+        },
+        "risk_factor_treatment": {
+            "description": "The yes/no/unknown indicator used to describe whether the patient received treatment for a risk factor the patient had at the time of or prior to their diagnosis.",
+            "enum": [
+                "Yes",
+                "No",
+                "Unknown",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "No": {
+                    "description": "The non-affirmative response to a question.",
+                    "termDef": {
+                        "cde_id": "C49487",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "No",
+                        "term_id": "C49487",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Yes": {
+                    "description": "The affirmative response to a question.",
+                    "termDef": {
+                        "cde_id": "C49488",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Yes",
+                        "term_id": "C49488",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": 6514356,
+                "cde_version": 1.0,
+                "source": "caDSR",
+                "term": "Risk Factor Treatment Indicator",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6514356%20and%20ver_nr=1.0"
+            }
+        },
+        "risk_factors": {
+            "description": "The text term used to describe a risk factor the patient had at the time of or prior to their diagnosis.",
+            "enumDef": {
+                "Cancer": {
+                    "description": "A tumor composed of atypical neoplastic, often pleomorphic cells that invade other tissues. Malignant neoplasms often metastasize to distant anatomic sites and may recur after excision. The most common malignant neoplasms are carcinomas, Hodgkin and non-Hodgkin lymphomas, leukemias, melanomas, and sarcomas.",
+                    "termDef": {
+                        "cde_id": "C9305",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Malignant Neoplasm",
+                        "term_id": "C9305",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C9305",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Epstein-Barr Virus": {
+                    "description": "Any microbiologic test or molecular assay used to detect the presence of Epstein-Barr virus in a sample.",
+                    "termDef": {
+                        "cde_id": "C171143",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "Epstein-Barr Virus Test",
+                        "term_id": "C171143",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171143",
+                        "term_version": "20.10d"
+                    }
+                },
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "items": {
+                "enum": [
+                    "Abnormal Glucose Level",
+                    "Adenomyosis",
+                    "Adenosis (Atypical Adenomatous Hyperplasia)",
+                    "Alcohol Consumption",
+                    "Alcoholic Liver Disease",
+                    "Allergy, Animal, NOS",
+                    "Allergy, Ant",
+                    "Allergy, Bee",
+                    "Allergy, Cat",
+                    "Allergy, Dairy or Lactose",
+                    "Allergy, Dog",
+                    "Allergy, Eggs",
+                    "Allergy, Food, NOS",
+                    "Allergy, Fruit",
+                    "Allergy, Meat",
+                    "Allergy, Mold or Dust",
+                    "Allergy, Nuts",
+                    "Allergy, Processed Foods",
+                    "Allergy, Seafood",
+                    "Allergy, Wasp",
+                    "Alpha-1 Antitrypsin Deficiency",
+                    "Altered Mental Status",
+                    "Androgen Excess",
+                    "Anemia",
+                    "Asthma",
+                    "Ataxia-Telangiectasia",
+                    "Autoimmune Atrophic Chronic Gastritis",
+                    "Autoimmune Lymphoproliferative Syndrome (ALPS)",
+                    "Bacteroides fragilis",
+                    "BAP1 Tumor Predisposition Syndrome",
+                    "Barrett's Esophagus",
+                    "Beckwith-Wiedemann",
+                    "Behcet's Disease",
+                    "Benign Prostatic Hyperplasia",
+                    "Benign Thyroid Nodule",
+                    "Birt-Hogg-Dube Syndrome",
+                    "BRCA Family History",
+                    "Cancer",
+                    "Chlamydia",
+                    "Chloroma",
+                    "Cholelithiasis",
+                    "Chronic Hepatitis",
+                    "Chronic Kidney Disease",
+                    "Chronic Pancreatitis",
+                    "Chronic Systemic Steroid Use",
+                    "Chronic Thyroiditis",
+                    "Cirrhosis",
+                    "Colon Polyps",
+                    "Colonization, Bacterial",
+                    "Colonization, Fungal",
+                    "Common Variable Immune Deficiency (CVID)",
+                    "Cortisol Excess",
+                    "Cowden Syndrome",
+                    "Cryptococcal Meningitis",
+                    "Cyst(s)",
+                    "Cytomegalovirus (CMV)",
+                    "Denys-Drash Syndrome",
+                    "Dermatomyosis",
+                    "Diabetes, NOS",
+                    "Diabetes, Type I",
+                    "Diabetes, Type II",
+                    "Diet",
+                    "Diverticulitis",
+                    "Down Syndrome",
+                    "EBV Lymphoproliferation",
+                    "Eczema",
+                    "Endometriosis",
+                    "Endosalpingiosis",
+                    "Epithelial Dysplasia",
+                    "Epithelial Hyperplasia",
+                    "Epstein-Barr Virus",
+                    "Escherichia coli",
+                    "Estrogen Excess",
+                    "Familial Adenomatous Polyposis",
+                    "Fanconi Anemia",
+                    "Fibrosis",
+                    "Follicular Adenoma",
+                    "Gastric Polyp(s)",
+                    "Gastritis",
+                    "Gilbert's Syndrome",
+                    "Glomerular Disease",
+                    "Goiter",
+                    "Gorlin Syndrome",
+                    "Graves' Disease",
+                    "Hashimoto's Thyroiditis",
+                    "Hay Fever",
+                    "Headache",
+                    "Helicobacter pylori Infection",
+                    "Helicobacter pylori-Associated Gastritis",
+                    "Hematologic Disorder, NOS",
+                    "Hemihypertrophy",
+                    "Hemochromatosis",
+                    "Hepatic Encephalopathy",
+                    "Hepatitis A Infection",
+                    "Hepatitis B Infection",
+                    "Hepatitis C Infection",
+                    "Hepatitis, NOS",
+                    "Hereditary Breast Cancer",
+                    "Hereditary Hemorrhagic Telangiectasia",
+                    "Hereditary Kidney Oncocytoma",
+                    "Hereditary Leiomyomatosis and Renal Cell Carcinoma",
+                    "Hereditary Ovarian Cancer",
+                    "Hereditary Papillary Renal Cell Carcinoma",
+                    "Hereditary Prostate Cancer",
+                    "Hereditary Renal Cell Carcinoma",
+                    "Herpes Zoster",
+                    "High Grade Dysplasia",
+                    "High-grade Prostatic Intraepithelial Neoplasia (PIN)",
+                    "HIV",
+                    "Hodgkin Lymphoma",
+                    "Human Herpesvirus-6 (HHV-6)",
+                    "Human Herpesvirus-8 (HHV-8)",
+                    "Human Papillomavirus Infection",
+                    "Hyperparathyroidism",
+                    "Hyperthyroidism",
+                    "Hypospadias",
+                    "Hypothyroidism",
+                    "Inflammation",
+                    "Inflammation, Hyperkeratosis",
+                    "Inherited Genetic Syndrome, NOS",
+                    "Intestinal Metaplasia",
+                    "Iron Overload",
+                    "Li-Fraumeni Syndrome",
+                    "Low Grade Dysplasia",
+                    "Lymphamatoid Papulosis",
+                    "Lymphocytic Meningitis",
+                    "Lymphocytic Thyroiditis",
+                    "Lymphoid Hyperplasia",
+                    "Lynch Syndrome",
+                    "Malaria",
+                    "Metabolic Syndrome",
+                    "Mineralcorticoids Excess",
+                    "Motor / Movement Change",
+                    "Myasthenia Gravis",
+                    "Mycobacterium avium Complex",
+                    "Myelodysplastic Syndrome",
+                    "Neurocystericerosis",
+                    "Nodular Hyperplasia",
+                    "Nodular Prostatic Hyperplasia",
+                    "Nonalcoholic Fatty Liver Disease",
+                    "Nonalcoholic Steatohepatitis",
+                    "None",
+                    "Obesity",
+                    "Oral Contraceptives",
+                    "Pancreatitis",
+                    "Parasitic Disease of Biliary Tract",
+                    "Pneumocystis Pneumonia",
+                    "Pneumonia, NOS",
+                    "Polycystic Ovarian Syndrome (PCOS)",
+                    "Primary Sclerosing Cholangitis",
+                    "Recurrent Pyogenic Cholangitis",
+                    "Reflux Disease",
+                    "Rheumatoid Arthritis",
+                    "Rubella",
+                    "Rubinstein-Taybi Syndrome",
+                    "Sarcoidosis",
+                    "Seizure",
+                    "Sensory Changes",
+                    "Serous Tubal Intraepithelial Carcinoma (STIC)",
+                    "Shingles",
+                    "Sialadenitis",
+                    "Sjogren's Syndrome",
+                    "Skin Rash",
+                    "Squamous Metaplasia",
+                    "Staphylococcus aureus",
+                    "Steatosis",
+                    "Succinate Dehydrogenase-Deficient Renal Cell Carcinoma",
+                    "Syphilis",
+                    "Tattoo",
+                    "Thyroid Nodular Hyperplasia",
+                    "Tobacco, NOS",
+                    "Tobacco, Smokeless",
+                    "Tobacco, Smoking",
+                    "Treponema pallidum",
+                    "Tuberculosis",
+                    "Tuberous Sclerosis",
+                    "Tubulointerstitial Disease",
+                    "Tumor-associated Lymphoid Proliferation",
+                    "Turcot Syndrome",
+                    "Undescended Testis",
+                    "Varicella Zoster Virus",
+                    "Vascular Disease",
+                    "Vision Changes",
+                    "Von Hippel-Lindau Syndrome",
+                    "Wagr Syndrome",
+                    "Unknown",
+                    "Not Reported"
+                ]
+            },
+            "termDef": {
+                "cde_id": 6142389,
+                "cde_version": 1.0,
+                "source": "caDSR",
+                "term": "Risk Factor Description Type",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6142389%20and%20ver_nr=1.0"
+            },
+            "type": "array"
+        },
+        "state": {
+            "common": {
+                "description": "The current state of the object.",
+                "termDef": {
+                    "cde_id": null,
+                    "cde_version": null,
+                    "source": null,
+                    "term": null,
+                    "term_url": null
+                }
+            },
+            "default": "validated",
+            "downloadable": [
+                "uploaded",
+                "md5summed",
+                "validating",
+                "validated",
+                "error",
+                "invalid",
+                "released"
+            ],
+            "oneOf": [
+                {
+                    "enum": [
+                        "uploading",
+                        "uploaded",
+                        "md5summing",
+                        "md5summed",
+                        "validating",
+                        "error",
+                        "invalid",
+                        "suppressed",
+                        "redacted",
+                        "live"
+                    ]
+                },
+                {
+                    "enum": [
+                        "validated",
+                        "submitted",
+                        "released"
+                    ]
+                }
+            ],
+            "public": [
+                "live"
+            ]
+        },
+        "submitter_id": {
+            "description": "A project-specific identifier for a node. This property is the calling card/nickname/alias for a unit of submission. It can be used in place of the uuid for identifying or recalling a node.",
+            "type": "string"
+        },
+        "timepoint_category": {
+            "description": "Category describing a specific point in the time continuum, including those established relative to an event.",
+            "enum": [
+                "Adjuvant Therapy",
+                "Adolescence",
+                "Adulthood",
+                "Childhood",
+                "Follow-up",
+                "Initial Diagnosis",
+                "Last Contact",
+                "Post Adjuvant Therapy",
+                "Post Hormone Therapy",
+                "Post Secondary Therapy",
+                "Postoperative",
+                "Preoperative",
+                "Prior to Diagnosis",
+                "Prior to Treatment",
+                "Recurrence/Progression",
+                "Within 3 Months of Surgery",
+                "Other",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Other": {
+                    "description": "Different than the one(s) previously specified or mentioned.",
+                    "termDef": {
+                        "cde_id": "C17649",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Other",
+                        "term_id": "C17649",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17649",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": "C68568",
+                "cde_version": "22.11d",
+                "source": "NCIt",
+                "term": "Timepoint",
+                "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C68568"
+            }
+        },
+        "treatment_frequency": {
+            "description": "The text term used to describe the frequency the patient received an agent or regimen.",
+            "enum": [
+                "Every Hour",
+                "Five Times Daily",
+                "Four Times Daily",
+                "Three Times Daily",
+                "Twice Daily",
+                "Once Daily",
+                "Every Other Day",
+                "Twice Weekly",
+                "Once Weekly",
+                "Once a Week for at Least a Year",
+                "Occasionally",
+                "Never",
+                "Unknown",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": "Treatment Frequency",
+                "term_url": null
+            }
+        },
+        "type": {
+            "type": "string"
+        },
+        "undescended_testis_corrected": {
+            "description": "Indicates whether the patient's undescended testis was corrected.",
+            "enum": [
+                "Yes",
+                "No",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "No": {
+                    "description": "The non-affirmative response to a question.",
+                    "termDef": {
+                        "cde_id": "C49487",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "No",
+                        "term_id": "C49487",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Yes": {
+                    "description": "The affirmative response to a question.",
+                    "termDef": {
+                        "cde_id": "C49488",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Yes",
+                        "term_id": "C49488",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": "Undescended Testis Corrected",
+                "term_url": null
+            }
+        },
+        "undescended_testis_corrected_age": {
+            "description": "The patient's age when their undescended testis was corrected.",
+            "maximum": 89,
+            "minimum": 0,
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": "Undescended Testis Corrected Age",
+                "term_url": null
+            },
+            "type": "integer"
+        },
+        "undescended_testis_corrected_laterality": {
+            "description": "Describes the lateral location of the patient's undescended testis correction.",
+            "enum": [
+                "Bilateral",
+                "Left",
+                "Right",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": "Undescended Testis Corrected Laterality",
+                "term_url": null
+            }
+        },
+        "undescended_testis_corrected_method": {
+            "description": "Describes the method used to correct the patient's undescended testis.",
+            "enum": [
+                "Hormones",
+                "Orchiopexy",
+                "Spontaneous Descent",
+                "Testis Removed",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": "Undescended Testis Corrected Method",
+                "term_url": null
+            }
+        },
+        "undescended_testis_history": {
+            "description": "The persistent failure of one or both testes to descend into the scrotum.",
+            "enum": [
+                "Yes",
+                "No",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "No": {
+                    "description": "The non-affirmative response to a question.",
+                    "termDef": {
+                        "cde_id": "C49487",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "No",
+                        "term_id": "C49487",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Yes": {
+                    "description": "The affirmative response to a question.",
+                    "termDef": {
+                        "cde_id": "C49488",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Yes",
+                        "term_id": "C49488",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": "C12326",
+                "cde_version": "21.04d",
+                "source": "NCIt",
+                "term": "Undescended Testes",
+                "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C12326"
+            }
+        },
+        "undescended_testis_history_laterality": {
+            "description": "Describes the lateral location of the patient's undescended testis.",
+            "enum": [
+                "Bilateral",
+                "Left",
+                "Right",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": "Undescended Testis Laterality",
+                "term_url": null
+            }
+        },
+        "updated_datetime": {
+            "common": {
+                "description": "A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]",
+                "termDef": {
+                    "cde_id": null,
+                    "cde_version": null,
+                    "source": null,
+                    "term": null,
+                    "term_url": null
+                }
+            },
+            "oneOf": [
+                {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        },
+        "viral_hepatitis_serologies": {
+            "description": "Text term that describes the kind of serological laboratory test used to determine the patient's hepatitis status.",
+            "enum": [
+                "HBV Core Antibody",
+                "HBV DNA",
+                "HBV Genotype",
+                "HBV Surface Antibody",
+                "HCV Genotype",
+                "Hepatitis B Surface Antigen",
+                "Hepatitis C Antibody",
+                "Hepatitis C Virus RNA",
+                "Unknown",
+                "Not Reported"
+            ],
+            "enumDef": {
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": 4395982,
+                "cde_version": 1.0,
+                "source": "caDSR",
+                "term": "Viral Hepatitis Laboratory Procedure Serology Test Method Type",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=4395982%20and%20ver_nr=1.0"
+            }
+        },
+        "weeks_gestation_at_birth": {
+            "description": "Numeric value used to describe the number of weeks starting from the approximate date of the biological mother's last menstrual period and ending with the birth of the patient.",
+            "minimum": 0,
+            "termDef": {
+                "cde_id": 2737369,
+                "cde_version": 1.0,
+                "source": "caDSR",
+                "term": "Pregnancy Week Number Count",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2737369%20and%20ver_nr=1.0"
+            },
+            "type": "number"
+        },
+        "weight": {
+            "description": "The weight of the patient measured in kilograms.",
+            "minimum": 0,
+            "termDef": {
+                "cde_id": 651,
+                "cde_version": 4.0,
+                "source": "caDSR",
+                "term": "Patient Weight Measurement",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=651%20and%20ver_nr=4.0"
+            },
+            "type": "number"
+        }
+    },
+    "required": [
+        "submitter_id"
+    ],
+    "submittable": true,
+    "systemProperties": [
+        "id",
+        "project_id",
+        "created_datetime",
+        "updated_datetime",
+        "state"
+    ],
+    "title": "Other Clinical Attribute",
+    "type": "object",
+    "uniqueKeys": [
+        [
+            "id"
+        ],
+        [
+            "project_id",
+            "submitter_id"
+        ]
+    ],
+    "validators": null
+}

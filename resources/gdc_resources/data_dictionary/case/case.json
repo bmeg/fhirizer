@@ -1,0 +1,645 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "additionalProperties": false,
+    "category": "administrative",
+    "description": "The collection of all data related to a specific subject in the context of a specific project.",
+    "downloadable": false,
+    "id": "case",
+    "links": [
+        {
+            "backref": "cases",
+            "label": "member_of",
+            "multiplicity": "many_to_one",
+            "name": "projects",
+            "required": true,
+            "target_type": "project"
+        },
+        {
+            "backref": "cases",
+            "label": "processed_at",
+            "multiplicity": "many_to_one",
+            "name": "tissue_source_sites",
+            "required": false,
+            "target_type": "tissue_source_site"
+        }
+    ],
+    "namespace": "https://gdc.cancer.gov",
+    "previous_version_downloadable": false,
+    "program": "*",
+    "project": "*",
+    "properties": {
+        "batch_id": {
+            "description": "GDC submission batch indicator. It is unique within the context of a project.",
+            "type": "integer"
+        },
+        "consent_type": {
+            "description": "The text term used to describe the type of consent obtain from the subject for participation in the study.",
+            "enum": [
+                "Consent by Death",
+                "Consent Exemption",
+                "Consent Waiver",
+                "Informed Consent"
+            ],
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": "Subject Consent Type",
+                "term_url": null
+            }
+        },
+        "created_datetime": {
+            "common": {
+                "description": "A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]",
+                "termDef": {
+                    "cde_id": null,
+                    "cde_version": null,
+                    "source": null,
+                    "term": null,
+                    "term_url": null
+                }
+            },
+            "oneOf": [
+                {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        },
+        "days_to_consent": {
+            "description": "Number of days between the date used for index and the date the subject consent was obtained for participation in the study.",
+            "maximum": 32872,
+            "minimum": -32872,
+            "termDef": {
+                "cde_id": null,
+                "cde_version": null,
+                "source": null,
+                "term": "Index Date to Consent Day Count",
+                "term_url": null
+            },
+            "type": "integer"
+        },
+        "days_to_lost_to_followup": {
+            "description": "The number of days between the date used for index and to the date the patient was lost to follow-up.",
+            "maximum": 32872,
+            "minimum": -32872,
+            "termDef": {
+                "cde_id": 6154721,
+                "cde_version": 1.0,
+                "source": "caDSR",
+                "term": "Index Date To Lost To Follow-up Day Count",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6154721%20and%20ver_nr=1.0"
+            },
+            "type": "integer"
+        },
+        "disease_type": {
+            "description": "The text term used to describe the type of malignant disease, as categorized by the World Health Organization's (WHO) International Classification of Diseases for Oncology (ICD-O).",
+            "enum": [
+                "Acinar Cell Neoplasms",
+                "Adenomas and Adenocarcinomas",
+                "Adnexal and Skin Appendage Neoplasms",
+                "Basal Cell Neoplasms",
+                "Blood Vessel Tumors",
+                "Chronic Myeloproliferative Disorders",
+                "Complex Epithelial Neoplasms",
+                "Complex Mixed and Stromal Neoplasms",
+                "Cystic, Mucinous and Serous Neoplasms",
+                "Ductal and Lobular Neoplasms",
+                "Epithelial Neoplasms, NOS",
+                "Fibroepithelial Neoplasms",
+                "Fibromatous Neoplasms",
+                "Germ Cell Neoplasms",
+                "Giant Cell Tumors",
+                "Gliomas",
+                "Granular Cell Tumors and Alveolar Soft Part Sarcomas",
+                "Hodgkin Lymphoma",
+                "Immunoproliferative Diseases",
+                "Leukemias, NOS",
+                "Lipomatous Neoplasms",
+                "Lymphatic Vessel Tumors",
+                "Lymphoid Leukemias",
+                "Malignant Lymphomas, NOS or Diffuse",
+                "Mast Cell Tumors",
+                "Mature B-Cell Lymphomas",
+                "Mature T- and NK-Cell Lymphomas",
+                "Meningiomas",
+                "Mesonephromas",
+                "Mesothelial Neoplasms",
+                "Miscellaneous Bone Tumors",
+                "Miscellaneous Tumors",
+                "Mucoepidermoid Neoplasms",
+                "Myelodysplastic Syndromes",
+                "Myeloid Leukemias",
+                "Myomatous Neoplasms",
+                "Myxomatous Neoplasms",
+                "Neoplasms of Histiocytes and Accessory Lymphoid Cells",
+                "Neoplasms, NOS",
+                "Nerve Sheath Tumors",
+                "Neuroepitheliomatous Neoplasms",
+                "Nevi and Melanomas",
+                "Odontogenic Tumors",
+                "Osseous and Chondromatous Neoplasms",
+                "Other Hematologic Disorders",
+                "Other Leukemias",
+                "Paragangliomas and Glomus Tumors",
+                "Plasma Cell Tumors",
+                "Precursor Cell Lymphoblastic Lymphoma",
+                "Soft Tissue Tumors and Sarcomas, NOS",
+                "Specialized Gonadal Neoplasms",
+                "Squamous Cell Neoplasms",
+                "Synovial-like Neoplasms",
+                "Thymic Epithelial Neoplasms",
+                "Transitional Cell Papillomas and Carcinomas",
+                "Trophoblastic neoplasms",
+                "Unknown",
+                "Not Reported",
+                "Not Applicable"
+            ],
+            "enumDef": {
+                "Not Applicable": {
+                    "description": "Determination of a value is not relevant in the current context.",
+                    "termDef": {
+                        "cde_id": "C48660",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "Not Applicable",
+                        "term_id": "C48660",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C48660",
+                        "term_version": "20.10d"
+                    }
+                },
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": 6161017,
+                "cde_version": 1.0,
+                "source": "caDSR",
+                "term": "ICD-O Disease Diagnosis Category",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0"
+            }
+        },
+        "id": {
+            "common": {
+                "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                "termDef": {
+                    "cde_id": "C54100",
+                    "cde_version": null,
+                    "source": "NCIt",
+                    "term": "Universally Unique Identifier",
+                    "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100"
+                }
+            },
+            "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+            "systemAlias": "node_id",
+            "type": "string"
+        },
+        "index_date": {
+            "description": "The text term used to describe the reference or anchor date used when for date obfuscation, where a single date is obscurred by creating one or more date ranges in relation to this date.",
+            "enum": [
+                "Diagnosis",
+                "First Patient Visit",
+                "First Treatment",
+                "Initial Genomic Sequencing",
+                "Recurrence",
+                "Sample Procurement",
+                "Study Enrollment"
+            ],
+            "termDef": {
+                "cde_id": 6154722,
+                "cde_version": 1.0,
+                "source": "caDSR",
+                "term": "Index Date Type",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6154722%20and%20ver_nr=1.0"
+            }
+        },
+        "lost_to_followup": {
+            "description": "The yes/no/unknown indicator used to describe whether a patient was unable to be contacted or seen for follow-up information.",
+            "enum": [
+                "Yes",
+                "No",
+                "Unknown"
+            ],
+            "enumDef": {
+                "No": {
+                    "description": "The non-affirmative response to a question.",
+                    "termDef": {
+                        "cde_id": "C49487",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "No",
+                        "term_id": "C49487",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                },
+                "Yes": {
+                    "description": "The affirmative response to a question.",
+                    "termDef": {
+                        "cde_id": "C49488",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Yes",
+                        "term_id": "C49488",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": 6161018,
+                "cde_version": 1.0,
+                "source": "caDSR",
+                "term": "Patient Lost Follow-up Indicator",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161018%20and%20ver_nr=1.0"
+            }
+        },
+        "primary_site": {
+            "description": "The text term used to describe the primary site of disease, as categorized by the World Health Organization's (WHO) International Classification of Diseases for Oncology (ICD-O). This categorization groups cases into general categories. Reference tissue_or_organ_of_origin on the diagnosis node for more specific primary sites of disease.",
+            "enum": [
+                "Accessory sinuses",
+                "Adrenal gland",
+                "Anus and anal canal",
+                "Base of tongue",
+                "Bladder",
+                "Bones, joints and articular cartilage of limbs",
+                "Bones, joints and articular cartilage of other and unspecified sites",
+                "Brain",
+                "Breast",
+                "Bronchus and lung",
+                "Cervix uteri",
+                "Colon",
+                "Connective, subcutaneous and other soft tissues",
+                "Corpus uteri",
+                "Esophagus",
+                "Eye and adnexa",
+                "Floor of mouth",
+                "Gallbladder",
+                "Gum",
+                "Heart, mediastinum, and pleura",
+                "Hematopoietic and reticuloendothelial systems",
+                "Hypopharynx",
+                "Kidney",
+                "Larynx",
+                "Lip",
+                "Liver and intrahepatic bile ducts",
+                "Lymph nodes",
+                "Meninges",
+                "Nasal cavity and middle ear",
+                "Nasopharynx",
+                "Oropharynx",
+                "Other and ill-defined digestive organs",
+                "Other and ill-defined sites",
+                "Other and ill-defined sites in lip, oral cavity and pharynx",
+                "Other and ill-defined sites within respiratory system and intrathoracic organs",
+                "Other and unspecified female genital organs",
+                "Other and unspecified major salivary glands",
+                "Other and unspecified male genital organs",
+                "Other and unspecified parts of biliary tract",
+                "Other and unspecified parts of mouth",
+                "Other and unspecified parts of tongue",
+                "Other and unspecified urinary organs",
+                "Other endocrine glands and related structures",
+                "Ovary",
+                "Palate",
+                "Pancreas",
+                "Parotid gland",
+                "Penis",
+                "Peripheral nerves and autonomic nervous system",
+                "Placenta",
+                "Prostate gland",
+                "Pyriform sinus",
+                "Rectosigmoid junction",
+                "Rectum",
+                "Renal pelvis",
+                "Retroperitoneum and peritoneum",
+                "Skin",
+                "Small intestine",
+                "Spinal cord, cranial nerves, and other parts of central nervous system",
+                "Stomach",
+                "Testis",
+                "Thymus",
+                "Thyroid gland",
+                "Tonsil",
+                "Trachea",
+                "Ureter",
+                "Uterus, NOS",
+                "Vagina",
+                "Vulva",
+                "Unknown",
+                "Not Reported",
+                "Not Applicable"
+            ],
+            "enumDef": {
+                "Not Applicable": {
+                    "description": "Determination of a value is not relevant in the current context.",
+                    "termDef": {
+                        "cde_id": "C48660",
+                        "cde_version": "20.10d",
+                        "source": "NCIt",
+                        "term": "Not Applicable",
+                        "term_id": "C48660",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C48660",
+                        "term_version": "20.10d"
+                    }
+                },
+                "Not Reported": {
+                    "description": "Not provided or available.",
+                    "termDef": {
+                        "cde_id": "C43234",
+                        "cde_version": "20.05a",
+                        "source": "NCIt",
+                        "term": "Not Reported",
+                        "term_id": "C43234",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                        "term_version": "20.05a"
+                    }
+                },
+                "Unknown": {
+                    "description": "Not known, not observed, not recorded, or refused.",
+                    "termDef": {
+                        "cde_id": "C17998",
+                        "cde_version": "19.12e",
+                        "source": "NCIt",
+                        "term": "Unknown",
+                        "term_id": "C17998",
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                        "term_version": "19.12e"
+                    }
+                }
+            },
+            "termDef": {
+                "cde_id": 6161019,
+                "cde_version": 1.0,
+                "source": "caDSR",
+                "term": "ICD-O Primary Anatomic Site Category",
+                "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161019%20and%20ver_nr=1.0"
+            }
+        },
+        "project_id": {
+            "common": {
+                "description": "Unique ID for any specific defined piece of work that is undertaken or attempted to meet a single requirement.",
+                "termDef": {
+                    "cde_id": null,
+                    "cde_version": null,
+                    "source": null,
+                    "term": null,
+                    "term_url": null
+                }
+            },
+            "type": "string"
+        },
+        "projects": {
+            "anyOf": [
+                {
+                    "items": {
+                        "additionalProperties": true,
+                        "maxItems": 1,
+                        "minItems": 1,
+                        "properties": {
+                            "id": {
+                                "common": {
+                                    "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                                    "termDef": {
+                                        "cde_id": "C54100",
+                                        "cde_version": null,
+                                        "source": "NCIt",
+                                        "term": "Universally Unique Identifier",
+                                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100"
+                                    }
+                                },
+                                "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                                "systemAlias": "node_id",
+                                "type": "string"
+                            },
+                            "submitter_id": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                {
+                    "additionalProperties": true,
+                    "properties": {
+                        "id": {
+                            "common": {
+                                "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                                "termDef": {
+                                    "cde_id": "C54100",
+                                    "cde_version": null,
+                                    "source": "NCIt",
+                                    "term": "Universally Unique Identifier",
+                                    "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100"
+                                }
+                            },
+                            "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                            "systemAlias": "node_id",
+                            "type": "string"
+                        },
+                        "submitter_id": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                }
+            ]
+        },
+        "state": {
+            "common": {
+                "description": "The current state of the object.",
+                "termDef": {
+                    "cde_id": null,
+                    "cde_version": null,
+                    "source": null,
+                    "term": null,
+                    "term_url": null
+                }
+            },
+            "default": "validated",
+            "downloadable": [
+                "uploaded",
+                "md5summed",
+                "validating",
+                "validated",
+                "error",
+                "invalid",
+                "released"
+            ],
+            "oneOf": [
+                {
+                    "enum": [
+                        "uploading",
+                        "uploaded",
+                        "md5summing",
+                        "md5summed",
+                        "validating",
+                        "error",
+                        "invalid",
+                        "suppressed",
+                        "redacted",
+                        "live"
+                    ]
+                },
+                {
+                    "enum": [
+                        "validated",
+                        "submitted",
+                        "released"
+                    ]
+                }
+            ],
+            "public": [
+                "live"
+            ]
+        },
+        "submitter_id": {
+            "description": "A project-specific identifier for a node. This property is the calling card/nickname/alias for a unit of submission. It can be used in place of the uuid for identifying or recalling a node.",
+            "type": "string"
+        },
+        "tissue_source_sites": {
+            "anyOf": [
+                {
+                    "items": {
+                        "additionalProperties": true,
+                        "maxItems": 1,
+                        "minItems": 1,
+                        "properties": {
+                            "id": {
+                                "common": {
+                                    "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                                    "termDef": {
+                                        "cde_id": "C54100",
+                                        "cde_version": null,
+                                        "source": "NCIt",
+                                        "term": "Universally Unique Identifier",
+                                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100"
+                                    }
+                                },
+                                "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                                "systemAlias": "node_id",
+                                "type": "string"
+                            },
+                            "submitter_id": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                {
+                    "additionalProperties": true,
+                    "properties": {
+                        "id": {
+                            "common": {
+                                "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                                "termDef": {
+                                    "cde_id": "C54100",
+                                    "cde_version": null,
+                                    "source": "NCIt",
+                                    "term": "Universally Unique Identifier",
+                                    "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100"
+                                }
+                            },
+                            "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                            "systemAlias": "node_id",
+                            "type": "string"
+                        },
+                        "submitter_id": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                }
+            ]
+        },
+        "type": {
+            "type": "string"
+        },
+        "updated_datetime": {
+            "common": {
+                "description": "A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]",
+                "termDef": {
+                    "cde_id": null,
+                    "cde_version": null,
+                    "source": null,
+                    "term": null,
+                    "term_url": null
+                }
+            },
+            "oneOf": [
+                {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        }
+    },
+    "required": [
+        "submitter_id",
+        "disease_type",
+        "primary_site"
+    ],
+    "submittable": true,
+    "systemProperties": [
+        "id",
+        "project_id",
+        "created_datetime",
+        "updated_datetime",
+        "state"
+    ],
+    "title": "Case",
+    "type": "object",
+    "uniqueKeys": [
+        [
+            "id"
+        ],
+        [
+            "project_id",
+            "submitter_id"
+        ]
+    ],
+    "validators": null
+}

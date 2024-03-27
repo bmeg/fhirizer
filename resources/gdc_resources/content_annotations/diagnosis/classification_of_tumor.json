@@ -1,0 +1,50 @@
+[
+    {
+        "value": "Not Allowed To Collect",
+        "description": "An indicator that specifies that a collection event was not permitted.",
+        "description_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C141478",
+        "annotation_type": "NCIt"
+    },
+    {
+        "value": "Premalignant",
+        "description": "A neoplasm that is composed of dysplastic cells and there is no morphologic evidence of infiltration of the surrounding tissues.",
+        "description_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C36032",
+        "annotation_type": "NCIt"
+    },
+    {
+        "value": "Unknown",
+        "description": "Not known, not observed, not recorded, or refused.",
+        "description_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+        "annotation_type": "NCIt"
+    },
+    {
+        "value": "metastasis",
+        "description": "A tumor that has spread from its original (primary) site of growth to another site, close to or distant from the primary site.  Metastasis is characteristic of advanced malignancies, but in rare instances can be seen in neoplasms lacking malignant morphology.",
+        "description_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C3261",
+        "annotation_type": "NCIt"
+    },
+    {
+        "value": "not reported",
+        "description": "Not provided or available.",
+        "description_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+        "annotation_type": "NCIt"
+    },
+    {
+        "value": "other",
+        "description": "Different than the one(s) previously specified or mentioned.",
+        "description_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17649",
+        "annotation_type": "NCIt"
+    },
+    {
+        "value": "primary",
+        "description": "A tumor at the original site of origin.",
+        "description_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C8509",
+        "annotation_type": "NCIt"
+    },
+    {
+        "value": "recurrence",
+        "description": "The reemergence of a neoplasm after a period of remission.",
+        "description_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C4798",
+        "annotation_type": "NCIt"
+    }
+]

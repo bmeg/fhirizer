@@ -1,0 +1,530 @@
+[
+    {
+        "value": "Acinar Cell Neoplasms",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": "115219005"
+    },
+    {
+        "value": "Adenomas and Adenocarcinomas",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "http://purl.obolibrary.org/obo/MONDO_0004970",
+        "sctid": "115215004"
+    },
+    {
+        "value": "Adnexal and Skin Appendage Neoplasms",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": "115216003"
+    },
+    {
+        "value": "Basal Cell Neoplasms",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": "127570002"
+    },
+    {
+        "value": "Blood Vessel Tumors",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": ""
+    },
+    {
+        "value": "Chronic Myeloproliferative Disorders",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": ""
+    },
+    {
+        "value": "Complex Epithelial Neoplasms",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": "1187225007"
+    },
+    {
+        "value": "Complex Mixed and Stromal Neoplasms",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": "1187225007"
+    },
+    {
+        "value": "Cystic, Mucinous and Serous Neoplasms",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": "115217007"
+    },
+    {
+        "value": "Ductal and Lobular Neoplasms",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": "115218002"
+    },
+    {
+        "value": "Epithelial Neoplasms, NOS",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": "118285006"
+    },
+    {
+        "value": "Fibroepithelial Neoplasms",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": "115230008"
+    },
+    {
+        "value": "Fibromatous Neoplasms",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": ""
+    },
+    {
+        "value": "Germ Cell Neoplasms",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": ""
+    },
+    {
+        "value": "Giant Cell Tumors",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": ""
+    },
+    {
+        "value": "Gliomas",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": ""
+    },
+    {
+        "value": "Granular Cell Tumors and Alveolar Soft Part Sarcomas",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": ""
+    },
+    {
+        "value": "Hodgkin Lymphoma",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": ""
+    },
+    {
+        "value": "Immunoproliferative Diseases",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": ""
+    },
+    {
+        "value": "Leukemias, NOS",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": ""
+    },
+    {
+        "value": "Lipomatous Neoplasms",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": ""
+    },
+    {
+        "value": "Lymphatic Vessel Tumors",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": ""
+    },
+    {
+        "value": "Lymphoid Leukemias",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": ""
+    },
+    {
+        "value": "Malignant Lymphomas, NOS or Diffuse",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": ""
+    },
+    {
+        "value": "Mast Cell Tumors",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": ""
+    },
+    {
+        "value": "Mature B-Cell Lymphomas",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": ""
+    },
+    {
+        "value": "Mature T- and NK-Cell Lymphomas",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": ""
+    },
+    {
+        "value": "Meningiomas",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": ""
+    },
+    {
+        "value": "Mesonephromas",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": ""
+    },
+    {
+        "value": "Mesothelial Neoplasms",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": ""
+    },
+    {
+        "value": "Miscellaneous Bone Tumors",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": ""
+    },
+    {
+        "value": "Miscellaneous Tumors",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": ""
+    },
+    {
+        "value": "Mucoepidermoid Neoplasms",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": ""
+    },
+    {
+        "value": "Myelodysplastic Syndromes",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": ""
+    },
+    {
+        "value": "Myeloid Leukemias",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": ""
+    },
+    {
+        "value": "Myomatous Neoplasms",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": ""
+    },
+    {
+        "value": "Myxomatous Neoplasms",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": ""
+    },
+    {
+        "value": "Neoplasms of Histiocytes and Accessory Lymphoid Cells",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": ""
+    },
+    {
+        "value": "Neoplasms, NOS",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": ""
+    },
+    {
+        "value": "Nerve Sheath Tumors",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": ""
+    },
+    {
+        "value": "Neuroepitheliomatous Neoplasms",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": ""
+    },
+    {
+        "value": "Nevi and Melanomas",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": ""
+    },
+    {
+        "value": "Odontogenic Tumors",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": ""
+    },
+    {
+        "value": "Osseous and Chondromatous Neoplasms",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": ""
+    },
+    {
+        "value": "Other Hematologic Disorders",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": ""
+    },
+    {
+        "value": "Other Leukemias",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": ""
+    },
+    {
+        "value": "Paragangliomas and Glomus Tumors",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": ""
+    },
+    {
+        "value": "Plasma Cell Tumors",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": ""
+    },
+    {
+        "value": "Precursor Cell Lymphoblastic Lymphoma",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": ""
+    },
+    {
+        "value": "Soft Tissue Tumors and Sarcomas, NOS",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": ""
+    },
+    {
+        "value": "Specialized Gonadal Neoplasms",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": ""
+    },
+    {
+        "value": "Squamous Cell Neoplasms",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": "118286007"
+    },
+    {
+        "value": "Synovial-like Neoplasms",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": ""
+    },
+    {
+        "value": "Thymic Epithelial Neoplasms",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": ""
+    },
+    {
+        "value": "Transitional Cell Papillomas and Carcinomas",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": ""
+    },
+    {
+        "value": "Trophoblastic neoplasms",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": ""
+    },
+    {
+        "value": "Unknown",
+        "description": "Not known, not observed, not recorded, or refused.",
+        "description_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+        "annotation_type": "NCIt",
+        "annotation_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+        "sctid": ""
+    },
+    {
+        "value": "Not Reported",
+        "description": "Not provided or available.",
+        "description_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+        "annotation_type": "NCIt",
+        "annotation_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+        "sctid": ""
+    },
+    {
+        "value": "Not Applicable",
+        "description": "Determination of a value is not relevant in the current context.",
+        "description_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C48660",
+        "annotation_type": "NCIt",
+        "annotation_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C48660",
+        "sctid": ""
+    }
+]

@@ -1,0 +1,93 @@
+[
+    {
+        "value": "american indian or alaska native",
+        "description": "A person having origins in any of the original peoples of North and South America (including Central America) and who maintains tribal affiliation or community attachment. (OMB)",
+        "description_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C41259",
+        "annotation_type": "NCIt",
+        "term_id": "C41259",
+        "ombCategory-code": "1002-5",
+        "ombCategory-system": "urn:oid:2.16.840.1.113883.6.238",
+        "ombCategory-display": "American Indian or Alaska Native"
+    },
+    {
+        "value": "asian",
+        "description": "A person having origins in any of the original peoples of the Far East, Southeast Asia, or the Indian subcontinent, including for example, Cambodia, China, India, Japan, Korea, Malaysia, Pakistan, the Philippine Islands, Thailand, and Vietnam. (OMB)",
+        "description_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C41260",
+        "annotation_type": "NCIt",
+        "term_id": "C41260",
+        "ombCategory-code": "2028-9",
+        "ombCategory-system": "urn:oid:2.16.840.1.113883.6.238",
+        "ombCategory-display": "Asian"
+    },
+    {
+        "value": "black or african american",
+        "description": "A person having origins in any of the Black racial groups of Africa. Terms such as \"Haitian\" or \"Negro\" can be used in addition to \"Black or African American\". (OMB)",
+        "description_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C16352",
+        "annotation_type": "NCIt",
+        "term_id": "C16352",
+        "ombCategory-code": "2054-5",
+        "ombCategory-system": "urn:oid:2.16.840.1.113883.6.238",
+        "ombCategory-display": "Black or African American"
+    },
+    {
+        "value": "native hawaiian or other pacific islander",
+        "description": "A person having origins in any of the original peoples of Hawaii, Guam, Samoa, or other Pacific Islands. (OMB)",
+        "description_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C41219",
+        "annotation_type": "NCIt",
+        "term_id": "C41219",
+        "ombCategory-code": "2076-8",
+        "ombCategory-system": "urn:oid:2.16.840.1.113883.6.238",
+        "ombCategory-display": "Native Hawaiian or Other Pacific Islander"
+
+    },
+    {
+        "value": "white",
+        "description": "A person having origins in any of the original peoples of Europe, the Middle East, or North Africa. (OMB)",
+        "description_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C41261",
+        "annotation_type": "NCIt",
+        "term_id": "C41261",
+        "ombCategory-code": "2106-3",
+        "ombCategory-system": "urn:oid:2.16.840.1.113883.6.238",
+        "ombCategory-display": "White"
+    },
+    {
+        "value": "other",
+        "description": "Different than the one(s) previously specified or mentioned.",
+        "description_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17649",
+        "annotation_type": "NCIt",
+        "term_id": "C17649",
+        "ombCategory-code": "2131-1",
+        "ombCategory-system": "urn:oid:2.16.840.1.113883.6.238",
+        "ombCategory-display": "Other Race"
+    },
+    {
+        "value": "unknown",
+        "description": "Not known, not observed, not recorded, or refused.",
+        "description_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+        "annotation_type": "NCIt",
+        "term_id": "C17998",
+        "ombCategory-code": "UNK",
+        "ombCategory-system": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
+        "ombCategory-display": "unknown"
+    },
+    {
+        "value": "not reported",
+        "description": "Not provided or available.",
+        "description_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+        "annotation_type": "NCIt",
+        "term_id": "C43234",
+        "ombCategory-code": "ASKU",
+        "ombCategory-system": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
+        "ombCategory-display": "asked but unknown"
+    },
+    {
+        "value": "not allowed to collect",
+        "description": "An indicator that specifies that a collection event was not permitted.",
+        "description_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C141478",
+        "annotation_type": "NCIt",
+        "term_id": "C141478",
+        "ombCategory-code": "",
+        "ombCategory-system": "",
+        "ombCategory-display": ""
+    }
+]
