@@ -1,0 +1,30 @@
+{
+  "resourceType": "Observation",
+  "id": "observation-lab-ajcc-tumor-stage",
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory",
+          "display": "Laboratory"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "https://thesaurus.cancer.gov",
+        "code": "C177556",
+        "display": "AJCC v8 Pathologic Stage"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/example"
+  },
+  "valueCodeableConcept" : {}
+}
+

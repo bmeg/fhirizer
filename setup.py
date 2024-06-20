@@ -27,10 +27,11 @@ setup(
         'uuid',
         'openpyxl',
         'pandas',
+        'inflection',
         'iteration_utilities',
         'icd10-cm',
-
         'beautifulsoup4',
+        'gen3-tracker>=0.0.4rc32',
         'fhir.resources>=7.1.0'  # FHIR® (Release R5, version 5.0.0)
     ],
     package_data={

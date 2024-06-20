@@ -635,6 +635,15 @@ case_maps = [Map(
 
     Map(
         source=Source(
+            name='samples.updated_datetime'
+        ),
+        destination=Destination(
+            name='Observation.sample.updated_datetime'
+        )
+    ),
+
+    Map(
+        source=Source(
             name='samples.is_ffpe'
         ),
         destination=Destination(
@@ -675,6 +684,15 @@ case_maps = [Map(
         ),
         destination=Destination(
             name='Observation.portions.weight'
+        )
+    ),
+
+    Map(
+        source=Source(
+            name='samples.portions.updated_datetime'
+        ),
+        destination=Destination(
+            name='Observation.portion.updated_datetime'
         )
     ),
 
@@ -729,6 +747,15 @@ case_maps = [Map(
         ),
         destination=Destination(
             name='Observation.analyte.experimental_protocol_type'
+        )
+    ),
+
+    Map(
+        source=Source(
+            name='samples.portions.analytes.updated_datetime'
+        ),
+        destination=Destination(
+            name='Observation.analyte.updated_datetime'
         )
     ),
 
@@ -959,6 +986,15 @@ case_maps = [Map(
 
     Map(
         source=Source(
+            name='samples.portions.analytes.aliquots.updated_datetime'
+        ),
+        destination=Destination(
+            name='Observation.aliquot.updated_datetime'
+        )
+    ),
+
+    Map(
+        source=Source(
             name='samples.portions.analytes.aliquots.aliquot_id'
         ),
         destination=Destination(
@@ -1067,6 +1103,15 @@ case_maps = [Map(
 
     Map(
         source=Source(
+            name='diagnoses.tumor_grade'
+        ),
+        destination=Destination(
+            name='Observation.code.nci_tumor_grade'
+        )
+    ),
+
+    Map(
+        source=Source(
             name='diagnoses.treatments.treatment_id'
         ),
         destination=Destination(
@@ -1161,6 +1206,42 @@ case_maps = [Map(
         ),
         destination=Destination(
             name='Condition.display'
+        )
+    ),
+
+    Map(
+        source=Source(
+            name='diagnoses.days_to_death'
+        ),
+        destination=Destination(
+            name='Observation.survey.days_to_death'
+        )
+    ),
+
+    Map(
+        source=Source(
+            name='diagnoses.days_to_last_follow_up'
+        ),
+        destination=Destination(
+            name='Observation.survey.days_to_last_follow_up'
+        )
+    ),
+
+    Map(
+        source=Source(
+            name='diagnoses.updated_datetime'
+        ),
+        destination=Destination(
+            name='Observation.survey.updated_datetime'
+        )
+    ),
+
+    Map(
+        source=Source(
+            name='submitter_diagnosis_ids'
+        ),
+        destination=Destination(
+            name='Condition.identifier'
         )
     ),
 

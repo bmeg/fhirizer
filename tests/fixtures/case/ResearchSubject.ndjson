@@ -1,1 +1,1 @@
-{"resourceType": "ResearchSubject", "id": "17f275c1-a0d4-487d-8f02-ea279584b4cd", "status": "active", "study": {"reference": "ResearchStudy/TCGA-BRCA"}, "subject": {"reference": "Patient/17f275c1-a0d4-487d-8f02-ea279584b4cd"}}
+{"resourceType": "ResearchSubject", "id": "13c9dd8a-7ba8-5753-9fac-6a29ecd2ff42", "status": "active", "study": {"reference": "ResearchStudy/f7cbec83-d78b-5024-9d80-e9ec7d886f6a"}, "subject": {"reference": "Patient/13c9dd8a-7ba8-5753-9fac-6a29ecd2ff42"}}

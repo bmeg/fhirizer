@@ -4,6 +4,7 @@ import random
 import json
 import glob
 import gzip
+import uuid
 import pprint
 import requests
 from bs4 import BeautifulSoup
@@ -11,6 +12,8 @@ from fhirizer.schema import Schema
 from importlib.resources import files
 import importlib
 from pathlib import Path
+from fhir.resources.identifier import Identifier
+from uuid import uuid5, UUID
 
 DATA_DICT_PATH = "".join([str(Path(importlib.resources.files('fhirizer').parent / 'resources' / 'gdc_resources' / 'data_dictionary')), "/"])
 FIELDS_PATH = "".join([str(Path(importlib.resources.files('fhirizer').parent / 'resources' / 'gdc_resources' / 'fields')), "/"])
@@ -1069,7 +1072,7 @@ def ncit2mondo(path):
         return data
 
 
-def get_component(key, value=None, component_type=None):
+def get_component(key, value=None, component_type=None, system="https://cadsr.cancer.gov/sample_laboratory_observation"):
     if component_type == 'string':
         value = {"valueString": value}
     elif component_type == 'int':
@@ -1078,6 +1081,8 @@ def get_component(key, value=None, component_type=None):
         value = {"valueQuantity": {"value": value}}
     elif component_type == 'bool':
         value = {"valueBoolean": value}
+    elif component_type == 'dateTime':
+        value = {"valueDateTime": value}
     else:
         pass
 
@@ -1085,7 +1090,7 @@ def get_component(key, value=None, component_type=None):
         "code": {
             "coding": [
                 {
-                    "system": "https://cadsr.cancer.gov/sample_laboratory_observation",
+                    "system": system,
                     "code": key,
                     "display": key
                 }
@@ -1098,6 +1103,7 @@ def get_component(key, value=None, component_type=None):
 
     return component
 
+
 def fhir_ndjson(entity, out_path):
     if isinstance(entity, list):
         with open(out_path, 'w', encoding='utf8') as file:
@@ -1105,3 +1111,19 @@ def fhir_ndjson(entity, out_path):
     else:
         with open(out_path, 'w', encoding='utf8') as file:
             file.write(json.dumps(entity, ensure_ascii=False))
+
+
+def mint_id(identifier, resource_type, project_id, namespace) -> str:
+    """Create a UUID from an identifier. - mint id via Walsh's convention
+    https://github.com/ACED-IDP/g3t_etl/blob/d095895b0cf594c2fd32b400e6f7b4f9384853e2/g3t_etl/__init__.py#L61"""
+
+    if isinstance(identifier, tuple):  # Check if identifier is a tuple
+        assert resource_type, "resource_type is required for Identifier"
+        identifier = f"{resource_type}/{identifier[0]}|{identifier[1]}"
+    return _mint_id(identifier, project_id, namespace)
+
+
+def _mint_id(identifier_string: str, project_id: str, namespace: UUID) -> str:
+    """Create a UUID from an identifier, insert project_id."""
+    return str(uuid5(namespace, f"{project_id}/{identifier_string}"))
+

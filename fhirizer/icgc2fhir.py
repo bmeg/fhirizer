@@ -27,13 +27,21 @@ from fhir.resources.attachment import Attachment
 from fhirizer import utils
 import importlib.resources
 from pathlib import Path
+from uuid import uuid3, NAMESPACE_DNS
 
-smoking_obs = utils._read_json(str(Path(importlib.resources.files('fhirizer').parent / 'resources' / 'icgc' / 'observations' / 'smoking.json')))
-alcohol_obs = utils._read_json(str(Path(importlib.resources.files('fhirizer').parent / 'resources' / 'icgc' / 'observations' / 'alcohol.json')))
-biospecimen_observation = utils._read_json(str(Path(importlib.resources.files('fhirizer').parent / 'resources' / 'gdc_resources' / 'content_annotations' / 'biospecimen' / 'biospecimen_observation.json')))
+smoking_obs = utils._read_json(
+    str(Path(importlib.resources.files('fhirizer').parent / 'resources' / 'icgc' / 'observations' / 'smoking.json')))
+alcohol_obs = utils._read_json(
+    str(Path(importlib.resources.files('fhirizer').parent / 'resources' / 'icgc' / 'observations' / 'alcohol.json')))
+biospecimen_observation = utils._read_json(str(Path(importlib.resources.files(
+    'fhirizer').parent / 'resources' / 'gdc_resources' / 'content_annotations' / 'biospecimen' / 'biospecimen_observation.json')))
 
 # smoking_obs = utils._read_json("resources/icgc/observations/smoking.json")
 # alcohol_obs = utils._read_json("resources/icgc/observations/alcohol.json")
+# NOTE: all url's are based on current site that will be-updated https://platform.icgc-argo.org/
+
+project_id = "ICGC"
+NAMESPACE_GDC = uuid3(NAMESPACE_DNS, 'icgc-argo.org')
 
 conditionoccurredFollowing = {
     "extension": [
@@ -289,9 +297,10 @@ def fetch_data(file_paths, project_name):
 
 
 def fhir_research_study(df):
+    research_study_list = []
     name = df["project_code"].unique()[0]
-
     rs_name = "icgc_project"
+
     condition = None
     if name in ["ESAD-UK", "ESCA-CN"]:
         rs_name = "Esophageal Adenocarcinoma"
@@ -300,43 +309,83 @@ def fhir_research_study(df):
         rs_name = "Lung Squamous cell carcinoma"
         condition = CodeableConcept(**{"coding": SC})
 
-    research_study_list = []
-    icgc_program = ResearchStudy(**{"id": str(uuid.uuid3(uuid.NAMESPACE_DNS, "ICGC")),
-                                    "identifier": [
-                                        Identifier(**{"system": "https://dcc.icgc.org/program", "value": "ICGC"})],
-                                    "name": "ICGC", "status": "active"})
+    research_study_parent_ident = Identifier(**{"system": "".join(["https://platform.icgc-argo.org/", "program"]),
+                                                "value": "ICGC"})
+
+    research_study_parent_id = utils.mint_id(
+        identifier=research_study_parent_ident,
+        resource_type="ResearchStudy",
+        project_id=project_id,
+        namespace=NAMESPACE_GDC)
+
+    icgc_program = ResearchStudy(**{"id": research_study_parent_id,
+                                    "identifier": [research_study_parent_ident], "status": "active"})
     research_study_list.append(icgc_program)
 
-    icgc_project = ResearchStudy(**{"id": str(uuid.uuid3(uuid.NAMESPACE_DNS, name)),
-                                    "identifier": [
-                                        Identifier(**{"system": "https://dcc.icgc.org/project", "value": name})],
-                                    "name": rs_name, "status": "active", "partOf": [
-            Reference(**{"reference": "/".join(["ResearchStudy", icgc_program.id])})],
-                                    "condition": [condition]})
-    research_study_list.append(icgc_project)
+    if name != "ICGC":
+        research_study_ident = Identifier(
+            **{"system": "".join(["https://platform.icgc-argo.org/", "project"]), "value": name})
+
+        research_study_id = utils.mint_id(
+            identifier=research_study_ident,
+            resource_type="ResearchStudy",
+            project_id=project_id,
+            namespace=NAMESPACE_GDC)
+
+        icgc_project = ResearchStudy(**{"id": research_study_id,
+                                        "identifier": [research_study_ident],
+                                        "name": rs_name, "status": "active", "partOf": [
+                Reference(**{"reference": "/".join(["ResearchStudy", icgc_program.id])})],
+                                        "condition": [condition]})
+        research_study_list.append(icgc_project)
 
     studies = [value for value in df['study_donor_involved_in'].unique() if value]
 
     if studies:
         for study in studies:
-            icgc_study = ResearchStudy(**{"id": str(uuid.uuid3(uuid.NAMESPACE_DNS, study)),
-                                          "identifier": [
-                                              Identifier(**{"system": "https://dcc.icgc.org/study", "value": study})],
-                                          "name": rs_name, "status": "active", "partOf": [
-                    Reference(**{"reference": "/".join(["ResearchStudy", icgc_program.id])}),
-                    Reference(**{"reference": "/".join(["ResearchStudy", icgc_project.id])})]})
-            research_study_list.append(icgc_study)
+            if study not in [name]:
+                research_ident = Identifier(
+                    **{"system": "".join(["https://platform.icgc-argo.org/", "project"]), "value": study})
+
+                research_id = utils.mint_id(
+                    identifier=research_ident,
+                    resource_type="ResearchStudy",
+                    project_id=project_id,
+                    namespace=NAMESPACE_GDC)
+
+                icgc_study = ResearchStudy(**{"id": research_id,
+                                              "identifier": [research_ident],
+                                              "name": rs_name, "status": "active", "partOf": [
+                        Reference(**{"reference": "/".join(["ResearchStudy", icgc_program.id])}),
+                        Reference(**{"reference": "/".join(["ResearchStudy", icgc_project.id])})]})
+                research_study_list.append(icgc_study)
     return research_study_list
 
+
 def exposure_observation(obs, row, snomed, smoking):
-    patient_id = str(uuid.uuid3(uuid.NAMESPACE_DNS, "".join([row['icgc_donor_id'], row['project_code']])))
+    patient_ident = Identifier(**{"system": "".join(["https://platform.icgc-argo.org/", "donor_id"]),
+                                  "value": row['icgc_donor_id']})
+
+    patient_id = utils.mint_id(
+        identifier=patient_ident,
+        resource_type="Patient",
+        project_id=project_id,
+        namespace=NAMESPACE_GDC)
+
     if smoking:
         obs["note"][0]["text"] = row['tobacco_smoking_history_indicator']
     else:
         obs["note"][0]["text"] = row['alcohol_history_intensity']
+
     obs["subject"] = {"reference": "".join(["Patient/", patient_id])}
     obs["focus"] = [{"reference": "".join(["Patient/", patient_id])}]
-    obs["id"] = str(uuid.uuid3(uuid.NAMESPACE_DNS, "".join([patient_id, row['project_code'], obs["note"][0]["text"]])))
+    obs_ident = Identifier(**{"system": "".join(["https://platform.icgc-argo.org/", "donor_id"]),
+                              "value": "/".join([row['icgc_donor_id'], "social-history"])})
+    obs["id"] = utils.mint_id(
+        identifier=[obs_ident, patient_ident],
+        resource_type="Observation",
+        project_id=project_id,
+        namespace=NAMESPACE_GDC)
 
     if snomed:
         obs["valueCodeableConcept"]["coding"][0]["code"] = snomed["snomed_code"]
@@ -399,9 +448,18 @@ def fhir_patient(row):
     if row['donor_sex']:
         patient_gender = row['donor_sex']
 
+    patient_ident = Identifier(**{"system": "".join(["https://platform.icgc-argo.org/", "donor_id"]),
+                                  "value": row['icgc_donor_id']})
+
+    patient_id = utils.mint_id(
+        identifier=patient_ident,
+        resource_type="Patient",
+        project_id=project_id,
+        namespace=NAMESPACE_GDC)
+
     patient = Patient(
-        **{"id": str(uuid.uuid3(uuid.NAMESPACE_DNS, "".join([row['icgc_donor_id'], row['project_code']]))),
-           "identifier": [Identifier(**{"system": "https://dcc.icgc.org/donor", "value": row['icgc_donor_id']})],
+        **{"id": patient_id,
+           "identifier": [patient_ident],
            "gender": patient_gender,
            "extension": [
                {
@@ -413,17 +471,46 @@ def fhir_patient(row):
 
 
 def fhir_research_subject(row):
-    patient_id = str(uuid.uuid3(uuid.NAMESPACE_DNS, "".join([row['icgc_donor_id'], row['project_code']])))
-    rs_id = str(uuid.uuid3(uuid.NAMESPACE_DNS, "".join([row['icgc_donor_id'], row['project_code']])))
-    study_id = str(uuid.uuid3(uuid.NAMESPACE_DNS, row['project_code']))
+    patient_ident = Identifier(**{"system": "".join(["https://platform.icgc-argo.org/", "donor_id"]),
+                                  "value": row['icgc_donor_id']})
+
+    patient_id = utils.mint_id(
+        identifier=patient_ident,
+        resource_type="Patient",
+        project_id=project_id,
+        namespace=NAMESPACE_GDC)
+
+    research_study_ident = Identifier(**{"system": "".join(["https://platform.icgc-argo.org/", "project"]),
+                                         "value": row['project_code']})
+
+    research_study_id = utils.mint_id(
+        identifier=research_study_ident,
+        resource_type="ResearchStudy",
+        project_id=project_id,
+        namespace=NAMESPACE_GDC)
+
+    research_subject_id = utils.mint_id(
+        identifier=patient_ident,
+        resource_type="ResearchSubject",
+        project_id=project_id,
+        namespace=NAMESPACE_GDC)
 
     return ResearchSubject(
-        **{"id": rs_id, "status": "active", "study": Reference(**{"reference": "/".join(["ResearchStudy", study_id])}),
+        **{"id": research_subject_id, "status": "active",
+           "study": Reference(**{"reference": "/".join(["ResearchStudy", research_study_id])}),
            "subject": Reference(**{"reference": "/".join(["Patient", patient_id])})})
 
 
 def fhir_body_structure(row):
-    patient_id = str(uuid.uuid3(uuid.NAMESPACE_DNS, "".join([row['icgc_donor_id'], row['project_code']])))
+    # patient_id = str(uuid.uuid3(uuid.NAMESPACE_DNS, "".join([row['icgc_donor_id'], row['project_code']])))
+    patient_ident = Identifier(**{"system": "".join(["https://platform.icgc-argo.org/", "donor_id"]),
+                                  "value": row['icgc_donor_id']})
+
+    patient_id = utils.mint_id(
+        identifier=patient_ident,
+        resource_type="Patient",
+        project_id=project_id,
+        namespace=NAMESPACE_GDC)
 
     body_site = None
     if row['project_code'] in ["ESAD-UK", "ESCA-CN"]:
@@ -439,8 +526,17 @@ def fhir_body_structure(row):
             "display": "Bronchus and lung"
         }
 
+    body_structure_ident = Identifier(**{"system": "".join(["https://platform.icgc-argo.org/", "body_site"]),
+                                         "value": body_site["display"]})
+
+    body_structure_id = utils.mint_id(
+        identifier=[patient_ident, body_structure_ident],
+        resource_type="BodyStructure",
+        project_id=project_id,
+        namespace=NAMESPACE_GDC)
+
     body_structure = BodyStructure(
-        **{"id": str(uuid.uuid3(uuid.NAMESPACE_DNS, "".join([row['icgc_donor_id'], row['project_code']]))),
+        **{"id": body_structure_id,
            "includedStructure": [BodyStructureIncludedStructure(**{"structure": {"coding": [body_site]}})],
            "patient": Reference(**{"reference": "/".join(["Patient", patient_id])})
            })
@@ -449,13 +545,35 @@ def fhir_body_structure(row):
 
 def fhir_condition(row):
     # condition, condition observation, encounter
+    project_id = "ICGC"
     icd10 = None
     if row['icgc_donor_id']:
         icd10 = row['donor_diagnosis_icd10'].upper()
 
-    patient_id = str(uuid.uuid3(uuid.NAMESPACE_DNS, "".join([row['icgc_donor_id'], row['project_code']])))
-    condition_id = str(uuid.uuid3(uuid.NAMESPACE_DNS,
-                                  "".join([row['icgc_donor_id'], row['project_code'], icd10])))
+    patient_ident = Identifier(**{"system": "".join(["https://platform.icgc-argo.org/", "donor_id"]),
+                                  "value": row['icgc_donor_id']})
+
+    patient_id = utils.mint_id(
+        identifier=patient_ident,
+        resource_type="Patient",
+        project_id=project_id,
+        namespace=NAMESPACE_GDC)
+
+    # https://docs.icgc.org/submission/projects/
+    condition_discription = None
+    if row['project_code'] in ["ESAD-UK", "ESCA-CN"]:
+        condition_discription = 'Esophageal Adenocarcinoma'
+    elif row['project_code'] in ["LUSC-KR", "LUSC-CN"]:
+        condition_discription = 'Lung Squamous Cell Carcinoma'
+
+    condition_ident = Identifier(**{"system": "".join(["https://platform.icgc-argo.org/", "project"]),
+                                    "value": condition_discription})
+
+    condition_id = utils.mint_id(
+        identifier=[condition_ident, patient_ident],
+        resource_type="Condition",
+        project_id=project_id,
+        namespace=NAMESPACE_GDC)
 
     clinicalStatus = None
     if 'donor_relapse_type' in row.keys() and pd.notna(row['donor_relapse_type']) and row[
@@ -512,11 +630,24 @@ def fhir_condition(row):
 
         encounter = Encounter.construct()
         encounter.status = 'completed'
-        encounter.id = str(uuid.uuid3(uuid.NAMESPACE_DNS, "".join(
-            [row['icgc_donor_id'], row['project_code'], row['donor_diagnosis_icd10']])))
+        encounter.id = utils.mint_id(
+            identifier=patient_ident,
+            resource_type="Encounter",
+            project_id=project_id,
+            namespace=NAMESPACE_GDC)
+
         encounter.subject = Reference(**{"reference": "/".join(["Patient", patient_id])})
 
+        obs_ident = Identifier(**{"system": "".join(["https://platform.icgc-argo.org/", "donor_id"]),
+                                  "value": "/".join([row['icgc_donor_id'], "exam"])})
+
         obs_exam = copy.deepcopy(exam)
+        obs_exam["id"] = utils.mint_id(
+            identifier=[obs_ident, patient_ident],
+            resource_type="Observation",
+            project_id=project_id,
+            namespace=NAMESPACE_GDC)
+
         obs_exam["subject"] = {"reference": "/".join(["Patient", patient_id])}
         obs_exam["focus"] = [{"reference": "/".join(["Patient", patient_id])},
                              {"reference": "/".join(["Condition", condition_id])}]
@@ -556,12 +687,27 @@ def fhir_specimen(row):
 
     observations = []
     # parent sample
-    sample_id = str(uuid.uuid3(uuid.NAMESPACE_DNS, "".join(
-        [row['icgc_sample_id'], row['project_code_sample'], row['icgc_donor_id_sample']])))
-    sample_patient = str(
-        uuid.uuid3(uuid.NAMESPACE_DNS, "".join([row['icgc_donor_id_sample'], row['project_code_sample']])))
-    sample_identifiers = Identifier(**{"system": "https://dcc.icgc.org/program", "value": row['submitted_sample_id']})
-    sample = Specimen(**{"id": sample_id, "identifier": [sample_identifiers],
+    sample_identifier_0 = Identifier(**{"system": "".join(["https://platform.icgc-argo.org/", "icgc_sample_id"]),
+                                        "value": row['icgc_sample_id']})
+
+    sample_id = utils.mint_id(
+        identifier=sample_identifier_0,
+        resource_type="Specimen",
+        project_id=project_id,
+        namespace=NAMESPACE_GDC)
+
+    patient_ident_sample = Identifier(**{"system": "".join(["https://platform.icgc-argo.org/", "donor_id"]),
+                                         "value": row['icgc_donor_id_sample']})
+
+    sample_patient = utils.mint_id(
+        identifier=patient_ident_sample,
+        resource_type="Patient",
+        project_id=project_id,
+        namespace=NAMESPACE_GDC)
+
+    sample_identifier_1 = Identifier(**{"system": "".join(["https://platform.icgc-argo.org/", "submitted_sample_id"]),
+                                        "value": row['submitted_sample_id']})
+    sample = Specimen(**{"id": sample_id, "identifier": [sample_identifier_0, sample_identifier_1],
                          "subject": Reference(**{"reference": "/".join(["Patient", sample_patient])})})
 
     sample_components = []
@@ -588,8 +734,12 @@ def fhir_specimen(row):
         sample_observation = copy.deepcopy(biospecimen_observation)
         # print(sample_components)
 
-        sample_observation['id'] = str(
-            uuid.uuid3(uuid.NAMESPACE_DNS, sample_id))
+        sample_observation['id'] = utils.mint_id(
+            identifier=sample_identifier_0,
+            resource_type="Observation",
+            project_id=project_id,
+            namespace=NAMESPACE_GDC)
+
         sample_observation['component'] = sample_components
 
         sample_observation['subject'] = {
@@ -601,12 +751,28 @@ def fhir_specimen(row):
         observations.append(copy.deepcopy(sample_observation))
 
     # child specimen
-    specimen_id = str(uuid.uuid3(uuid.NAMESPACE_DNS, "".join(
-        [row['icgc_specimen_id'], row['project_code_specimen'], row['icgc_donor_id_specimen']])))
-    specimen_patient = str(
-        uuid.uuid3(uuid.NAMESPACE_DNS, "".join([row['icgc_donor_id_specimen'], row['project_code_specimen']])))
-    sample_identifiers = Identifier(
-        **{"system": "https://dcc.icgc.org/program", "value": row['submitted_specimen_id_specimen']})
+
+    specimen_identifier_0 = Identifier(**{"system": "".join(["https://platform.icgc-argo.org/", "icgc_sample_id"]),
+                                          "value": row['icgc_specimen_id']})
+
+    specimen_id = utils.mint_id(
+        identifier=specimen_identifier_0,
+        resource_type="Specimen",
+        project_id=project_id,
+        namespace=NAMESPACE_GDC)
+
+    patient_ident_specimen = Identifier(**{"system": "".join(["https://platform.icgc-argo.org/", "donor_id"]),
+                                           "value": row['icgc_donor_id_specimen']})
+
+    specimen_patient = utils.mint_id(
+        identifier=patient_ident_specimen,
+        resource_type="Patient",
+        project_id=project_id,
+        namespace=NAMESPACE_GDC)
+
+    specimen_identifier_1 = Identifier(
+        **{"system": "".join(["https://platform.icgc-argo.org/", "submitted_specimen_id"]),
+           "value": row['submitted_specimen_id_specimen']})
 
     sc = None
     if row['specimen_interval'] and pd.notna(row['specimen_interval']) and isinstance(row['specimen_interval'], float):
@@ -654,8 +820,11 @@ def fhir_specimen(row):
 
     if specimen_components:
         specimen_observation = copy.deepcopy(biospecimen_observation)
-        specimen_observation['id'] = str(
-            uuid.uuid3(uuid.NAMESPACE_DNS, specimen_id))
+        specimen_observation['id'] = utils.mint_id(
+            identifier=specimen_identifier_0,
+            resource_type="Observation",
+            project_id=project_id,
+            namespace=NAMESPACE_GDC)
         specimen_observation['component'] = specimen_components
 
         specimen_observation['subject'] = {
@@ -668,9 +837,10 @@ def fhir_specimen(row):
         if specimen_observation:
             observations.append(copy.deepcopy(specimen_observation))
 
-    specimen = Specimen(**{"id": specimen_id, "identifier": [sample_identifiers], "parent": parent,
-                           "type": st, "processing": sp, "collection": sc,
-                           "subject": Reference(**{"reference": "/".join(["Patient", specimen_patient])})})
+    specimen = Specimen(
+        **{"id": specimen_id, "identifier": [sample_identifier_0, specimen_identifier_1], "parent": parent,
+           "type": st, "processing": sp, "collection": sc,
+           "subject": Reference(**{"reference": "/".join(["Patient", specimen_patient])})})
 
     return {"samples": [specimen, sample], "observations": observations}
 
@@ -680,29 +850,34 @@ def fhir_document_reference(row):
     # files via https://platform.icgc-argo.org/ site
     # associated clinical data via https://dcc.icgc.org/ (deprecated)
 
-    dr_id = str(uuid.uuid3(uuid.NAMESPACE_DNS, "".join([row['icgc_donor_id'], row['project_code'],
-                                                        row['File ID']])))  # TODO add file_id
+    file_ident = Identifier(**{"system": "".join(["https://platform.icgc-argo.org/", "file"]),
+                               "value": row['File ID']})
 
-    # sample_id = str(uuid.uuid3(uuid.NAMESPACE_DNS, "".join([row['icgc_sample_id'], row['project_code'], row['icgc_donor_id']])))
-    # patient_id = str(uuid.uuid3(uuid.NAMESPACE_DNS, "".join([row['icgc_donor_id'], row['project_code']])))
+    dr_id = utils.mint_id(
+        identifier=file_ident,
+        resource_type="DocumentReference",
+        project_id=project_id,
+        namespace=NAMESPACE_GDC)
+
     # Data Type & Experimental Strategy
     category_list = []
     if "Data Type" in row.keys() and pd.notna(row['Data Type']):
-        category_list.append(CodeableConcept(**{"coding": [{"code": row['Data Type'], "display":row['Data Type'],
-                                                "system": "https://platform.icgc-argo.org/data_type" }]}))
+        category_list.append(CodeableConcept(**{"coding": [{"code": row['Data Type'], "display": row['Data Type'],
+                                                            "system": "https://platform.icgc-argo.org/data_type"}]}))
     if "Experimental Strategy" in row.keys() and pd.notna(row['Experimental Strategy']):
-        category_list.append(CodeableConcept(**{"coding": [{"code": row['Experimental Strategy'], "display": row['Experimental Strategy'],
-                                                "system": "https://platform.icgc-argo.org/experimental_strategy"}]}))
+        category_list.append(CodeableConcept(
+            **{"coding": [{"code": row['Experimental Strategy'], "display": row['Experimental Strategy'],
+                           "system": "https://platform.icgc-argo.org/experimental_strategy"}]}))
 
     dr = DocumentReference(**{"id": dr_id, "identifier": [
         Identifier(**{"system": "https://platform.icgc-argo.org/file_id", "value": row['File ID']})],
                               "status": "current",
-                              "basedOn": [{"reference": "/".join(["Specimen", row["sample_uuid"]])}],
+                              "basedOn": [{"reference": "/".join(["Specimen", row["sample_mintid"]])}],
                               "content": [DocumentReferenceContent(**{"attachment": Attachment(
                                   **{"title": row["file_name"],
                                      "url": "".join(["https://platform.icgc-argo.org/file/", row['File ID']]),
                                      "size": str(row["file_size"]), "hash": str(row["md5sum"])})})],
-                              "subject": {"reference": "/".join(["Patient", row["patient_uuid"]])},
+                              "subject": {"reference": "/".join(["Patient", row["patient_mintid"]])},
                               "category": category_list,
                               "type": CodeableConcept(**{"coding": [
                                   {"code": row["file_type"], "display": row["file_type"],
@@ -712,16 +887,34 @@ def fhir_document_reference(row):
 
 
 def patient_id(row):
-    return str(uuid.uuid3(uuid.NAMESPACE_DNS, "".join([row['icgc_donor_id'], row['project_code']])))
+    patient_ident = Identifier(**{"system": "".join(["https://platform.icgc-argo.org/", "donor_id"]),
+                                  "value": row['icgc_donor_id']})
+
+    patient_id = utils.mint_id(
+        identifier=patient_ident,
+        resource_type="Patient",
+        project_id=project_id,
+        namespace=NAMESPACE_GDC)
+
+    return patient_id
 
 
 def sample_id(row):
-    return str(uuid.uuid3(uuid.NAMESPACE_DNS, "".join([row['icgc_sample_id'], row['project_code_sample'], row['icgc_donor_id_sample']])))
+    # only applies to new data file and sample relations on argo site (sample vs. specimen where specimen is the child sample that is sequenced)
+    specimen_identifier_0 = Identifier(**{"system": "".join(["https://platform.icgc-argo.org/", "icgc_sample_id"]),
+                                          "value": row['icgc_sample_id']})
+
+    specimen_id = utils.mint_id(
+        identifier=specimen_identifier_0,
+        resource_type="Specimen",
+        project_id=project_id,
+        namespace=NAMESPACE_GDC)
+    return specimen_id
 
 
 def icgc2fhir(project_name, has_files):
-    # project_name = "LUSC-KR"
-    # has_files = True
+    project_name = "LUSC-KR"
+    has_files = True
     file_name = "score-manifest.tsv"
     file_table_name = "file-table.tsv"
 
@@ -758,7 +951,6 @@ def icgc2fhir(project_name, has_files):
     else:
         df_patient = dat_dict['donor']
 
-
     # TODO: family cancer history observation link confirmation
     # df_patient_exposure_family = pd.merge(dat_dict['donor'], dat_dict['donor_family'], on='icgc_donor_id', how='left',
     #                        suffixes=('', '_donor_family'))
@@ -779,6 +971,7 @@ def icgc2fhir(project_name, has_files):
     obs_exam = [c['observation'] for c in cond_obs_encont if c['observation']]
 
     body_structures = [orjson.loads(b.json()) for b in list(df_patient.apply(fhir_body_structure, axis=1)) if b]
+    body_structures = list({v['id']: v for v in body_structures}.values())
 
     sample_observations_nested_list = [s["observations"] for s in list(df_specimen.apply(fhir_specimen, axis=1)) if
                                        s["observations"]]
@@ -808,13 +1001,16 @@ def icgc2fhir(project_name, has_files):
         file_metadata = file_metadata.merge(file_table, on='object_id', how="left")
         file_metadata = file_metadata.fillna('')
 
-        df_patient["patient_uuid"] = df_patient.apply(patient_id, axis=1)
-        file_metadata_patient_info = file_metadata.merge(df_patient, on="icgc_donor_id", how="left", suffixes=["", "_p"])
+        df_patient["patient_mintid"] = df_patient.apply(patient_id, axis=1)
+        file_metadata_patient_info = file_metadata.merge(df_patient, on="icgc_donor_id", how="left",
+                                                         suffixes=["", "_p"])
 
-        df_specimen["sample_uuid"] = df_specimen.apply(sample_id, axis=1)
-        file_metadata_patient_specimen_info = file_metadata_patient_info.merge(df_specimen, on='icgc_sample_id', how="left")
+        df_specimen["sample_mintid"] = df_specimen.apply(sample_id, axis=1)
+        file_metadata_patient_specimen_info = file_metadata_patient_info.merge(df_specimen, on='icgc_sample_id',
+                                                                               how="left")
 
-        document_references = [orjson.loads(f.json()) for f in list(file_metadata_patient_specimen_info.apply(fhir_document_reference, axis=1)) if
+        document_references = [orjson.loads(f.json()) for f in
+                               list(file_metadata_patient_specimen_info.apply(fhir_document_reference, axis=1)) if
                                f]
     import os
     out_dir = os.path.join(out_path, "META")

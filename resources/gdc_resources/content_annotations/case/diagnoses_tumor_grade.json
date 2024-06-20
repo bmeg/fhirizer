@@ -1,0 +1,30 @@
+{
+  "resourceType": "Observation",
+  "id": "observation-lab-tumor-grade",
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory",
+          "display": "Laboratory"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "33732-9",
+        "display": "Histology grade [Identifier] in Cancer specimen"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/example"
+  },
+  "valueCodeableConcept" : {}
+}
+
