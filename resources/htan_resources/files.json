@@ -1,0 +1,450 @@
+{
+    "Filename": [
+        {
+            "fhir_map": "DocumentReference.name",
+            "focus": null
+        },
+        {
+            "fhir_map": "DocumentReference.content.attachment.title",
+            "focus": null
+        }
+    ],
+    "Atlas Name": [
+        {
+            "fhir_map": "ResearchStudy.name",
+            "focus": null
+        }
+    ],
+    "Biospecimen": [
+        {
+            "fhir_map": "DocumentReference.basedOn",
+            "focus": null
+        }
+    ],
+    "Assay": [
+        {
+            "fhir_map": "DocumentReference.category",
+            "focus": null
+        }
+    ],
+    "Level": [
+        {
+            "fhir_map": "DocumentReference.category",
+            "focus": null
+        }
+    ],
+    "Organ": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "DocumentReference"
+        }
+    ],
+    "Treatment": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "DocumentReference"
+        }
+    ],
+    "Diagnosis": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "DocumentReference"
+        }
+    ],
+    "Data Access": [
+        {
+            "fhir_map": "DocumentReference.securityLabel",
+            "focus": "DocumentReference"
+        }
+    ],
+    "File Format": [
+        {
+            "fhir_map": "DocumentReference.content.contentType",
+            "focus": "DocumentReference"
+        }
+    ],
+    "HTAN Participant ID": [
+        {
+            "fhir_map": "Patient.identifier",
+            "use": "official",
+            "focus": null
+        }
+    ],
+    "HTAN Parent Biospecimen ID": [
+        {
+            "fhir_map": "Specimen.identifier",
+            "focus": null
+        }
+    ],
+    "HTAN Data File ID": [
+        {
+            "fhir_map": "DocumentReference.identifier",
+            "use": "official",
+            "focus": null
+        }
+    ],
+    "Channel Metadata Filename": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "DocumentReference"
+        }
+    ],
+    "Imaging Assay Type": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "DocumentReference"
+        }
+    ],
+    "Protocol Link": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "DocumentReference"
+        }
+    ],
+    "Softwareand Version": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "DocumentReference"
+        }
+    ],
+    "Microscope": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "DocumentReference"
+        }
+    ],
+    "Objective": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "DocumentReference"
+        }
+    ],
+    "Nominal Magnification": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "DocumentReference"
+        }
+    ],
+    "Lens NA": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "DocumentReference"
+        }
+    ],
+    "Working Distance": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "DocumentReference"
+        }
+    ],
+    "Working Distance Unit": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "DocumentReference"
+        }
+    ],
+    "Immersion": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "DocumentReference"
+        }
+    ],
+    "Pyramid": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "DocumentReference"
+        }
+    ],
+    "Zstack": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "DocumentReference"
+        }
+    ],
+    "Tseries": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "DocumentReference"
+        }
+    ],
+    "Passed QC": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "DocumentReference"
+        }
+    ],
+    "Comment": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "DocumentReference"
+        }
+    ],
+    "FO Vnumber": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "DocumentReference"
+        }
+    ],
+    "FOVX": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "DocumentReference"
+        }
+    ],
+    "FOVX Unit": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "DocumentReference"
+        }
+    ],
+    "FOVY": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "DocumentReference"
+        }
+    ],
+    "FOVY Unit": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "DocumentReference"
+        }
+    ],
+    "Frame Averaging": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "DocumentReference"
+        }
+    ],
+    "Image ID": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "DocumentReference"
+        }
+    ],
+    "Dimension Order": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "DocumentReference"
+        }
+    ],
+    "Physical Size X": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "DocumentReference"
+        }
+    ],
+    "Physical Size X Unit": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "DocumentReference"
+        }
+    ],
+    "Physical Size Y": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "DocumentReference"
+        }
+    ],
+    "Physical Size Y Unit": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "DocumentReference"
+        }
+    ],
+    "Physical Size Z": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "DocumentReference"
+        }
+    ],
+    "Physical Size Z Unit": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "DocumentReference"
+        }
+    ],
+    "Pixels Big Endian": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "DocumentReference"
+        }
+    ],
+    "Plane Count": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "DocumentReference"
+        }
+    ],
+    "Size C": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "DocumentReference"
+        }
+    ],
+    "Size T": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "DocumentReference"
+        }
+    ],
+    "Size X": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "DocumentReference"
+        }
+    ],
+    "Size Y": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "DocumentReference"
+        }
+    ],
+    "Size Z": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "DocumentReference"
+        }
+    ],
+    "Pixel Type": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "DocumentReference"
+        }
+    ],
+    "MERFISH Positions File": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "DocumentReference"
+        }
+    ],
+    "MERFISH Codebook File": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "DocumentReference"
+        }
+    ],
+    "Synapse Id": [
+        {
+            "fhir_map": "DocumentReference.identifier",
+            "use": "secondary",
+            "focus": null
+        }
+    ],
+    "Atlasid": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "DocumentReference"
+        }
+    ],
+    "Data File ID": [
+        {
+            "fhir_map": "DocumentReference.identifier",
+            "use": "official",
+            "focus": null
+        }
+    ],
+    "Participant ID": [
+        {
+            "fhir_map": "Patient.identifier",
+            "use": "official",
+            "focus": null
+        }
+    ],
+    "Parent Biospecimen ID": [
+        {
+            "fhir_map": "Specimen.identifier",
+            "focus": null
+        }
+    ],
+    "Publication Ids": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "DocumentReference"
+        }
+    ],
+    "Is Raw Sequencing": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "DocumentReference"
+        }
+    ],
+    "Release Version": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "DocumentReference"
+        }
+    ],
+    "HTAN Parent Data File ID": [
+        {
+            "fhir_map": "DocumentReference.identifier",
+            "use": "secondary",
+            "focus": null
+        }
+    ],
+    "Imaging Segmentation Data Type": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "DocumentReference"
+        }
+    ],
+    "Parameterfile": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "DocumentReference"
+        }
+    ],
+    "Commit SHA": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "DocumentReference"
+        }
+    ],
+    "Imaging Object Class": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "DocumentReference"
+        }
+    ],
+    "Numberof Objects": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "DocumentReference"
+        }
+    ],
+    "Parent Data File ID": [
+        {
+            "fhir_map": "DocumentReference.relatesTo.target",
+            "focus": null
+        }
+    ],
+    "HTAN Parent Channel Metadata ID": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "DocumentReference"
+        }
+    ],
+    "Numberof Features": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "DocumentReference"
+        }
+    ],
+    "Imaging Summary Statistic": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "DocumentReference"
+        }
+    ],
+    "Metadata": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "DocumentReference"
+        }
+    ],
+    "View": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "DocumentReference"
+        }
+    ]
+}

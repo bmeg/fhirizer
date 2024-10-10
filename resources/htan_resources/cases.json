@@ -1,0 +1,937 @@
+{
+    "HTAN Participant ID": [
+        {
+            "fhir_map": "Patient.identifier",
+            "use": "official",
+            "focus": null
+        }
+    ],
+    "Atlas Name": [
+        {
+            "fhir_map": "ResearchStudy.name",
+            "focus": null
+        }
+    ],
+    "Age at Diagnosis (years)": [
+        {
+            "fhir_map": "Condition.onsetAge",
+            "focus": null
+        }
+    ],
+    "Year of Diagnosis": [
+        {
+            "fhir_map": "Condition.recordedDate",
+            "focus": null
+        },
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "Primary Diagnosis": [
+        {
+            "fhir_map": "Condition.code",
+            "focus": null
+        }
+    ],
+    "Precancerous Condition Type": [
+        {
+            "fhir_map": "Condition.code",
+            "focus": null
+        }
+    ],
+    "Site of Resection or Biopsy": [
+        {
+            "fhir_map": "Procedure.bodySite",
+            "focus": null
+        }
+    ],
+    "Tissue or Organ of Origin": [
+        {
+            "fhir_map": "Condition.bodyStructure",
+            "focus": null
+        },
+        {
+            "fhir_map": "Condition.bodySite",
+            "focus": null
+        }
+    ],
+    "Morphology": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "Tumor Grade": [
+        {
+            "fhir_map": "Condition.stage.summary",
+            "focus": null
+        }
+    ],
+    "Progression or Recurrence": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "Last Known Disease Status": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "Days to Last Follow up": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "Days to Last Known Disease Status": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "Method of Diagnosis": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "Prior Malignancy": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "Prior Treatment": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "Metastasis at Diagnosis": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "Metastasis at Diagnosis Site": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "First Symptom Prior to Diagnosis": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "Days to Diagnosis": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "Percent Tumor Invasion": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "Residual Disease": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "Synchronous Malignancy": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "Tumor Confined to Organ of Origin": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "Tumor Focality": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "Tumor Largest Dimension Diameter": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "Gross Tumor Weight": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "Breslow Thickness": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "Vascular Invasion Present": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "Vascular Invasion Type": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "Anaplasia Present": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "Anaplasia Present Type": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "Laterality": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "Perineural Invasion Present": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "Lymphatic Invasion Present": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "Lymph Nodes Positive": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "Lymph Nodes Tested": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "Peritoneal Fluid Cytological Status": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "Classification of Tumor": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "Best Overall Response": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "Mitotic Count": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "AJCC Clinical M": [
+        {
+            "fhir_map": "Condition.stage.summary",
+            "focus": null
+        },
+        {
+            "fhir_map": "Observation.valueCodeableConcept",
+            "focus": "Condition"
+        }
+    ],
+    "AJCC Clinical N": [
+        {
+            "fhir_map": "Condition.stage.summary",
+            "focus": null
+        },
+        {
+            "fhir_map": "Observation.valueCodeableConcept",
+            "focus": "Condition"
+        }
+    ],
+    "AJCC Clinical Stage": [
+        {
+            "fhir_map": "Condition.stage.summary",
+            "focus": null
+        },
+        {
+            "fhir_map": "Observation.valueCodeableConcept",
+            "focus": "Condition"
+        }
+    ],
+    "AJCC Clinical T": [
+        {
+            "fhir_map": "Condition.stage.summary",
+            "focus": null
+        },
+        {
+            "fhir_map": "Observation.valueCodeableConcept",
+            "focus": "Condition"
+        }
+    ],
+    "AJCC Pathologic M": [
+        {
+            "fhir_map": "Condition.stage.summary",
+            "focus": null
+        },
+        {
+            "fhir_map": "Observation.valueCodeableConcept",
+            "focus": "Condition"
+        }
+    ],
+    "AJCC Pathologic N": [
+        {
+            "fhir_map": "Condition.stage.summary",
+            "focus": null
+        },
+        {
+            "fhir_map": "Observation.valueCodeableConcept",
+            "focus": "Condition"
+        }
+    ],
+    "AJCC Pathologic Stage": [
+        {
+            "fhir_map": "Condition.stage.summary",
+            "focus": null
+        },
+        {
+            "fhir_map": "Observation.valueCodeableConcept",
+            "focus": "Condition"
+        }
+    ],
+    "AJCC Pathologic T": [
+        {
+            "fhir_map": "Condition.stage.summary",
+            "focus": null
+        },
+        {
+            "fhir_map": "Observation.valueCodeableConcept",
+            "focus": "Condition"
+        }
+    ],
+    "AJCC Staging System Edition": [
+        {
+            "fhir_map": "Condition.stage.type",
+            "focus": null
+        },
+        {
+            "fhir_map": "Observation.code",
+            "focus": "Condition"
+        }
+    ],
+    "Cog Neuroblastoma Risk Group": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "Cog Rhabdomyosarcoma Risk Group": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "Gleason Grade Group": [
+        {
+            "fhir_map": "Condition.stage.summary",
+            "focus": null
+        },
+        {
+            "fhir_map": "Observation.valueCodeableConcept",
+            "focus": "Condition"
+        }
+    ],
+    "Gleason Grade Tertiary": [
+        {
+            "fhir_map": "Condition.stage.summary",
+            "focus": null
+        },
+        {
+            "fhir_map": "Observation.valueCodeableConcept",
+            "focus": "Condition"
+        }
+    ],
+    "Gleason Patterns Percent": [
+        {
+            "fhir_map": "Condition.stage.summary",
+            "focus": null
+        },
+        {
+            "fhir_map": "Observation.valueCodeableConcept",
+            "focus": "Condition"
+        }
+    ],
+    "Greatest Tumor Dimension": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "IGCCCG Stage": [
+        {
+            "fhir_map": "Condition.stage.summary",
+            "focus": null
+        },
+        {
+            "fhir_map": "Observation.valueCodeableConcept",
+            "focus": "Condition"
+        }
+    ],
+    "INPC Grade": [
+        {
+            "fhir_map": "Condition.stage.summary",
+            "focus": null
+        },
+        {
+            "fhir_map": "Observation.valueCodeableConcept",
+            "focus": "Condition"
+        }
+    ],
+    "INPC Histologic Group": [
+        {
+            "fhir_map": "Condition.stage.summary",
+            "focus": null
+        },
+        {
+            "fhir_map": "Observation.valueCodeableConcept",
+            "focus": "Condition"
+        }
+    ],
+    "INRG Stage": [
+        {
+            "fhir_map": "Condition.stage.summary",
+            "focus": null
+        },
+        {
+            "fhir_map": "Observation.valueCodeableConcept",
+            "focus": "Condition"
+        }
+    ],
+    "INSS Stage": [
+        {
+            "fhir_map": "Condition.stage.summary",
+            "focus": null
+        },
+        {
+            "fhir_map": "Observation.valueCodeableConcept",
+            "focus": "Condition"
+        }
+    ],
+    "International Prognostic Index": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "IRS Group": [
+        {
+            "fhir_map": "Condition.stage.summary",
+            "focus": null
+        },
+        {
+            "fhir_map": "Observation.valueCodeableConcept",
+            "focus": "Condition"
+        }
+    ],
+    "IRS Stage": [
+        {
+            "fhir_map": "Condition.stage.summary",
+            "focus": null
+        },
+        {
+            "fhir_map": "Observation.valueCodeableConcept",
+            "focus": "Condition"
+        }
+    ],
+    "ISS Stage": [
+        {
+            "fhir_map": "Condition.stage.summary",
+            "focus": null
+        },
+        {
+            "fhir_map": "Observation.valueCodeableConcept",
+            "focus": "Condition"
+        }
+    ],
+    "Lymph Node Involved Site": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "Margin Distance": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "Margins Involved Site": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "Medulloblastoma Molecular Classification": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "Micropapillary Features": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "Mitosis Karyorrhexis Index": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "Non Nodal Regional Disease": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "Non Nodal Tumor Deposits": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "Ovarian Specimen Status": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "Ovarian Surface Involvement": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "Pregnant at Diagnosis": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "Primary Gleason Grade": [
+        {
+            "fhir_map": "Condition.stage.summary",
+            "focus": null
+        },
+        {
+            "fhir_map": "Observation.valueCodeableConcept",
+            "focus": "Condition"
+        }
+    ],
+    "Secondary Gleason Grade": [
+        {
+            "fhir_map": "Condition.stage.summary",
+            "focus": null
+        },
+        {
+            "fhir_map": "Observation.valueCodeableConcept",
+            "focus": "Condition"
+        }
+    ],
+    "Supratentorial Localization": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "Tumor Depth": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "WHO CNS Grade": [
+        {
+            "fhir_map": "Condition.stage.summary",
+            "focus": null
+        },
+        {
+            "fhir_map": "Observation.valueCodeableConcept",
+            "focus": "Condition"
+        }
+    ],
+    "WHO NTE Grade": [
+        {
+            "fhir_map": "Condition.stage.summary",
+            "focus": null
+        },
+        {
+            "fhir_map": "Observation.valueCodeableConcept",
+            "focus": "Condition"
+        }
+    ],
+    "Additional Topography": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "Days to Progression": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "Days to Progression Free": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "Extent of Tumor Resection": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "Mode of Cancer Detection": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "NCI Atlas Cancer Site": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        },
+        {
+            "fhir_map": "Organization",
+            "focus": null
+        }
+    ],
+    "Other Biopsy Resection Site": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        },
+        {
+            "fhir_map": "Organization",
+            "focus": null
+        }
+    ],
+    "Progression or Recurrence Type": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "Satellite Metastasis Present Indicator": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "Sentinel Lymph Node Count": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "Sentinel Node Positive Assessment Count": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "Topography Code": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "Tumor Extranodal Extension Indicator": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "Yes - Anaplasia Present": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "Yes - Progression or Recurrence": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "Yes - Vascular Invasion Present": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "Ethnicity": [
+        {
+            "fhir_map": "Patient.extension.valueString",
+            "focus": null
+        }
+    ],
+    "Gender": [
+        {
+            "fhir_map": "Patient.extension.valueCode",
+            "focus": null
+        }
+    ],
+    "Race": [
+        {
+            "fhir_map": "Patient.extension.valueString",
+            "focus": null
+        }
+    ],
+    "Vital Status": [
+        {
+            "fhir_map": "Patient.deceasedBoolean",
+            "focus": null
+        }
+    ],
+    "Days to Birth": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Patient"
+        }
+    ],
+    "Country of Residence": [
+        {
+            "fhir_map": "Patient.address.country",
+            "focus": null
+        }
+    ],
+    "Age Is Obfuscated": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Patient"
+        }
+    ],
+    "Year Of Birth": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Patient"
+        }
+    ],
+    "Occupation Duration Years": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Patient"
+        }
+    ],
+    "Premature At Birth": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Patient"
+        }
+    ],
+    "Weeks Gestation at Birth": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Patient"
+        }
+    ],
+    "Cause of Death": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Patient"
+        }
+    ],
+    "Cause of Death Source": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Patient"
+        }
+    ],
+    "Days to Death": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Patient"
+        }
+    ],
+    "Dead": [
+        {
+            "fhir_map": "Patient.deceasedBoolean",
+            "focus": null
+        }
+    ],
+    "Year of Death": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Patient"
+        }
+    ],
+    "Treatment or Therapy": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Patient"
+        }
+    ],
+    "Treatment Type": [
+        {
+            "fhir_map": "MedicationAdministration.category",
+            "focus": null
+        }
+    ],
+    "Treatment Effect": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "MedicationAdministration"
+        }
+    ],
+    "Treatment Outcome": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "MedicationAdministration"
+        }
+    ],
+    "Days to Treatment End": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "MedicationAdministration"
+        }
+    ],
+    "Treatment Anatomic Site": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "MedicationAdministration"
+        }
+    ],
+    "Days to Treatment Start": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "MedicationAdministration"
+        }
+    ],
+    "Initial Disease Status": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Condition"
+        }
+    ],
+    "Regimen or Line of Therapy": [
+        {
+            "fhir_map": "MedicationAdministration.category",
+            "focus": null
+        }
+    ],
+    "Therapeutic Agents": [
+        {
+            "fhir_map": "MedicationAdministration.medication",
+            "focus": null
+        }
+    ],
+    "Treatment Intent Type": [
+        {
+            "fhir_map": "MedicationAdministration.category",
+            "focus": null
+        }
+    ],
+    "Chemo Concurrent to Radiation": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "MedicationAdministration"
+        }
+    ],
+    "Number of Cycles": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "MedicationAdministration"
+        }
+    ],
+    "Reason Treatment Ended": [
+        {
+            "fhir_map": "MedicationAdministration.statusReason",
+            "focus": null
+        }
+    ],
+    "Treatment Arm": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "MedicationAdministration"
+        }
+    ],
+    "Treatment Dose": [
+        {
+            "fhir_map": "MedicationAdministration.dosage",
+            "focus": null
+        }
+    ],
+    "Treatment Dose Units": [
+        {
+            "fhir_map": "MedicationAdministration.dosage",
+            "focus": null
+        }
+    ],
+    "Treatment Effect Indicator": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "MedicationAdministration"
+        }
+    ],
+    "Treatment Frequency": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "MedicationAdministration"
+        }
+    ],
+    "Concomitant Medication Received Type": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "MedicationAdministration"
+        }
+    ],
+    "Immunosuppression": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "MedicationAdministration"
+        }
+    ],
+    "Prior Sites of Radiation": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "MedicationAdministration"
+        }
+    ]
+}

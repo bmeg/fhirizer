@@ -2,6 +2,7 @@ import os
 import orjson
 import time
 import random
+import sqlite3
 import json
 import glob
 import gzip
@@ -17,8 +18,10 @@ from fhir.resources.identifier import Identifier
 from fhir.resources import get_fhir_model_class
 from uuid import uuid5, UUID
 
-DATA_DICT_PATH = "".join([str(Path(importlib.resources.files('fhirizer').parent / 'resources' / 'gdc_resources' / 'data_dictionary')), "/"])
-FIELDS_PATH = "".join([str(Path(importlib.resources.files('fhirizer').parent / 'resources' / 'gdc_resources' / 'fields')), "/"])
+DATA_DICT_PATH = "".join(
+    [str(Path(importlib.resources.files('fhirizer').parent / 'resources' / 'gdc_resources' / 'data_dictionary')), "/"])
+FIELDS_PATH = "".join(
+    [str(Path(importlib.resources.files('fhirizer').parent / 'resources' / 'gdc_resources' / 'fields')), "/"])
 package_dir = Path(importlib.resources.files('fhirizer').parent)
 
 
@@ -204,6 +207,7 @@ def _read_json(path):
             return this_json
     except json.JSONDecodeError as e:
         print("Error decoding JSON: {}".format(e))
+
 
 # --------------------------------------------------------------------------
 # GDC Utility functions
@@ -740,7 +744,8 @@ def append_data_to_key(data, target_key, data_to_append, verbose):
                         if shared_keys:
                             shared_keys_items = next(iter(shared_keys))
                             if verbose:
-                                print(f"======== instance Dict {target_key} ============== case C", "shared_keys: ", shared_keys)
+                                print(f"======== instance Dict {target_key} ============== case C", "shared_keys: ",
+                                      shared_keys)
 
                             if isinstance(data[key][0][shared_keys_items], str) and isinstance(
                                     data_to_append[shared_keys_items], str) and data[key][0][shared_keys_items] != \
@@ -752,7 +757,8 @@ def append_data_to_key(data, target_key, data_to_append, verbose):
                                         print("Specimen.id" in item.keys())
                                         print(len(item.keys()))
 
-                                    if len(item.keys()) == 1 and "Specimen.id" in list(item.keys())[0] and data_to_append.keys() != item.keys():
+                                    if len(item.keys()) == 1 and "Specimen.id" in list(item.keys())[
+                                        0] and data_to_append.keys() != item.keys():
                                         # this is where metadata is updated if the head key with Specimen.id exists
                                         item.update(data_to_append)
                                         reached = True
@@ -762,7 +768,8 @@ def append_data_to_key(data, target_key, data_to_append, verbose):
                                     # this is where first Specimen.id is appended
                                     data[key].append(data_to_append)
                                 if verbose:
-                                    print(f"======== instance Dict {target_key} ============== case D AFTER", "data[key]: ", data[key], "\n\n")
+                                    print(f"======== instance Dict {target_key} ============== case D AFTER",
+                                          "data[key]: ", data[key], "\n\n")
                                 continue
 
                             elif isinstance(data[key][0][shared_keys_items], str) and isinstance(
@@ -799,7 +806,8 @@ def append_data_to_key(data, target_key, data_to_append, verbose):
                                         d.update(data_to_append)
                                         continue
                                 if verbose:
-                                    print(f"======== instance Dict {target_key} ============== case F After", "data[key]: ", data[key], "\n\n")
+                                    print(f"======== instance Dict {target_key} ============== case F After",
+                                          "data[key]: ", data[key], "\n\n")
                                 continue
 
                             elif (isinstance(data[key][0][shared_keys_items], list) and isinstance(
@@ -807,7 +815,8 @@ def append_data_to_key(data, target_key, data_to_append, verbose):
                                   not data[key][0][shared_keys_items][0].items() <= data_to_append[shared_keys_items][
                                       0].items()):
                                 if verbose:
-                                    print(f"======== instance Dict {target_key} ============== case G", "data[key]: ", data[key])
+                                    print(f"======== instance Dict {target_key} ============== case G", "data[key]: ",
+                                          data[key])
 
                         if data[key][0]:
                             if len(data[key]) > 1 and len(data[key][-1]) == 1:
@@ -820,7 +829,8 @@ def append_data_to_key(data, target_key, data_to_append, verbose):
                                         and not data_to_append.items() <= item.items()):
                                     item.update(data_to_append)
                                     if verbose:
-                                        print(f"======== instance Dict {target_key} ============== case H AFTER", "item: ", item, "\n\n")
+                                        print(f"======== instance Dict {target_key} ============== case H AFTER",
+                                              "item: ", item, "\n\n")
                                     continue
 
                         elif (data[key] and key == "samples"
@@ -967,8 +977,8 @@ def make_request(api_url, retries=3):
             return response.json()
         else:
             print(f"Received status code: {response.status_code}. Retrying...")
-            delay *= 2 ** retries # change delay
-            time.sleep(delay + random.uniform(0, 1)) # add jitter
+            delay *= 2 ** retries  # change delay
+            time.sleep(delay + random.uniform(0, 1))  # add jitter
     raise Exception("Failed to fetch data after multiple retries")
 
 
@@ -982,7 +992,8 @@ def fetch_cellines(cellosaurus_ids, out_dir):
     if not os.path.exists(out_dir):
         os.makedirs(out_dir)
 
-    existing_ids = set(os.path.splitext(os.path.basename(file))[0] for file in os.listdir(out_dir) if file.endswith('.json'))
+    existing_ids = set(
+        os.path.splitext(os.path.basename(file))[0] for file in os.listdir(out_dir) if file.endswith('.json'))
     to_fetch_ids = set(cellosaurus_ids) - existing_ids
 
     for cellosaurus_id in to_fetch_ids:
@@ -1038,8 +1049,8 @@ def cellosaurus_cancer_ids(path, out_path, save=False):
     # has sex annotation
     for celline in cl_cancer_depmap:
         for subset in celline["subset"]:
-                if subset in ["Female", "Male"]:
-                    ids.append(celline["id"][0])
+            if subset in ["Female", "Male"]:
+                ids.append(celline["id"][0])
 
     # 67763 cell-lines
     # 62019 cell-lines w gender
@@ -1074,7 +1085,24 @@ def ncit2mondo(path):
         return data
 
 
-def get_component(key, value=None, component_type=None, system="https://cadsr.cancer.gov/sample_laboratory_observation"):
+def get_data_types(data_type):
+    if data_type in ['int64', 'int32', 'int16', 'int']:
+        return 'int'
+    elif data_type in ['float64', 'float32', 'float16', 'float']:
+        return 'float'
+    elif data_type in ['str', 'string']:
+        return 'string'
+    elif data_type == 'bool':
+        return 'bool'
+    elif data_type in ['datetime64[ns]', 'timedelta64[ns]', 'period', 'datetime', 'date']:
+        return 'dateTime'
+    else:
+        print(f"New or Null Data type: {data_type}.")
+        return data_type
+
+
+def get_component(key, value=None, component_type=None,
+                  system="https://cadsr.cancer.gov/sample_laboratory_observation"):
     if component_type == 'string':
         value = {"valueString": value}
     elif component_type == 'int':
@@ -1173,3 +1201,36 @@ def create_or_extend(new_items, folder_path='META', resource_type='Observation',
             print(f"{file_name} has been extended, without updating existing data.")
     else:
         print(f"{file_name} has been created.")
+
+
+def get_chembl_compound_info(db_file_path: str, drug_names: list, limit: int) -> list:
+    """Query Chembl COMPOUND_RECORDS by COMPOUND_NAME to make FHIR Substance"""
+    drug_names_tuple = tuple([x.upper() for x in drug_names])
+
+    query = f"""
+    SELECT DISTINCT 
+        a.CHEMBL_ID,
+        c.STANDARD_INCHI,
+        c.CANONICAL_SMILES,
+        cr.COMPOUND_NAME
+    FROM 
+        MOLECULE_DICTIONARY as a
+    LEFT JOIN 
+        COMPOUND_STRUCTURES as c ON a.MOLREGNO = c.MOLREGNO
+    LEFT JOIN 
+        ACTIVITIES as p ON a.MOLREGNO = p.MOLREGNO
+    LEFT JOIN 
+        compound_records as cr ON a.MOLREGNO = cr.MOLREGNO
+    LEFT JOIN
+        source as sr ON cr.SRC_ID = sr.SRC_ID
+    WHERE cr.COMPOUND_NAME IN {drug_names_tuple}
+    LIMIT {limit};
+    """
+    conn = sqlite3.connect(db_file_path)
+    cursor = conn.cursor()
+    cursor.execute(query)
+    rows = cursor.fetchall()
+
+    conn.close()
+
+    return rows

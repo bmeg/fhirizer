@@ -1,0 +1,406 @@
+{
+    "HTAN Biospecimen ID": [
+        {
+            "fhir_map": "Specimen.identifier",
+            "use": "official",
+            "focus": null
+        }
+    ],
+    "Atlas Name": [
+        {
+            "fhir_map": "ResearchStudy.name",
+            "focus": null
+        }
+    ],
+    "Source HTAN Biospecimen ID": [
+        {
+            "fhir_map": "Specimen.identifier",
+            "use": "secondary",
+            "focus": null
+        }
+    ],
+    "HTAN Parent ID": [
+        {
+            "fhir_map": "Specimen.parent",
+            "focus": null
+        }
+    ],
+    "Timepoint Label": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Specimen"
+        }
+    ],
+    "Collection Days from Index": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Specimen"
+        }
+    ],
+    "Adjacent Biospecimen IDs": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Specimen"
+        }
+    ],
+    "Biospecimen Type": [
+        {
+            "fhir_map": "Specimen.type",
+            "focus": null
+        }
+    ],
+    "Acquisition Method Type": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Specimen"
+        }
+    ],
+    "Fixative Type": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Specimen"
+        }
+    ],
+    "Storage Method": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Specimen"
+        }
+    ],
+    "Processing Days from Index": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Specimen"
+        }
+    ],
+    "Protocol Link": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Specimen"
+        }
+    ],
+    "Site Data Source": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Specimen"
+        }
+    ],
+    "Collection Media": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Specimen"
+        }
+    ],
+    "Mounting Medium": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Specimen"
+        }
+    ],
+    "Processing Location": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Specimen"
+        }
+    ],
+    "Histology Assessment By": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Specimen"
+        }
+    ],
+    "Histology Assessment Medium": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Specimen"
+        }
+    ],
+    "Preinvasive Morphology": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Specimen"
+        }
+    ],
+    "Tumor Infiltrating Lymphocytes": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Specimen"
+        }
+    ],
+    "Degree of Dysplasia": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Specimen"
+        }
+    ],
+    "Dysplasia Fraction": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Specimen"
+        }
+    ],
+    "Number Proliferating Cells": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Specimen"
+        }
+    ],
+    "Percent Eosinophil Infiltration": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Specimen"
+        }
+    ],
+    "Percent Granulocyte Infiltration": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Specimen"
+        }
+    ],
+    "Percent Inflam Infiltration": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Specimen"
+        }
+    ],
+    "Percent Lymphocyte Infiltration": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Specimen"
+        }
+    ],
+    "Percent Monocyte Infiltration": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Specimen"
+        }
+    ],
+    "Percent Necrosis": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Specimen"
+        }
+    ],
+    "Percent Neutrophil Infiltration": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Specimen"
+        }
+    ],
+    "Percent Normal Cells": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Specimen"
+        }
+    ],
+    "Percent Stromal Cells": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Specimen"
+        }
+    ],
+    "Percent Tumor Cells": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Specimen"
+        }
+    ],
+    "Percent Tumor Nuclei": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Specimen"
+        }
+    ],
+    "Fiducial Marker": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Specimen"
+        }
+    ],
+    "Slicing Method": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Specimen"
+        }
+    ],
+    "Lysis Buffer": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Specimen"
+        }
+    ],
+    "Method of Nucleic Acid Isolation": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Specimen"
+        }
+    ],
+    "Acquisition Method Other Specify": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Specimen"
+        }
+    ],
+    "Analyte Biospecimen Type": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Specimen"
+        }
+    ],
+    "Analyte Type": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Specimen"
+        }
+    ],
+    "Biospecimen Dimension 1": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Specimen"
+        }
+    ],
+    "Biospecimen Dimension 2": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Specimen"
+        }
+    ],
+    "Biospecimen Dimension 3": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Specimen"
+        }
+    ],
+    "Blood Biospecimen Type": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Specimen"
+        }
+    ],
+    "Bone Marrow Biospecimen Type": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Specimen"
+        }
+    ],
+    "Dimensions Unit": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Specimen"
+        }
+    ],
+    "Fixation Duration": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Specimen"
+        }
+    ],
+    "HTAN Parent Biospecimen ID": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Specimen"
+        }
+    ],
+    "Histologic Morphology Code": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Specimen"
+        }
+    ],
+    "Ischemic Temperature": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Specimen"
+        }
+    ],
+    "Ischemic Time": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Specimen"
+        }
+    ],
+    "Other Acquisition Method": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Specimen"
+        }
+    ],
+    "Portion Weight": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Specimen"
+        }
+    ],
+    "Preservation Method": [
+        {
+            "fhir_map": "Specimen.processing.method",
+            "focus": null
+        }
+    ],
+    "Section Number in Sequence": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Specimen"
+        }
+    ],
+    "Section Thickness Value": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Specimen"
+        }
+    ],
+    "Sectioning Days from Index": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Specimen"
+        }
+    ],
+    "Shipping Condition Type": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Specimen"
+        }
+    ],
+    "Slide Charge Type": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Specimen"
+        }
+    ],
+    "Specimen Laterality": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Specimen"
+        }
+    ],
+    "Tissue Biospecimen Type": [
+        {
+            "fhir_map": "Specimen.type",
+            "focus": null
+        }
+    ],
+    "Total Volume": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Specimen"
+        }
+    ],
+    "Total Volume Unit": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Specimen"
+        }
+    ],
+    "Tumor Tissue Type": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Specimen"
+        }
+    ],
+    "Urine Biospecimen Type": [
+        {
+            "fhir_map": "Observation.component",
+            "focus": "Specimen"
+        }
+    ]
+}

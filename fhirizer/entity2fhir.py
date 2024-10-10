@@ -84,7 +84,7 @@ def assign_fhir_for_project(project, disease_types=disease_types):
         pr_ident = Identifier(**{"system": "".join(["https://gdc.cancer.gov/", "program_id"]),
                                  "value": project['ResearchStudy']['ResearchStudy.id']})
         pl.append(pr_ident)
-
+        rs.identifier = [pr_ident]
         rs.id = utils.mint_id(
             identifier=pr_ident,
             resource_type="ResearchStudy",
@@ -94,6 +94,7 @@ def assign_fhir_for_project(project, disease_types=disease_types):
     else:
         p_ident = Identifier(**{"system": "".join(["https://gdc.cancer.gov/", "project_id"]),
                                 "value": project['ResearchStudy.id']})
+        rs.identifier = [p_ident]
         rs.id = utils.mint_id(
             identifier=p_ident,
             resource_type="ResearchStudy",
@@ -157,6 +158,7 @@ def assign_fhir_for_project(project, disease_types=disease_types):
 
     ref = Reference(**{"reference": "/".join(["ResearchStudy", rs_parent.id])})
     rs.partOf = [ref]
+
     #  condition -- subject --> patient <--subject-- researchsubject -- study --> researchstudy -- partOf --> researchstudy
 
     return {'ResearchStudy': rs.json(), "ResearchStudy.partOf": rs_parent.json(), 'ResearchStudy_obj': rs,
@@ -394,6 +396,7 @@ def assign_fhir_for_case(case, disease_types=disease_types, primary_sites=primar
     research_subject.status = "active"
     research_subject.study = study_ref
     research_subject.subject = subject_ref
+    research_subject.identifier = [patient_id_identifier]
     research_subject.id = utils.mint_id(
         identifier=patient_id_identifier,
         resource_type="ResearchSubject",
@@ -1890,6 +1893,7 @@ def assign_fhir_for_file(file):
         for case in file['cases']:
             patient_id_identifier = Identifier.construct()
             patient_id_identifier.value = case['Patient.id']
+            patient_id_identifier.use = "official"
             patient_id_identifier.system = "".join(["https://gdc.cancer.gov/", "case_id"])
 
             patient_id = utils.mint_id(identifier=patient_id_identifier, resource_type="Patient", project_id=project_id,
