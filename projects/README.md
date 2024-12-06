@@ -24,13 +24,6 @@ Below is an example of the data-schema transformation and validation work-flow f
     ``` 
      fhirizer generate --name file --out_dir ./projects/GDC/<my-project>/META --entity_path ./projects/<my-project>/files.ndjson
    ```
-3. Validate output:
-    
-    To validate the output data generated via fhirizer, you can run the following command provided by [g3t_etl](https://github.com/ACED-IDP/g3t_etl) in your study's directory:
-    ```
-    g3t meta validate <path_to_META_folder>
-    ```
-    This command will validate the output data in META folder and redirect the validation results to the out.txt file for further inspection. 
 
 ##### - Cellosaurus
 
@@ -46,11 +39,6 @@ Below is an example of the data-schema transformation and validation work-flow f
     ```
       fhirizer generate --name cellosaurus --out_dir ./projects/<my-study>/META --entity_path ./projects/<my-study>/cellosaurus-celllines.ndjson
     ```
-3. Validate output:
-   ```
-    g3t meta validate <path_to_META_folder>
-    g3t --debug meta dataframe --data_type Observation
-   ```
    
 ##### - ICGC
 
@@ -58,4 +46,25 @@ Below is an example of the data-schema transformation and validation work-flow f
       ```
       fhirizer generate --name icgc --icgc <ICGC_project_name> --has_files
       ```
+
+### FHIR data validation 
+
+#### disable gen3-client
+```
+mv ~/.gen3/gen3_client_config.ini ~/.gen3/gen3_client_config.ini-xxx
+mv ~/.gen3/gen3-client ~/.gen3/gen3-client-xxx
+```
+
+#### Run validate
+```
+fhirizer validate --path <path_to_META_folder_with_fhir_ndjson_files>
+```
+
+#### Restore gen3-client
+
+```
+mv ~/.gen3/gen3-client-xxx ~/.gen3/gen3-client
+mv ~/.gen3/gen3_client_config.ini-xxx ~/.gen3/gen3_client_config.ini
+  
+```
 

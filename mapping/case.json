@@ -110,7 +110,7 @@
         "diagnoses.classification_of_tumor",
         "diagnoses.created_datetime",
         "diagnoses.days_to_birth",
-        "diagnoses.days_to_death",
+        "demographic.days_to_death",
         "diagnoses.days_to_last_follow_up",
         "diagnoses.days_to_last_known_disease_status",
         "diagnoses.days_to_recurrence",
@@ -335,7 +335,7 @@
         "files.cases.diagnoses.classification_of_tumor",
         "files.cases.diagnoses.created_datetime",
         "files.cases.diagnoses.days_to_birth",
-        "files.cases.diagnoses.days_to_death",
+        "files.cases.demographic.days_to_death",
         "files.cases.diagnoses.days_to_last_follow_up",
         "files.cases.diagnoses.days_to_last_known_disease_status",
         "files.cases.diagnoses.days_to_recurrence",
@@ -3279,7 +3279,7 @@
         },
         {
             "source": {
-                "name": "diagnoses.days_to_death",
+                "name": "demographic.days_to_death",
                 "description": null,
                 "description_url": null,
                 "category": null,
@@ -3479,7 +3479,7 @@
                 "reference": null
             },
             "destination": {
-                "name": "ResearchStudy.identifier",
+                "name": "ResearchStudy.dbgap_accession_number",
                 "description": "Identifiers assigned to this research study by the sponsor or other systems.",
                 "description_url": null,
                 "module": "Administration",
@@ -3606,7 +3606,7 @@
                 "reference": null
             },
             "destination": {
-                "name": "ResearchStudy.identifier",
+                "name": "ResearchStudy.dbgap_accession_number",
                 "description": "Identifiers assigned to this research study by the sponsor or other systems.",
                 "description_url": null,
                 "module": "Administration",

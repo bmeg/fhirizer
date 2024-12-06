@@ -1211,7 +1211,7 @@ case_maps = [Map(
 
     Map(
         source=Source(
-            name='diagnoses.days_to_death'
+            name='demographic.days_to_death'
         ),
         destination=Destination(
             name='Observation.survey.days_to_death'
@@ -1319,7 +1319,7 @@ case_maps = [Map(
             type=data_dict['administrative']['project']['properties']['dbgap_accession_number']['type']
         ),
         destination=Destination(
-            name="ResearchStudy.identifier",
+            name="ResearchStudy.dbgap_accession_number",
             description=ResearchStudy.schema()['properties']['identifier']['description'],
             module='Administration',
             title=ResearchStudy.schema()['properties']['identifier']['title'],
@@ -1404,7 +1404,7 @@ case_maps = [Map(
             type=data_dict['administrative']['program']['properties']['dbgap_accession_number']['type']
         ),
         destination=Destination(
-            name="ResearchStudy.identifier",
+            name="ResearchStudy.dbgap_accession_number",
             description=ResearchStudy.schema()['properties']['identifier']['description'],
             module='Administration',
             title=ResearchStudy.schema()['properties']['identifier']['title'],

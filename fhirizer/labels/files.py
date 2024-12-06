@@ -42,7 +42,7 @@ file_maps = [
             name='data_type',
         ),
         destination=Destination(
-            name='DocumentReference.type',
+            name='DocumentReference.category.data_type',
         )
     ),
 

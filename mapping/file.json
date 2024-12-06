@@ -686,7 +686,7 @@
                 "reference": null
             },
             "destination": {
-                "name": "DocumentReference.type",
+                "name": "DocumentReference.category.data_type",
                 "description": null,
                 "description_url": null,
                 "module": null,
