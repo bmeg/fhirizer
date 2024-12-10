@@ -172,7 +172,7 @@
                 "reference": null
             },
             "destination": {
-                "name": "ResearchStudy.identifier",
+                "name": "ResearchStudy.dbgap_accession_number",
                 "description": "Identifiers assigned to this research study by the sponsor or other systems.",
                 "description_url": null,
                 "module": "Administration",
@@ -299,7 +299,7 @@
                 "reference": null
             },
             "destination": {
-                "name": "ResearchStudy.identifier",
+                "name": "ResearchStudy.dbgap_accession_number",
                 "description": "Identifiers assigned to this research study by the sponsor or other systems.",
                 "description_url": null,
                 "module": "Administration",
@@ -687,7 +687,7 @@
                 "reference": null
             },
             "destination": {
-                "name": "ResearchStudy.identifier",
+                "name": "ResearchStudy.dbgap_accession_number",
                 "description": "Identifiers assigned to this research study by the sponsor or other systems.",
                 "description_url": null,
                 "module": "Administration",
@@ -814,7 +814,7 @@
                 "reference": null
             },
             "destination": {
-                "name": "ResearchStudy.identifier",
+                "name": "ResearchStudy.dbgap_accession_number",
                 "description": "Identifiers assigned to this research study by the sponsor or other systems.",
                 "description_url": null,
                 "module": "Administration",

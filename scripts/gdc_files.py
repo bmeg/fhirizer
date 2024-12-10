@@ -42,7 +42,7 @@ def query_gdc(endpoint, params):
         while True:
             try:
                 req = client.get(URL_BASE + endpoint, params=params, headers=headers)
-                data = req.json()
+                data = req.model_dump_json()
 
                 if 'data' not in data:
                     print("Bad return %s" % (data))

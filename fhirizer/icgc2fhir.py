@@ -631,7 +631,7 @@ def fhir_condition(row):
             "display": str(icd10)
         }]})
 
-        encounter = Encounter.construct()
+        encounter = Encounter.model_construct()
         encounter.status = 'completed'
         encounter.id = utils.mint_id(
             identifier=patient_ident,
@@ -961,19 +961,19 @@ def icgc2fhir(project_name, has_files):
     # -------------------------------------------------------------------
     # row = dat_dict['donor'].iloc[0]
 
-    patients = [orjson.loads(p.json()) for p in list(df_patient.apply(fhir_patient, axis=1)) if p]
+    patients = [orjson.loads(p.model_dump_json()) for p in list(df_patient.apply(fhir_patient, axis=1)) if p]
     obs_smoking = [os for os in list(df_patient.apply(fhir_smoking_exposure_observations, axis=1)) if os]
     obs_alc = [ol for ol in list(df_patient.apply(fhir_alcohol_exposure_observations, axis=1)) if ol]
 
-    rsub = [orjson.loads(rs.json()) for rs in list(df_patient.apply(fhir_research_subject, axis=1)) if rs]
-    rs = [orjson.loads(r.json()) for r in fhir_research_study(df=dat_dict['donor'])]
+    rsub = [orjson.loads(rs.model_dump_json()) for rs in list(df_patient.apply(fhir_research_subject, axis=1)) if rs]
+    rs = [orjson.loads(r.model_dump_json()) for r in fhir_research_study(df=dat_dict['donor'])]
 
     cond_obs_encont = df_patient.apply(fhir_condition, axis=1)
-    conditions = [orjson.loads(c['condition'].json()) for c in cond_obs_encont if c['condition']]
-    encounters = [orjson.loads(c['encounter'].json()) for c in cond_obs_encont if c['encounter']]
+    conditions = [orjson.loads(c['condition'].model_dump_json()) for c in cond_obs_encont if c['condition']]
+    encounters = [orjson.loads(c['encounter'].model_dump_json()) for c in cond_obs_encont if c['encounter']]
     obs_exam = [c['observation'] for c in cond_obs_encont if c['observation']]
 
-    body_structures = [orjson.loads(b.json()) for b in list(df_patient.apply(fhir_body_structure, axis=1)) if b]
+    body_structures = [orjson.loads(b.model_dump_json()) for b in list(df_patient.apply(fhir_body_structure, axis=1)) if b]
     body_structures = list({v['id']: v for v in body_structures}.values())
 
     sample_observations_nested_list = [s["observations"] for s in list(df_specimen.apply(fhir_specimen, axis=1)) if
@@ -983,7 +983,7 @@ def icgc2fhir(project_name, has_files):
 
     samples_nested_list = [s["samples"] for s in list(df_specimen.apply(fhir_specimen, axis=1)) if s["samples"]]
     samples_list = list(itertools.chain.from_iterable(samples_nested_list))
-    samples_list_json = [orjson.loads(s.json()) for s in samples_list]
+    samples_list_json = [orjson.loads(s.model_dump_json()) for s in samples_list]
     samples = list({v['id']: v for v in samples_list_json}.values())
 
     observations = obs_alc + obs_smoking + obs_exam + sample_observations
@@ -1012,7 +1012,7 @@ def icgc2fhir(project_name, has_files):
         file_metadata_patient_specimen_info = file_metadata_patient_info.merge(df_specimen, on='icgc_sample_id',
                                                                                how="left")
 
-        document_references = [orjson.loads(f.json()) for f in
+        document_references = [orjson.loads(f.model_dump_json()) for f in
                                list(file_metadata_patient_specimen_info.apply(fhir_document_reference, axis=1)) if
                                f]
     import os

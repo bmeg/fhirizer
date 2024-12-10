@@ -77,7 +77,7 @@ project_maps = [
             type=data_dict['administrative']['project']['properties']['dbgap_accession_number']['type']
         ),
         destination=Destination(
-            name="ResearchStudy.identifier",
+            name="ResearchStudy.dbgap_accession_number",
             description=ResearchStudy.schema()['properties']['identifier']['description'],
             module='Administration',
             title=ResearchStudy.schema()['properties']['identifier']['title'],
@@ -162,7 +162,7 @@ project_maps = [
             type=data_dict['administrative']['program']['properties']['dbgap_accession_number']['type']
         ),
         destination=Destination(
-            name="ResearchStudy.identifier",
+            name="ResearchStudy.dbgap_accession_number",
             description=ResearchStudy.schema()['properties']['identifier']['description'],
             module='Administration',
             title=ResearchStudy.schema()['properties']['identifier']['title'],

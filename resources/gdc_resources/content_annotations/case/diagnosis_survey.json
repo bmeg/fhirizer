@@ -1,0 +1,37 @@
+{
+    "resourceType": "Observation",
+    "id": "observation_year_of_birth",
+    "status": "final",
+    "category": [
+        {
+            "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                    "code": "survey",
+                    "display": "survey"
+                }
+            ]
+        }
+    ],
+    "code": {
+        "coding": [
+            {
+                "system": "https://ontobee.org/",
+                "code": "NCIT_C83164",
+                "display": "Year of birth"
+            }
+        ]
+    },
+    "subject": {
+        "reference": "Patient/"
+    },
+    "focus": [{
+        "reference": "Patient/"
+    }],
+    "valueQuantity": {
+        "value": "",
+        "unit": "year",
+        "system": "http://unitsofmeasure.org",
+        "code": "a"
+    }
+}

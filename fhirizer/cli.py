@@ -1,6 +1,14 @@
+import sys
+import os
+import json
+from gen3_tracker.common import ERROR_COLOR, INFO_COLOR
 from fhirizer import utils, mapping, entity2fhir, icgc2fhir, htan2fhir
 import click
 from pathlib import Path
+import importlib.resources
+import warnings
+
+warnings.filterwarnings("ignore", category=SyntaxWarning)
 
 
 class NotRequiredIf(click.Option):
@@ -186,6 +194,54 @@ def generate(name, out_dir, entity_path, icgc, has_files, atlas, convert, verbos
                 atlas = [atlas]
 
         htan2fhir.htan2fhir(entity_atlas_name=atlas, verbose=verbose)
+
+
+@cli.command('validate')
+@click.option("-d", "--debug", is_flag=True, default=False,
+              help="Run in debug mode.")
+@click.option("-p", "--path", default=None,
+              help="Path to read the FHIR NDJSON files.")
+def validate(debug: bool, path):
+    """Validate the output FHIR ndjson files."""
+    from gen3_tracker.git import run_command
+
+    if not path:
+        path = str(Path(importlib.resources.files('cda2fhir').parent / 'data' / 'META'))
+    if not os.path.isdir(path):
+        raise ValueError(f"Path: '{path}' is not a valid directory.")
+
+    try:
+        from gen3_tracker.meta.validator import validate as validate_dir
+        from halo import Halo
+        with Halo(text='Validating', spinner='line', placement='right', color='white'):
+            result = validate_dir(path)
+        click.secho(result.resources, fg=INFO_COLOR, file=sys.stderr)
+        # print exceptions, set exit code to 1 if there are any
+        for _ in result.exceptions:
+            click.secho(f"{_.path}:{_.offset} {_.exception} {json.dumps(_.json_obj, separators=(',', ':'))}", fg=ERROR_COLOR, file=sys.stderr)
+        if result.exceptions:
+            sys.exit(1)
+    except Exception as e:
+        click.secho(str(e), fg=ERROR_COLOR, file=sys.stderr)
+        if debug:
+            raise
+
+
+@cli.command('study_group')
+@click.option("-p", '--path', required=True,
+              default='./META',
+              show_default=True,
+              help='Directory path to META folder.')
+@click.option("-o", '--output_path', required=True,
+              show_default=True,
+              help='Directory path to folder to save the Group.ndjson file.')
+def study_group(path, output_path):
+    """Adds a FHIR ndjson Group file as a post-processing metadata that captures ResearchSubject or Participants to a
+    ResearchStudy."""
+    assert Path(path).is_dir(), f"Path {path} is not a valid directory path."
+    assert Path(output_path).is_dir(), f"Path {output_path} is not a valid directory path."
+
+    utils.study_groups(meta_path=path, out_path=output_path)
 
 
 if __name__ == '__main__':
