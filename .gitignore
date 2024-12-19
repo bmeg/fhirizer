@@ -179,3 +179,4 @@ venv/
 
 # output logging file for content 
 output.log
+.g3t

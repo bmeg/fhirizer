@@ -103,7 +103,7 @@ class Schema(BaseModel):
 
     # TODO: replace Config
     # https://docs.pydantic.dev/latest/concepts/json_schema/
-    class Config:
+    class ConfigDict:
         json_schema_extra = {
             '$schema': 'http://json-schema.org/draft-07/schema#'
         }

@@ -42,6 +42,9 @@ from fhir.resources.medication import Medication, MedicationIngredient
 from fhir.resources.substance import Substance, SubstanceIngredient
 from fhir.resources.substancedefinition import SubstanceDefinition, SubstanceDefinitionStructure, \
     SubstanceDefinitionStructureRepresentation, SubstanceDefinitionName
+from fhir.resources.timing import Timing, TimingRepeat
+from fhir.resources.range import Range
+from fhir.resources.quantity import Quantity
 
 
 # File data on synapse after authentication
@@ -507,7 +510,7 @@ class HTANTransformer:
 
     def write_ndjson(self, entities):
         resource_type = entities[0].resource_type
-        entities = [orjson.loads(entity.json()) for entity in entities]
+        entities = [orjson.loads(entity.model_dump_json()) for entity in entities]
         entities = list({v['id']: v for v in entities}.values())
         utils.fhir_ndjson(entities, "".join([self.out_dir, "/", resource_type, ".ndjson"]))
 
@@ -853,9 +856,18 @@ class PatientTransformer(HTANTransformer):
                                                              "system": self.SYSTEM_HTAN,
                                                              "display": _row["Therapeutic Agents"]}]})
 
-        timing = 0
+        # place holder - required by FHIR
+        timing = Timing(**{
+            "repeat": TimingRepeat(**{
+                "boundsRange": Range(**{
+                    "low": Quantity(**{"value": 0}),
+                    "high": Quantity(**{"value": 1})
+                })
+            })
+        })
+
         if not pd.isnull(_row["Days to Treatment End"]) and not pd.isnull(_row["Days to Treatment Start"]):
-            timing = int(_row["Days to Treatment End"]) - int(_row["Days to Treatment Start"])
+            timing = Timing(**{"repeat": TimingRepeat(**{"boundsRange": Range(**{"low": Quantity(**{"value": int(_row["Days to Treatment Start"])}), "high": Quantity(**{"value": int(_row["Days to Treatment End"])})})})})
 
         medication_admin_identifier = Identifier(
             **{"system": self.SYSTEM_HTAN, "use": "official",
@@ -866,7 +878,7 @@ class PatientTransformer(HTANTransformer):
         data = {"id": medication_admin_id,
                 "identifier": [medication_admin_identifier],
                 "status": status,
-                "occurenceDateTime": "2024-10-8T10:30:00.724446-05:00",
+                "occurenceTiming": timing,
                 "category": [CodeableConcept(**{"coding": [{"code": _row["Treatment Type"],
                                                             "system": "/".join([self.SYSTEM_HTAN, "Treatment_Type"]),
                                                             "display": _row["Treatment Type"]}]})],
@@ -1115,7 +1127,7 @@ class DocumentReferenceTransformer(HTANTransformer):
 
     def create_document_reference(self, _row: pd.Series, specimen_ids: list) -> DocumentReference:
         """Transform HTAN files to FHIR DocumentReference"""
-
+        # print(f"Specimen List length: {len(specimen_ids)} List: {specimen_ids}")
         document_reference_identifier = Identifier(
             **{"system": self.SYSTEM_HTAN, "value": _row['HTAN Data File ID'], "use": "official"})
 
@@ -1262,7 +1274,7 @@ def htan2fhir(verbose, entity_atlas_name):
                     observations.append(patient_obs)
                 if patient:
                     patients.append(patient)
-                    # print(f"HTAN FHIR Patient: {patient.json()}")
+                    # print(f"HTAN FHIR Patient: {patient.model_dump_json()}")
                     # print(f"HTAN FHIR Patient Observation: {patient_obs.json()}")
 
                     research_subject = patient_transformer.create_researchsubject(patient, research_study)

@@ -22,8 +22,8 @@ git clone repo
 cd fhirizer
 # create virtual env ex. 
 # NOTE: package_data folders must be in python path in virtual envs 
-python -m venv venv-fhirizer
-source venv-fhirizer/bin/activate
+python -m venv venv
+source venv/bin/activate
 pip install . 
 ```
 
@@ -128,6 +128,26 @@ fhirizer case_init
 fhirizer file_init 
 ```
 
+### FHIR data validation 
+
+#### disable gen3-client
+```
+mv ~/.gen3/gen3_client_config.ini ~/.gen3/gen3_client_config.ini-xxx
+mv ~/.gen3/gen3-client ~/.gen3/gen3-client-xxx
+```
+
+#### Run validate
+```
+fhirizer validate --path <path_to_META_folder_with_fhir_ndjson_files>
+```
+
+#### Restore gen3-client
+
+```
+mv ~/.gen3/gen3-client-xxx ~/.gen3/gen3-client
+mv ~/.gen3/gen3_client_config.ini-xxx ~/.gen3/gen3_client_config.ini
+  
+```
 
 ### Testing 
 ```

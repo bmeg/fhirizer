@@ -16,7 +16,15 @@ import importlib
 from pathlib import Path
 from fhir.resources.identifier import Identifier
 from fhir.resources import get_fhir_model_class
-from uuid import uuid5, UUID
+from fhir.resources.group import Group, GroupMember
+from fhir.resources.reference import Reference
+from fhir.resources.codeableconcept import CodeableConcept
+from uuid import uuid5, UUID, uuid3, NAMESPACE_DNS
+from typing import List
+from fhir.resources.fhirresourcemodel import FHIRAbstractModel
+import decimal
+
+
 
 DATA_DICT_PATH = "".join(
     [str(Path(importlib.resources.files('fhirizer').parent / 'resources' / 'gdc_resources' / 'data_dictionary')), "/"])
@@ -1234,3 +1242,165 @@ def get_chembl_compound_info(db_file_path: str, drug_names: list, limit: int) ->
     conn.close()
 
     return rows
+
+
+def create_researchstudy_group(patient_references: list, study_name: str, project_id: str, namespace) -> Group:
+    """Creates a research study group based on:
+    https://nih-ncpi.github.io/ncpi-fhir-ig-2/StructureDefinition-research-study-group.html
+    """
+    code = CodeableConcept(**{"coding": [{"code": "C142710",
+                                          "system": "http://purl.obolibrary.org/obo/ncit.owl",
+                                          "display": "Study Participant"}]})
+
+    patients_ids = [p.reference.replace("Patient/", "") for p in patient_references]
+    group_identifier = Identifier(
+        **{"system": "".join(["https://gdc.cancer.gov/", "sample_group"]),
+           "value": "/".join([study_name] + patients_ids),
+           "use": "official"})
+
+    group_id = mint_id(identifier=group_identifier, resource_type="Group",
+                       project_id=project_id,
+                       namespace=namespace)
+
+    patient_members = [GroupMember(**{'entity': p}) for p in patient_references]
+    study_group = Group(**{"id": group_id, "identifier": [group_identifier],
+                           "code": code, "membership": "definitional",
+                           "type": "person", "member": patient_members})
+    return study_group
+
+
+def study_groups(meta_path: str, out_path: str) -> List[Group]:
+    assert os.path.exists(meta_path), "META folder for ResearchStudy, ResearchSubject, and Patient ndjson files path doesn't exist."
+    assert os.path.exists(out_path), "Path Does not exist."
+
+    researchstudy = load_ndjson(os.path.join(meta_path, "ResearchStudy.ndjson"))
+    researchsubjects = load_ndjson(os.path.join(meta_path, "ResearchSubject.ndjson"))
+    patients = load_ndjson(os.path.join(meta_path, "Patient.ndjson"))
+
+    study_info = {}
+    for study in researchstudy:
+        submitter_id = [r['value'] for r in study['identifier'] if r['use'] == 'official'][0]
+        study_info.update({study['id']: submitter_id})
+
+    l = []
+    groups = []
+    project_id = "GDC"
+    NAMESPACE_GDC = uuid3(NAMESPACE_DNS, 'gdc.cancer.gov')
+    for study_id, study_submitter_id in study_info.items():
+        study_researchsubjects = {study_id: []}
+        study_patient_references = []
+        study_group = None
+        for researchstubject in researchsubjects:
+            if researchstubject['study']['reference'].replace("ResearchStudy/", "") == study_id:
+                for patient in patients:
+                    if researchstubject["subject"]['reference'].replace("Patient/", "") == patient['id']:
+                        study_researchsubjects[study_id].append(researchstubject['id'])
+                        study_patient_references.append(Reference(**({"reference": f"Patient/{patient['id']}"})))
+        if len(study_patient_references) > 0:
+            study_group = create_researchstudy_group(study_patient_references, study_name=study_submitter_id, project_id=project_id, namespace=NAMESPACE_GDC)
+        if study_group:
+            print(f"Created Group for {study_submitter_id}")
+            groups.append(study_group)
+        print(f"ReseachStudy: {study_submitter_id} with N = {len(study_researchsubjects[study_id])} ResearchSubjects.")
+        l.append(study_researchsubjects)
+
+    json_groups = [orjson.loads(group.model_dump_json()) for group in groups]
+
+    def deduplicate_entities(_entities):
+        return list({v['id']: v for v in _entities}.values())
+
+    json_groups = deduplicate_entities(json_groups)
+    fhir_ndjson(json_groups, f"{out_path}/Group.ndjson")
+    print(f"Successfully converted GDC case info to FHIR's ResearchSubject's Group ndjson file!")
+
+    return groups
+
+
+def remove_empty_dicts(data):
+    """
+    Recursively remove empty dictionaries and lists from nested data structures.
+    """
+    if isinstance(data, dict):
+        new_data = {}
+        for k, v in data.items():
+            if isinstance(v, (dict, list)):
+                cleaned = remove_empty_dicts(v)
+                # keep non-empty structures or zero
+                if cleaned or cleaned == 0:
+                    new_data[k] = cleaned
+            # keep values that are not empty or zero
+            elif v or v == 0:
+                new_data[k] = v
+        return new_data
+
+    elif isinstance(data, list):
+        cleaned_list = [remove_empty_dicts(item) for item in data]
+        cleaned_list = [item for item in cleaned_list if item or item == 0]  # remove empty items
+        return cleaned_list if cleaned_list else None  # return none if list is empty
+
+    else:
+        return data
+
+
+def convert_decimal_to_float(data):
+    """Convert pydantic Decimal to float"""
+    if isinstance(data, dict):
+        return {k: convert_decimal_to_float(v) for k, v in data.items()}
+    elif isinstance(data, list):
+        return [convert_decimal_to_float(item) for item in data]
+    elif isinstance(data, decimal.Decimal):
+        return float(data)
+    else:
+        return data
+
+
+def convert_value_quantity_to_float(data):
+    """
+    Recursively converts all 'valueQuantity' -> 'value' fields in a nested dictionary or list
+    from strings to floats.
+    """
+    if isinstance(data, list):
+        return [convert_value_quantity_to_float(item) for item in data]
+    elif isinstance(data, dict):
+        for key, value in data.items():
+            if key == 'valueQuantity' and isinstance(value, dict) and 'value' in value:
+                if isinstance(value['value'], str):
+                    # and value['value'].replace('.', '', 1).isdigit():
+                    value['value'] = float(value['value'])
+            else:
+                data[key] = convert_value_quantity_to_float(value)
+    return data
+
+
+def convert_value_to_float(data):
+    """
+    Recursively converts all general 'entity' -> 'value' fields in a nested dictionary or list
+    from strings to float or int.
+    """
+    if isinstance(data, list):
+        return [convert_value_to_float(item) for item in data]
+    elif isinstance(data, dict):
+        for key, value in data.items():
+            if isinstance(value, dict) and 'value' in value:
+                if isinstance(value['value'], str):
+                    if value['value'].replace('.', '').replace('-', '', 1).isdigit() and "." in value['value']:
+                        value['value'] = float(value['value'])
+                    elif value['value'].replace('.', '').replace('-', '', 1).isdigit() and "." not in value['value']:
+                        value['value'] = int(value['value'])
+            else:
+                data[key] = convert_value_to_float(value)
+    return data
+
+
+def validate_fhir_resource_from_type(resource_type: str, resource_data: dict) -> FHIRAbstractModel:
+    """
+    Generalized function to validate any FHIR resource type using its name.
+    """
+    try:
+        resource_module = importlib.import_module(f"fhir.resources.{resource_type.lower()}")
+        resource_class = getattr(resource_module, resource_type)
+        return resource_class.model_validate(resource_data)
+
+    except (ImportError, AttributeError) as e:
+        raise ValueError(f"Invalid resource type: {resource_type}. Error: {str(e)}")
+

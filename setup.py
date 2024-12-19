@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-__version__ = '2.1.3'
+__version__ = '2.2.2'
 
 setup(
     name='fhirizer',
@@ -19,7 +19,6 @@ setup(
         'idna',
         'certifi',
         'requests',
-        'pydantic',
         'pytest',
         'click',
         'pathlib',
@@ -32,8 +31,8 @@ setup(
         'iteration_utilities',
         'icd10-cm',
         'beautifulsoup4',
-        'gen3-tracker>=0.0.4rc36',
-        'fhir.resources>=7.1.0'  # FHIR® (Release R5, version 5.0.0)
+        'gen3-tracker>=0.0.7rc2',
+        'fhir.resources>=8.0.0b4'  # FHIR® (Release R5, version 5.0.0)
     ],
     package_data={
         'fhirizer': [

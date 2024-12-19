@@ -42,7 +42,7 @@ file_maps = [
             name='data_type',
         ),
         destination=Destination(
-            name='DocumentReference.type',
+            name='DocumentReference.category.data_type',
         )
     ),
 
@@ -97,6 +97,15 @@ file_maps = [
         ),
         destination=Destination(
             name='Patient.id',
+        )
+    ),
+
+    Map(
+        source=Source(
+            name='cases.submitter_id',
+        ),
+        destination=Destination(
+            name='cases_submitter_id',
         )
     ),
 
