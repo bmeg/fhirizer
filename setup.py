@@ -31,6 +31,7 @@ setup(
         'iteration_utilities',
         'icd10-cm',
         'beautifulsoup4',
+        'gripql',
         'gen3-tracker>=0.0.7rc2',
         'fhir.resources>=8.0.0b4'  # FHIR® (Release R5, version 5.0.0)
     ],
