@@ -22,9 +22,9 @@ git clone repo
 cd fhirizer
 # create virtual env ex. 
 # NOTE: package_data folders must be in python path in virtual envs 
-python -m venv venv
-source venv/bin/activate
-pip install . 
+python3 -m venv venv
+. venv/bin/activate
+pip install -e . 
 ```
 
 - Dockerfile
