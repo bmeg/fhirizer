@@ -2274,7 +2274,7 @@ def assign_fhir_for_file(file):
                 "created_datetime": "string",
                 "experiment_name": "string",
                 "flow_cell_barcode": "string",
-                "includes_spike_ins": "string",
+                "includes_spike_ins": "bool",
                 "instrument_model": "string",
                 "is_paired_end": "bool",
                 "library_name": "string",
