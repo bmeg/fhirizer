@@ -872,7 +872,11 @@ def process_nested_list(traverse_key, nested_value, current_keys, available_maps
 
     for elm in nested_value:
         if isinstance(elm, dict):
-            elm = sort_parent_keys_with_head(elm, head_key="sample_id")
+            # print(f"tks: {tks}")
+            if tks == "diagnoses": # tmp fix
+                elm = sort_parent_keys_with_head(elm, head_key="diagnosis_id")
+            else:
+                elm = sort_parent_keys_with_head(elm, head_key="sample_id")
             # elm = sort_parent_keys(elm)
 
             for key, value in elm.items():
@@ -907,6 +911,7 @@ def traverse_and_map(node, current_keys, mapped_data, available_maps, changed_ke
         is_nested_list = is_deeply_nested_dict_list(value)
 
         if is_nested_list:
+            # print(f" Key: {key} \n Value: {value}\n current_keys: {current_keys}\n available_maps: {available_maps}")
             maps = process_nested_list(key, value, current_keys, available_maps, verbose)
             mapped_data.update(maps)
 

@@ -133,7 +133,7 @@ def resource(name, path, out_dir):
               help='Path to GDC data to be mapped')
 @click.option('--out_path', required=False,
               show_default=True,
-              help='Path to save mapped result')
+              help='NDJSON File name and Path to save mapped result')
 @click.option('--verbose', is_flag=True, required=False,
               default=False,
               show_default=True)
@@ -141,6 +141,7 @@ def convert(name, in_path, out_path, verbose):
     name_list = ['project', 'case', 'file', 'cellosaurus', 'icgc']
     assert name in ['project', 'case', 'file', 'cellosaurus', 'icgc'], f'--name is not in {name_list}.'
     assert Path(in_path).is_file(), f"Path {in_path} is not a valid file path."
+    assert Path(out_path).is_file(), f"Path {out_path} is not a valid file path."
 
     mapping.convert_maps(name=name, in_path=in_path, out_path=out_path, convert=True, verbose=verbose)
 
