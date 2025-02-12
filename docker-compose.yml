@@ -1,0 +1,9 @@
+version: "3.8"
+services:
+  fhirizer:
+    build:
+      context: .
+    volumes:
+      - ./projects:/app/projects
+      - ./resources:/app/resources
+    entrypoint: ["/bin/bash"]

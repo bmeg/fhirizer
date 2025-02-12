@@ -27,11 +27,12 @@ python3 -m venv venv
 pip install -e . 
 ```
 
-- Dockerfile
+- Docker 
 
+To mount the projects and resources directories... From the root of this project's repo: 
 ```
-(sudo) docker build -t <tag-name>:latest .
-(sudo) docker run -it  --mount type=bind,source=<path-to-input-ndjson>,target=/opt/data --rm <tag-name>:latest
+(sudo) docker-compose build fhirizer
+(sudo) docker-compose run --rm  fhirizer
 ```
 
 - Singularity 
