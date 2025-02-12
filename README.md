@@ -10,7 +10,7 @@
 ### Project overview:
 Transforms and harmonizes data from Genomic Data Commons (GDC), Cellosaurus cell-lines, International Cancer Genome Consortium (ICGC), and Human Tumor Atlas Network (HTAN) repositories into 🔥 FHIR (Fast Healthcare Interoperability Resources) format.
 
-- #### GDC study simplified FHIR graph 
+- #### GDC's transformed data FHIR graph 
 ![mapping](./imgs/gdc_tcga_study_example_fhir_graph.png)
 
 ## Usage 
