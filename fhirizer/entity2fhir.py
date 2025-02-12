@@ -655,14 +655,14 @@ def assign_fhir_for_case(case, disease_types=disease_types, primary_sites=primar
         observation.code = observation_code
         observation_ref = Reference(**{"reference": "/".join(["Observation", observation.id])})
 
-    survey_updated_datetime_component = None
-    if 'diagnoses' in case.keys() and "Observation.survey.updated_datetime" in case['diagnoses'].keys() and \
-            case['diagnoses'][
-                "Observation.survey.updated_datetime"]:
-        survey_updated_datetime_component = utils.get_component('updated_datetime', value=case['diagnoses'][
-            "Observation.survey.updated_datetime"],
-                                                                component_type='dateTime',
-                                                                system="https://gdc.cancer.gov/demographic")
+    # survey_updated_datetime_component = None
+    # if 'diagnoses' in case.keys() and "Observation.survey.updated_datetime" in case['diagnoses'].keys() and \
+    #         case['diagnoses'][
+    #             "Observation.survey.updated_datetime"]:
+    #     survey_updated_datetime_component = utils.get_component('updated_datetime', value=case['diagnoses'][
+    #         "Observation.survey.updated_datetime"],
+    #                                                             component_type='dateTime',
+    #                                                             system="https://gdc.cancer.gov/demographic")
 
     if 'diagnoses' in case.keys() and 'Observation.survey.days_to_last_follow_up' in case['diagnoses'].keys() and \
             case['diagnoses'][
@@ -704,8 +704,8 @@ def assign_fhir_for_case(case, disease_types=disease_types, primary_sites=primar
                 "code": "d"
             }
 
-            if survey_updated_datetime_component:
-                days_to_last_follow_up['component'] = [survey_updated_datetime_component]
+            # if survey_updated_datetime_component:
+            #     days_to_last_follow_up['component'] = [survey_updated_datetime_component]
             obs_survey.append(days_to_last_follow_up)
 
     if 'diagnoses' in case.keys() and 'Observation.survey.days_to_last_known_disease_status' in case[
