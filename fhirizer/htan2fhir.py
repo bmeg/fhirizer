@@ -97,7 +97,7 @@ class HTANTransformer:
         parent_researchstudy_identifier = Identifier(**{"system": self.SYSTEM_HTAN, "use": "official", "value": "HTAN"})
         parent_researchstudy_id = self.mint_id(identifier=parent_researchstudy_identifier,
                                                resource_type="ResearchStudy",
-                                               project_id=self.project_id, namespace=self.NAMESPACE_HTAN)
+                                               project_id="HTAN", namespace=self.NAMESPACE_HTAN)
         self.program_research_study = ResearchStudy(**{"id": parent_researchstudy_id,
                                                        "identifier": [parent_researchstudy_identifier],
                                                        "name": "HTAN",
@@ -516,7 +516,7 @@ class HTANTransformer:
         entities = list({v['id']: v for v in entities}.values())
         cleaned_entity = utils.clean_resources(entities)
         utils.fhir_ndjson(cleaned_entity, "".join([self.out_dir, "/", resource_type, ".ndjson"]))
-        print(f"Successfully converted HTAN data to FHIR's {resource_type} ndjson file!")
+        print(f"Successfully transformed HTAN data to {len(entities)} FHIR {resource_type}(s) @ {"".join([self.out_dir, "/", resource_type, ".ndjson"])}")
 
     def transform_medication(self, cases: pd.DataFrame, db_file_path: str) -> pd.DataFrame:
         # create medication placeholder for cases where treatment type is defined ex chemo, but medication is not documented
@@ -702,11 +702,13 @@ class PatientTransformer(HTANTransformer):
             study_field = field
         study_name = _row.get(study_field)
         researchstudy_identifier = Identifier(
-            **{"system": self.SYSTEM_HTAN, "use": "official", "value": str(study_name)})
+            **{"system": self.SYSTEM_HTAN, "use": "official", "value": str(study_name).replace("HTAN ", "")})
         researchstudy_id = self.mint_id(identifier=researchstudy_identifier, resource_type="ResearchStudy",
                                         project_id=self.project_id, namespace=self.NAMESPACE_HTAN)
 
         # TODO: add "condition" snomed id
+        if "HTAN " in study_name:
+             study_name = study_name.replace("HTAN ", "")
         return ResearchStudy(**{"id": researchstudy_id,
                                 "identifier": [researchstudy_identifier],
                                 "name": study_name,
@@ -764,7 +766,7 @@ class PatientTransformer(HTANTransformer):
                "patient": Reference(**{"reference": f"Patient/{patient.id}"})
                })
 
-    def create_condition(self, _row: pd.Series, patient: Patient, encounter: Encounter,
+    def create_condition(self, _row: pd.Series, patient: Patient,
                          body_structure: Optional[BodyStructure], stage_observation: Optional[Observation]) -> dict:
         primary_diagnosis = _row.get("Primary Diagnosis")
         if pd.isnull(primary_diagnosis):
@@ -822,9 +824,9 @@ class PatientTransformer(HTANTransformer):
                                                                                   "display": "Active"}]}),
                                  "onsetAge": onset_age,
                                  "recordedDate": recorded_date,
-                                 "bodySite": patient_body_site_cc,
+                                 "bodySite": patient_body_site_cc
                                  # "bodyStructure": patient_body_structure_ref,
-                                 "encounter": Reference(**{"reference": f"Encounter/{encounter.id}"})
+                                 # "encounter": Reference(**{"reference": f"Encounter/{encounter.id}"})
                                  })
 
         stage_observations_dict = self.create_stage_observation(_row=_row, condition=condition, patient=patient)
@@ -1139,7 +1141,7 @@ class DocumentReferenceTransformer(HTANTransformer):
         self.create_observation = self.create_observation
         self.get_patient_id = self.get_patient_id
 
-    def create_document_reference(self, _row: pd.Series, specimen_ids: list) -> dict:
+    def create_document_reference(self, _row: pd.Series, specimen_ids: list, case_patient_ids: list) -> dict | None:
         """Transform HTAN files to FHIR DocumentReference"""
         # print(f"Specimen List length: {len(specimen_ids)} List: {specimen_ids}")
         document_reference_identifier = Identifier(
@@ -1157,7 +1159,7 @@ class DocumentReferenceTransformer(HTANTransformer):
         patient_id = None
         if "HTAN Participant ID" in _row.keys() and not pd.isnull(_row["HTAN Participant ID"]):
             participant_id = _row["HTAN Participant ID"]
-            assert participant_id, f"DocumentRefernce {_row["HTAN Data File ID"]} does not have a patient participant associated with it."
+            # assert participant_id, f"DocumentRefernce {_row["HTAN Data File ID"]} does not have a patient participant associated with it."
             patient_id = self.get_patient_id(participant_id=participant_id)
 
         name = None
@@ -1180,7 +1182,7 @@ class DocumentReferenceTransformer(HTANTransformer):
                  "system": "/".join([self.SYSTEM_HTAN, "Level"])}]}))
 
         patient_reference = None
-        if patient_id:
+        if patient_id and patient_id in case_patient_ids:
             patient_reference = Reference(**{"reference": f"Patient/{patient_id}"})
 
         security_label = []
@@ -1204,15 +1206,27 @@ class DocumentReferenceTransformer(HTANTransformer):
                                                        "display": "parent_data_file"}]}),
                 "target": Reference(**{"reference": f"Documentreference/{parent_document_reference_id}"})}))
 
-        specimen_references = []
-        if not pd.isnull(_row['Biospecimen']):
+        def create_docref_specimen_id(_specimen_identifier_value):
             specimen_identifier = Identifier(
-                **{"system": self.SYSTEM_HTAN, "value": str(_row['Biospecimen']), "use": "official"})
+                **{"system": self.SYSTEM_HTAN, "value": _specimen_identifier_value, "use": "official"})
             specimen_id = self.mint_id(identifier=specimen_identifier, resource_type="Specimen",
                                        project_id=self.project_id,
                                        namespace=self.NAMESPACE_HTAN)
-            if specimen_id in specimen_ids:
-                specimen_references.append(Reference(**{"reference": f"Specimen/{specimen_id}"}))
+            return specimen_id
+
+
+        specimen_references = []
+        if not pd.isnull(_row['Biospecimen']):
+            if "," in _row['Biospecimen']:
+                _htan_specimens_ids = [item.strip() for item in _row['Biospecimen'].split(",")]
+                for _specimen_id in _htan_specimens_ids:
+                    _specimen_mint_id = create_docref_specimen_id(_specimen_identifier_value=str(_specimen_id))
+                    if _specimen_mint_id in specimen_ids:
+                        specimen_references.append(Reference(**{"reference": f"Specimen/{_specimen_mint_id}"}))
+            else:
+                specimen_id = create_docref_specimen_id(_specimen_identifier_value=str(_row['Biospecimen']))
+                if specimen_id in specimen_ids:
+                    specimen_references.append(Reference(**{"reference": f"Specimen/{specimen_id}"}))
         group = None
         if specimen_references:
             if len(specimen_references) == 1:
@@ -1222,7 +1236,7 @@ class DocumentReferenceTransformer(HTANTransformer):
                 reference_ids = [s.reference for s in specimen_references]
                 group_identifier = Identifier(
                     **{"system": "".join([self.SYSTEM_HTAN, "sample_group"]),
-                       "value": "/".join(reference_ids + ["Documentreference/" + document_reference_identifier]),
+                       "value": "/".join(reference_ids + ["Documentreference/" + document_reference_identifier.value]),
                        "use": "official"})
 
                 group_id = utils.mint_id(identifier=group_identifier, resource_type="Group",
@@ -1237,24 +1251,28 @@ class DocumentReferenceTransformer(HTANTransformer):
         if patient_reference and not subject:
             subject = patient_reference
 
-        document_reference = DocumentReference(**{"id": document_reference_id,
-                                    "identifier": [document_reference_identifier,
-                                                   document_reference_synapse_identifier],
-                                    "status": "current",
-                                    "docStatus": "final",
-                                    "subject": subject,
-                                    # "relatesTo": parent_data_file,  # TODO: requires check for file - missing data
-                                    "category": category,
-                                    "securityLabel": security_label,
-                                    "content": [DocumentReferenceContent(
-                                        **{"attachment": Attachment(
-                                            **{"title": name,
-                                               "contentType": _row["mime_type"]}),
-                                           "profile": profiles
-                                          })]
-                                    })
+        if subject:
+            document_reference = DocumentReference(**{"id": document_reference_id,
+                                        "identifier": [document_reference_identifier,
+                                                       document_reference_synapse_identifier],
+                                        "status": "current",
+                                        "docStatus": "final",
+                                        "subject": subject,
+                                        # "relatesTo": parent_data_file,  # TODO: requires check for file - missing data relations
+                                        "category": category,
+                                        "securityLabel": security_label,
+                                        "content": [DocumentReferenceContent(
+                                            **{"attachment": Attachment(
+                                                **{"title": name,
+                                                   "contentType": _row["mime_type"]}),
+                                               "profile": profiles
+                                              })]
+                                        })
 
-        return {"file": document_reference, "group": group}
+            return {"file": document_reference, "group": group}
+        else:
+            # don't make the docref where the subject relation is undefined/unknown (stand-alone entity with no links)
+            return None
 
 
 # 2 Projects that don't have files download or cds manifest SRRS and TNP_TMA (Oct/2024)
@@ -1324,34 +1342,34 @@ def htan2fhir(verbose, entity_atlas_name, spinner):
                     if research_subject:
                         research_subjects.append(research_subject)
 
-                    encounter = patient_transformer.create_encounter(_row=row, patient=patient, condition=None,
-                                                                     procedure=None)
-                    if encounter:
-                        encounters.append(encounter)
-                        condition_dict = patient_transformer.create_condition(_row=row, patient=patient,
-                                                                              encounter=encounter,
-                                                                              body_structure=None,
-                                                                              stage_observation=None)
+                    # encounter = patient_transformer.create_encounter(_row=row, patient=patient, condition=None,
+                    #                                                  procedure=None)
+                    # if encounter:
+                    #     encounters.append(encounter)
+                    condition_dict = patient_transformer.create_condition(_row=row, patient=patient,
+                                                                         # encounter=encounter,
+                                                                         body_structure=None,
+                                                                         stage_observation=None)
 
-                        if condition_dict and condition_dict["condition"]:
-                            conditions.append(condition_dict["condition"])
+                    if condition_dict and condition_dict["condition"]:
+                        conditions.append(condition_dict["condition"])
 
-                            if condition_dict["stage_observations_dict"]:
-                                for key, obs_item in condition_dict["stage_observations_dict"].items():
-                                    if obs_item:
-                                        observations.append(obs_item)
+                        if condition_dict["stage_observations_dict"]:
+                            for key, obs_item in condition_dict["stage_observations_dict"].items():
+                                if obs_item:
+                                    observations.append(obs_item)
 
-                            condition_observation = patient_transformer.create_observation(_row=row, patient=patient,
-                                                                                           patient_id=patient.id,
-                                                                                           official_focus="Condition",
-                                                                                           focus=[Reference(**{
-                                                                                               "reference": f"Condition/{condition_dict["condition"].id}"})],
-                                                                                           specimen=None,
-                                                                                           components=None,
-                                                                                           category=None,
-                                                                                           relax=False)
-                            if condition_observation:
-                                observations.append(condition_observation)
+                        condition_observation = patient_transformer.create_observation(_row=row, patient=patient,
+                                                                                       patient_id=patient.id,
+                                                                                       official_focus="Condition",
+                                                                                       focus=[Reference(**{
+                                                                                           "reference": f"Condition/{condition_dict["condition"].id}"})],
+                                                                                       specimen=None,
+                                                                                       components=None,
+                                                                                       category=None,
+                                                                                       relax=False)
+                        if condition_observation:
+                            observations.append(condition_observation)
 
                     if not pd.isnull(row["Treatment Type"]):
                         med_admin = patient_transformer.create_medication_administration(_row=row,
@@ -1396,42 +1414,52 @@ def htan2fhir(verbose, entity_atlas_name, spinner):
         specimen_ids = [s.id for s in specimens]
         patient_ids = [p.id for p in patients]
         document_references = []
+        missing_docrefs = []
         groups = []
         for document_reference_index, document_reference_row in files_drs_meta.iterrows():
             _obj = documentreference_transformer.create_document_reference(_row=document_reference_row,
-                                                                           specimen_ids=specimen_ids)
+                                                                           specimen_ids=specimen_ids,
+                                                                           case_patient_ids=patient_ids)
 
-            group = _obj["group"]
-            if group:
-                groups.append(group)
+            if _obj:
+                group = _obj["group"]
+                if group:
+                    groups.append(group)
 
-            docref = _obj["file"]
-            if docref:
-                document_references.append(docref)
+                docref = _obj["file"]
+                if docref:
+                    document_references.append(docref)
 
-                docref_patient_id = None
-                if 'HTAN Participant ID' in document_reference_row.keys() and pd.isnull(
-                        document_reference_row['HTAN Participant ID']):
-                    docref_patient = documentreference_transformer.get_patient_id(
-                        participant_id=document_reference_row['HTAN Participant ID'])
-                    if docref_patient in patient_ids:
-                        docref_patient_id = docref_patient
+                    docref_patient_id = None
+                    if 'HTAN Participant ID' in document_reference_row.keys() and pd.isnull(
+                            document_reference_row['HTAN Participant ID']):
+                        docref_patient = documentreference_transformer.get_patient_id(
+                            participant_id=document_reference_row['HTAN Participant ID'])
+                        if docref_patient in patient_ids:
+                            docref_patient_id = docref_patient
 
-                # else:
-                #    print(f"HTAN {name} is missing patient reference in files")
+                    document_reference_observation = documentreference_transformer.create_observation(
+                        _row=document_reference_row, patient=None,
+                        official_focus="DocumentReference",
+                        focus=[Reference(**{
+                            "reference": f"DocumentReference/{docref.id}"})],
+                        patient_id=docref_patient_id,
+                        specimen=None, components=None,
+                        category=transformer.lab_category,
+                        relax=True)
 
-                document_reference_observation = documentreference_transformer.create_observation(
-                    _row=document_reference_row, patient=None,
-                    official_focus="DocumentReference",
-                    focus=[Reference(**{
-                        "reference": f"DocumentReference/{docref.id}"})],
-                    patient_id=docref_patient_id,
-                    specimen=None, components=None,
-                    category=transformer.lab_category,
-                    relax=True)
+                    if document_reference_observation:
+                        observations.append(document_reference_observation)
+            else:
+                missing_docrefs.append(document_reference_row['Filename'])
 
-                if document_reference_observation:
-                    observations.append(document_reference_observation)
+        #  missing document references for debugging / checking relations on HTAN (user can create files that are missing patient information on HTAN)
+        if missing_docrefs:
+            print(f"⚠️ WARNING: {len(missing_docrefs)} DocumentReferences skipped due to missing Patient Relation")
+            if len(missing_docrefs) <= 20:
+                print(missing_docrefs)
+            else:
+                print(missing_docrefs[:10]) # print the first 10 for trial/error
 
         spinner.stop()
 
@@ -1441,8 +1469,6 @@ def htan2fhir(verbose, entity_atlas_name, spinner):
             transformer.write_ndjson(research_studies)
         if patients:
             transformer.write_ndjson(patients)
-        if encounters:
-            transformer.write_ndjson(encounters)
         if conditions:
             transformer.write_ndjson(conditions)
         if observations:
@@ -1455,5 +1481,13 @@ def htan2fhir(verbose, entity_atlas_name, spinner):
             transformer.write_ndjson(groups)
         if med_admins:
             transformer.write_ndjson(med_admins)
+        # if encounters:
+        #     transformer.write_ndjson(encounters)
 
+# Useful cmds:
 # for i in $(ls projects/HTAN); do fhirizer validate --path projects/HTAN/$i/META; done
+
+# preview ndjson files in subdirectory:
+# find projects/HTAN -type f -name "*.ndjson"
+# delete them:
+# find projects/HTAN -type f -name "*.ndjson" -delete

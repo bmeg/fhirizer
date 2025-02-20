@@ -54,5 +54,5 @@ dist/
 # Data in projects folder
 fhirizer/projects/*
 projects/*
-fhirizer/resources/chembel_resources
-resources/chembel_resources
+# Data in resource folder
+resources/*

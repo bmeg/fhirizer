@@ -1,0 +1,1 @@
+{"resourceType": "Organization", "id": "9de83230-cd80-54ee-bca2-80864e879b83", "identifier": [{"use": "official", "system": "https://gdc.cancer.gov/tissue_source_site", "value": "896e1940-716e-53bc-ba01-1474a06a06ac"}, {"use": "secondary", "system": "https://gdc.cancer.gov/bcr_id", "value": "NCH"}], "name": "Greater Poland Cancer Center"}

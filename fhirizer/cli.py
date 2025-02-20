@@ -9,7 +9,6 @@ import importlib.resources
 import warnings
 from halo import Halo
 
-
 warnings.filterwarnings("ignore", category=SyntaxWarning)
 
 
@@ -39,7 +38,6 @@ class NotRequiredIf(click.Option):
 
         return super(NotRequiredIf, self).handle_parse_result(
             ctx, opts, args)
-
 
 
 @click.group()
@@ -135,7 +133,7 @@ def resource(name, path, out_dir):
               help='Path to GDC data to be mapped')
 @click.option('--out_path', required=False,
               show_default=True,
-              help='Path to save mapped result')
+              help='NDJSON File name and Path to save mapped result')
 @click.option('--verbose', is_flag=True, required=False,
               default=False,
               show_default=True)
@@ -143,6 +141,7 @@ def convert(name, in_path, out_path, verbose):
     name_list = ['project', 'case', 'file', 'cellosaurus', 'icgc']
     assert name in ['project', 'case', 'file', 'cellosaurus', 'icgc'], f'--name is not in {name_list}.'
     assert Path(in_path).is_file(), f"Path {in_path} is not a valid file path."
+    assert Path(out_path).is_file(), f"Path {out_path} is not a valid file path."
 
     mapping.convert_maps(name=name, in_path=in_path, out_path=out_path, convert=True, verbose=verbose)
 
@@ -181,10 +180,12 @@ def generate(name, out_dir, entity_path, icgc, has_files, atlas, convert, verbos
 
     if name in 'case':
         spinner.start()
-        entity2fhir.case_gdc_to_fhir_ndjson(out_dir=out_dir, name=name, cases_path=entity_path, convert=convert, verbose=verbose, spinner=spinner)
+        entity2fhir.case_gdc_to_fhir_ndjson(out_dir=out_dir, name=name, cases_path=entity_path, convert=convert,
+                                            verbose=verbose, spinner=spinner)
     if name in 'file':
         spinner.start()
-        entity2fhir.file_gdc_to_fhir_ndjson(out_dir=out_dir, name=name, files_path=entity_path, convert=convert, verbose=verbose, spinner=spinner)
+        entity2fhir.file_gdc_to_fhir_ndjson(out_dir=out_dir, name=name, files_path=entity_path, convert=convert,
+                                            verbose=verbose, spinner=spinner)
     if name in 'cellosaurus':
         spinner.start()
         entity2fhir.cellosaurus2fhir(out_dir=out_dir, path=entity_path, spinner=spinner)
@@ -201,7 +202,6 @@ def generate(name, out_dir, entity_path, icgc, has_files, atlas, convert, verbos
 
         spinner.start()
         htan2fhir.htan2fhir(entity_atlas_name=atlas, verbose=verbose, spinner=spinner)
-
 
 
 @cli.command('validate')
@@ -226,7 +226,8 @@ def validate(debug: bool, path):
         click.secho(result.resources, fg=INFO_COLOR, file=sys.stderr)
         # print exceptions, set exit code to 1 if there are any
         for _ in result.exceptions:
-            click.secho(f"{_.path}:{_.offset} {_.exception} {json.dumps(_.json_obj, separators=(',', ':'))}", fg=ERROR_COLOR, file=sys.stderr)
+            click.secho(f"{_.path}:{_.offset} {_.exception} {json.dumps(_.json_obj, separators=(',', ':'))}",
+                        fg=ERROR_COLOR, file=sys.stderr)
         if result.exceptions:
             sys.exit(1)
     except Exception as e:
@@ -250,6 +251,21 @@ def study_group(path, output_path):
     assert Path(output_path).is_dir(), f"Path {output_path} is not a valid directory path."
 
     utils.study_groups(meta_path=path, out_path=output_path)
+
+
+@cli.command('combine')
+@click.option("-in", '--in_path', required=True,
+              show_default=False,
+              help='Parent directory path to all sub-directories with META folder.')
+@click.option("-out", '--out_path', required=True,
+              show_default=False,
+              help='Directory path to META folder to save combined FHIR entities ndjson files.')
+def study_group(in_path, out_path):
+    """Combines FHIR all projects FHIR entities generated from a programs into one META folder """
+    assert Path(in_path).is_dir(), f"Path {in_path} is not a valid directory path."
+    assert Path(out_path).is_dir(), f"Path {out_path} is not a valid directory path."
+
+    utils.consolidate_fhir_data(base_dir=in_path, output_dir=out_path)
 
 
 if __name__ == '__main__':

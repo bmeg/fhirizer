@@ -1,5 +1,356 @@
 [
     {
+        "value": "Squamous cell carcinoma, large cell, nonkeratinizing, NOS",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": "45490001"
+    },
+    {
+        "value": "Squamous cell carcinoma, small cell, nonkeratinizing",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": "35718007"
+    },
+    {
+        "value": "Squamous cell carcinoma, keratinizing, NOS",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": "18048008"
+    },
+    {
+        "value": "Basaloid squamous cell carcinoma",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": "128634009"
+    },
+    {
+        "value": "Papillary squamous cell carcinoma",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": "39056008"
+    },
+    {
+        "value": "Squamous cell carcinoma, NOS",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": "1162767002"
+    },
+    {
+        "value": "Clear cell adenocarcinoma, NOS",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": "30546008"
+    },
+    {
+        "value": "Signet ring cell carcinoma",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": "87737001"
+    },
+    {
+        "value": "Bronchio-alveolar carcinoma, mucinous",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": "128660005"
+    },
+    {
+        "value": "Micropapillary carcinoma, NOS",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": "450895005"
+    },
+    {
+        "value": "Bronchiolo-alveolar adenocarcinoma, NOS",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": "112677002"
+    },
+    {
+        "value": "Mucinous adenocarcinoma",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": "72495009"
+    },
+    {
+        "value": "Papillary adenocarcinoma, NOS",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": "4797003"
+    },
+    {
+        "value": "Bronchiolo-alveolar carcinoma, non-mucinous",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": "128659000"
+    },
+    {
+        "value": "Adenocarcinoma with mixed subtypes",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": "128662002"
+    },
+    {
+        "value": "Acinar cell carcinoma",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": "45410002"
+    },
+    {
+        "value": "Solid carcinoma, NOS",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": "81920005"
+    },
+    {
+        "value": "Secretory carcinoma of breast",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": "41919003"
+    },
+    {
+        "value": "Apocrine adenocarcinoma",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": "57141000"
+    },
+    {
+        "value": "Paget disease and infiltrating duct carcinoma of breast",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": "82591005"
+    },
+    {
+        "value": "Adenoid cystic carcinoma",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": "11671000"
+    },
+    {
+        "value": "Tubular adenocarcinoma",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": "4631006"
+    },
+    {
+        "value": "Papillary carcinoma, NOS",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": "25910003"
+    },
+    {
+        "value": "Cribriform carcinoma, NOS",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": "30156004"
+    },
+    {
+        "value": "Infiltrating duct mixed with other types of carcinoma",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": "128700001"
+    },
+    {
+        "value": "Carcinoma, NOS",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": "1187425009"
+    },
+    {
+        "value": "Phyllodes tumor, malignant",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": "87913009"
+    },
+    {
+        "value": "Intraductal papillary adenocarcinoma with invasion",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": "64524002"
+    },
+    {
+        "value": "Basal cell carcinoma, NOS",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": "1338007"
+    },
+    {
+        "value": "Infiltrating lobular mixed with other types of carcinoma",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": "128701002"
+    },
+    {
+        "value": "Mucinous adenocarcinoma",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": "72495009"
+    },
+    {
+        "value": "Large cell neuroendocrine carcinoma",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": "128628002"
+    },
+    {
+        "value": "Metaplastic carcinoma, NOS",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": "128705006"
+    },
+    {
+        "value": "Medullary carcinoma, NOS",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": "32913002"
+    },
+    {
+        "value": "Intraductal micropapillary carcinoma",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": "128696009"
+    },
+    {
+        "value": "Pleomorphic carcinoma",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": "16741004"
+    },
+    {
+        "value": "Lobular carcinoma, NOS",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": "89740008"
+    },
+    {
+        "value": "Infiltrating duct and lobular carcinoma",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": "35232005"
+    },
+    {
+        "value": "Infiltrating duct carcinoma, NOS",
+        "description": "",
+        "description_url": "",
+        "annotation_type": "caDSR",
+        "annotation_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
+        "ontology_url": "",
+        "sctid": "82711006"
+    },
+    {
         "value": "Renal cell carcinoma, NOS",
         "description": "",
         "description_url": "",

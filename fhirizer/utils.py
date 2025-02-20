@@ -23,6 +23,7 @@ from uuid import uuid5, UUID, uuid3, NAMESPACE_DNS
 from typing import List
 from fhir.resources.fhirresourcemodel import FHIRAbstractModel
 import decimal
+from collections import defaultdict
 
 
 
@@ -871,7 +872,11 @@ def process_nested_list(traverse_key, nested_value, current_keys, available_maps
 
     for elm in nested_value:
         if isinstance(elm, dict):
-            elm = sort_parent_keys_with_head(elm, head_key="sample_id")
+            # print(f"tks: {tks}")
+            if tks == "diagnoses": # tmp fix
+                elm = sort_parent_keys_with_head(elm, head_key="diagnosis_id")
+            else:
+                elm = sort_parent_keys_with_head(elm, head_key="sample_id")
             # elm = sort_parent_keys(elm)
 
             for key, value in elm.items():
@@ -906,6 +911,7 @@ def traverse_and_map(node, current_keys, mapped_data, available_maps, changed_ke
         is_nested_list = is_deeply_nested_dict_list(value)
 
         if is_nested_list:
+            # print(f" Key: {key} \n Value: {value}\n current_keys: {current_keys}\n available_maps: {available_maps}")
             maps = process_nested_list(key, value, current_keys, available_maps, verbose)
             mapped_data.update(maps)
 
@@ -1317,7 +1323,7 @@ def study_groups(meta_path: str, out_path: str) -> List[Group]:
 
     json_groups = deduplicate_entities(json_groups)
     fhir_ndjson(json_groups, f"{out_path}/Group.ndjson")
-    print(f"Successfully converted GDC case info to FHIR's ResearchSubject's Group ndjson file!")
+    print(f"Successfully transformed GDC case info to FHIR's ResearchSubject's Group ndjson file!")
 
     return groups
 
@@ -1429,3 +1435,58 @@ def clean_resources(entities):
 
     return cleaned_resource
 
+
+def read_ndjson(file_path):
+    """
+    Load an NDJSON file.
+    TODO: use this for all other calls to load_ndjson or load_ndjsongz
+    """
+    data = []
+    open_func = gzip.open if file_path.endswith('.gz') else open
+    with open_func(file_path, 'rt', encoding='utf-8') as f:
+        for line in f:
+            data.append(json.loads(line))
+    return data
+
+
+def consolidate_fhir_data(base_dir, output_dir):
+    """Load, deduplicate, and integrate FHIR NDJSON files from META folders."""
+    def save_ndjson(data, file_path):
+        """Save data to an NDJSON file, ensuring it is unique."""
+        with open(file_path, 'w', encoding='utf-8') as f:
+            for entry in data:
+                f.write(json.dumps(entry) + "\n")
+
+    resource_data = defaultdict(dict)  # {resource_type: {id: resource}}
+
+    for root, dirs, _files in os.walk(base_dir):
+        if 'META' in dirs:
+            meta_path = os.path.join(root, 'META')
+            print(f"Processing META folder: {meta_path}")
+
+            for file in os.listdir(meta_path):
+                if file.endswith('.ndjson') or file.endswith('.ndjson.gz'):
+                    resource_type = file.split('.')[0]
+                    file_path = os.path.join(meta_path, file)
+                    resource_id = None
+                    try:
+                        data = read_ndjson(file_path)
+                        for entry in data:
+                            resource_id = entry.get('id')
+
+                            if resource_id:
+                                resource_data[resource_type][resource_id] = entry
+
+                    except Exception as e:
+                        print(f"Error processing {file_path}: {e}")
+
+    os.makedirs(output_dir, exist_ok=True)
+
+    for resource_type, entries in resource_data.items():
+        output_file = os.path.join(output_dir, f"{resource_type}.ndjson")
+        print(f"Saving {resource_type} data to {output_file} with {len(entries)} unique records.")
+        save_ndjson(entries.values(), output_file)
+        # _dat = [orjson.loads(fhir_dat.model_dump_json()) for fhir_dat in entries]
+        # fhir_ndjson(_dat, output_file)
+
+    print("FHIR NDJSON consolidation completed.")

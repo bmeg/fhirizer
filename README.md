@@ -10,7 +10,7 @@
 ### Project overview:
 Transforms and harmonizes data from Genomic Data Commons (GDC), Cellosaurus cell-lines, International Cancer Genome Consortium (ICGC), and Human Tumor Atlas Network (HTAN) repositories into 🔥 FHIR (Fast Healthcare Interoperability Resources) format.
 
-- #### GDC study simplified FHIR graph 
+- #### GDC's transformed data FHIR graph 
 ![mapping](./imgs/gdc_tcga_study_example_fhir_graph.png)
 
 ## Usage 
@@ -22,16 +22,17 @@ git clone repo
 cd fhirizer
 # create virtual env ex. 
 # NOTE: package_data folders must be in python path in virtual envs 
-python -m venv venv
-source venv/bin/activate
-pip install . 
+python3 -m venv venv
+. venv/bin/activate
+pip install -e . 
 ```
 
-- Dockerfile
+- Docker 
 
+To mount the projects and resources directories... From the root of this project's repo: 
 ```
-(sudo) docker build -t <tag-name>:latest .
-(sudo) docker run -it  --mount type=bind,source=<path-to-input-ndjson>,target=/opt/data --rm <tag-name>:latest
+(sudo) docker-compose build fhirizer
+(sudo) docker-compose run --rm  fhirizer
 ```
 
 - Singularity 
