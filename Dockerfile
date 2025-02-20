@@ -5,15 +5,15 @@ RUN apt-get update && apt-get install -y \
     libpng-dev \
     libjpeg-dev \
     zlib1g-dev \
-    && apt-get clean
+ && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 RUN pip install --upgrade pip
 
-COPY . /app
 WORKDIR /app
+COPY . /app
 
-RUN pip install .
+RUN pip install -e .
 
-ENV PYTHONPATH="/app"
+ENV PYTHONPATH=/app
 
 ENTRYPOINT ["/bin/bash"]

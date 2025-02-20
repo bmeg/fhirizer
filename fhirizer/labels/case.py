@@ -566,9 +566,28 @@ case_maps = [Map(
             name='tissue_source_site.tissue_source_site_id'
         ),
         destination=Destination(
-            name='Encounter.id'
+            name='Organization.id'
         )
     ),
+
+    Map(
+        source=Source(
+            name='tissue_source_site.name'
+        ),
+        destination=Destination(
+            name='Organization.name'
+        )
+    ),
+
+    Map(
+        source=Source(
+            name='tissue_source_site.bcr_id'
+        ),
+        destination=Destination(
+            name='Organization.identifier.secondary'
+        )
+    ),
+
 
     Map(
         source=Source(
