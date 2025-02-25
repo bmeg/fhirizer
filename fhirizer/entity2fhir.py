@@ -1956,7 +1956,8 @@ def assign_fhir_for_case(case, disease_types=disease_types, primary_sites=primar
                 'body_structure': body_structure}
 
     for key, value in entities.items():
-        entities[key] = utils.assign_part_of(entity=value, research_study_id=rs.id)
+        if value:
+            entities[key] = utils.assign_part_of(entity=value, research_study_id=rs.id)
 
     return entities
 
