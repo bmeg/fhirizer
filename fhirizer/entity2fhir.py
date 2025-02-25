@@ -1941,11 +1941,24 @@ def assign_fhir_for_case(case, disease_types=disease_types, primary_sites=primar
         if not isinstance(obs, Observation):
             print(f"Non-Observation object found: {type(obs)} -> {obs}")
 
-    return {'patient': patient, 'organizations': organizations, "practitioners": practitioners,
-            'observations': all_observations, 'condition': condition,
-            'research_studies': research_studies, 'research_subject': research_subject, 'specimens': sample_list,
-            'imaging_study': slide_list, "procedures": procedures, "med_admin": treatments_medadmin,
-            "med": treatments_med, "body_structure": body_structure}
+    entities = {'patient': patient,
+                'organizations': organizations,
+                'practitioners': practitioners,
+                'observations': all_observations,
+                'condition': condition,
+                'research_studies': research_studies,
+                'research_subject': research_subject,
+                'specimens': sample_list,
+                'imaging_study': slide_list,
+                'procedures': procedures,
+                'med_admin': treatments_medadmin,
+                'med': treatments_med,
+                'body_structure': body_structure}
+
+    for key, value in entities.items():
+        entities[key] = utils.assign_part_of(entity=value, research_study_id=rs.id)
+
+    return entities
 
 
 def case_gdc_to_fhir_ndjson(out_dir, name, cases_path, convert, verbose, spinner=None):
@@ -2105,6 +2118,7 @@ def assign_fhir_for_file(file):
 
     patients = []
     sample_ref = []
+    rs_id = None
     # print(f"Data Category: {data_category}\n")
     if 'cases' in file.keys() and file['cases']:
         for case in file['cases']:
@@ -2117,6 +2131,13 @@ def assign_fhir_for_file(file):
                                        namespace=NAMESPACE_GDC)
 
             patients.append(Reference(**{"reference": "/".join(["Patient", patient_id])}))
+
+            if 'ResearchStudy' in case:
+                rs_project_id = case['ResearchStudy']['project_id']
+                rs_identifier = Identifier(value=rs_project_id, system="/".join(["https://gdc.cancer.gov", "project"]),
+                                           use="official")
+                rs_id = utils.mint_id(identifier=rs_identifier, resource_type="ResearchStudy", project_id="GDC",
+                                      namespace=NAMESPACE_GDC)
 
             if 'samples' in case.keys():
                 for sample in case['samples']:
@@ -2332,7 +2353,14 @@ def assign_fhir_for_file(file):
 
             docref_observations.append(docref_observation)
 
-    return {'files': document, 'observations': docref_observations, 'group': group}
+    entities = {'files': document, 'observations': docref_observations, 'group': group}
+
+    if rs_id:
+        for key, value in entities.items():
+            if value:
+                entities[key] = utils.assign_part_of(entity=value, research_study_id=rs_id)
+
+    return entities
 
 
 def file_gdc_to_fhir_ndjson(out_dir, name, files_path, convert, verbose, spinner=None):

@@ -129,6 +129,15 @@ file_maps = [
 
     Map(
         source=Source(
+            name='cases.project',
+        ),
+        destination=Destination(
+            name='ResearchStudy',
+        )
+    ),
+
+    Map(
+        source=Source(
             name='data_format',
         ),
         destination=Destination(
