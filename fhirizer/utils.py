@@ -18,6 +18,7 @@ from fhir.resources.identifier import Identifier
 from fhir.resources import get_fhir_model_class
 from fhir.resources.group import Group, GroupMember
 from fhir.resources.reference import Reference
+from fhir.resources.extension import Extension
 from fhir.resources.codeableconcept import CodeableConcept
 from uuid import uuid5, UUID, uuid3, NAMESPACE_DNS
 from typing import List
@@ -1490,3 +1491,52 @@ def consolidate_fhir_data(base_dir, output_dir):
         # fhir_ndjson(_dat, output_file)
 
     print("FHIR NDJSON consolidation completed.")
+
+
+def add_extension(entity, extension):
+    if isinstance(entity, list):
+        return [add_extension(item, extension) for item in entity]
+
+    if isinstance(entity, dict):
+        if "extension" in entity and isinstance(entity["extension"], list):
+            entity["extension"].append(extension)
+        else:
+            entity["extension"] = [extension]
+        return entity
+
+    if hasattr(entity, "extension"):
+        if entity.extension and isinstance(entity.extension, list):
+            entity.extension.append(extension)
+        else:
+            entity.extension = [extension]
+        return entity
+
+    raise ValueError(f"Unsupported entity type: {type(entity)}")
+
+
+def assign_part_of(entity, research_study_id):
+    part_of_study_extension = {
+        "url": "http://fhir-aggregator.org/fhir/StructureDefinition/part-of-study",
+        "valueReference": {"reference": f"ResearchStudy/{research_study_id}"}
+    }
+
+    def get_extension_url(ext):
+        if isinstance(ext, dict):
+            return ext.get("url")
+        return getattr(ext, "url", None)
+
+    if isinstance(entity, dict):
+        extensions = entity.get("extension", [])
+    elif hasattr(entity, "extension"):
+        extensions = entity.extension if entity.extension else []
+    elif isinstance(entity, list):
+        for item in entity:
+            assign_part_of(item, research_study_id)
+        return entity
+    else:
+        raise ValueError(f"Unsupported entity type: {type(entity)}")
+
+    if not any(get_extension_url(ext) == part_of_study_extension["url"] for ext in extensions):
+        add_extension(entity, part_of_study_extension)
+
+    return entity
