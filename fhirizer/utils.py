@@ -1513,40 +1513,6 @@ def add_extension(entity, extension):
 
     raise ValueError(f"Unsupported entity type: {type(entity)}")
 
-#
-# def assign_part_of(entity, research_study_id):
-#     # part_of_study_extension = Extension(**{
-#     # "url":"http://fhir-aggregator.org/fhir/StructureDefinition/part-of-study",
-#     # "valueReference":{"reference": f"ResearchStudy/{research_study_id}"}}
-#     # )
-#     part_of_study_extension = {
-#         "url": "http://fhir-aggregator.org/fhir/StructureDefinition/part-of-study",
-#         "valueReference": {"reference": f"ResearchStudy/{research_study_id}"}}
-#
-#
-#     return add_extension(entity, part_of_study_extension)
-
-# def assign_part_of(entity, research_study_id):
-#     part_of_study_extension = {
-#         "url": "http://fhir-aggregator.org/fhir/StructureDefinition/part-of-study",
-#         "valueReference": {"reference": f"ResearchStudy/{research_study_id}"}
-#     }
-#
-#     if isinstance(entity, dict):
-#         extensions = entity.get("extension", [])
-#     elif hasattr(entity, "extension"):
-#         extensions = entity.extension if entity.extension else []
-#     elif isinstance(entity, list):
-#         for item in entity:
-#             assign_part_of(item, research_study_id)
-#         return entity
-#     else:
-#         raise ValueError(f"Unsupported entity type: {type(entity)}")
-#
-#     if not any(ext.get("url") == part_of_study_extension["url"] for ext in extensions):
-#         add_extension(entity, part_of_study_extension)
-#
-#     return entity
 
 def assign_part_of(entity, research_study_id):
     part_of_study_extension = {

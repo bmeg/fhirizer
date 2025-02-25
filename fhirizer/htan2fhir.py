@@ -16,7 +16,7 @@ from pathlib import Path
 import importlib.resources
 from uuid import uuid3, NAMESPACE_DNS
 from typing import Any, List, Optional
-from datetime import datetime, timezone, timedelta
+from datetime import datetime, timezone
 
 from fhir.resources.reference import Reference
 from fhir.resources.identifier import Identifier
@@ -810,8 +810,6 @@ class PatientTransformer(HTANTransformer):
                                                          fhir_field="Condition.recordedDate")
         recorded_date = None
         if not np.isnan(recorded_date_field_value["htan_field_value"]):
-            # TODO: place-holder timezone offset to pass jsonschema validation
-            # pst_offset = timezone(timedelta(hours=-8))
             recorded_date = datetime(int(recorded_date_field_value["htan_field_value"]), 1, 1, tzinfo=timezone.utc)
 
         body_structure = self.create_body_structure(_row, patient)
