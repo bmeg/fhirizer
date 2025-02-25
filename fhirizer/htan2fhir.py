@@ -16,7 +16,7 @@ from pathlib import Path
 import importlib.resources
 from uuid import uuid3, NAMESPACE_DNS
 from typing import Any, List, Optional
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 
 from fhir.resources.reference import Reference
 from fhir.resources.identifier import Identifier
@@ -372,6 +372,12 @@ class HTANTransformer:
                         if not pd.isnull(value):
                             if not isinstance(value, str) and value.is_integer():
                                 value = int(value)
+
+                            if " " in key:
+                                key = key.replace(" ", "_")
+                            if "-" in key:
+                                key = key.replace("-", "_")
+
                             _component = self.get_component(key=key, value=value,
                                                             component_type=self.get_data_types(type(value).__name__),
                                                             system=self.SYSTEM_HTAN)
@@ -657,6 +663,12 @@ class PatientTransformer(HTANTransformer):
                 if isinstance(value, float) and not pd.isna(value) and (
                         "Year" in key or "Day" in key or "year" in key or "day" in key):
                     value = int(value)
+
+                    if " " in key:
+                        key = key.replace(" ", "_")
+                    if "-" in key:
+                        key = key.replace("-", "_")
+
                     _component = self.get_component(key=key, value=value,
                                                     component_type=self.get_data_types(type(value).__name__),
                                                     system=self.SYSTEM_HTAN)
@@ -798,7 +810,9 @@ class PatientTransformer(HTANTransformer):
                                                          fhir_field="Condition.recordedDate")
         recorded_date = None
         if not np.isnan(recorded_date_field_value["htan_field_value"]):
-            recorded_date = datetime(int(recorded_date_field_value["htan_field_value"]), 1, 1)
+            # TODO: place-holder timezone offset to pass jsonschema validation
+            # pst_offset = timezone(timedelta(hours=-8))
+            recorded_date = datetime(int(recorded_date_field_value["htan_field_value"]), 1, 1, tzinfo=timezone.utc)
 
         body_structure = self.create_body_structure(_row, patient)
         patient_body_structure_ref = Reference(
@@ -1148,7 +1162,7 @@ class DocumentReferenceTransformer(HTANTransformer):
             **{"system": self.SYSTEM_HTAN, "value": str(_row['HTAN Data File ID']), "use": "official"})
 
         document_reference_synapse_identifier = Identifier(
-            **{"system": self.SYSTEM_HTAN, "value": str(_row['Synapse Id']), "use": "secondary"})
+            **{"system": "/".join([self.SYSTEM_HTAN, "synapse_id"]), "value": str(_row['Synapse Id']), "use": "secondary"})
 
         document_reference_id = self.mint_id(identifier=document_reference_identifier,
                                              resource_type="DocumentReference", project_id=self.project_id,
@@ -1264,6 +1278,13 @@ class DocumentReferenceTransformer(HTANTransformer):
                                         "content": [DocumentReferenceContent(
                                             **{"attachment": Attachment(
                                                 **{"title": name,
+                                                   "url": "file:///" + name,
+                                                   "extension": [
+                                                       {
+                                                           "url": "http://aced-idp.org/fhir/StructureDefinition/source_path",
+                                                           "valueUrl": "file:///" + name
+                                                       }
+                                                   ],
                                                    "contentType": _row["mime_type"]}),
                                                "profile": profiles
                                               })]
