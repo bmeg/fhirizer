@@ -1340,12 +1340,14 @@ def htan2fhir(verbose, entity_atlas_name, spinner):
         if not cases["Therapeutic Agents"].isnull().all() or not cases["Treatment Type"].isnull().all():
             cases = transformer.transform_medication(cases, db_file_path=db_path)
 
+        project_research_study = None
         for index, row in cases.iterrows():
             research_study = patient_transformer.create_researchstudy(_row=row)
 
             if research_study:
                 research_studies.append(transformer.program_research_study)
                 research_studies.append(research_study)
+                project_research_study = next(rs for rs in research_studies if rs.name != "HTAN")
 
                 patient_row = cases.iloc[index][patient_demographics_df.columns]
                 patient = patient_transformer.create_patient(_row=patient_row)
@@ -1479,6 +1481,21 @@ def htan2fhir(verbose, entity_atlas_name, spinner):
                 print(missing_docrefs)
             else:
                 print(missing_docrefs[:10]) # print the first 10 for trial/error
+
+        if project_research_study:
+            entities = {'patient': patients,
+                        'observations': observations,
+                        'condition': conditions,
+                        'research_studies': research_studies,
+                        'research_subject': research_subjects,
+                        'specimens': specimens,
+                        'med_admin': med_admins,
+                        'document_reference': document_references}
+
+
+            for key, value in entities.items():
+                if value:
+                    entities[key] = utils.assign_part_of(entity=value, research_study_id=project_research_study.id)
 
         spinner.stop()
 
