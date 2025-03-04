@@ -1490,7 +1490,8 @@ def htan2fhir(verbose, entity_atlas_name, spinner):
                         'research_subject': research_subjects,
                         'specimens': specimens,
                         'med_admin': med_admins,
-                        'document_reference': document_references}
+                        'document_reference': document_references,
+                        'groups': groups}
 
 
             for key, value in entities.items():
