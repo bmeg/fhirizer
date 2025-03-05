@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-__version__ = '2.2.7'
+__version__ = '2.2.8'
 
 setup(
     name='fhirizer',
@@ -33,7 +33,7 @@ setup(
         'beautifulsoup4',
         'gripql',
         'gen3-tracker>=0.0.7rc2',
-        'fhir.resources>=8.0.0b4'  # FHIR® (Release R5, version 5.0.0)
+        'fhir.resources==8.0.0b4'  # FHIR® (Release R5, version 5.0.0)
     ],
     package_data={
         'fhirizer': [
