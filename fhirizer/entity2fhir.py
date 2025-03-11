@@ -1941,11 +1941,25 @@ def assign_fhir_for_case(case, disease_types=disease_types, primary_sites=primar
         if not isinstance(obs, Observation):
             print(f"Non-Observation object found: {type(obs)} -> {obs}")
 
-    return {'patient': patient, 'organizations': organizations, "practitioners": practitioners,
-            'observations': all_observations, 'condition': condition,
-            'research_studies': research_studies, 'research_subject': research_subject, 'specimens': sample_list,
-            'imaging_study': slide_list, "procedures": procedures, "med_admin": treatments_medadmin,
-            "med": treatments_med, "body_structure": body_structure}
+    entities = {'patient': patient,
+                'organizations': organizations,
+                'practitioners': practitioners,
+                'observations': all_observations,
+                'condition': condition,
+                'research_studies': research_studies,
+                'research_subject': research_subject,
+                'specimens': sample_list,
+                'imaging_study': slide_list,
+                'procedures': procedures,
+                'med_admin': treatments_medadmin,
+                'med': treatments_med,
+                'body_structure': body_structure}
+
+    for key, value in entities.items():
+        if value:
+            entities[key] = utils.assign_part_of(entity=value, research_study_id=rs.id)
+
+    return entities
 
 
 def case_gdc_to_fhir_ndjson(out_dir, name, cases_path, convert, verbose, spinner=None):
@@ -2105,6 +2119,7 @@ def assign_fhir_for_file(file):
 
     patients = []
     sample_ref = []
+    rs_id = None
     # print(f"Data Category: {data_category}\n")
     if 'cases' in file.keys() and file['cases']:
         for case in file['cases']:
@@ -2117,6 +2132,13 @@ def assign_fhir_for_file(file):
                                        namespace=NAMESPACE_GDC)
 
             patients.append(Reference(**{"reference": "/".join(["Patient", patient_id])}))
+
+            if 'ResearchStudy' in case:
+                rs_project_id = case['ResearchStudy']['project_id']
+                rs_identifier = Identifier(value=rs_project_id, system="/".join(["https://gdc.cancer.gov", "project"]),
+                                           use="official")
+                rs_id = utils.mint_id(identifier=rs_identifier, resource_type="ResearchStudy", project_id="GDC",
+                                      namespace=NAMESPACE_GDC)
 
             if 'samples' in case.keys():
                 for sample in case['samples']:
@@ -2332,7 +2354,14 @@ def assign_fhir_for_file(file):
 
             docref_observations.append(docref_observation)
 
-    return {'files': document, 'observations': docref_observations, 'group': group}
+    entities = {'files': document, 'observations': docref_observations, 'group': group}
+
+    if rs_id:
+        for key, value in entities.items():
+            if value:
+                entities[key] = utils.assign_part_of(entity=value, research_study_id=rs_id)
+
+    return entities
 
 
 def file_gdc_to_fhir_ndjson(out_dir, name, files_path, convert, verbose, spinner=None):
@@ -2421,6 +2450,15 @@ def cellosaurus_fhir_mappping(cell_lines, verbose=False):
     patients = []
     conditions = []
     samples = []
+
+    researchstudy_identifier = Identifier(**{"system": "https://cellosaurus.org", "use": "official", "value": "Cellosaurus"})
+    researchstudy_id = utils.mint_id(identifier=researchstudy_identifier,
+                                           resource_type="ResearchStudy",
+                                           project_id="Cellosaurus", namespace=NAMESPACE_CELLOSAURUS)
+    program_research_study = ResearchStudy(**{"id": researchstudy_id,
+                                              "identifier": [researchstudy_identifier],
+                                              "name": "Cellosaurus",
+                                              "status": "active"})
 
     for cell_line in cell_lines:
         for cl in cell_line["Cellosaurus"]["cell-line-list"]:
@@ -2597,7 +2635,14 @@ def cellosaurus_fhir_mappping(cell_lines, verbose=False):
                         samples.append(Specimen(
                             **{"id": specimen_id, "subject": patient_ref, "identifier": [specimen_identifier]}))
 
-    return {"patients": patients, "conditions": conditions, "samples": samples}
+    entities = {"patients": patients, "conditions": conditions, "samples": samples, "research_study": [program_research_study]}
+
+    if program_research_study:
+        for key, value in entities.items():
+            if value:
+                entities[key] = utils.assign_part_of(entity=value, research_study_id=program_research_study.id)
+
+    return entities
 
 
 def cellosaurus_to_fhir_ndjson(out_dir, obj, spinner):
@@ -2606,6 +2651,7 @@ def cellosaurus_to_fhir_ndjson(out_dir, obj, spinner):
     samples = list({v['id']: v for v in samples}.values())
     conditions = [orjson.loads(condition.json()) for condition in obj["conditions"]]
     conditions = list({v['id']: v for v in conditions}.values())
+    research_studies = [orjson.loads(rs.json()) for rs in obj["research_study"]]
 
     if spinner:
         spinner.stop()
@@ -2622,6 +2668,10 @@ def cellosaurus_to_fhir_ndjson(out_dir, obj, spinner):
         cleaned_conditions = utils.clean_resources(conditions)
         utils.fhir_ndjson(cleaned_conditions, os.path.join(out_dir, "Condition.ndjson"))
         print("Successfully transformed Cellosaurus info to FHIR's Condition ndjson file!")
+    if research_studies:
+        cleaned_research_studies = utils.clean_resources(research_studies)
+        utils.fhir_ndjson(cleaned_research_studies, os.path.join(out_dir, "ResearchStudy.ndjson"))
+        print("Successfully transformed Cellosaurus info to FHIR's ResearchStudy ndjson file!")
 
 
 def cellosaurus2fhir(path, out_dir, spinner=None):

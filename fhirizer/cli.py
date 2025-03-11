@@ -261,7 +261,7 @@ def study_group(path, output_path):
               show_default=False,
               help='Directory path to META folder to save combined FHIR entities ndjson files.')
 def study_group(in_path, out_path):
-    """Combines FHIR all projects FHIR entities generated from a programs into one META folder """
+    """Combines all project's FHIR entities generated from a programs into one META folder """
     assert Path(in_path).is_dir(), f"Path {in_path} is not a valid directory path."
     assert Path(out_path).is_dir(), f"Path {out_path} is not a valid directory path."
 
