@@ -73,15 +73,33 @@ def query_gdc(endpoint, params):
 
 
 def scrapeFiles(outfile):
-    parameters = {'expand': ",".join(
-        ["cases", "cases.aliquot_ids", "cases.project", "cases.samples.portions.analytes.aliquots", "cases.samples", "index_files", "analysis.metadata.read_groups", "cases.portion_ids", "cases.submitter_portion_ids", "cases.slide_ids", "cases.slide_ids", "cases.submitter_slide_ids", "cases.sample_ids", "cases.submitter_sample_ids"]),
-        'filters': {
-            "op": "in",
-            "content": {
-                "field": "cases.project.project_id",
-                "value": [study]
-            }
-        }}
+
+    parameters = {
+        'expand': ",".join([
+            "cases",
+            "cases.aliquot_ids",
+            "cases.project",
+            "cases.samples.portions.analytes.aliquots",
+            "cases.samples",
+            "index_files",
+            "analysis",
+            "files.access",
+            "cases.portion_ids",
+            "cases.submitter_portion_ids",
+            "cases.slide_ids",
+            "cases.submitter_slide_ids",
+            "cases.sample_ids",
+            "cases.submitter_sample_ids"
+        ])
+        # 'filters': {
+        #     "op": "in",
+        #     "content": {
+        #         "field": "cases.project.project_id",
+        #         "value": [study]
+        #     }
+        # },
+        # "size": 10
+    }
 
     filesOut = open(outfile, "w")
 
