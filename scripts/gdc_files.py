@@ -83,6 +83,7 @@ def scrapeFiles(outfile):
             "cases.samples",
             "index_files",
             "analysis",
+            "analysis.metadata.read_groups",
             "files.access",
             "cases.portion_ids",
             "cases.submitter_portion_ids",
