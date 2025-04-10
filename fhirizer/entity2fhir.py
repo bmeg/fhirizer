@@ -2092,11 +2092,24 @@ def assign_fhir_for_file(file):
         "experimental_strategy": "experimental_strategy",
         "wgs_coverage": "wgs_coverage",
         "data_type": "data_type",
+        "workflow_type": "workflow_type",
+        "access": "access"
     }
     base_url = "https://gdc.cancer.gov/"
 
     for key, system_suffix in category_keys.items():
         field = f"DocumentReference.category.{key}"
+        if key == "workflow_type":
+            if 'analysis' in file.keys():
+                if 'DocumentReference.category.workflow_type' in file['analysis'].keys() and file['analysis']['DocumentReference.category.workflow_type']:
+                    workflow_type = file['analysis']['DocumentReference.category.workflow_type']
+                    cc = CodeableConcept.model_construct()
+                    cc.coding = [{
+                        "system": "".join([base_url, system_suffix]),
+                        "display": workflow_type,
+                        "code": str(workflow_type)
+                    }]
+                    category.append(cc)
         if field in file and file[field]:
             cc = CodeableConcept.model_construct()
             cc.coding = [{
