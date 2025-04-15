@@ -99,7 +99,7 @@ def scrapeFiles(outfile):
         #         "value": [study]
         #     }
         # },
-        # "size": 10
+        # "size": 10 # optional for testing on small batches
     }
 
     filesOut = open(outfile, "w")
