@@ -2092,6 +2092,7 @@ def assign_fhir_for_file(file):
         "experimental_strategy": "experimental_strategy",
         "wgs_coverage": "wgs_coverage",
         "data_type": "data_type",
+        "data_release": "data_release",
     }
     base_url = "https://gdc.cancer.gov/"
 

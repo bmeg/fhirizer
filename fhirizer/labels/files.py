@@ -30,6 +30,15 @@ file_maps = [
 
     Map(
         source=Source(
+            name='data_release',
+        ),
+        destination=Destination(
+            name='DocumentReference.category.data_release',
+        )
+    ),
+
+    Map(
+        source=Source(
             name='platform',
         ),
         destination=Destination(
