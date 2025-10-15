@@ -30,7 +30,17 @@ file_maps = [
 
     Map(
         source=Source(
-            name='analysis.workflow_type',
+            name='data_release',
+        ),
+        destination=Destination(
+            name='DocumentReference.category.data_release',
+           
+        )
+    ),
+  
+      Map(
+        source=Source(
+            name='workflow_type',
         ),
         destination=Destination(
             name='DocumentReference.category.workflow_type',
